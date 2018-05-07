@@ -4,6 +4,9 @@ import pyndri
 import numpy as np
 from collections import Counter
 import math
+import params
+
+index = pyndri.Index(params.path_to_index)
 
 
 def load_file(filename):
@@ -26,7 +29,14 @@ def retrieve_sentences(doc):
     sentences = tokenizer.tokenize(doc)
     return sentences
 
-
+def get_Dinit_for_query(query):
+    Dinit=[]
+    with open(params.path_to_data_set) as data_set:
+        for data_row in data_set:
+            if data_row.split()[0]==query:
+                doc = data_row.split(" # ")[1]
+                Dinit.append(doc)
+        return Dinit
 
 def get_tdidf_value_of_word(word, counts, N,number_of_terms, token2id, id2df):
     stemmed = pyndri.krovetz_stem(word)
@@ -39,7 +49,7 @@ def get_tfidf_value(id,counts,N,number_of_terms,id2df):
     idf = math.log(float(N) / df)
     return tf*idf
 
-def create_tfidf_vectors(sentences,index):
+def create_tfidf_vectors(sentences):
     all_sentences=[]
     token2id, id2token, id2df = index.get_dictionary()
     N = index.document_count()
@@ -56,6 +66,13 @@ def create_tfidf_vectors(sentences,index):
             all_sentences.append(sentence)
     return all_sentences
 
+def transform_terms_to_counts(Dinit):
+    Dinit_counts={}
+    for d_i in Dinit:
+        terms = index.document(d_i)[1]
+        counts = Counter(terms)
+        Dinit_counts[d_i]=counts
+    return Dinit_counts
 
 def retrieve_ranked_lists(ranked_lists_file):
     chosen_docs={}
@@ -67,7 +84,7 @@ def retrieve_ranked_lists(ranked_lists_file):
             chosen_docs[query].append(doc)
         return chosen_docs
 
-def create_document_tf_id_vector(doc,index):
+def create_document_tf_id_vector(doc):
     terms = index.document(doc)[1]
     token2id, id2token, id2df = index.get_dictionary()
     doc_vector = np.zeros(len(token2id))
