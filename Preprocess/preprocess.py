@@ -5,7 +5,7 @@ import numpy as np
 from collections import Counter
 import math
 import params
-
+from params import beta
 index = pyndri.Index(params.path_to_index)
 
 
@@ -21,6 +21,15 @@ def load_file(filename):
             else:
                 docs[name]=att.text
     return docs
+
+def turn_sentence_into_terms(sentence):
+    result = []
+    token2id, id2token, id2df = index.get_dictionary()
+    words = index.tokenize(sentence)
+    for word in words:
+        result.append(token2id[pyndri.krovetz_stem(word)])
+    return result
+
 
 
 
@@ -48,6 +57,20 @@ def get_tfidf_value(id,counts,N,number_of_terms,id2df):
     tf = counts[id]/number_of_terms
     idf = math.log(float(N) / df)
     return tf*idf
+
+
+
+def query_probability_given_docs(query,Dinit_counts):
+    query_to_doc_probability={}
+    for d_i in Dinit_counts:
+        counts = Dinit_counts[d_i]
+        document_length = index.document_length(d_i)
+        tmp=1
+        for i in [beta*(counts[q] / document_length) + (1-beta)*index.get_term_frequencies()[q] for q in query]:
+            tmp *= i
+        query_to_doc_probability[d_i]=tmp
+
+    return query_to_doc_probability
 
 def create_tfidf_vectors(sentences):
     all_sentences=[]
