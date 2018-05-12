@@ -1,4 +1,4 @@
-from single_doc_summary.query_focused_summarization import summarize_docs_for_query
+from Single_doc_summary.query_focused_summarization import summarize_docs_for_query
 from Preprocess.preprocess import retrieve_ranked_lists
 import params
 
