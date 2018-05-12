@@ -12,9 +12,7 @@ def KL_divergence(sentance,Dinit_counts,query_to_doc_probability):
     all_words = len(id2token)
     processed_words = 0
     for word in id2token:
-        if processed_words%1000 == 0:
-            print("processed ",processed_words,"out of",all_words)
-        print()
+
         r = relevance_model(Dinit_counts,query_to_doc_probability,word)
         if r==0.0:
             continue
@@ -30,7 +28,10 @@ def relevance_model(Dinit_counts,query_to_doc_probability,word):
     for d_i in Dinit_counts:
         document_length = doc_length[d_i]
         counts = Dinit_counts[d_i]
-        tf = counts[word]
+        if word in counts:
+            tf = counts[word]
+        else:
+            tf = 0
         P_w = tf/document_length
         sum+=P_w*query_to_doc_probability[d_i]
         denominator+=query_to_doc_probability[d_i]

@@ -36,7 +36,7 @@ def get_top_m_sentences(m, doc_text, Dinit_counts, query_to_doc_probability):
     final = []
     sentences = retrieve_sentences(doc_text)
     for i in range(len(sentences)):
-        print("processing ",i,"out of ",len(sentences),"sentences")
+        print("processing ",i+1,"out of ",len(sentences),"sentences")
         sentence=sentences[i]
         sentence_terms = turn_sentence_into_terms(sentence)
         final.append((i,KL_divergence(sentence_terms,Dinit_counts,query_to_doc_probability)))
@@ -52,9 +52,7 @@ def summarize_docs_for_query(queries,k,m,reference_docs,doc_texts):
     query_processed = 0
     for query in reference_docs:
         print("working on query:",query)
-        print("out of ",len(reference_docs)," finished ",query_processed)
         summaries[query]={}
-
         Dinit = get_Dinit_for_query(query)
         Dinit_counts = transform_terms_to_counts(Dinit)
         top_k = get_top_k_most_similar_docs_ranked_above(k,ranked_lists,query,reference_docs[query])
@@ -63,6 +61,7 @@ def summarize_docs_for_query(queries,k,m,reference_docs,doc_texts):
             query_to_doc_probability=query_probability_given_docs(queries[query],Dinit_counts)
             summaries[query][doc]=get_top_m_sentences(m,doc_texts[doc],Dinit_counts,query_to_doc_probability)
         query_processed+=1
+        print("out of ", len(reference_docs), " finished ", query_processed)
     return summaries
 
 
