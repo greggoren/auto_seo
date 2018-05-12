@@ -9,11 +9,17 @@ from params import beta
 
 def KL_divergence(sentance,Dinit_counts,query_to_doc_probability):
     result = 0
+    all_words = len(id2token)
+    processed_words = 0
     for word in id2token:
+        if processed_words%1000 == 0:
+            print("processed ",processed_words,"out of",all_words)
+        print()
         r = relevance_model(Dinit_counts,query_to_doc_probability,word)
         if r==0.0:
             continue
         result += r*math.log(r/word_probability_given_sentence(word,sentance))
+        processed_words+=1
 
     return result
 
