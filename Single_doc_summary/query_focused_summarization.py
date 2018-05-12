@@ -32,9 +32,9 @@ def get_top_k_most_similar_docs_ranked_above(k,ranked_lists,query,reference_doc)
     top_k_docs = [doc[0] for doc in sorted(similarities,key=lambda x:x[1],reverse=True)[:k]]
     return top_k_docs
 
-def get_top_m_sentences(m,doc,Dinit_counts,query_to_doc_probability):
+def get_top_m_sentences(m, doc_text, Dinit_counts, query_to_doc_probability):
     final = []
-    sentences = retrieve_sentences(doc)
+    sentences = retrieve_sentences(doc_text)
     for i in range(len(sentences)):
         sentence=sentences[i]
         sentence_terms = turn_sentence_into_terms(sentence)
@@ -44,7 +44,7 @@ def get_top_m_sentences(m,doc,Dinit_counts,query_to_doc_probability):
 
 
 
-def summarize_docs_for_query(queries,k,m,reference_docs):
+def summarize_docs_for_query(queries,k,m,reference_docs,doc_texts):
 
     ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
     summaries = {}
@@ -55,7 +55,7 @@ def summarize_docs_for_query(queries,k,m,reference_docs):
         top_k = get_top_k_most_similar_docs_ranked_above(k,ranked_lists,query,reference_docs[query])
         for doc in top_k:
             query_to_doc_probability=query_probability_given_docs(queries[query],Dinit_counts)
-            summaries[query][doc]=get_top_m_sentences(m,doc,Dinit_counts,query_to_doc_probability)
+            summaries[query][doc]=get_top_m_sentences(m,doc_texts[doc],Dinit_counts,query_to_doc_probability)
     return summaries
 
 

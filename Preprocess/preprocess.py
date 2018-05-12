@@ -67,20 +67,19 @@ def get_tfidf_value(id,counts,N,number_of_terms):
     idf = math.log(float(N) / df)
     return tf*idf
 
-def split_Dinit_to_sentences(Dinit):
-    token2id, id2token, id2df = index.get_dictionary()
-    tree = ET.parse(params.trec_text_file)
-    root = tree.getroot()
-    Dinit_text = {}
-    for doc in root:
-        name = ""
-        for att in doc:
-            if att.tag == "DOCNO":
-                name = att.text
-            else:
-                if name in Dinit:
-                    Dinit_text[name] = Counter([token2id[pyndri.krovetz_stem(i)] for i in  retrieve_sentences(att.text)])
-    return Dinit_text
+# def split_Dinit_to_sentences(Dinit):
+#     tree = ET.parse(params.trec_text_file)
+#     root = tree.getroot()
+#     Dinit_text = {}
+#     for doc in root:
+#         name = ""
+#         for att in doc:
+#             if att.tag == "DOCNO":
+#                 name = att.text
+#             else:
+#                 if name in Dinit:
+#                     Dinit_text[name] = Counter([token2id[pyndri.krovetz_stem(i)] for i in  retrieve_sentences(att.text)])
+#     return Dinit_text
 
 def query_likelihood():
     pass
@@ -146,6 +145,6 @@ def create_document_tf_id_vector(doc):
     counts = Counter(terms)
     for term in set(terms):
         tfidf = get_tfidf_value(term,counts,number_docs,number_of_terms)
-        doc_vector[term]+=tfidf
+        doc_vector[term-1]+=tfidf
     return doc_vector
 

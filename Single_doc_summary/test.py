@@ -1,7 +1,8 @@
 from Single_doc_summary.query_focused_summarization import summarize_docs_for_query
 from Preprocess.preprocess import retrieve_ranked_lists
+from Preprocess.preprocess import load_file
 import params
-
+import pickle
 
 def retrieve_query_names():
     query_mapper = {}
@@ -19,4 +20,6 @@ m=2
 d = retrieve_ranked_lists(params.ranked_lists_file)
 reference_docs = {q:d[q][-1] for q in d}
 queries = retrieve_query_names()
-summaries = summarize_docs_for_query(queries,k,m,reference_docs)
+doc_texts = load_file(params.trec_text_file)
+summaries = summarize_docs_for_query(queries,k,m,reference_docs,doc_texts)
+pickle.dump(summaries,open("summaries","wb"))
