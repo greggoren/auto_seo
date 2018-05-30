@@ -1,6 +1,6 @@
 from Single_doc_summary.query_focused_summarization import summarize_docs_for_query
-from Preprocess.preprocess import retrieve_ranked_lists
-from Preprocess.preprocess import load_file
+from Preprocess.query_focused_summarization_preprocess import retrieve_ranked_lists
+from Preprocess.query_focused_summarization_preprocess import load_file
 import params
 import pickle
 

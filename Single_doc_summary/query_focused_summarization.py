@@ -1,23 +1,16 @@
-from Preprocess.preprocess import create_document_tf_id_vector
-from Preprocess.preprocess import index
-from Preprocess.preprocess import turn_sentence_into_terms
-from Preprocess.preprocess import retrieve_sentences
-from Preprocess.preprocess import get_Dinit_for_query
-from Preprocess.preprocess import retrieve_ranked_lists
-from Preprocess.preprocess import transform_terms_to_counts
-from Preprocess.preprocess import query_probability_given_docs
+from Preprocess.query_focused_summarization_preprocess import create_document_tf_id_vector
+from Preprocess.query_focused_summarization_preprocess import index
+from Preprocess.query_focused_summarization_preprocess import turn_sentence_into_terms
+from Preprocess.query_focused_summarization_preprocess import retrieve_sentences
+from Preprocess.query_focused_summarization_preprocess import get_Dinit_for_query
+from Preprocess.query_focused_summarization_preprocess import retrieve_ranked_lists
+from Preprocess.query_focused_summarization_preprocess import transform_terms_to_counts
+from Preprocess.query_focused_summarization_preprocess import query_probability_given_docs
 import params
 from LanguageModels.models import KL_divergence
-import math
+from utils import cosine_similarity
 
-def cosine_similarity(v1,v2):
-    sumxx, sumxy, sumyy = 0, 0, 0
-    for i in range(len(v1)):
-        x = v1[i]; y = v2[i]
-        sumxx += x*x
-        sumyy += y*y
-        sumxy += x*y
-    return sumxy/math.sqrt(sumxx*sumyy)
+
 
 
 
