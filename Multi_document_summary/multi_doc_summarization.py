@@ -29,6 +29,6 @@ def create_multi_document_summarization(ranked_lists,query,reference_doc,k_docs_
     transition_matrix = create_transition_graph(sentence_vectors)
     scores=page_rank(params.alpha,transition_matrix)
     query_vector = convert_sentence_to_tfidf_vector(query)
-    original_doc_vector = create_document_tf_idf_vector(doc_texts[reference_doc])
+    original_doc_vector = create_document_tf_idf_vector(reference_doc)
     summary=diversify(scores,transition_matrix,params.number_of_sentences,query_vector,sentence_vectors,original_doc_vector,params.gamma)
     return summary

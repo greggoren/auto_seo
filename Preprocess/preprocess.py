@@ -6,7 +6,7 @@ from collections import Counter
 import math
 import params
 from params import beta
-
+import re
 index = pyndri.Index(params.path_to_index)
 token2id, id2token, id2df = index.get_dictionary()
 id2tf = index.get_term_frequencies()
@@ -60,6 +60,12 @@ def get_tdidf_value_of_word(word, counts, N,number_of_terms):
     stemmed = pyndri.krovetz_stem(word)
     id = token2id[stemmed]
     return  get_tfidf_value(id,counts,N,number_of_terms),id
+
+def get_tfidf_value(id,counts,N,number_of_terms):
+    df = id2df[id]
+    tf = counts[id]/number_of_terms
+    idf = math.log(float(N) / df)
+    return tf*idf
 
 def get_tfidf_value(id,counts,N,number_of_terms):
     df = id2df[id]
@@ -123,15 +129,27 @@ def transform_terms_to_counts(Dinit):
         Dinit_counts[d_i]=counts
     return Dinit_counts
 
-def convert_sentence_to_tfidf_vector(sentece):
+def convert_sentence_to_tfidf_vector(sentence):
     N = index.document_count()
-    words = sentece.split()
+    sentence=sentence.rstrip()
+    sentence = re.sub('[!,?:]',"",sentence)
+    sentence = re.sub('[.]'," ",sentence)
+    sentence = re.sub("’ll"," will",sentence)
+    sentence = re.sub("'ll"," will",sentence)
+    sentence = re.sub("’s","",sentence)
+    sentence = re.sub("'s","",sentence)
+    words = sentence.split()
+    tokens=[]
+    for word in words:
+        modified = re.sub(' ','',word)
+        tokens.extend(pyndri.tokenize(modified))
+    #words = [re.sub('[.,?:]',"",w) for w in words]
     sentence_vector = np.zeros(len(token2id))
-    counts = Counter([pyndri.tokenize(word) for word in words])
-    for word in set(words):
-        tfidf, id = get_tdidf_value_of_word(word, counts, N)
+    counts = Counter([token2id[pyndri.krovetz_stem(word)] for word in tokens])
+    for word in set(tokens):
+        tfidf, id = get_tdidf_value_of_word(word, counts, N,len(words))
         sentence_vector[id-1]+=tfidf
-    sentence_vector/=len(words)
+    # sentence_vector/=len(tokens)
     return sentence_vector
 
 
