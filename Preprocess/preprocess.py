@@ -125,7 +125,7 @@ def transform_terms_to_counts(Dinit):
 
 def convert_sentence_to_tfidf_vector(sentece):
     N = index.document_count()
-    words = sentece.splt()
+    words = sentece.split()
     sentence_vector = np.zeros(len(token2id))
     counts = Counter([pyndri.tokenize(word) for word in words])
     for word in set(words):
@@ -168,6 +168,6 @@ def create_sentence_indexes(document_texts,chosen_docs_for_summary):
         text = document_texts[document]
         sentences = retrieve_sentences(text)
         for index,sentence in enumerate(sentences):
-            sentence[document][str(index)] = sentence
+            sentence_texts[document][str(index)] = sentence
             sentence_vectors[document+"_"+str(index)] = convert_sentence_to_tfidf_vector(sentence)
     return sentence_texts,sentence_vectors
