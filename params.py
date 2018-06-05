@@ -3,3 +3,6 @@ ranked_lists_file = "/home/student/data/ranks.txt"
 path_to_data_set = "/home/student/data/ClueWeb09Extra"
 beta = 0.7
 trec_text_file="/home/student/data/documents.trectext"
+alpha =0.5
+gamma =0.5
+number_of_sentences = 4

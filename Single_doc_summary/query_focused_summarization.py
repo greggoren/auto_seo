@@ -1,11 +1,11 @@
-from Preprocess.query_focused_summarization_preprocess import create_document_tf_id_vector
-from Preprocess.query_focused_summarization_preprocess import index
-from Preprocess.query_focused_summarization_preprocess import turn_sentence_into_terms
-from Preprocess.query_focused_summarization_preprocess import retrieve_sentences
-from Preprocess.query_focused_summarization_preprocess import get_Dinit_for_query
-from Preprocess.query_focused_summarization_preprocess import retrieve_ranked_lists
-from Preprocess.query_focused_summarization_preprocess import transform_terms_to_counts
-from Preprocess.query_focused_summarization_preprocess import query_probability_given_docs
+from Preprocess.preprocess import create_document_tf_idf_vector
+from Preprocess.preprocess import index
+from Preprocess.preprocess import turn_sentence_into_terms
+from Preprocess.preprocess import retrieve_sentences
+from Preprocess.preprocess import get_Dinit_for_query
+from Preprocess.preprocess import retrieve_ranked_lists
+from Preprocess.preprocess import transform_terms_to_counts
+from Preprocess.preprocess import query_probability_given_docs
 import params
 from LanguageModels.models import KL_divergence
 from utils import cosine_similarity
@@ -20,8 +20,8 @@ def get_top_k_most_similar_docs_ranked_above(k,ranked_lists,query,reference_doc)
     if index_of_reference <=k:
         return ranked_list[:k]
     subset_docs = ranked_list[:index_of_reference]
-    reference_vector = create_document_tf_id_vector(reference_doc)
-    similarities = [(doc,cosine_similarity(create_document_tf_id_vector(doc),reference_vector)) for doc in subset_docs]
+    reference_vector = create_document_tf_idf_vector(reference_doc)
+    similarities = [(doc,cosine_similarity(create_document_tf_idf_vector(doc), reference_vector)) for doc in subset_docs]
     top_k_docs = [doc[0] for doc in sorted(similarities,key=lambda x:x[1],reverse=True)[:k]]
     return top_k_docs
 

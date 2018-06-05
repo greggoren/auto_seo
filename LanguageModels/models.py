@@ -1,7 +1,7 @@
-from Preprocess.query_focused_summarization_preprocess import id2token
-from Preprocess.query_focused_summarization_preprocess import id2tf
-from Preprocess.query_focused_summarization_preprocess import total_corpus_term_count
-from Preprocess.query_focused_summarization_preprocess import doc_length
+from Preprocess.preprocess import id2token
+from Preprocess.preprocess import id2tf
+from Preprocess.preprocess import total_corpus_term_count
+from Preprocess.preprocess import doc_length
 
 import math
 from params import beta
