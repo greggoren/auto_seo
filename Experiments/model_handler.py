@@ -1,23 +1,10 @@
 import os
-import subprocess
+from utils import run_bash_command
+from utils import run_command
 import params
 
 
-def run_command(command):
-    p = subprocess.Popen(command,
-                         stdout=subprocess.PIPE,
-                         stderr=subprocess.STDOUT,
-                         shell=True)
-    return iter(p.stdout.readline, b'')
 
-
-
-def run_bash_command(command):
-    p = subprocess.Popen(command,
-                         stdout=subprocess.PIPE,
-                         stderr=subprocess.STDOUT, shell=True)
-    out, err = p.communicate()
-    return out
 
 
 def run_model(test_file, fold, trees, leaves):

@@ -11,3 +11,6 @@ number_of_documents_above=1
 
 data_set_file=""
 model_path=""
+features_generator_script_path=""
+new_trec_text_file = ""
+working_set_file = ""
