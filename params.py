@@ -6,3 +6,8 @@ trec_text_file="/home/student/data/documents.trectext"
 alpha =0.5
 gamma =0.5
 number_of_sentences = 4
+query_description_file = "/home/student/data/queris.txt"
+number_of_documents_above=1
+
+data_set_file=""
+model_path=""
