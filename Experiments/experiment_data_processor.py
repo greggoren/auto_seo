@@ -3,8 +3,8 @@ import os
 from utils import run_bash_command
 
 
-def create_features_file(working_set_file):
-    command = "perl "+params.features_generator_script_path+" "+params.features_dir+" "+working_set_file
+def create_features_file():
+    command = "perl "+params.features_generator_script_path+" "+params.features_dir+" "+params.working_set_file
     run_bash_command(command)
 
 
@@ -42,7 +42,6 @@ def create_index():
     Parse the trectext file given, and create an index.
     """
     path_to_folder = '/lv_local/home/sgregory/auto_seo'
-    os.popen('mkdir -p ' + path_to_folder + '/IndriIndices')
     indri_build_index = '/lv_local/home/sgregory/indri11/bin/IndriBuildIndex'
     corpus_path = params.new_trec_text_file
     corpus_class = 'trectext'
@@ -53,7 +52,7 @@ def create_index():
     os.popen(indri_build_index + ' -corpus.path='+corpus_path + ' -corpus.class='+corpus_class + ' -index='+index + ' -memory='+memory + ' -stemmer.name=' + stemmer).readlines()
     return index
 
-def merge_indices(new_index,corpus):
+def merge_indices(new_index):
     path_to_folder = '/lv_local/home/sgregory/auto_seo'
-    command = '/lv_local/home/sgregory/indri11/bin/dumpindex '+path_to_folder+'/new_merged_index merge '+new_index+" "+corpus
+    command = '/lv_local/home/sgregory/indri11/bin/dumpindex '+path_to_folder+'/new_merged_index merge '+new_index+" "+params.corpus_path
     run_bash_command(command)

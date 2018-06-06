@@ -7,12 +7,12 @@ import params
 
 
 
-def run_model(test_file, fold, trees, leaves):
+def run_model(test_file):
     java_path = "/lv_local/home/sgregory/jdk1.8.0_121/bin/java"
     jar_path = "/lv_local/home/sgregory/SEO_CODE/model_running/RankLib.jar"
     score_file = "scores/scores_of_seo_run"
-    if not os.path.exists("scores/" + str(fold) + "/"):
-        os.makedirs("scores/" + str(fold) + "/")
+    if not os.path.exists("scores/"):
+        os.makedirs("scores/")
     features = test_file
     model_path = params.model_path
     run_bash_command('touch ' + score_file)
@@ -33,10 +33,10 @@ def order_trec_file(trec_file):
         print(line)
     return final
 
-def create_index_to_doc_name_dict():
+def create_index_to_doc_name_dict(data_set_file):
     doc_name_index={}
     index = 0
-    with open(params.data_set_file) as ds:
+    with open(data_set_file) as ds:
         for line in ds:
             rec = line.split("# ")
             doc_name = rec[1].rstrip()
