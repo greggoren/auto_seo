@@ -57,14 +57,14 @@ def run_model(test_file):
     run_bash_command(command)
     return score_file
 
-def create_trec_eval_file(results,doc_name_index):
+def create_trec_eval_file(results):
     trec_file = "/lv_local/home/sgregory/auto_seo/data/trec_file.txt"
     trec_file_access = open(trec_file, 'a')
-    for index in results:
-        query = doc_name_index[index].split("-")[2]
+    for doc in results:
+        query = doc.split("-")[2]
         trec_file_access.write(query
-             + " Q0 " + doc_name_index[index] + " " + str(0) + " " + str(
-                results[index]) + " seo\n")
+             + " Q0 " + doc + " " + str(0) + " " + str(
+                results[doc]) + " seo\n")
     trec_file_access.close()
     return trec_file
 
