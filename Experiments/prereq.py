@@ -77,7 +77,7 @@ def retrieve_scores(doc_name_index, score_file):
 
 doc_name_index = create_index_to_doc_name_dict("/lv_local/home/sgregory/auto_seo/data/featuresCB_asr")
 create_model_LambdaMart("/lv_local/home/sgregory/auto_seo/data/featuresCB_asr","/lv_local/home/sgregory/auto_seo/data/qrels",(50,250))
-score_file = run_model()
+score_file = run_model("/lv_local/home/sgregory/auto_seo/data/features_asr")
 results = retrieve_scores(doc_name_index,score_file)
 trec_file = create_trec_eval_file(results,doc_name_index)
 order_trec_file(trec_file)
