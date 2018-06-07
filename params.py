@@ -10,7 +10,7 @@ query_description_file = "/home/student/data/queris.txt"
 number_of_documents_above=1
 
 data_set_file=""
-model_path="/lv_local/home/sgregory/auto_seo/models/model_25_50"
+model_path="/lv_local/home/sgregory/auto_seo/models/model_250_50"
 features_generator_script_path=""
 new_trec_text_file = ""
 working_set_file = ""
