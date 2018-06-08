@@ -21,18 +21,22 @@ def retrieve_query_names():
             query_mapper[data[0]]=data[1].rstrip()
     return query_mapper
 
-
+print("uploading index")
 index = pyndri.Index(params.path_to_index)
 token2id, id2token, id2df = index.get_dictionary()
-id2tf = index.get_term_frequencies()
+del id2df
+del id2token
+#id2tf = index.get_term_frequencies()
 dic={}
 total_corpus_term_count=0
 doc_length = {}
 for document_id in range(index.document_base(), index.maximum_document()):
+    if document_id%10000==0:
+        print("in document",document_id)
     dic[index.document(document_id)[0]] = document_id
     doc_length[index.document(document_id)[0]] = index.document_length(document_id)
     total_corpus_term_count+=len(index.document(document_id))
-
+print("loading index finished")
 
 
 ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
