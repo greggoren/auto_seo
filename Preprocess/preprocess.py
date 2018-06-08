@@ -171,7 +171,7 @@ def create_document_tf_idf_vector(doc,index,token2id,dic,id2df):
     return doc_vector
 
 
-def create_sentence_indexes(document_texts,chosen_docs_for_summary,_index,token2id):
+def create_sentence_indexes(document_texts,chosen_docs_for_summary,_index,token2id,id2df):
     sentence_texts={}
     sentence_vectors={}
     for document in chosen_docs_for_summary:
@@ -181,5 +181,5 @@ def create_sentence_indexes(document_texts,chosen_docs_for_summary,_index,token2
         sentences = retrieve_sentences(text)
         for index,sentence in enumerate(sentences):
             sentence_texts[document_for_id][str(index)] = sentence
-            sentence_vectors[document_for_id+"_"+str(index)] = convert_sentence_to_tfidf_vector(sentence,_index,token2id)
+            sentence_vectors[document_for_id+"_"+str(index)] = convert_sentence_to_tfidf_vector(sentence,_index,token2id,id2df)
     return sentence_texts,sentence_vectors
