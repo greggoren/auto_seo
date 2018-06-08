@@ -123,18 +123,18 @@ def transform_terms_to_counts(Dinit,dic,index):
 def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
     N = index.document_count()
     sentence=sentence.rstrip()
-    sentence = re.sub('[!,?:]',"",sentence)
-    sentence = re.sub('[.]'," ",sentence)
-    sentence = re.sub("’ll"," will",sentence)
-    sentence = re.sub("'ll"," will",sentence)
-    sentence = re.sub("’s","",sentence)
-    sentence = re.sub("'s","",sentence)
-    sentence = re.sub("'em","",sentence)
-    sentence = re.sub("’em","",sentence)
+    # sentence = re.sub('[!,?:]',"",sentence)
+    # sentence = re.sub('[.]'," ",sentence)
+    # sentence = re.sub("’ll"," will",sentence)
+    # sentence = re.sub("'ll"," will",sentence)
+    # sentence = re.sub("’s","",sentence)
+    # sentence = re.sub("'s","",sentence)
+    # sentence = re.sub("'em","",sentence)
+    # sentence = re.sub("’em","",sentence)
     words = sentence.split()
     tokens=[]
     for word in words:
-        modified = re.sub(' ','',word)
+        modified = pyndri.escape(word)#re.sub(' ','',word)
         tokens.extend(pyndri.tokenize(modified))
     #words = [re.sub('[.,?:]',"",w) for w in words]
     sentence_vector = {}
