@@ -21,14 +21,14 @@ def get_top_k_most_similar_docs_ranked_above(k,ranked_lists,query,reference_doc,
 
 
 
-def create_multi_document_summarization(ranked_lists, query_number,query_text, reference_doc, k_docs_above, doc_texts,index,token2id,dic):
-    top_k_docs = get_top_k_most_similar_docs_ranked_above(k_docs_above, ranked_lists, query_number, reference_doc,index,token2id,dic)
+def create_multi_document_summarization(ranked_lists, query_number,query_text, reference_doc, k_docs_above, doc_texts,index,token2id,dic,id2df):
+    top_k_docs = get_top_k_most_similar_docs_ranked_above(k_docs_above, ranked_lists, query_number, reference_doc,index,token2id,dic,id2df)
     top_k_docs.append(reference_doc)
     sentence_texts, sentence_vectors=create_sentence_indexes(doc_texts,top_k_docs)
     transition_matrix = create_transition_graph(sentence_vectors)
     scores=page_rank(params.alpha,transition_matrix)
-    query_vector = convert_sentence_to_tfidf_vector(query_text,index,token2id)
-    original_doc_vector = create_document_tf_idf_vector(reference_doc,index,token2id,dic)
+    query_vector = convert_sentence_to_tfidf_vector(query_text,index,token2id,id2df)
+    original_doc_vector = create_document_tf_idf_vector(reference_doc,index,token2id,dic,id2df)
     summary=diversify(scores,transition_matrix,params.number_of_sentences,query_vector,sentence_vectors,original_doc_vector,params.gamma)
     text = "\n".join([sentence_texts[sentence] for sentence in summary])
     return text

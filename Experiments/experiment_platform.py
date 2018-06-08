@@ -24,7 +24,6 @@ def retrieve_query_names():
 print("uploading index")
 index = pyndri.Index(params.path_to_index)
 token2id, id2token, id2df = index.get_dictionary()
-del id2df
 del id2token
 f = open("dic.pickle","rb")
 dic = pickle.load(f)
@@ -59,7 +58,7 @@ for query in reference_docs:
     print("in",query )
     sys.stdout.flush()
     reference_doc=reference_docs[query]
-    summaries[query] = create_multi_document_summarization(ranked_lists,query,queries[query],reference_doc,params.number_of_documents_above,doc_texts,index,token2id,dic)
+    summaries[query] = create_multi_document_summarization(ranked_lists,query,queries[query],reference_doc,params.number_of_documents_above,doc_texts,index,token2id,dic,id2df)
 print("finished summarization")
 summary_file = open("summaries","wb")
 pickle.dump(summaries,summary_file)
