@@ -173,10 +173,11 @@ def create_sentence_indexes(document_texts,chosen_docs_for_summary):
     sentence_texts={}
     sentence_vectors={}
     for document in chosen_docs_for_summary:
-        sentence_texts[document]={}
-        text = document_texts[document]
+        document_for_id = document.replace("EPOCH","ROUND")
+        sentence_texts[document_for_id]={}
+        text = document_texts[document_for_id]
         sentences = retrieve_sentences(text)
         for index,sentence in enumerate(sentences):
-            sentence_texts[document][str(index)] = sentence
-            sentence_vectors[document+"_"+str(index)] = convert_sentence_to_tfidf_vector(sentence)
+            sentence_texts[document_for_id][str(index)] = sentence
+            sentence_vectors[document_for_id+"_"+str(index)] = convert_sentence_to_tfidf_vector(sentence)
     return sentence_texts,sentence_vectors
