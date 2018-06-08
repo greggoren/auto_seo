@@ -47,6 +47,8 @@ def create_index():
     corpus_class = 'trectext'
     memory = '1G'
     index = path_to_folder+"/index/new_index"
+    if not os.path.exists(path_to_folder+"/index/"):
+        os.makedirs(path_to_folder+"/index/")
     stemmer =  'krovetz'
     os.popen('mkdir -p ' + path_to_folder)
     os.popen(indri_build_index + ' -corpus.path='+corpus_path + ' -corpus.class='+corpus_class + ' -index='+index + ' -memory='+memory + ' -stemmer.name=' + stemmer).readlines()
