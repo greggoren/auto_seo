@@ -26,21 +26,29 @@ index = pyndri.Index(params.path_to_index)
 token2id, id2token, id2df = index.get_dictionary()
 del id2df
 del id2token
+f = open("dic.pickle","rb")
+dic = pickle.load(f)
+f.close()
 #id2tf = index.get_term_frequencies()
-dic={}
-#total_corpus_term_count=0
-#doc_length = {}
-for document_id in range(index.document_base(), index.maximum_document()):
-    if document_id%1000000==0:
-        print("in document",document_id)
-        sys.stdout.flush()
-    dic[index.document(document_id)[0]] = document_id
-    #doc_length[index.document(document_id)[0]] = index.document_length(document_id)
-    #total_corpus_term_count+=len(index.document(document_id))
-print("loading index finished")
-
+# dic={}
+# #total_corpus_term_count=0
+# #doc_length = {}
+# for document_id in range(index.document_base(), index.maximum_document()):
+#     if document_id%1000000==0:
+#         print("in document",document_id)
+#         sys.stdout.flush()
+#     dic[index.document(document_id)[0]] = document_id
+#     #doc_length[index.document(document_id)[0]] = index.document_length(document_id)
+#     #total_corpus_term_count+=len(index.document(document_id))
+# print("loading index finished")
+#
+# pickle.dump(dic,f)
+# f.close()
 
 ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
+# for query in ranked_lists:
+#     for doc in ranked_lists[query]:
+#         dic[doc]=
 reference_docs = {q:ranked_lists[q][-1] for q in ranked_lists}
 queries = retrieve_query_names()
 doc_texts = load_file(params.trec_text_file)
