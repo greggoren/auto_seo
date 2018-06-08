@@ -12,7 +12,7 @@ def get_top_k_most_similar_docs_ranked_above(k,ranked_lists,query,reference_doc,
     if index_of_reference <=k:
         return ranked_list[:k]
     subset_docs = ranked_list[:index_of_reference]
-    reference_vector = create_document_tf_idf_vector(reference_doc,index,token2id,dic)
+    reference_vector = create_document_tf_idf_vector(reference_doc,index,token2id,dic,id2df)
     similarities = [(doc,cosine_similarity(create_document_tf_idf_vector(doc), reference_vector)) for doc in subset_docs]
     top_k_docs = [doc[0] for doc in sorted(similarities,key=lambda x:x[1],reverse=True)[:k]]
     return top_k_docs
