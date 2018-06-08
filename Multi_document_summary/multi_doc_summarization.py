@@ -6,7 +6,7 @@ from utils import cosine_similarity
 import params
 from Multi_document_summary.diversification import diversify
 
-def get_top_k_most_similar_docs_ranked_above(k,ranked_lists,query,reference_doc,index,token2id,dic):
+def get_top_k_most_similar_docs_ranked_above(k,ranked_lists,query,reference_doc,index,token2id,dic,id2df):
     ranked_list = ranked_lists[query]
     index_of_reference = ranked_list.index(reference_doc)
     if index_of_reference <=k:
