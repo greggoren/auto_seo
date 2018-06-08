@@ -106,7 +106,7 @@ def create_tfidf_vectors(sentences,index,token2id,id2df):
             for word in words:
                 tfidf,id = get_tdidf_value_of_word(word, counts, N,id2df)
                 sentence_vector[id]+=tfidf
-            sentence_vector/=len(words)
+            #sentence_vector/=len(words)
             all_sentences.append(sentence)
     return all_sentences
 
@@ -140,7 +140,7 @@ def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
     counts = Counter([token2id[pyndri.krovetz_stem(word)] for word in tokens])
     for word in set(tokens):
         tfidf, id = get_tdidf_value_of_word(word, counts, N,len(words),id2df)
-        sentence_vector[id-1]+=tfidf
+        sentence_vector[id-1]=tfidf
     # sentence_vector/=len(tokens)
     return sentence_vector
 
@@ -167,7 +167,7 @@ def create_document_tf_idf_vector(doc,index,token2id,dic,id2df):
     counts = Counter(terms)
     for term in set(terms):
         tfidf = get_tfidf_value(term,counts,number_docs,number_of_terms,id2df)
-        doc_vector[term-1]+=tfidf
+        doc_vector[term-1]=tfidf
     return doc_vector
 
 
