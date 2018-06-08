@@ -33,6 +33,7 @@ doc_length = {}
 for document_id in range(index.document_base(), index.maximum_document()):
     if document_id%10000==0:
         print("in document",document_id)
+        sys.stdout.flush()
     dic[index.document(document_id)[0]] = document_id
     doc_length[index.document(document_id)[0]] = index.document_length(document_id)
     total_corpus_term_count+=len(index.document(document_id))
