@@ -7,16 +7,7 @@ import math
 import params
 from params import beta
 import re
-index = pyndri.Index(params.path_to_index)
-token2id, id2token, id2df = index.get_dictionary()
-id2tf = index.get_term_frequencies()
-dic={}
-total_corpus_term_count=0
-doc_length = {}
-for document_id in range(index.document_base(), index.maximum_document()):
-    dic[index.document(document_id)[0]] = document_id
-    doc_length[index.document(document_id)[0]] = index.document_length(document_id)
-    total_corpus_term_count+=len(index.document(document_id))
+
 
 
 def load_file(filename):
@@ -32,7 +23,7 @@ def load_file(filename):
                 docs[name]=att.text
     return docs
 
-def turn_sentence_into_terms(sentence):
+def turn_sentence_into_terms(sentence,index,token2id):
     result = []
     words = index.tokenize(sentence)
     for word in words:
@@ -56,18 +47,18 @@ def get_Dinit_for_query(query):
                 Dinit.append(doc.rstrip())
         return Dinit
 
-def get_tdidf_value_of_word(word, counts, N,number_of_terms):
+def get_tdidf_value_of_word(word, counts, N,number_of_terms,token2id):
     stemmed = pyndri.krovetz_stem(word)
     id = token2id[stemmed]
     return  get_tfidf_value(id,counts,N,number_of_terms),id
 
-def get_tfidf_value(id,counts,N,number_of_terms):
+def get_tfidf_value(id,counts,N,number_of_terms,id2df):
     df = id2df[id]
     tf = counts[id]/number_of_terms
     idf = math.log(float(N) / df)
     return tf*idf
 
-def get_tfidf_value(id,counts,N,number_of_terms):
+def get_tfidf_value(id,counts,N,number_of_terms,id2df):
     df = id2df[id]
     tf = counts[id]/number_of_terms
     idf = math.log(float(N) / df)
@@ -87,7 +78,7 @@ def get_tfidf_value(id,counts,N,number_of_terms):
 #                     Dinit_text[name] = Counter([token2id[pyndri.krovetz_stem(i)] for i in  retrieve_sentences(att.text)])
 #     return Dinit_text
 
-def query_probability_given_docs(query,Dinit_counts):
+def query_probability_given_docs(query,Dinit_counts,index,dic,token2id,total_corpus_term_count):
     query_to_doc_probability={}
     id2tf=index.get_term_frequencies()
     for d_i in Dinit_counts:
@@ -103,7 +94,7 @@ def query_probability_given_docs(query,Dinit_counts):
 
 
 
-def create_tfidf_vectors(sentences):
+def create_tfidf_vectors(sentences,index,token2id):
     all_sentences=[]
     N = index.document_count()
     for doc in sentences:
@@ -120,7 +111,7 @@ def create_tfidf_vectors(sentences):
     return all_sentences
 
 
-def transform_terms_to_counts(Dinit):
+def transform_terms_to_counts(Dinit,dic,index):
     Dinit_counts={}
     for d_i in Dinit:
         doc_id = dic.get(d_i,dic[list(dic.keys())[0]])
@@ -129,7 +120,7 @@ def transform_terms_to_counts(Dinit):
         Dinit_counts[d_i]=counts
     return Dinit_counts
 
-def convert_sentence_to_tfidf_vector(sentence):
+def convert_sentence_to_tfidf_vector(sentence,index,token2id):
     N = index.document_count()
     sentence=sentence.rstrip()
     sentence = re.sub('[!,?:]',"",sentence)
@@ -166,7 +157,7 @@ def retrieve_ranked_lists(ranked_lists_file):
 
 
 
-def create_document_tf_idf_vector(doc):
+def create_document_tf_idf_vector(doc,index,token2id,dic):
     terms = index.document(dic[doc])[1]
     doc_vector = np.zeros(len(token2id))
     number_docs = index.document_count()

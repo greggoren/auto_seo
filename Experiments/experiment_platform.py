@@ -1,6 +1,5 @@
 from Multi_document_summary.multi_doc_summarization import create_multi_document_summarization
-from Preprocess.preprocess import retrieve_ranked_lists
-from Preprocess.preprocess import load_file
+from Preprocess.preprocess import retrieve_ranked_lists,load_file
 from Experiments.experiment_data_processor import create_trectext
 from Experiments.experiment_data_processor import create_index
 from Experiments.experiment_data_processor import merge_indices
@@ -10,6 +9,7 @@ from Experiments.model_handler import retrieve_scores
 from Experiments.model_handler import create_index_to_doc_name_dict
 import params
 import pickle
+import pyndri
 import sys
 
 
@@ -21,6 +21,17 @@ def retrieve_query_names():
             query_mapper[data[0]]=data[1].rstrip()
     return query_mapper
 
+
+index = pyndri.Index(params.path_to_index)
+token2id, id2token, id2df = index.get_dictionary()
+id2tf = index.get_term_frequencies()
+dic={}
+total_corpus_term_count=0
+doc_length = {}
+for document_id in range(index.document_base(), index.maximum_document()):
+    dic[index.document(document_id)[0]] = document_id
+    doc_length[index.document(document_id)[0]] = index.document_length(document_id)
+    total_corpus_term_count+=len(index.document(document_id))
 
 
 
@@ -35,7 +46,7 @@ for query in reference_docs:
     print("in",query )
     sys.stdout.flush()
     reference_doc=reference_docs[query]
-    summaries[query] = create_multi_document_summarization(ranked_lists,query,queries[query],reference_doc,params.number_of_documents_above,doc_texts)
+    summaries[query] = create_multi_document_summarization(ranked_lists,query,queries[query],reference_doc,params.number_of_documents_above,doc_texts,index,token2id,dic)
 print("finished summarization")
 summary_file = open("summaries","wb")
 pickle.dump(summaries,summary_file)
