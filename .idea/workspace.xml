@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8887b834-fb1d-460c-ac59-66bb4132da32" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py" afterPath="$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py" />
+      <change beforePath="$PROJECT_DIR$/Preprocess/preprocess.py" afterPath="$PROJECT_DIR$/Preprocess/preprocess.py" />
       <change beforePath="$PROJECT_DIR$/data/queris.txt" afterPath="$PROJECT_DIR$/data/queris.txt" />
+      <change beforePath="$PROJECT_DIR$/utils.py" afterPath="$PROJECT_DIR$/utils.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -63,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="multi_doc_summarization.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="multi_doc_summarization.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+            <state relative-caret-position="550">
+              <caret line="37" column="49" lean-forward="true" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
               <folding>
                 <element signature="e#0#66#0" expanded="true" />
               </folding>
@@ -75,14 +76,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="652">
-              <caret line="181" column="44" lean-forward="false" selection-start-line="181" selection-start-column="44" selection-end-line="181" selection-end-column="44" />
+            <state relative-caret-position="2074">
+              <caret line="122" column="4" lean-forward="false" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="4" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -165,7 +176,6 @@
         <option value="$PROJECT_DIR$/Multi_document_summary/test.py" />
         <option value="$PROJECT_DIR$/Experiments/model_runner.py" />
         <option value="$PROJECT_DIR$/Experiments/Experiment_data_processor.py" />
-        <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/Multi_document_summary/experiment_platform.py" />
         <option value="$PROJECT_DIR$/Experiments/model_handler.py" />
         <option value="$PROJECT_DIR$/params.py" />
@@ -173,8 +183,9 @@
         <option value="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
         <option value="$PROJECT_DIR$/Experiments/index_mkaer.py" />
         <option value="$PROJECT_DIR$/Experiments/experiment_platform.py" />
-        <option value="$PROJECT_DIR$/Preprocess/preprocess.py" />
         <option value="$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py" />
+        <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/Preprocess/preprocess.py" />
       </list>
     </option>
   </component>
@@ -867,7 +878,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528483728393</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="experiments platform in process">
+      <created>1528483961645</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1528483961645</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1319,14 +1337,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="28" column="14" lean-forward="false" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Experiments/experiment_data_processor.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="850">
@@ -1373,22 +1383,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
+    <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="652">
-          <caret line="181" column="44" lean-forward="false" selection-start-line="181" selection-start-column="44" selection-end-line="181" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="187">
+          <caret line="12" column="4" lean-forward="false" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="40" column="22" lean-forward="false" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+        <state relative-caret-position="550">
+          <caret line="37" column="49" lean-forward="true" selection-start-line="37" selection-start-column="49" selection-end-line="37" selection-end-column="49" />
           <folding>
             <element signature="e#0#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2074">
+          <caret line="122" column="4" lean-forward="false" selection-start-line="122" selection-start-column="4" selection-end-line="122" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
