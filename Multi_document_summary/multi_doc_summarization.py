@@ -28,7 +28,7 @@ def create_multi_document_summarization(ranked_lists, query_number,query_text, r
     top_k_docs.append(reference_doc)
     print("get sentence data")
     sys.stdout.flush()
-    sentence_texts, sentence_vectors=create_sentence_indexes(doc_texts,top_k_docs)
+    sentence_texts, sentence_vectors=create_sentence_indexes(doc_texts,top_k_docs,index,token2id)
     print("create transition matrix")
     sys.stdout.flush()
     transition_matrix = create_transition_graph(sentence_vectors)
