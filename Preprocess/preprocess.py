@@ -158,7 +158,7 @@ def retrieve_ranked_lists(ranked_lists_file):
 
 
 def create_document_tf_idf_vector(doc,index,token2id,dic):
-    terms = index.document(dic[doc])[1]
+    terms = index.document(dic[doc.replace("EPOCH","ROUND")])[1]
     doc_vector = np.zeros(len(token2id))
     number_docs = index.document_count()
     number_of_terms = len(terms)
