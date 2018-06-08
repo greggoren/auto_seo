@@ -40,5 +40,5 @@ def create_multi_document_summarization(ranked_lists, query_number,query_text, r
     print("diverity algorithm applying")
     sys.stdout.flush()
     summary=diversify(scores,transition_matrix,params.number_of_sentences,query_vector,sentence_vectors,original_doc_vector,params.gamma)
-    text = "\n".join([sentence_texts[sentence] for sentence in summary])
+    text = "\n".join([sentence_texts[sentence.split('_')[0]][sentence.split('_')[1]] for sentence in summary])
     return text

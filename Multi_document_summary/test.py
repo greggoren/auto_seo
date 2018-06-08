@@ -3,7 +3,7 @@ from Preprocess.preprocess import retrieve_ranked_lists
 from Preprocess.preprocess import load_file
 import params
 import pickle
-
+import pyndri
 def retrieve_query_names():
     query_mapper = {}
     with open(params.query_description_file,'r') as file:
@@ -24,4 +24,5 @@ summaries={}
 for query in reference_docs:
     reference_doc=reference_docs[query]
     summaries[query] = create_multi_document_summarization(ranked_lists,query,queries[query],reference_doc,params.number_of_documents_above,doc_texts)
-pickle.dump(summaries,open("summaries","wb"))
+# pickle.dump(summaries,open("summaries","wb"))
+# print(pyndri.krovetz_stem(pyndri.escape("51,000-a-b")))

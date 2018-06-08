@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8887b834-fb1d-460c-ac59-66bb4132da32" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Preprocess/preprocess.py" afterPath="$PROJECT_DIR$/Preprocess/preprocess.py" />
+      <change beforePath="$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py" afterPath="$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py" />
+      <change beforePath="$PROJECT_DIR$/Multi_document_summary/test.py" afterPath="$PROJECT_DIR$/Multi_document_summary/test.py" />
       <change beforePath="$PROJECT_DIR$/data/queris.txt" afterPath="$PROJECT_DIR$/data/queris.txt" />
     </list>
     <ignored path="auto_seo.iws" />
@@ -17,7 +18,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/auto_seo1$extra.coverage" NAME="extra Coverage Results" MODIFIED="1526119855647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/auto_seo1$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1528218877674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Multi_document_summary" />
+    <SUITE FILE_PATH="coverage/auto_seo1$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1528488715039" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Multi_document_summary" />
     <SUITE FILE_PATH="coverage/auto_seo1$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1528204126736" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Single_doc_summary" />
     <SUITE FILE_PATH="coverage/auto_seo1$test.coverage" NAME="test Coverage Results" MODIFIED="1526103646348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/single_doc_summary" />
   </component>
@@ -63,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="multi_doc_summarization.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="multi_doc_summarization.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="30" column="49" lean-forward="false" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+            <state relative-caret-position="406">
+              <caret line="42" column="83" lean-forward="false" selection-start-line="42" selection-start-column="83" selection-end-line="42" selection-end-column="83" />
               <folding>
                 <element signature="e#0#66#0" expanded="true" />
               </folding>
@@ -75,13 +76,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="diversification.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Multi_document_summary/diversification.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="132" column="24" lean-forward="false" selection-start-line="132" selection-start-column="24" selection-end-line="132" selection-end-column="24" />
+            <state relative-caret-position="-34">
+              <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Multi_document_summary/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="25" column="71" lean-forward="false" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="71" />
+              <folding>
+                <element signature="e#0#94#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -103,18 +126,6 @@
             <state relative-caret-position="850">
               <caret line="52" column="35" lean-forward="false" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="prereq.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Experiments/prereq.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="51" column="30" lean-forward="true" selection-start-line="50" selection-start-column="4" selection-end-line="51" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -172,7 +183,6 @@
         <option value="$PROJECT_DIR$/Preprocess/multi_doc_summarization_preprocess.py" />
         <option value="$PROJECT_DIR$/Preprocess/query_focused_summarization_preprocess.py" />
         <option value="$PROJECT_DIR$/Multi_document_summary/diversification.py" />
-        <option value="$PROJECT_DIR$/Multi_document_summary/test.py" />
         <option value="$PROJECT_DIR$/Experiments/model_runner.py" />
         <option value="$PROJECT_DIR$/Experiments/Experiment_data_processor.py" />
         <option value="$PROJECT_DIR$/Multi_document_summary/experiment_platform.py" />
@@ -183,8 +193,9 @@
         <option value="$PROJECT_DIR$/Experiments/index_mkaer.py" />
         <option value="$PROJECT_DIR$/Experiments/experiment_platform.py" />
         <option value="$PROJECT_DIR$/utils.py" />
-        <option value="$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py" />
         <option value="$PROJECT_DIR$/Preprocess/preprocess.py" />
+        <option value="$PROJECT_DIR$/Multi_document_summary/test.py" />
+        <option value="$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py" />
       </list>
     </option>
   </component>
@@ -919,7 +930,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528487671115</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="experiments platform in process">
+      <created>1528488400177</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1528488400177</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -930,7 +948,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34696406" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34696406" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17135416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1228,13 +1246,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/pyndri/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LanguageModels/jm_lm.py" />
     <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -1328,21 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Multi_document_summary/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Multi_document_summary/diversification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Multi_document_summary/page_rank.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="720">
@@ -1425,22 +1421,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py">
+    <entry file="file://$USER_HOME$/.local/lib/python3.6/site-packages/pyndri/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="30" column="49" lean-forward="false" selection-start-line="30" selection-start-column="49" selection-end-line="30" selection-end-column="49" />
+        <state relative-caret-position="357">
+          <caret line="21" column="4" lean-forward="false" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="4" />
           <folding>
-            <element signature="e#0#66#0" expanded="true" />
+            <element signature="e#0#60#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multi_document_summary/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="25" column="71" lean-forward="false" selection-start-line="25" selection-start-column="59" selection-end-line="25" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multi_document_summary/diversification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="132" column="24" lean-forward="false" selection-start-line="132" selection-start-column="24" selection-end-line="132" selection-end-column="24" />
+        <state relative-caret-position="-34">
+          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="406">
+          <caret line="42" column="83" lean-forward="false" selection-start-line="42" selection-start-column="83" selection-end-line="42" selection-end-column="83" />
+          <folding>
+            <element signature="e#0#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
