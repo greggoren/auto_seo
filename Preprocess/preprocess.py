@@ -58,11 +58,7 @@ def get_tfidf_value(id,counts,N,number_of_terms,id2df):
     idf = math.log(float(N) / df)
     return tf*idf
 
-def get_tfidf_value(id,counts,N,number_of_terms,id2df):
-    df = id2df[id]
-    tf = counts[id]/number_of_terms
-    idf = math.log(float(N) / df)
-    return tf*idf
+
 
 # def split_Dinit_to_sentences(Dinit):
 #     tree = ET.parse(params.trec_text_file)
@@ -178,8 +174,9 @@ def create_document_tf_idf_vector(doc,index,token2id,dic,id2df):
     number_of_terms = len(terms)
     counts = Counter(terms)
     for term in set(terms):
-        tfidf = get_tfidf_value(term,counts,number_docs,number_of_terms,id2df)
-        doc_vector[term-1]=tfidf
+        if term!=0:
+            tfidf = get_tfidf_value(term,counts,number_docs,number_of_terms,id2df)
+            doc_vector[term-1]=tfidf
     return doc_vector
 
 
