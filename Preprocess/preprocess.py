@@ -20,7 +20,7 @@ def load_file(filename):
             if att.tag == "DOCNO":
                 name=att.text
             else:
-                docs[name]=att.text.decode('utf-8','ignore').encode("utf-8")
+                docs[name]=att.text
     return docs
 
 def turn_sentence_into_terms(sentence,index,token2id):
@@ -128,6 +128,7 @@ def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
     # sentence = re.sub("’ll"," will",sentence)
     # sentence = re.sub("'ll"," will",sentence)
     sentence = re.sub("’","",sentence)
+    sentence = re.sub("–","",sentence)
     # sentence = re.sub("'s","",sentence)
     # sentence = re.sub("'em","",sentence)
     # sentence = re.sub("’em","",sentence)
