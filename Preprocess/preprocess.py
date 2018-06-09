@@ -134,16 +134,17 @@ def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
     words = sentence.split()
     tokens=[]
     for word in words:
-        modified = pyndri.escape(word)#re.sub(' ','',word)
-        tokens.extend(pyndri.tokenize(modified))
-    #words = [re.sub('[.,?:]',"",w) for w in words]
+        modified = pyndri.escape(word)
+        try:
+            tokens.extend(pyndri.tokenize(modified))
+        except:
+            print(modified)
+            raise Exception("fuck")
     sentence_vector = {}
-    #sentence_vector = np.zeros(len(token2id))
     counts = Counter([token2id[pyndri.krovetz_stem(word)] for word in tokens])
     for word in set(tokens):
         tfidf, id = get_tdidf_value_of_word(word, counts, N,len(words),token2id,id2df)
         sentence_vector[id-1]=tfidf
-    # sentence_vector/=len(tokens)
     return sentence_vector
 
 
