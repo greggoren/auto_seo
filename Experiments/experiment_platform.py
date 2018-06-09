@@ -28,9 +28,9 @@ f.close()
 # index = pyndri.Index(params.path_to_index)
 # token2id, id2token, id2df = index.get_dictionary()
 # del id2token
-# f = open("dic.pickle","rb")
-# dic = pickle.load(f)
-# f.close()
+f = open("dic.pickle","rb")
+dic = pickle.load(f)
+f.close()
 #id2tf = index.get_term_frequencies()
 # dic={}
 # #total_corpus_term_count=0
