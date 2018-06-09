@@ -49,4 +49,4 @@ def run_bash_command(command):
                          stdout=subprocess.PIPE,
                          stderr=subprocess.STDOUT, shell=True)
     out, err = p.communicate()
-    return err
+    return out
