@@ -20,7 +20,7 @@ def load_file(filename):
             if att.tag == "DOCNO":
                 name=att.text
             else:
-                docs[name]=att.text
+                docs[name]=att.text.decode('utf-8','ignore').encode("utf-8")
     return docs
 
 def turn_sentence_into_terms(sentence,index,token2id):
