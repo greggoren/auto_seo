@@ -40,4 +40,4 @@ def retrieve_query_names():
 #                     except:
 #                         print(word)
 
-print(pyndri.tokenize(pyndri.escape("–")))
+print(pyndri.tokenize(pyndri.escape("a?")))
