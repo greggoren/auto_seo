@@ -133,6 +133,7 @@ def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
     sentence = re.sub("“", " ", sentence)
     sentence = re.sub("”", " ", sentence)
     sentence = re.sub("…", " ", sentence)
+    sentence = re.sub("!", " ", sentence)
 
     # sentence = re.sub("'s","",sentence)
     # sentence = re.sub("'em","",sentence)
