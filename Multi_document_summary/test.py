@@ -4,6 +4,7 @@ from Preprocess.preprocess import load_file
 from Preprocess.preprocess import retrieve_sentences
 import params
 import pickle
+import re
 import pyndri
 def retrieve_query_names():
     query_mapper = {}
@@ -24,7 +25,7 @@ def retrieve_query_names():
 #
 # summaries={}
 # for query in reference_docs:
-#     if query=="009":
+#     if query=="010":
 #         reference_doc=reference_docs[query]
 #         for doc in ranked_lists[query]:
 #             sentences = retrieve_sentences(doc_texts[doc])
@@ -39,5 +40,8 @@ def retrieve_query_names():
 #                             tokens.extend(pyndri.tokenize(modified))
 #                     except:
 #                         print(word)
+sentence="fear—there"
+# sentence = re.sub("—","",sentence)
+sentence = re.sub("–","",sentence)
 
-print(pyndri.tokenize(pyndri.escape("a?")))
+print(pyndri.tokenize(pyndri.escape(sentence)))
