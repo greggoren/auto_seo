@@ -3,7 +3,11 @@ import os
 from utils import run_bash_command
 
 
-def create_features_file(features_dir):
+def create_features_file(features_dir,index_path,queries_file):
+    command= params.ltr_features_script+" "+ queries_file + ' -stream=doc -index=' + index_path + ' -repository='+ index_path +' -useWorkingSet=true -workingSetFile='+ params.working_set_file + ' -workingSetFormat=trec'
+    run_bash_command(command)
+    command=params.cent_script+' ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile='+ params.working_set_file + ' -workingSetFormat=trec'
+    run_bash_command(command)
     command = "perl "+params.features_generator_script_path+" "+features_dir+" "+params.working_set_file
     run_bash_command(command)
 
