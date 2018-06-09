@@ -39,7 +39,7 @@ queries = retrieve_query_names()
 a_doc_texts = load_file(params.trec_text_file)
 doc_texts={}
 for doc in a_doc_texts:
-    if doc.__contains__("EPOCH-01"):
+    if doc.__contains__("ROUND-01"):
         doc_texts[doc]=a_doc_texts[doc]
 
 summaries={}
