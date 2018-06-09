@@ -36,7 +36,11 @@ ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
 
 reference_docs = {q:ranked_lists[q][-1] for q in ranked_lists}
 queries = retrieve_query_names()
-doc_texts = load_file(params.trec_text_file)
+a_doc_texts = load_file(params.trec_text_file)
+doc_texts={}
+for doc in a_doc_texts:
+    if doc.__contains__("EPOCH-01"):
+        doc_texts[doc]=a_doc_texts[doc]
 
 summaries={}
 print("starting summarization")
