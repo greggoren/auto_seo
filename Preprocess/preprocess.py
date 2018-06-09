@@ -135,7 +135,8 @@ def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
     tokens=[]
     for word in words:
             modified = pyndri.escape(word)
-            if modified:
+            modified=re.sub(" ","",modified)
+            if modified and modified!='':
                 tokens.extend(pyndri.tokenize(modified))
     sentence_vector = {}
     counts = Counter([token2id[pyndri.krovetz_stem(word)] for word in tokens])

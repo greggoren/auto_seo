@@ -25,4 +25,4 @@ import pyndri
 #     reference_doc=reference_docs[query]
 #     summaries[query] = create_multi_document_summarization(ranked_lists,query,queries[query],reference_doc,params.number_of_documents_above,doc_texts)
 # # pickle.dump(summaries,open("summaries","wb"))
-print(pyndri.tokenize(pyndri.escape("")))
+print(pyndri.tokenize(pyndri.escape(" ")))
