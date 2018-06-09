@@ -23,7 +23,10 @@ def create_transition_graph(sentences):
 
     for node in M:
         for neighbor in M[node]:
-            M[node][neighbor]/=denominators[node]
+            if denominators[node]!=0:
+                M[node][neighbor]/=denominators[node]
+            else:
+                M[node][neighbor]=1/len(M[node])
     return M
 
 
