@@ -3,8 +3,8 @@ import os
 from utils import run_bash_command
 
 
-def create_features_file():
-    command = "perl "+params.features_generator_script_path+" "+params.features_dir+" "+params.working_set_file
+def create_features_file(features_dir):
+    command = "perl "+params.features_generator_script_path+" "+features_dir+" "+params.working_set_file
     run_bash_command(command)
 
 
