@@ -22,6 +22,8 @@ def cosine_similarity(v1,v2):
     norm1=compact_norm(v1)
     norm2=compact_norm(v2)
     denominator = norm1*norm2
+    if denominator==0:
+        return 0
     return sum/denominator
 
 def compact_norm(v1):
