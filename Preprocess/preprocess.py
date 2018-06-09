@@ -136,6 +136,7 @@ def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
     sentence = re.sub("!", " ", sentence)
     sentence = re.sub("_", " ", sentence)
     sentence = re.sub("4ºn", " ", sentence)
+    sentence = re.sub("4ºw", " ", sentence)
 
     # sentence = re.sub("'s","",sentence)
     # sentence = re.sub("'em","",sentence)
@@ -149,8 +150,10 @@ def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
     sentence_vector = {}
     counts = Counter([token2id[pyndri.krovetz_stem(word)] for word in tokens if pyndri.krovetz_stem(word) in token2id])
     for word in set(tokens):
-        tfidf, id = get_tdidf_value_of_word(word, counts, N,len(words),token2id,id2df)
-        sentence_vector[id-1]=tfidf
+        stemmed = pyndri.krovetz_stem(word)
+        if stemmed in token2id:
+            tfidf, id = get_tdidf_value_of_word(word, counts, N,len(words),token2id,id2df)
+            sentence_vector[id-1]=tfidf
     return sentence_vector
 
 
