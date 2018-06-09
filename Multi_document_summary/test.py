@@ -17,31 +17,37 @@ def retrieve_query_names():
 #
 #
 #
-# ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
-# reference_docs = {q:ranked_lists[q][-1] for q in ranked_lists}
-# queries = retrieve_query_names()
-# doc_texts = load_file(params.trec_text_file)
-#
-#
-# summaries={}
-# for query in reference_docs:
-#     if query=="010":
-#         reference_doc=reference_docs[query]
-#         for doc in ranked_lists[query]:
-#             sentences = retrieve_sentences(doc_texts[doc])
-#             for sentence in sentences:
-#                 words = sentence.split()
-#                 tokens = []
-#                 for word in words:
-#                     try:
-#                         print(word)
-#                         modified = pyndri.escape(word)
-#                         if not modified.isspace():
-#                             tokens.extend(pyndri.tokenize(modified))
-#                     except:
-#                         print(word)
-sentence="fear—there"
-# sentence = re.sub("—","",sentence)
-sentence = re.sub("–","",sentence)
+ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
+reference_docs = {q:ranked_lists[q][-1] for q in ranked_lists}
+queries = retrieve_query_names()
+doc_texts = load_file(params.trec_text_file)
 
-print(pyndri.tokenize(pyndri.escape(sentence)))
+
+summaries={}
+for query in reference_docs:
+    if query:
+        reference_doc=reference_docs[query]
+        for doc in ranked_lists[query]:
+            sentences = retrieve_sentences(doc_texts[doc])
+            for sentence in sentences:
+                sentence = re.sub("’", "", sentence)
+                sentence = re.sub("–", " ", sentence)
+                sentence = re.sub("—", " ", sentence)
+                sentence = re.sub("“", " ", sentence)
+                sentence = re.sub("”", " ", sentence)
+                sentence = re.sub("…", " ", sentence)
+                words = sentence.split()
+                tokens = []
+                for word in words:
+                    try:
+                        print(word)
+                        modified = pyndri.escape(word)
+                        if not modified.isspace():
+                            tokens.extend(pyndri.tokenize(modified))
+                    except:
+                        print(word)
+# sentence="fear—there"
+# # sentence = re.sub("—","",sentence)
+# sentence = re.sub("–","",sentence)
+
+# print(pyndri.tokenize(pyndri.escape(sentence)))
