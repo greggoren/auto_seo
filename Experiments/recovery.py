@@ -60,7 +60,7 @@ for doc in a_doc_texts:
 # print("merging indices")
 # sys.stdout.flush()
 # merge_indices(index_path) features_dir,index_path,queries_file
-create_features_file("Features","/lv_local/home/sgregory/auto_seo/index/new_index/","/lv_local/home/sgregory/auto_seo/data/queries.xml")
+create_features_file("Features","/lv_local/home/sgregory/auto_seo/new_merged_index/","/lv_local/home/sgregory/auto_seo/data/queries.xml")
 index_doc_name = create_index_to_doc_name_dict("features")
 scores_file=run_model("features")
 results=retrieve_scores(index_doc_name,scores_file)
