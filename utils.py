@@ -48,11 +48,6 @@ def run_bash_command(command):
     p = subprocess.Popen(command,
                          stdout=subprocess.PIPE,
                          stderr=subprocess.STDOUT, shell=True)
-    try:
-
-        subprocess.check_call(command,shell=True)
-    except subprocess.CalledProcessError as e:
-        print(e)
 
     out, err = p.communicate()
     return out

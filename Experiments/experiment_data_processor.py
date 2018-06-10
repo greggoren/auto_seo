@@ -4,6 +4,9 @@ from utils import run_bash_command
 
 
 def create_features_file(features_dir,index_path,queries_file):
+    if not os.path.exists(features_dir):
+        os.makedirs(features_dir)
+
     command= params.ltr_features_script+" "+ queries_file + ' -stream=doc -index=' + index_path + ' -repository='+ index_path +' -useWorkingSet=true -workingSetFile='+ params.working_set_file + ' -workingSetFormat=trec'
     print(command)
     out = run_bash_command(command)
@@ -12,6 +15,7 @@ def create_features_file(features_dir,index_path,queries_file):
     print(command)
     out = run_bash_command(command)
     print(out)
+    run_bash_command("mv doc* "+features_dir)
     command = "perl "+params.features_generator_script_path+" "+features_dir+" "+params.working_set_file
     print(command)
     out=run_bash_command(command)
