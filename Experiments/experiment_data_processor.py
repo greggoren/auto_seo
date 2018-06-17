@@ -23,7 +23,7 @@ def create_features_file(features_dir,index_path,queries_file):
 
 
 def create_trectext(document_text,reference_docs,summaries,run_name):
-    f= open(params.new_trec_text_file+run_name,"w")
+    f= open(params.new_trec_text_file+run_name,"w",encoding="utf-8")
     query_to_docs = {}
     for document in document_text:
         if document in reference_docs:
