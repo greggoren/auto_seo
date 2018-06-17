@@ -8,7 +8,7 @@ gamma =0.5
 number_of_sentences = 4
 query_description_file = "/home/student/data/queris.txt"
 number_of_documents_above=1
-
+corpus_path_56 =''
 data_set_file=""
 model_path="/lv_local/home/sgregory/auto_seo/models/model_250_50"
 features_generator_script_path=""

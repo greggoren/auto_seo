@@ -28,7 +28,7 @@ def retrieve_query_names():
 if __name__=="__main__":
     number_of_documents_above = int(sys.argv[1])
     gamma = float(sys.argv[2])
-    run_name = "_"+str(number_of_documents_above)+"_"+str(gamma)
+    run_name = "_"+str(number_of_documents_above)+"_"+str(gamma).replace(".","")
     print("uploading index")
 
     index = pyndri.Index(params.path_to_index)
