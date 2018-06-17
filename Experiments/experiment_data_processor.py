@@ -22,8 +22,8 @@ def create_features_file(features_dir,index_path,queries_file):
     print(out)
 
 
-def create_trectext(document_text,reference_docs,summaries):
-    f= open(params.new_trec_text_file,"w")
+def create_trectext(document_text,reference_docs,summaries,run_name):
+    f= open(params.new_trec_text_file+run_name,"w")
     query_to_docs = {}
     for document in document_text:
         if document in reference_docs:
@@ -41,7 +41,7 @@ def create_trectext(document_text,reference_docs,summaries):
         f.write('\n</TEXT>\n')
         f.write('</DOC>\n')
 
-    workingSetFilename = params.working_set_file
+    workingSetFilename = params.working_set_file+run_name
     f = open(workingSetFilename, 'w')
     for query, docnos in query_to_docs.items():
         i = 1
@@ -51,16 +51,16 @@ def create_trectext(document_text,reference_docs,summaries):
 
     f.close()
 
-def create_index():
+def create_index(run_name):
     """
     Parse the trectext file given, and create an index.
     """
     path_to_folder = '/lv_local/home/sgregory/auto_seo'
-    indri_build_index = '/lv_local/home/sgregory/indri11/bin/IndriBuildIndex'
-    corpus_path = params.new_trec_text_file
+    indri_build_index = '/lv_local/home/sgregory/indri_test/bin/IndriBuildIndex'
+    corpus_path = params.new_trec_text_file+run_name
     corpus_class = 'trectext'
     memory = '1G'
-    index = path_to_folder+"/index/new_index"
+    index = path_to_folder+"/index/new_index"+run_name
     if not os.path.exists(path_to_folder+"/index/"):
         os.makedirs(path_to_folder+"/index/")
     stemmer =  'krovetz'
@@ -68,7 +68,10 @@ def create_index():
     os.popen(indri_build_index + ' -corpus.path='+corpus_path + ' -corpus.class='+corpus_class + ' -index='+index + ' -memory='+memory + ' -stemmer.name=' + stemmer).readlines()
     return index
 
-def merge_indices(new_index):
+def merge_indices(new_index,run_name):
     path_to_folder = '/lv_local/home/sgregory/auto_seo'
-    command = '/lv_local/home/sgregory/indri11/bin/dumpindex '+path_to_folder+'/new_merged_index merge '+new_index+" "+params.corpus_path
+    new_index_name = path_to_folder+'/new_merged_index/'+run_name
+    command = '/lv_local/home/sgregory/indri_test/bin/dumpindex '+new_index_name+' merge '+new_index+' '+params.corpus_path
     run_bash_command(command)
+    return new_index_name
+

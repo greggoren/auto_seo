@@ -63,7 +63,9 @@ for doc in a_doc_texts:
 create_features_file("Features","/lv_local/home/sgregory/auto_seo/new_merged_index","/lv_local/home/sgregory/auto_seo/data/queries.xml")
 index_doc_name = create_index_to_doc_name_dict("features")
 scores_file=run_model("features")
+
 results=retrieve_scores(index_doc_name,scores_file)
+
 results_file = open("scores_of_model","wb")
 pickle.dump(results,results_file)
 results_file.close()

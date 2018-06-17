@@ -21,7 +21,7 @@ def get_top_k_most_similar_docs_ranked_above(k,ranked_lists,query,reference_doc,
 
 
 
-def create_multi_document_summarization(ranked_lists, query_number,query_text, reference_doc, k_docs_above, doc_texts,index,token2id,dic,id2df):
+def create_multi_document_summarization(ranked_lists, query_number,query_text, reference_doc, k_docs_above,gamma, doc_texts,index,token2id,dic,id2df):
     print("get top",k_docs_above,"most similar documents")
     sys.stdout.flush()
     top_k_docs = get_top_k_most_similar_docs_ranked_above(k_docs_above, ranked_lists, query_number, reference_doc,index,token2id,dic,id2df)
@@ -39,6 +39,6 @@ def create_multi_document_summarization(ranked_lists, query_number,query_text, r
     original_doc_vector = create_document_tf_idf_vector(reference_doc,index,token2id,dic,id2df)
     print("diverity algorithm applying")
     sys.stdout.flush()
-    summary=diversify(scores,transition_matrix,params.number_of_sentences,query_vector,sentence_vectors,original_doc_vector,params.gamma)
+    summary=diversify(scores,transition_matrix,params.number_of_sentences,query_vector,sentence_vectors,original_doc_vector,gamma)
     text = "\n".join([sentence_texts[sentence.split('_')[0]][sentence.split('_')[1]] for sentence in summary])
     return text
