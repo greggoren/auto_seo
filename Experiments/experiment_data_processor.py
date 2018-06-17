@@ -26,7 +26,8 @@ def create_trectext(document_text,reference_docs,summaries,run_name):
     f= open(params.new_trec_text_file+run_name,"w")
     query_to_docs = {}
     for document in document_text:
-        if document in reference_docs:
+        query = document.split("-")[2]
+        if document in reference_docs[query]:
             text = summaries[document]
         else:
             text = document_text[document]
