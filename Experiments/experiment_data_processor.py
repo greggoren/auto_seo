@@ -1,7 +1,7 @@
 import params
 import os
 from utils import run_bash_command
-from utils import run_command
+import sys
 import time
 
 def create_features_file(features_dir,index_path,queries_file):
@@ -74,7 +74,7 @@ def merge_indices(new_index,run_name):
     new_index_name = path_to_folder+'/new_merged_index'+run_name
     command = '/lv_local/home/sgregory/indri_test/bin/dumpindex '+new_index_name+' merge '+new_index+' '+params.corpus_path_56
     print("merging command:",command)
-
+    sys.stdout.flush()
     out=run_bash_command(command)
     print("merging out command:",out)
     # run_command(command)
