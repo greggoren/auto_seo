@@ -73,8 +73,11 @@ def merge_indices(new_index,run_name):
     path_to_folder = '/lv_local/home/sgregory/auto_seo'
     new_index_name = path_to_folder+'/new_merged_index'+run_name
     command = '/lv_local/home/sgregory/indri_test/bin/dumpindex '+new_index_name+' merge '+new_index+' '+params.corpus_path_56
-    # run_bash_command(command)
-    run_command(command)
+    print("merging command:",command)
+
+    out=run_bash_command(command)
+    print("merging out command:",out)
+    # run_command(command)
     return new_index_name
 
 
