@@ -6,6 +6,7 @@ from utils import cosine_similarity
 import params
 from Multi_document_summary.diversification import diversify
 import sys
+import pickle
 def get_top_k_most_similar_docs_ranked_above(k,ranked_lists,query,reference_doc,index,token2id,dic,id2df):
     ranked_list = ranked_lists[query]
     index_of_reference = ranked_list.index(reference_doc)
@@ -21,7 +22,7 @@ def get_top_k_most_similar_docs_ranked_above(k,ranked_lists,query,reference_doc,
 
 
 
-def create_multi_document_summarization(ranked_lists, query_number,query_text, reference_doc, k_docs_above,gamma, doc_texts,index,token2id,dic,id2df):
+def create_multi_document_summarization(ranked_lists, query_number,query_text, reference_doc, k_docs_above,gamma, doc_texts,index,token2id,dic,id2df,run_name):
     print("get top",k_docs_above,"most similar documents")
     sys.stdout.flush()
     top_k_docs = get_top_k_most_similar_docs_ranked_above(k_docs_above, ranked_lists, query_number, reference_doc,index,token2id,dic,id2df)
@@ -29,6 +30,9 @@ def create_multi_document_summarization(ranked_lists, query_number,query_text, r
     print("get sentence data")
     sys.stdout.flush()
     sentence_texts, sentence_vectors=create_sentence_indexes(doc_texts,top_k_docs,index,token2id,id2df)
+    sentences_pickle_file = open("senteces"+run_name,'wb')
+    pickle.dump((sentence_texts,sentence_vectors),sentences_pickle_file)
+    sentences_pickle_file.close()
     print("create transition matrix")
     sys.stdout.flush()
     transition_matrix = create_transition_graph(sentence_vectors)

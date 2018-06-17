@@ -4,6 +4,8 @@ from Experiments.experiment_data_processor import create_trectext
 from Experiments.experiment_data_processor import create_index
 from Experiments.experiment_data_processor import merge_indices
 from Experiments.experiment_data_processor import create_features_file
+from Experiments.experiment_data_processor import wait_for_feature_file_to_be_deleted
+from Experiments.experiment_data_processor import move_feature_file
 from Experiments.model_handler import run_model
 from Experiments.model_handler import retrieve_scores
 from Experiments.model_handler import create_index_to_doc_name_dict
@@ -11,6 +13,7 @@ import params
 import pickle
 import pyndri
 import sys
+
 
 
 def retrieve_query_names():
@@ -53,7 +56,7 @@ if __name__=="__main__":
         print("in",query )
         sys.stdout.flush()
         reference_doc=reference_docs[query]
-        summaries[query] = create_multi_document_summarization(ranked_lists,query,queries[query],reference_doc,number_of_documents_above,gamma,doc_texts,index,token2id,dic,id2df)
+        summaries[query] = create_multi_document_summarization(ranked_lists,query,queries[query],reference_doc,number_of_documents_above,gamma,doc_texts,index,token2id,dic,id2df,run_name)
     print("finished summarization")
     summary_file = open("summaries","wb")
     pickle.dump(summaries,summary_file)
@@ -66,10 +69,13 @@ if __name__=="__main__":
     sys.stdout.flush()
     new_index_name = merge_indices(index_path,run_name)
     features_dir = "Features"+run_name
+    feature_file="features"
+    wait_for_feature_file_to_be_deleted(feature_file)
     create_features_file(features_dir,new_index_name,params.query_description_file)
-    index_doc_name = create_index_to_doc_name_dict("features")
-    scores_file=run_model("features")
+    move_feature_file(feature_file,run_name)
+    index_doc_name = create_index_to_doc_name_dict(feature_file+run_name)
+    scores_file=run_model(feature_file+run_name)
     results=retrieve_scores(index_doc_name,scores_file)
-    results_file = open("scores_of_model","wb")
+    results_file = open("scores_of_model"+run_name,"wb")
     pickle.dump(results,results_file)
     results_file.close()

@@ -1,7 +1,7 @@
 import params
 import os
 from utils import run_bash_command
-
+import time
 
 def create_features_file(features_dir,index_path,queries_file):
     if not os.path.exists(features_dir):
@@ -26,8 +26,7 @@ def create_trectext(document_text,reference_docs,summaries,run_name):
     f= open(params.new_trec_text_file+run_name,"w")
     query_to_docs = {}
     for document in document_text:
-        query = document.split("-")[2]
-        if document in reference_docs[query]:
+        if document in reference_docs:
             text = summaries[document]
         else:
             text = document_text[document]
@@ -75,4 +74,19 @@ def merge_indices(new_index,run_name):
     command = '/lv_local/home/sgregory/indri_test/bin/dumpindex '+new_index_name+' merge '+new_index+' '+params.corpus_path
     run_bash_command(command)
     return new_index_name
+
+
+def wait_for_feature_file_to_be_deleted(feature_file):
+    while os.path.isfile(feature_file):
+        time.sleep(10)
+        print("waiting for other procceses to finish")
+
+
+def move_feature_file(feature_file,run_name):
+    command = 'mv '+feature_file+' '+feature_file+run_name
+    run_bash_command(command)
+    print("feature file moved")
+
+
+
 
