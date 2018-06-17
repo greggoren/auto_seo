@@ -6,6 +6,11 @@ import numpy as np
 
 #sentences numbers of sentences - need index: [sentence number+doc_name -> tf_idf]
 def create_transition_graph(sentences):
+    """
+    M[i,j] = cos(i,j)/sum_of_all_edges(i)
+    :param sentences:
+    :return:Matrix M for transition edges
+    """
     M={}
     denominators = {}
     keys = list(sentences.keys())
