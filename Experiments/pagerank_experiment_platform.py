@@ -56,7 +56,7 @@ if __name__=="__main__":
         print("in",query )
         sys.stdout.flush()
         reference_doc=reference_docs[query]
-        summaries[query] = create_multi_document_summarization(ranked_lists,query,queries[query],reference_doc,number_of_documents_above,gamma,doc_texts,index,token2id,dic,id2df,run_name)
+        summaries[reference_docs[query]] = create_multi_document_summarization(ranked_lists,query,queries[query],reference_doc,number_of_documents_above,gamma,doc_texts,index,token2id,dic,id2df,run_name)
     print("finished summarization")
     summary_file = open("summaries"+run_name,"wb")
     pickle.dump(summaries,summary_file)
