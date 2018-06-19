@@ -4,15 +4,15 @@ from utils import run_bash_command
 import sys
 import time
 
-def create_features_file(features_dir,index_path,queries_file):
+def create_features_file(features_dir,index_path,queries_file,run_name):
     if not os.path.exists(features_dir):
         os.makedirs(features_dir)
 
-    command= params.ltr_features_script+" "+ queries_file + ' -stream=doc -index=' + index_path + ' -repository='+ index_path +' -useWorkingSet=true -workingSetFile='+ params.working_set_file + ' -workingSetFormat=trec'
+    command= params.ltr_features_script+" "+ queries_file + ' -stream=doc -index=' + index_path + ' -repository='+ index_path +' -useWorkingSet=true -workingSetFile='+ params.working_set_file+run_name + ' -workingSetFormat=trec'
     print(command)
     out = run_bash_command(command)
     print(out)
-    command=params.cent_script+' ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile='+ params.working_set_file + ' -workingSetFormat=trec'
+    command=params.cent_script+' ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile='+ params.working_set_file+run_name + ' -workingSetFormat=trec'
     print(command)
     out = run_bash_command(command)
     print(out)
