@@ -61,7 +61,9 @@ if __name__=="__main__":
     summary_file = open("summaries","wb")
     pickle.dump(summaries,summary_file)
     summary_file.close()
-
+    del index
+    del token2id
+    del id2df
     reference_docs_list = list(reference_docs.values())
     create_trectext(doc_texts,reference_docs_list,summaries,run_name)
     index_path = create_index(run_name)

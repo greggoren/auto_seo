@@ -116,13 +116,10 @@ def transform_terms_to_counts(Dinit,dic,index):
         Dinit_counts[d_i]=counts
     return Dinit_counts
 
-def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
-    N = index.document_count()
-    sentence=sentence.rstrip()
-    # sentence = re.sub('[!,?:]',"",sentence)
-    # sentence = re.sub('[.]'," ",sentence)
-    # sentence = re.sub("’ll"," will",sentence)
-    # sentence = re.sub("'ll"," will",sentence)
+
+
+def tokenize_sentence(sentence):
+    sentence = sentence.rstrip()
     sentence = re.sub("’", "", sentence)
     sentence = re.sub("–", " ", sentence)
     sentence = re.sub("—", " ", sentence)
@@ -133,16 +130,18 @@ def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
     sentence = re.sub("_", " ", sentence)
     sentence = re.sub("4ºn", " ", sentence)
     sentence = re.sub("4ºw", " ", sentence)
-
-    # sentence = re.sub("'s","",sentence)
-    # sentence = re.sub("'em","",sentence)
-    # sentence = re.sub("’em","",sentence)
     words = sentence.split()
-    tokens=[]
+    tokens = []
     for word in words:
-            modified = pyndri.escape(word)
-            if not modified.isspace():
-                tokens.extend(pyndri.tokenize(modified))
+        modified = pyndri.escape(word)
+        if not modified.isspace():
+            tokens.extend(pyndri.tokenize(modified))
+    return tokens,words
+
+
+def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
+    N = index.document_count()
+    tokens,words = tokenize_sentence(sentence)
     sentence_vector = {}
     counts = Counter([token2id[pyndri.krovetz_stem(word)] for word in tokens if pyndri.krovetz_stem(word) in token2id])
     for word in set(tokens):
