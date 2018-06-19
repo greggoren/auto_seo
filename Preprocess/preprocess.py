@@ -129,6 +129,8 @@ def tokenize_sentence(sentence):
     sentence = re.sub("!", " ", sentence)
     sentence = re.sub("_", " ", sentence)
     sentence = re.sub("#", " ", sentence)
+    sentence = re.sub("\[", " ", sentence)
+    sentence = re.sub("]", " ", sentence)
     sentence = re.sub("4ºn", " ", sentence)
     sentence = re.sub("4ºw", " ", sentence)
     words = sentence.split()
