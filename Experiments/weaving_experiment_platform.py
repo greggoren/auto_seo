@@ -1,4 +1,4 @@
-from Multi_document_summary.multi_doc_summarization import create_multi_document_summarization
+from SpamTechniques.weaving import create_new_document_by_weaving
 from Preprocess.preprocess import retrieve_ranked_lists,load_file
 from Experiments.experiment_data_processor import create_trectext
 from Experiments.experiment_data_processor import create_index
@@ -26,19 +26,9 @@ def retrieve_query_names():
 
 
 if __name__=="__main__":
-    number_of_documents_above = int(sys.argv[1])
-    gamma = float(sys.argv[2])
-    run_name = "_"+str(number_of_documents_above)+"_"+str(gamma).replace(".","")
-    print("uploading index")
 
-    index = pyndri.Index(params.path_to_index)
-    token2id, id2token, id2df = index.get_dictionary()
-    del id2token
-    f = open("dic.pickle","rb")
-    dic = pickle.load(f)
-    f.close()
-
-    print("loading index finished")
+    threshold = float(sys.argv[1])
+    run_name = "_"+str(threshold).replace(".","")
 
     ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
 
@@ -50,23 +40,20 @@ if __name__=="__main__":
         if doc.__contains__("ROUND-01"):
             doc_texts[doc]=a_doc_texts[doc]
 
-    summaries={}
+    new_texts={}
     print("starting summarization")
     for query in reference_docs:
         print("in",query )
         sys.stdout.flush()
         reference_doc=reference_docs[query]
-        summaries[query] = create_multi_document_summarization(ranked_lists,query,queries[query],reference_doc,number_of_documents_above,gamma,doc_texts,index,token2id,dic,id2df,run_name)
+        new_texts[query] = create_new_document_by_weaving(doc_texts[reference_doc],queries[query],threshold)
     print("finished summarization")
-    summary_file = open("summaries"+run_name,"wb")
-    pickle.dump(summaries,summary_file)
+    summary_file = open("new_texts"+run_name,"wb")
+    pickle.dump(new_texts, summary_file)
     summary_file.close()
-    del index
-    del token2id
-    del id2df
-    del dic
+
     reference_docs_list = list(reference_docs.values())
-    create_trectext(doc_texts,reference_docs_list,summaries,run_name)
+    create_trectext(doc_texts, reference_docs_list, new_texts, run_name)
     index_path = create_index(run_name)
     print("merging indices")
     sys.stdout.flush()
@@ -77,7 +64,7 @@ if __name__=="__main__":
     create_features_file(features_dir,new_index_name,params.query_description_file)
     move_feature_file(feature_file,run_name)
     index_doc_name = create_index_to_doc_name_dict(feature_file+run_name)
-    scores_file=run_model(feature_file+run_name,run_name)
+    scores_file=run_model(feature_file+run_name)
     results=retrieve_scores(index_doc_name,scores_file)
     results_file = open("scores_of_model"+run_name,"wb")
     pickle.dump(results,results_file)
