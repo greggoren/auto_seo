@@ -9,9 +9,5 @@ vectors=[]
 index = pyndri.Index(params.path_to_index)
 token2id, id2token, id2df = index.get_dictionary()
 del id2token
-for sentence in sentences:
-    vectors.append(preprocess.convert_sentence_to_tfidf_vector(sentence,token2id=token2id,id2df=id2df,index=index))
-#f= open("/home/student/Desktop/senteces_1_0.5",'rb')
-# texts,vectors = pc.load(f)
-# f.close()
-print(cosine_similarity(vectors[1],vectors[0]))
+print(pyndri.escape("#1"))
+pyndri.tokenize("1")
