@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8887b834-fb1d-460c-ac59-66bb4132da32" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/Last_recover.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Experiments/experiment_data_processor.py" afterPath="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
+      <change beforePath="$PROJECT_DIR$/Experiments/scores_of_model" afterPath="$PROJECT_DIR$/Experiments/stuff/scores_of_model" />
       <change beforePath="$PROJECT_DIR$/data/queris.txt" afterPath="$PROJECT_DIR$/data/queris.txt" />
     </list>
     <ignored path="auto_seo.iws" />
@@ -35,7 +36,7 @@
         <entry file="file://$PROJECT_DIR$/Experiments/pagerank_experiment_platform.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="536">
-              <caret line="77" column="71" lean-forward="false" selection-start-line="77" selection-start-column="71" selection-end-line="77" selection-end-column="71" />
+              <caret line="77" column="71" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="84" selection-end-column="24" />
               <folding>
                 <element signature="e#0#94#0" expanded="true" />
               </folding>
@@ -85,18 +86,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_stuff.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Experiments/stuff/create_stuff.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" column="45" lean-forward="false" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
-              <folding>
-                <element signature="e#0#43#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -119,12 +108,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="experiment_data_processor.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="experiment_data_processor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Experiments/experiment_data_processor.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="255">
               <caret line="19" column="113" lean-forward="false" selection-start-line="19" selection-start-column="113" selection-end-line="19" selection-end-column="113" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Last_recover.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Experiments/Last_recover.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#94#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -213,6 +214,7 @@
         <option value="$PROJECT_DIR$/Experiments/pagerank_experiment_platform.py" />
         <option value="$PROJECT_DIR$/Experiments/weaving_experiment_platform.py" />
         <option value="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
+        <option value="$PROJECT_DIR$/Experiments/Last_recover.py" />
       </list>
     </option>
   </component>
@@ -280,16 +282,16 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Experiments" />
+      <recent name="$PROJECT_DIR$/Multi_document_summary" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Experiments/stuff" />
       <recent name="$PROJECT_DIR$/Experiments" />
       <recent name="$PROJECT_DIR$/Multi_document_summary" />
       <recent name="$PROJECT_DIR$/single_doc_summary" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Experiments" />
-      <recent name="$PROJECT_DIR$/Multi_document_summary" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -638,13 +640,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00060" summary="experiments platform in process">
-      <created>1528508947835</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1528508947836</updated>
-    </task>
     <task id="LOCAL-00061" summary="experiments platform in process">
       <created>1528509385758</created>
       <option name="number" value="00061" />
@@ -981,7 +976,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529482438254</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="experiments platform in process">
+      <created>1529503425547</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1529503425547</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1138,13 +1140,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Algorithms/graph_creator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Multi_document_summary/clustering.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -1412,6 +1407,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="218">
           <caret line="66" column="23" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1485,16 +1481,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Experiments/pagerank_experiment_platform.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="536">
-          <caret line="77" column="71" lean-forward="false" selection-start-line="77" selection-start-column="71" selection-end-line="77" selection-end-column="71" />
-          <folding>
-            <element signature="e#0#94#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Experiments/weaving_experiment_platform.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="536">
@@ -1510,6 +1496,26 @@
         <state relative-caret-position="255">
           <caret line="19" column="113" lean-forward="false" selection-start-line="19" selection-start-column="113" selection-end-line="19" selection-end-column="113" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experiments/pagerank_experiment_platform.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="536">
+          <caret line="77" column="71" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="84" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experiments/Last_recover.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#94#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
