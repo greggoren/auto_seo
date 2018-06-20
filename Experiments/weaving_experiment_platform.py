@@ -46,7 +46,7 @@ if __name__=="__main__":
         print("in",query )
         sys.stdout.flush()
         reference_doc=reference_docs[query]
-        new_texts[query] = create_new_document_by_weaving(doc_texts[reference_doc],queries[query],threshold)
+        new_texts[reference_docs[query]] = create_new_document_by_weaving(doc_texts[reference_doc],queries[query],threshold)
     print("finished summarization")
     summary_file = open("new_texts"+run_name,"wb")
     pickle.dump(new_texts, summary_file)
