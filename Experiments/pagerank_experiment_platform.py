@@ -75,7 +75,7 @@ if __name__=="__main__":
     features_dir = "Features"+run_name
     feature_file="features"
     wait_for_feature_file_to_be_deleted(feature_file)
-    create_features_file(features_dir,new_index_name,params.query_description_file,run_name)
+    create_features_file(features_dir,new_index_name,params.queries_xml,run_name)
     move_feature_file(feature_file,run_name)
     index_doc_name = create_index_to_doc_name_dict(feature_file+run_name)
     scores_file=run_model(feature_file+run_name,run_name)
