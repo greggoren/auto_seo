@@ -15,7 +15,7 @@ def diversify(scores, transition_matrix, k, query_vector, sentence_vectors, orig
         closed.append(chosen_sentence)
         open.discard(chosen_sentence)
         for j in open:
-            new_scores[j]=new_scores[j] -transition_matrix[j][chosen_sentence]*new_scores[chosen_sentence]
+            new_scores[j]=new_scores[j] - abs(transition_matrix[j][chosen_sentence]*new_scores[chosen_sentence])
     return closed
 
 
