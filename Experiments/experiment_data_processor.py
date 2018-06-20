@@ -17,7 +17,7 @@ def create_features_file(features_dir,index_path,queries_file,run_name):
     out = run_bash_command(command)
     print(out)
     run_bash_command("mv doc* "+features_dir)
-    command = "perl "+params.features_generator_script_path+" "+features_dir+" "+params.working_set_file
+    command = "perl "+params.features_generator_script_path+" "+features_dir+" "+params.working_set_file+run_name
     print(command)
     out=run_bash_command(command)
     print(out)
