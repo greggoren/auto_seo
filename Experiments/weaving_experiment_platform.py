@@ -69,3 +69,5 @@ if __name__=="__main__":
     results_file = open("scores_of_model"+run_name,"wb")
     pickle.dump(results,results_file)
     results_file.close()
+    f = open("stop.stop"+run_name,'w')
+    f.close()
