@@ -7,8 +7,8 @@ def run():
         run_name2 = str(i+0.1)
         command = "rm -r /lv_local/home/sgregory/auto_seo/new_merged_index*"
         run_bash_command(command)
-        command1="python weaving_experiment_platform.py "+run_name1+" &"
-        command2="python weaving_experiment_platform.py "+run_name2+" &"
+        command1="nohup python weaving_experiment_platform.py "+run_name1+" &"
+        command2="nohup python weaving_experiment_platform.py "+run_name2+" &"
         run_bash_command(command1)
         run_bash_command(command2)
         while True:
