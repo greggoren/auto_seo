@@ -51,4 +51,11 @@ def run_bash_command(command):
 
     out, err = p.communicate()
     return out
+def run_bash_command_no_wait(command):
+    p = subprocess.Popen(command,
+                         stdout=subprocess.PIPE,
+                         stderr=subprocess.STDOUT, shell=True)
+
+    return ''
+
 

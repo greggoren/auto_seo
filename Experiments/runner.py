@@ -1,4 +1,4 @@
-from utils import run_bash_command
+from utils import run_bash_command,run_bash_command_no_wait
 import os
 
 def run():
@@ -9,8 +9,8 @@ def run():
         run_bash_command(command)
         command1="nohup python weaving_experiment_platform.py "+run_name1+" &"
         command2="nohup python weaving_experiment_platform.py "+run_name2+" &"
-        run_bash_command(command1)
-        run_bash_command(command2)
+        run_bash_command_no_wait(command1)
+        run_bash_command_no_wait(command2)
         while True:
             if os.path.isfile("stop.stop_"+run_name1) and os.path.isfile("stop.stop_"+run_name2):
                 break
