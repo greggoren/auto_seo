@@ -26,7 +26,8 @@ def retrieve_query_names():
 
 
 if __name__=="__main__":
-    runs_weaving = ["00", "01", "02", "030000000000000004", "04", "05", "06", "07"]
+    # runs_weaving = ["00", "01", "02", "030000000000000004", "04", "05", "06", "07"]
+    runs_weaving = ["00", "01", "030000000000000004", "04", "05", "06"]
     for run_name in runs_weaving:
         # features_dir = "Features"+run_name
         feature_file="features_"
