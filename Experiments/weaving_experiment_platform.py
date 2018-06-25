@@ -64,7 +64,7 @@ if __name__=="__main__":
     create_features_file(features_dir,new_index_name,params.queries_xml,run_name)
     move_feature_file(feature_file,run_name)
     index_doc_name = create_index_to_doc_name_dict(feature_file+run_name)
-    scores_file=run_model(feature_file+run_name)
+    scores_file=run_model(feature_file+run_name,run_name)
     results=retrieve_scores(index_doc_name,scores_file)
     results_file = open("scores_of_model"+run_name,"wb")
     pickle.dump(results,results_file)

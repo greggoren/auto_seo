@@ -18,31 +18,26 @@ def create_lists(scores):
 
 
 
-f = open("scores_of_model","rb")
 
-scores = pickle.load(f)
 
 ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
-
+runs_pagerank = ["1_00","1_01","1_02","1_03","1_04","1_05","1_06","1_07","1_08","1_09","1_10"]
+runs_weaving = ["00","01","02","030000000000000004","04","05","06","07"]
 reference_docs = {q:ranked_lists[q][-1] for q in ranked_lists}
+for run in runs_pagerank:
+    f = open("scores_of_model_"+run, "rb")
+    scores = pickle.load(f)
+    new_lists = create_lists(scores)
+    average_rank_addition_value,meadian_rank_addition_value = average_rank_addition(ranked_lists,new_lists,reference_docs)
+    create_histogram([new_lists[q].index(reference_docs[q]) + 1 for q in new_lists], "Rank", "#docs", "hist_"+run)
 
-new_lists = create_lists(scores)
+# print(average_rank_addition_value,meadian_rank_addition_value)
 
-average_rank_addition_value,meadian_rank_addition_value = average_rank_addition(ranked_lists,new_lists,reference_docs)
 
-print(average_rank_addition_value,meadian_rank_addition_value)
 
-create_histogram([new_lists[q].index(reference_docs[q])+1 for q in new_lists],"Rank","#docs","hist")
-
-reference_doc_names_for_example =  list(reference_docs.values())[:2]
 
 # doc_texts = load_file(params.new_trec_text_file)
 
-summary_file = open("summaries","rb")
-summaries=pickle.load(summary_file)
-
-
-print(summaries["004"])
 
 
 

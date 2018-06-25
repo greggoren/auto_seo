@@ -26,15 +26,16 @@ def retrieve_query_names():
 
 
 if __name__=="__main__":
-    run_name = "_1_05"
-    features_dir = "Features"+run_name
-    feature_file="features"
-    wait_for_feature_file_to_be_deleted(feature_file)
-    create_features_file(features_dir,"/lv_local/home/sgregory/auto_seo/new_merged_index_1_05",params.queries_xml,run_name)
-    move_feature_file(feature_file,run_name)
-    index_doc_name = create_index_to_doc_name_dict(feature_file+run_name)
-    scores_file=run_model(feature_file+run_name,run_name)
-    results=retrieve_scores(index_doc_name,scores_file)
-    results_file = open("scores_of_model"+run_name,"wb")
-    pickle.dump(results,results_file)
-    results_file.close()
+    runs_weaving = ["00", "01", "02", "030000000000000004", "04", "05", "06", "07"]
+    for run_name in runs_weaving:
+        # features_dir = "Features"+run_name
+        feature_file="features"
+        # wait_for_feature_file_to_be_deleted(feature_file)
+        # create_features_file(features_dir,"/lv_local/home/sgregory/auto_seo/new_merged_index_1_05",params.queries_xml,run_name)
+        # move_feature_file(feature_file,run_name)
+        index_doc_name = create_index_to_doc_name_dict(feature_file+run_name)
+        scores_file=run_model(feature_file+run_name,run_name)
+        results=retrieve_scores(index_doc_name,scores_file)
+        results_file = open("scores_of_model_"+run_name,"wb")
+        pickle.dump(results,results_file)
+        results_file.close()
