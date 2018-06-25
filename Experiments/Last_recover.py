@@ -32,7 +32,7 @@ if __name__=="__main__":
         feature_file="features_"
         # wait_for_feature_file_to_be_deleted(feature_file)
         # create_features_file(features_dir,"/lv_local/home/sgregory/auto_seo/new_merged_index_1_05",params.queries_xml,run_name)
-        sgregory# move_feature_file(feature_file,run_name)
+        # move_feature_file(feature_file,run_name)
         index_doc_name = create_index_to_doc_name_dict(feature_file+run_name)
         scores_file=run_model(feature_file+run_name,run_name)
         results=retrieve_scores(index_doc_name,scores_file)
