@@ -4,8 +4,6 @@
     <list default="true" id="8887b834-fb1d-460c-ac59-66bb4132da32" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Experiments/Last_recover.py" afterPath="$PROJECT_DIR$/Experiments/Last_recover.py" />
-      <change beforePath="$PROJECT_DIR$/Experiments/check_results.py" afterPath="$PROJECT_DIR$/Experiments/check_results.py" />
-      <change beforePath="$PROJECT_DIR$/Experiments/weaving_experiment_platform.py" afterPath="$PROJECT_DIR$/Experiments/weaving_experiment_platform.py" />
       <change beforePath="$PROJECT_DIR$/data/queris.txt" afterPath="$PROJECT_DIR$/data/queris.txt" />
     </list>
     <ignored path="auto_seo.iws" />
@@ -90,8 +88,8 @@
       <file leaf-file-name="Last_recover.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Experiments/Last_recover.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+            <state relative-caret-position="289">
+              <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -635,13 +633,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00064" summary="experiments platform in process">
-      <created>1528510033175</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1528510033175</updated>
-    </task>
     <task id="LOCAL-00065" summary="experiments platform in process">
       <created>1528510254426</created>
       <option name="number" value="00065" />
@@ -978,7 +969,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529780002003</updated>
     </task>
-    <option name="localTasksCounter" value="113" />
+    <task id="LOCAL-00113" summary="experiments platform in process">
+      <created>1529916138737</created>
+      <option name="number" value="00113" />
+      <option name="presentableId" value="LOCAL-00113" />
+      <option name="project" value="LOCAL" />
+      <updated>1529916138737</updated>
+    </task>
+    <option name="localTasksCounter" value="114" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1500,8 +1498,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Experiments/Last_recover.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+        <state relative-caret-position="289">
+          <caret line="31" column="31" lean-forward="false" selection-start-line="31" selection-start-column="31" selection-end-line="31" selection-end-column="31" />
           <folding />
         </state>
       </provider>
