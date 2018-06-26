@@ -68,7 +68,9 @@ def create_index(run_name):
     os.popen('mkdir -p ' + path_to_folder)
     if not os.path.exists(path_to_folder+"/index/"):
         os.makedirs(path_to_folder+"/index/")
-    out=run_bash_command(indri_build_index + ' -corpus.path='+corpus_path + ' -corpus.class='+corpus_class + ' -index='+index + ' -memory='+memory + ' -stemmer.name=' + stemmer)
+    command = indri_build_index + ' -corpus.path=' + corpus_path + ' -corpus.class=' + corpus_class + ' -index=' + index + ' -memory=' + memory + ' -stemmer.name=' + stemmer
+    print(command)
+    out=run_bash_command(command)
     print(out)
     return index
 

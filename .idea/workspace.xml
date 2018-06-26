@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8887b834-fb1d-460c-ac59-66bb4132da32" name="Default" comment="">
+    <list default="true" id="8887b834-fb1d-460c-ac59-66bb4132da32" name="Default" comment="experiments platform in process">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/Experiments/experiment_data_processor.py" afterPath="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
       <change beforePath="$PROJECT_DIR$/data/queris.txt" afterPath="$PROJECT_DIR$/data/queris.txt" />
@@ -70,8 +70,8 @@
       <file leaf-file-name="experiment_data_processor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Experiments/experiment_data_processor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="70" column="177" lean-forward="true" selection-start-line="70" selection-start-column="177" selection-end-line="70" selection-end-column="177" />
+            <state relative-caret-position="323">
+              <caret line="71" column="17" lean-forward="false" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -589,13 +589,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00075" summary="experiments platform in process">
-      <created>1528522529346</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1528522529346</updated>
-    </task>
     <task id="LOCAL-00076" summary="experiments platform in process">
       <created>1528522810047</created>
       <option name="number" value="00076" />
@@ -932,7 +925,14 @@
       <option name="project" value="LOCAL" />
       <updated>1530036663644</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="experiments platform in process">
+      <created>1530036762449</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1530036762449</updated>
+    </task>
+    <option name="localTasksCounter" value="125" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1360,8 +1360,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Experiments/experiment_data_processor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="70" column="177" lean-forward="true" selection-start-line="70" selection-start-column="177" selection-end-line="70" selection-end-column="177" />
+        <state relative-caret-position="323">
+          <caret line="71" column="17" lean-forward="false" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
           <folding />
         </state>
       </provider>
