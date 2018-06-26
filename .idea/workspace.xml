@@ -2,37 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8887b834-fb1d-460c-ac59-66bb4132da32" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/new_texts_00" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/new_texts_03" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/new_texts_07" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_00" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_01" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_02" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_030000000000000004" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_04" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_05" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_06" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_07" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_1_00" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_1_01" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_1_02" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_1_03" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_1_04" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_1_05" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_1_06" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_1_07" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_1_08" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_1_09" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/scores/scores_of_model_1_10" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/summaries_1_00" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/summaries_1_03" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/summaries_1_05" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/summaries_1_08" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/Experiments/summaries_1_10" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/Experiments/check_results.py" afterPath="$PROJECT_DIR$/Experiments/check_results.py" />
       <change beforePath="$PROJECT_DIR$/Experiments/features_test.py" afterPath="$PROJECT_DIR$/Experiments/features_test.py" />
-      <change beforePath="$PROJECT_DIR$/Experiments/stats.py" afterPath="$PROJECT_DIR$/Experiments/stats.py" />
       <change beforePath="$PROJECT_DIR$/data/queris.txt" afterPath="$PROJECT_DIR$/data/queris.txt" />
     </list>
     <ignored path="auto_seo.iws" />
@@ -87,8 +58,8 @@
       <file leaf-file-name="features_test.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Experiments/features_test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+            <state relative-caret-position="102">
+              <caret line="6" column="152" lean-forward="false" selection-start-line="6" selection-start-column="152" selection-end-line="6" selection-end-column="152" />
               <folding>
                 <element signature="e#0#70#0" expanded="true" />
               </folding>
@@ -608,13 +579,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00069" summary="experiments platform in process">
-      <created>1528511659372</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1528511659372</updated>
-    </task>
     <task id="LOCAL-00070" summary="experiments platform in process">
       <created>1528512256600</created>
       <option name="number" value="00070" />
@@ -951,7 +915,14 @@
       <option name="project" value="LOCAL" />
       <updated>1530030750490</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="experiments platform in process">
+      <created>1530031062773</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1530031062773</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1377,8 +1348,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Experiments/features_test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
+        <state relative-caret-position="102">
+          <caret line="6" column="152" lean-forward="false" selection-start-line="6" selection-start-column="152" selection-end-line="6" selection-end-column="152" />
           <folding>
             <element signature="e#0#70#0" expanded="true" />
           </folding>
