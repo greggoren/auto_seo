@@ -10,11 +10,12 @@ def average_rank_addition(old_lists, new_lists, reference_docs):
 
 
 def create_histogram(x,x_label,y_label,file_name):
-    n, bins, patches = plt.hist(x, 50, facecolor='blue', alpha=0.75)
+    n, bins, patches = plt.hist(x,50, facecolor='blue', alpha=0.75)
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     plt.grid(True)
     plt.savefig(file_name)
+    plt.clf()
 
 
 
