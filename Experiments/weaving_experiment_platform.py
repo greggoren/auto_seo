@@ -13,6 +13,7 @@ import params
 import pickle
 import pyndri
 import sys
+from numpy.random import seed
 
 
 
@@ -26,7 +27,7 @@ def retrieve_query_names():
 
 
 if __name__=="__main__":
-
+    seed(9001)
     threshold = float(sys.argv[1])
     run_name = "_"+str(threshold).replace(".","")
 
