@@ -1,15 +1,13 @@
 from Preprocess.preprocess import tokenize_sentence
 from Preprocess.preprocess import retrieve_sentences
-from random import randint,seed
+from random import randint
 import numpy as np
 from copy import deepcopy
 
 def create_new_document_by_weaving(text,query,threshold):
-    seed(1)
     sentences = retrieve_sentences(text)
     query_tokens,query_words = tokenize_sentence(query)
     new_sentences=[]
-
     for sentence in sentences:
         tokens,words = tokenize_sentence(sentence)
         new_words = deepcopy(words)
