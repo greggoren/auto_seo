@@ -9,7 +9,7 @@ print("uploading index")
 ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
 
 
-reference_docs = [ranked_lists[q][-1] for q in ranked_lists]
+reference_docs = [ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists]
 
 index = pyndri.Index(params.path_to_index)
 dic={}
