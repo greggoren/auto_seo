@@ -37,7 +37,7 @@ if __name__=="__main__":
     f = open("dic4.pickle","rb")
     dic = pickle.load(f)
     f.close()
-
+    print(dic)
     print("loading index finished")
 
     ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
