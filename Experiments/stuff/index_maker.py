@@ -2,7 +2,7 @@ import pyndri
 import params
 import pickle
 import sys
-from Preprocess.preprocess import retrieve_ranked_lists
+
 
 
 print("uploading index")

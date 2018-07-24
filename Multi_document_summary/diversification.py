@@ -9,7 +9,7 @@ def diversify(scores, transition_matrix, k, query_vector, sentence_vectors, orig
         raise Exception("k <= 0")
     open = set(transition_matrix.keys())
     closed=[]
-    while len(closed) < k or not open:
+    while len(closed) < k and open:
         sorted_scores=sorted(list(open),key=lambda x:new_scores[x],reverse=True)
         chosen_sentence = sorted_scores[0]
         closed.append(chosen_sentence)
