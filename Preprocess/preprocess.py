@@ -133,12 +133,14 @@ def tokenize_sentence(sentence):
     sentence = re.sub("]", " ", sentence)
     sentence = re.sub("4ºn", " ", sentence)
     sentence = re.sub("4ºw", " ", sentence)
+    sentence = re.sub("™", " ", sentence)
     words = sentence.split()
     tokens = []
     for word in words:
         modified = pyndri.escape(word)
         if not modified.isspace():
             try:
+                print(word)
                 tokens.extend(pyndri.tokenize(modified))
             except OSError as e:
                 print(word)
