@@ -140,7 +140,6 @@ def tokenize_sentence(sentence):
         modified = pyndri.escape(word)
         if not modified.isspace():
             try:
-                print(word)
                 tokens.extend(pyndri.tokenize(modified))
             except OSError as e:
                 print(word)
