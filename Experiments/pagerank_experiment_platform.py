@@ -34,7 +34,7 @@ if __name__=="__main__":
     index = pyndri.Index(params.path_to_index)
     token2id, id2token, id2df = index.get_dictionary()
     del id2token
-    f = open("dic.pickle","rb")
+    f = open("dic4.pickle","rb")
     dic = pickle.load(f)
     f.close()
 
