@@ -66,7 +66,7 @@ def average_syllables(terms,id2token):
 
 def top_freq_lists(tfs):
     tops = sorted(list(tfs.keys()),key=lambda x:tfs[x],reverse=True)
-    return tops[100],tops[10000]
+    return tops[:100],tops[:10000]
 
 
 def create_features_line(terms,popular_terms,stop_words,id2token,id2df):
