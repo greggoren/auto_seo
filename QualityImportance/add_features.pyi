@@ -48,6 +48,8 @@ def stop_cover(terms,stop_words_tokens,max=None,min=None):
 def average_term_length(terms,id2token,max=None,min=None):
     sum_of_lengths = 0
     for term in terms:
+        if term==0:
+            continue
         word = id2token[term]
         sum_of_lengths+=len(word)
     if max is None:
@@ -87,6 +89,8 @@ def average_syllables(terms,id2token,max=None,min=None):
     sum_of_syllables = 0
     d = pyphen.Pyphen(lang='en')
     for term in terms:
+        if term==0:
+            continue
         word = id2token[term]
         sum_of_syllables+=len(d.inserted(word).split("-"))
     if max is None:
