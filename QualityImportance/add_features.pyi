@@ -94,7 +94,8 @@ def create_features_file(features_file):
     with open(features_file) as file:
         for line in file:
             splited=line.split(" # ")
-            features,doc_name =splited[0], splited[1].rstrip()
+            features,doc_name =splited[0], splited[1]
+            doc_name=doc_name.rstrip()
             did=dic[doc_name]
             terms = index.document(did)[1]
             add_to_line = create_features_line(terms,popular_terms,stop_words,id2token,id2df)
