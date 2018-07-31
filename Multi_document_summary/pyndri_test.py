@@ -13,7 +13,7 @@ begin = time()
 index = pyndri.Index(params.path_to_index)
 
 # Queries the index with 'hello world' and returns the first 1000 results.
-results = index.query('hello world', results_requested=1000)
+results = index.query('family tree')
 print("it took ",time()-begin)
 for int_document_id, score in results:
     ext_document_id, _ = index.document(int_document_id)
