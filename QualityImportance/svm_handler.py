@@ -21,3 +21,7 @@ def classify(model_file,fold,test_file,C):
     for output_line in run_command(rank_command):
         print(output_line)
     return score_path + "/" + str(C)
+
+
+
+learn_svm("Quality_Features",0.01)
