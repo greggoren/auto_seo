@@ -9,19 +9,15 @@ from time import time
 # 	test.run"
 begin = time()
 
-
-index = pyndri.Index(params.path_to_index)
-dictionary = pyndri.extract_dictionary(index)
-_, int_doc_id = index.document_ids(['clueweb09-en0039-05-00000'])
-print([dictionary[token_id]
-for token_id in index.document(int_doc_id)[1]])
-
-# Queries the index with 'hello world' and returns the first 1000 results.
-# results = index.query('family tree')
-# print("it took ",time()-begin)
-# for int_document_id, score in results:
-#     ext_document_id, _ = index.document(int_document_id)
-#     print(ext_document_id, score)
-# run_bash_command(command)
+index= pyndri.Index(params.path_to_index)
+query_env = pyndri.QueryEnvironment(index,rules=('method:linear,collectionLambda:0.4,documentLambda:0.2',))
+query_expander = pyndri.QueryExpander(query_env)
+results = query_expander.expand("family tree")
+# results = index.query('')
+print("it took ",time()-begin)
+for int_document_id, score in results:
+    ext_document_id, _ = index.document(int_document_id)
+    print(ext_document_id, score)
+run_bash_command(command)
 
 
