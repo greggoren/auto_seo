@@ -18,6 +18,6 @@ print("it took ",time()-begin)
 for int_document_id, score in results:
     ext_document_id, _ = index.document(int_document_id)
     print(ext_document_id, score)
-run_bash_command(command)
+# run_bash_command(command)
 
 
