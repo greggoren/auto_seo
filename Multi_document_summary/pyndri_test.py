@@ -11,7 +11,7 @@ begin = time()
 
 index= pyndri.Index(params.path_to_index)
 query_env = pyndri.QueryEnvironment(index,rules=('method:linear,collectionLambda:0.4,documentLambda:0.2'))
-query_env = pyndri.PRFQueryEnvironment(query_env,fb_terms=50)
+query_env = pyndri.PRFQueryEnvironment(query_env,fb_terms=50,fb_docs=10)
 query_expander = pyndri.QueryExpander(query_env)
 results = query_expander.expand("family tree")
 print(results)
