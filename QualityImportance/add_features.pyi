@@ -178,5 +178,5 @@ def create_features_file(features_file):
             new_features_file.write(final_line)
         new_features_file.close()
 
-create_features_file("features")
+create_features_file("featuresF")
 
