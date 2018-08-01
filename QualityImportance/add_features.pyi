@@ -165,7 +165,7 @@ def create_features_file(features_file):
     stop_words,popular_terms = top_freq_lists(term_frequencies)
     del term_frequencies
     maximum,minimum = get_max_min_stats(features_file, id2token, id2df,stop_words,popular_terms,dic,index)
-    new_features_file=open("Quality_Features","w")
+    new_features_file=open("Quality_FeaturesF","w")
     with open(features_file) as file:
         for line in file:
             splited=line.split(" # ")
