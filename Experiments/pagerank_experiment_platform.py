@@ -65,9 +65,7 @@ if __name__=="__main__":
     del token2id
     del id2df
     del dic
-    reference_docs_list = list(reference_docs.values())
-    print(reference_docs_list)
-    create_trectext(doc_texts,reference_docs_list,summaries,run_name)
+    create_trectext(doc_texts,summaries,run_name)
     index_path = create_index(run_name)
     print("merging indices")
     sys.stdout.flush()

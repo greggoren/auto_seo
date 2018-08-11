@@ -4,7 +4,7 @@ from utils import run_bash_command
 import sys
 import time
 
-def create_features_file(features_dir,index_path,queries_file,run_name):
+def create_features_file(features_dir,index_path,queries_file,run_name=""):
     if not os.path.exists(features_dir):
         os.makedirs(features_dir)
 
@@ -21,13 +21,16 @@ def create_features_file(features_dir,index_path,queries_file,run_name):
     print(command)
     out=run_bash_command(command)
     print(out)
+    command = "mv features features"+run_name
+    print(command)
+    out = run_bash_command(command)
+    print(out)
 
-
-def create_trectext(document_text,reference_docs,summaries,run_name):
+def create_trectext(document_text,summaries,run_name=""):
     f= open(params.new_trec_text_file+run_name,"w",encoding="utf-8")
     query_to_docs = {}
     for document in document_text:
-        if document in reference_docs:
+        if document in summaries:
             text = summaries[document]
         else:
             text = document_text[document]
@@ -52,7 +55,7 @@ def create_trectext(document_text,reference_docs,summaries,run_name):
 
     f.close()
 
-def create_index(run_name):
+def create_index(run_name=""):
     """
     Parse the trectext file given, and create an index.
     """
@@ -74,9 +77,35 @@ def create_index(run_name):
     print(out)
     return index
 
-def merge_indices(new_index,run_name):
+def add_docs_to_index(index,run_name=""):
+    """
+    Parse the trectext file given, and create an index.
+    """
+    path_to_folder = '/lv_local/home/sgregory/auto_seo'
+    indri_build_index = '/lv_local/home/sgregory/indri_test/bin/IndriBuildIndex'
+    corpus_path = params.new_trec_text_file+run_name
+    corpus_class = 'trectext'
+    memory = '1G'
+    stemmer =  'krovetz'
+    os.popen('mkdir -p ' + path_to_folder)
+    if not os.path.exists(path_to_folder+"/index/"):
+        os.makedirs(path_to_folder+"/index/")
+    command = indri_build_index + ' -corpus.path=' + corpus_path + ' -corpus.class=' + corpus_class + ' -index=' + index + ' -memory=' + memory + ' -stemmer.name=' + stemmer
+    print(command)
+    out=run_bash_command(command)
+    print(out)
+    return index
+
+
+
+def merge_indices(new_index,run_name=""):
     path_to_folder = '/lv_local/home/sgregory/auto_seo'
     new_index_name = path_to_folder+'/new_merged_index'+run_name
+    if os.path.exists(new_index_name):
+        print("deleting old merged index repository")
+        command = "rm -r "+new_index_name
+        run_bash_command(command)
+        print("delete finished")
     command = '/lv_local/home/sgregory/indri_test/bin/dumpindex '+new_index_name+' merge '+new_index+' '+params.corpus_path_56
     print("merging command:",command)
     sys.stdout.flush()
@@ -84,6 +113,18 @@ def merge_indices(new_index,run_name):
     print("merging out command:",out)
     # run_command(command)
     return new_index_name
+
+
+
+def delete_doc_from_index(index,doc,dic,run_name=""):
+    did=dic[doc]
+    command = '/lv_local/home/sgregory/indri_test/bin/dumpindex '+index+' delete '+did
+    print("deleting command:",command)
+    sys.stdout.flush()
+    out=run_bash_command(command)
+    print("deleting out command:",out)
+
+
 
 
 def wait_for_feature_file_to_be_deleted(feature_file):

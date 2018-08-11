@@ -7,7 +7,7 @@ import params
 
 
 
-def run_model(test_file,run_name):
+def run_model(test_file,run_name=""):
     java_path = "/lv_local/home/sgregory/jdk1.8.0_121/bin/java"
     jar_path = "/lv_local/home/sgregory/SEO_CODE/model_running/RankLib.jar"
     score_file = "scores/scores_of_seo_run"+run_name

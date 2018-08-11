@@ -9,7 +9,7 @@ def run():
         command="nohup python pagerank_experiment_platform.py 1 "+run_name1+" &"
         run_bash_command(command)
         while True:
-            if os.path.isfile("stop.stop_1_"+run_name1.replace(".","")):
+            if os.path.isfile("stop.stop_1"+run_name1.replace(".","")):
                 break
 
 
