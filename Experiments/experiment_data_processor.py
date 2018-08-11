@@ -4,7 +4,7 @@ from utils import run_bash_command
 import sys
 import time
 
-def create_features_file(features_dir,index_path,queries_file,run_name=""):
+def create_features_file(features_dir,index_path,queries_file,new_features_file,run_name=""):
     if not os.path.exists(features_dir):
         os.makedirs(features_dir)
 
@@ -21,15 +21,18 @@ def create_features_file(features_dir,index_path,queries_file,run_name=""):
     print(command)
     out=run_bash_command(command)
     print(out)
-    command = "mv features features"+run_name
+    command = "mv features "+new_features_file
     print(command)
     out = run_bash_command(command)
     print(out)
 
-def create_trectext(document_text,summaries,run_name=""):
+def create_trectext(document_text, summaries, run_name="", avoid=[], write_doc=""):
+    trec_text_file = params.new_trec_text_file+run_name
     f= open(params.new_trec_text_file+run_name,"w",encoding="utf-8")
     query_to_docs = {}
     for document in document_text:
+        if document in avoid:
+            continue
         if document in summaries:
             text = summaries[document]
         else:
@@ -38,30 +41,33 @@ def create_trectext(document_text,summaries,run_name=""):
         if not query_to_docs.get(query,False):
             query_to_docs[query]=[]
         query_to_docs[query].append(document)
-        f.write('<DOC>\n')
-        f.write('<DOCNO>' + document + '</DOCNO>\n')
-        f.write('<TEXT>\n')
-        f.write(text.rstrip())
-        f.write('\n</TEXT>\n')
-        f.write('</DOC>\n')
-
+        if write_doc==document:
+            f.write('<DOC>\n')
+            f.write('<DOCNO>' + document + '</DOCNO>\n')
+            f.write('<TEXT>\n')
+            f.write(text.rstrip())
+            f.write('\n</TEXT>\n')
+            f.write('</DOC>\n')
+    f.close()
     workingSetFilename = params.working_set_file+run_name
     f = open(workingSetFilename, 'w')
     for query, docnos in query_to_docs.items():
         i = 1
         for docid in docnos:
-            f.write(query.zfill(3) + ' Q0 ' + docid + ' ' + str(i) + ' -' + str(i) + ' indri\n')
-            i += 1
+            if docid not in avoid:
+                f.write(query.zfill(3) + ' Q0 ' + docid + ' ' + str(i) + ' -' + str(i) + ' indri\n')
+                i += 1
 
     f.close()
+    return trec_text_file
 
-def create_index(run_name=""):
+def create_index(trec_text_file,run_name=""):
     """
     Parse the trectext file given, and create an index.
     """
-    path_to_folder = '/lv_local/home/sgregory/auto_seo'
-    indri_build_index = '/lv_local/home/sgregory/indri_test/bin/IndriBuildIndex'
-    corpus_path = params.new_trec_text_file+run_name
+    path_to_folder = '/home/greg/auto_seo'
+    indri_build_index = '/home/greg/indri_test/bin/IndriBuildIndex'
+    corpus_path = trec_text_file
     corpus_class = 'trectext'
     memory = '1G'
     index = path_to_folder+"/index/new_index"+run_name

@@ -3,6 +3,7 @@ from Experiments.experiment_data_processor import create_trectext
 from Experiments.experiment_data_processor import delete_doc_from_index
 from Experiments.experiment_data_processor import add_docs_to_index
 from Experiments.experiment_data_processor import merge_indices
+from Experiments.experiment_data_processor import create_index
 from Experiments.experiment_data_processor import create_features_file
 from Experiments.model_handler import run_model
 from Experiments.model_handler import retrieve_scores
@@ -21,6 +22,10 @@ def retrieve_query_names():
             data = line.split(":")
             query_mapper[data[0]]=data[1].rstrip()
     return query_mapper
+
+def avoid_docs_for_working_set(reference_doc,reference_docs):
+    diffenrece = set(reference_docs).difference(set(reference_doc))
+    return diffenrece
 
 
 if __name__=="__main__":
@@ -51,20 +56,22 @@ if __name__=="__main__":
             new_sentence = sentence_map[query][sentence]
             modified_doc=reference_doc+"\n"+new_sentence
             summaries[reference_doc]=modified_doc
-            create_trectext(doc_texts, summaries, run_name)
-            delete_doc_from_index(reference_doc,dic)
-            add_docs_to_index(params.path_to_index,run_name)
+            avoid = avoid_docs_for_working_set(reference_doc, reference_docs)
+            trec_text_file = create_trectext(doc_texts, summaries, run_name,avoid)
+
+            # delete_doc_from_index(reference_doc,dic)
+            # add_docs_to_index(params.path_to_index,run_name)
+            added_index = create_index(trec_text_file,run_name)
+            merged_index=merge_indices(added_index,run_name)
             features_dir = "Features"
             feature_file = "features"+run_name
-            create_features_file(features_dir, params.path_to_index, params.queries_xml,run_name)
+            create_features_file(features_dir, merged_index, params.queries_xml,feature_file,run_name)
             index_doc_name = create_index_to_doc_name_dict(feature_file)
             scores_file = run_model(feature_file)
             results = retrieve_scores(index_doc_name, scores_file)
             lists=create_lists(results)
             addition = abs(lists[query].index(reference_doc) - len(lists[query]))
             f.write(run_name+"\t"+str(addition))
-        delete_doc_from_index(reference_doc, dic)
-        add_docs_to_index(params.path_to_index)
     f.close()
 
 
