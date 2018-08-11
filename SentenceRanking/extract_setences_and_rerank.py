@@ -24,7 +24,7 @@ def retrieve_query_names():
     return query_mapper
 
 def avoid_docs_for_working_set(reference_doc,reference_docs):
-    diffenrece = set(reference_docs).difference(set(reference_doc))
+    diffenrece = set(reference_docs).difference(set([reference_doc]))
     return diffenrece
 
 
