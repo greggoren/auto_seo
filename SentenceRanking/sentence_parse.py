@@ -4,7 +4,7 @@ def map_sentences(document_texts,winners):
     sentence_map={}
     for query in winners:
         sentence_map[query]={}
-        winner = winners[query]
+        winner = winners[query].replace("EPOCH","ROUND")
         text = document_texts[winner]
         sentences = retrieve_sentences(text)
         index = 1
