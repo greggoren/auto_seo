@@ -51,7 +51,7 @@ if __name__=="__main__":
     for query in sentence_map:
         print("in query",index, "out of",len(sentence_map))
         sys.stdout.flush()
-        reference_doc = reference_docs[query]
+        reference_doc = reference_docs[query].replace("EPOCH","ROUND")
         reference_text = doc_texts[reference_doc]
         for sentence in sentence_map[query]:
             run_name = sentence
