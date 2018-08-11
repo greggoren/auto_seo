@@ -9,7 +9,7 @@ def map_sentences(document_texts,winners):
         sentences = retrieve_sentences(text)
         index = 1
         for sentence in sentences:
-            sentence_map[query][winner+str(index)]=sentence
+            sentence_map[query][winner+"_"+str(index)]=sentence
             index+=1
     return sentence_map
 
