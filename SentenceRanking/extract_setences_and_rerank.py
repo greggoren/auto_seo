@@ -36,9 +36,6 @@ if __name__=="__main__":
 
     reference_docs = {q:ranked_lists[q][-1] for q in ranked_lists}
     winner_docs = {q:ranked_lists[q][0] for q in ranked_lists}
-    print(ranked_lists)
-    print(reference_docs)
-    print(winner_docs)
     a_doc_texts = load_file(params.trec_text_file)
     doc_texts={}
     for doc in a_doc_texts:

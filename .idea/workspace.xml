@@ -60,8 +60,8 @@
       <file leaf-file-name="extract_setences_and_rerank.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="53" column="68" lean-forward="false" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
+            <state relative-caret-position="230">
+              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
               </folding>
@@ -659,13 +659,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00134" summary="experiments platform in process">
-      <created>1532372742188</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1532372742188</updated>
-    </task>
     <task id="LOCAL-00135" summary="experiments platform in process">
       <created>1532383605105</created>
       <option name="number" value="00135" />
@@ -1002,7 +995,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534015429424</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="experiments platform in process">
+      <created>1534015536971</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1534015536971</updated>
+    </task>
+    <option name="localTasksCounter" value="184" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1476,8 +1476,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="53" column="68" lean-forward="false" selection-start-line="53" selection-start-column="68" selection-end-line="53" selection-end-column="68" />
+        <state relative-caret-position="230">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <element signature="e#0#65#0" expanded="true" />
           </folding>
