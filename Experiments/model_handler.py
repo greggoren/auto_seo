@@ -17,7 +17,8 @@ def run_model(test_file,run_name=""):
     model_path = params.model_path
     run_bash_command('touch ' + score_file)
     command = java_path + " -jar " + jar_path + " -load " + model_path + " -rank " + features + " -score " + score_file
-    run_bash_command(command)
+    out = run_bash_command(command)
+    print(out)
     return score_file
 
 
