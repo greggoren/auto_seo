@@ -5,6 +5,7 @@ import sys
 import time
 
 def create_features_file(features_dir,index_path,queries_file,new_features_file,run_name=""):
+    run_bash_command("rm -r "+features_dir)
     if not os.path.exists(features_dir):
         os.makedirs(features_dir)
 
