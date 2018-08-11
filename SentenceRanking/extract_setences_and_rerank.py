@@ -66,6 +66,7 @@ if __name__=="__main__":
             scores_file = run_model(feature_file)
             results = retrieve_scores(index_doc_name, scores_file)
             lists=create_lists(results)
+            print(lists)
             addition = abs(lists[query].index(reference_doc) - len(lists[query]))
             f.write(run_name+"\t"+str(addition))
     f.close()
