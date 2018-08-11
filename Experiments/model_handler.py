@@ -8,7 +8,7 @@ import params
 
 
 def run_model(test_file,run_name=""):
-    java_path = "/home/greg/jdk1.8.0_131/bin/java"
+    java_path = "/home/greg/jdk1.8.0_181/bin/java"
     jar_path = "/home/greg/SEO_CODE/model_running/RankLib.jar"
     score_file = "scores/scores_of_seo_run"+run_name
     if not os.path.exists("scores/"):
