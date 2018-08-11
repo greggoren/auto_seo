@@ -58,9 +58,6 @@ if __name__=="__main__":
             summaries[reference_doc]=modified_doc
             avoid = avoid_docs_for_working_set(reference_doc, reference_docs)
             trec_text_file = create_trectext(doc_texts, summaries, run_name,avoid)
-
-            # delete_doc_from_index(reference_doc,dic)
-            # add_docs_to_index(params.path_to_index,run_name)
             added_index = create_index(trec_text_file,run_name)
             merged_index=merge_indices(added_index,run_name)
             features_dir = "Features"

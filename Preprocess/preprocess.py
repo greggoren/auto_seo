@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as ET
 import nltk.data
-import pyndri
+# import pyndri
 import numpy as np
 from collections import Counter
 import math
@@ -23,12 +23,12 @@ def load_file(filename):
                 docs[name]=att.text
     return docs
 
-def turn_sentence_into_terms(sentence,index,token2id):
-    result = []
-    words = index.tokenize(sentence)
-    for word in words:
-        result.append(token2id[pyndri.krovetz_stem(word)])
-    return result
+# def turn_sentence_into_terms(sentence,index,token2id):
+#     result = []
+#     words = index.tokenize(sentence)
+#     for word in words:
+#         result.append(token2id[pyndri.krovetz_stem(word)])
+#     return result
 
 
 
@@ -47,10 +47,10 @@ def get_Dinit_for_query(query):
                 Dinit.append(doc.rstrip())
         return Dinit
 
-def get_tdidf_value_of_word(word, counts, N,number_of_terms,token2id,id2df):
-    stemmed = pyndri.krovetz_stem(word)
-    id = token2id[stemmed]
-    return  get_tfidf_value(id,counts,N,number_of_terms,id2df),id
+# def get_tdidf_value_of_word(word, counts, N,number_of_terms,token2id,id2df):
+#     stemmed = pyndri.krovetz_stem(word)
+#     id = token2id[stemmed]
+#     return  get_tfidf_value(id,counts,N,number_of_terms,id2df),id
 
 def get_tfidf_value(id,counts,N,number_of_terms,id2df):
     df = id2df[id]
@@ -74,37 +74,37 @@ def get_tfidf_value(id,counts,N,number_of_terms,id2df):
 #                     Dinit_text[name] = Counter([token2id[pyndri.krovetz_stem(i)] for i in  retrieve_sentences(att.text)])
 #     return Dinit_text
 
-def query_probability_given_docs(query,Dinit_counts,index,dic,token2id,total_corpus_term_count):
-    query_to_doc_probability={}
-    id2tf=index.get_term_frequencies()
-    for d_i in Dinit_counts:
-        counts = Dinit_counts[d_i]
-        doc_id = dic.get(d_i,dic[list(dic.keys())[0]])#TODO: erase all these tests
-        document_length = index.document_length(doc_id)
-        tmp=1
-        for i in [beta*(counts[q] / document_length) + (1-beta)*id2tf[token2id[pyndri.krovetz_stem(q)]]/total_corpus_term_count for q in pyndri.tokenize(query)]:
-            tmp *= i
-        query_to_doc_probability[d_i]=tmp
+# def query_probability_given_docs(query,Dinit_counts,index,dic,token2id,total_corpus_term_count):
+#     query_to_doc_probability={}
+#     id2tf=index.get_term_frequencies()
+#     for d_i in Dinit_counts:
+#         counts = Dinit_counts[d_i]
+#         doc_id = dic.get(d_i,dic[list(dic.keys())[0]])#TODO: erase all these tests
+#         document_length = index.document_length(doc_id)
+#         tmp=1
+#         for i in [beta*(counts[q] / document_length) + (1-beta)*id2tf[token2id[pyndri.krovetz_stem(q)]]/total_corpus_term_count for q in pyndri.tokenize(query)]:
+#             tmp *= i
+#         query_to_doc_probability[d_i]=tmp
+#
+#     return query_to_doc_probability
 
-    return query_to_doc_probability
 
 
-
-def create_tfidf_vectors(sentences,index,token2id,id2df):
-    all_sentences=[]
-    N = index.document_count()
-    for doc in sentences:
-        terms = index.document(doc)[1]
-        counts = Counter(terms)
-        for sentence in sentence[doc]:
-            words = sentence.split()
-            sentence_vector = np.zeros(len(token2id))
-            for word in words:
-                tfidf,id = get_tdidf_value_of_word(word, counts, N,token2id,id2df)
-                sentence_vector[id]+=tfidf
-            #sentence_vector/=len(words)
-            all_sentences.append(sentence)
-    return all_sentences
+# def create_tfidf_vectors(sentences,index,token2id,id2df):
+#     all_sentences=[]
+#     N = index.document_count()
+#     for doc in sentences:
+#         terms = index.document(doc)[1]
+#         counts = Counter(terms)
+#         for sentence in sentence[doc]:
+#             words = sentence.split()
+#             sentence_vector = np.zeros(len(token2id))
+#             for word in words:
+#                 tfidf,id = get_tdidf_value_of_word(word, counts, N,token2id,id2df)
+#                 sentence_vector[id]+=tfidf
+#             #sentence_vector/=len(words)
+#             all_sentences.append(sentence)
+#     return all_sentences
 
 
 def transform_terms_to_counts(Dinit,dic,index):
@@ -117,49 +117,49 @@ def transform_terms_to_counts(Dinit,dic,index):
     return Dinit_counts
 
 
-
-def tokenize_sentence(sentence):
-    sentence = sentence.rstrip()
-    sentence = re.sub("’", "", sentence)
-    sentence = re.sub("–", " ", sentence)
-    sentence = re.sub("—", " ", sentence)
-    sentence = re.sub("“", " ", sentence)
-    sentence = re.sub("”", " ", sentence)
-    sentence = re.sub("…", " ", sentence)
-    sentence = re.sub("!", " ", sentence)
-    sentence = re.sub("_", " ", sentence)
-    sentence = re.sub("#", " ", sentence)
-    sentence = re.sub("\[", " ", sentence)
-    sentence = re.sub("]", " ", sentence)
-    sentence = re.sub("4ºn", " ", sentence)
-    sentence = re.sub("4ºw", " ", sentence)
-    sentence = re.sub("™", " ", sentence)
-    words = sentence.split()
-    tokens = []
-    for word in words:
-        modified = pyndri.escape(word)
-        if not modified.isspace():
-            try:
-                tokens.extend(pyndri.tokenize(modified))
-            except OSError as e:
-                print(word)
-                print(modified)
-                raise e
-
-    return tokens,words
-
-
-def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
-    N = index.document_count()
-    tokens,words = tokenize_sentence(sentence)
-    sentence_vector = {}
-    counts = Counter([token2id[pyndri.krovetz_stem(word)] for word in tokens if pyndri.krovetz_stem(word) in token2id])
-    for word in set(tokens):
-        stemmed = pyndri.krovetz_stem(word)
-        if stemmed in token2id:
-            tfidf, id = get_tdidf_value_of_word(word, counts, N,len(words),token2id,id2df)
-            sentence_vector[id-1]=tfidf
-    return sentence_vector
+#
+# def tokenize_sentence(sentence):
+#     sentence = sentence.rstrip()
+#     sentence = re.sub("’", "", sentence)
+#     sentence = re.sub("–", " ", sentence)
+#     sentence = re.sub("—", " ", sentence)
+#     sentence = re.sub("“", " ", sentence)
+#     sentence = re.sub("”", " ", sentence)
+#     sentence = re.sub("…", " ", sentence)
+#     sentence = re.sub("!", " ", sentence)
+#     sentence = re.sub("_", " ", sentence)
+#     sentence = re.sub("#", " ", sentence)
+#     sentence = re.sub("\[", " ", sentence)
+#     sentence = re.sub("]", " ", sentence)
+#     sentence = re.sub("4ºn", " ", sentence)
+#     sentence = re.sub("4ºw", " ", sentence)
+#     sentence = re.sub("™", " ", sentence)
+#     words = sentence.split()
+#     tokens = []
+#     for word in words:
+#         modified = pyndri.escape(word)
+#         if not modified.isspace():
+#             try:
+#                 tokens.extend(pyndri.tokenize(modified))
+#             except OSError as e:
+#                 print(word)
+#                 print(modified)
+#                 raise e
+#
+#     return tokens,words
+#
+# #
+# def convert_sentence_to_tfidf_vector(sentence,index,token2id,id2df):
+#     N = index.document_count()
+#     tokens,words = tokenize_sentence(sentence)
+#     sentence_vector = {}
+#     counts = Counter([token2id[pyndri.krovetz_stem(word)] for word in tokens if pyndri.krovetz_stem(word) in token2id])
+#     for word in set(tokens):
+#         stemmed = pyndri.krovetz_stem(word)
+#         if stemmed in token2id:
+#             tfidf, id = get_tdidf_value_of_word(word, counts, N,len(words),token2id,id2df)
+#             sentence_vector[id-1]=tfidf
+#     return sentence_vector
 
 
 
@@ -175,29 +175,29 @@ def retrieve_ranked_lists(ranked_lists_file):
 
 
 
-def create_document_tf_idf_vector(doc,index,token2id,dic,id2df):
-    terms = index.document(dic[doc.replace("EPOCH","ROUND")])[1]
-    # doc_vector = np.zeros(len(token2id))
-    doc_vector = {}
-    number_docs = index.document_count()
-    number_of_terms = len(terms)
-    counts = Counter(terms)
-    for term in set(terms):
-        if term!=0:
-            tfidf = get_tfidf_value(term,counts,number_docs,number_of_terms,id2df)
-            doc_vector[term-1]=tfidf
-    return doc_vector
-
-
-def create_sentence_indexes(document_texts,chosen_docs_for_summary,_index,token2id,id2df):
-    sentence_texts={}
-    sentence_vectors={}
-    for document in chosen_docs_for_summary:
-        document_for_id = document.replace("EPOCH","ROUND")
-        sentence_texts[document_for_id]={}
-        text = document_texts[document_for_id]
-        sentences = retrieve_sentences(text)
-        for index,sentence in enumerate(sentences):
-            sentence_texts[document_for_id][str(index)] = sentence
-            sentence_vectors[document_for_id+"_"+str(index)] = convert_sentence_to_tfidf_vector(sentence,_index,token2id,id2df)
-    return sentence_texts,sentence_vectors
+# def create_document_tf_idf_vector(doc,index,token2id,dic,id2df):
+#     terms = index.document(dic[doc.replace("EPOCH","ROUND")])[1]
+#     # doc_vector = np.zeros(len(token2id))
+#     doc_vector = {}
+#     number_docs = index.document_count()
+#     number_of_terms = len(terms)
+#     counts = Counter(terms)
+#     for term in set(terms):
+#         if term!=0:
+#             tfidf = get_tfidf_value(term,counts,number_docs,number_of_terms,id2df)
+#             doc_vector[term-1]=tfidf
+#     return doc_vector
+#
+#
+# def create_sentence_indexes(document_texts,chosen_docs_for_summary,_index,token2id,id2df):
+#     sentence_texts={}
+#     sentence_vectors={}
+#     for document in chosen_docs_for_summary:
+#         document_for_id = document.replace("EPOCH","ROUND")
+#         sentence_texts[document_for_id]={}
+#         text = document_texts[document_for_id]
+#         sentences = retrieve_sentences(text)
+#         for index,sentence in enumerate(sentences):
+#             sentence_texts[document_for_id][str(index)] = sentence
+#             sentence_vectors[document_for_id+"_"+str(index)] = convert_sentence_to_tfidf_vector(sentence,_index,token2id,id2df)
+#     return sentence_texts,sentence_vectors
