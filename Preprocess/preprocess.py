@@ -1,12 +1,8 @@
 import xml.etree.ElementTree as ET
 import nltk.data
-# import pyndri
-import numpy as np
 from collections import Counter
 import math
 import params
-from params import beta
-import re
 
 
 
