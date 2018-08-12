@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8887b834-fb1d-460c-ac59-66bb4132da32" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/prepare_trectext.py" afterPath="$PROJECT_DIR$/SentenceRanking/prepare_trectext.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Experiments/experiment_data_processor.py" afterPath="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,8 +50,8 @@
       <file leaf-file-name="extract_setences_and_rerank.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="57" column="62" selection-start-line="57" selection-start-column="62" selection-end-line="57" selection-end-column="62" />
+            <state relative-caret-position="252">
+              <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
               </folding>
@@ -59,7 +59,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="prepare_trectext.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="prepare_trectext.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/prepare_trectext.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="278">
@@ -135,11 +135,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="experiment_data_processor.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="experiment_data_processor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Experiments/experiment_data_processor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="29" column="78" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="78" />
+            <state relative-caret-position="313">
+              <caret line="113" column="62" selection-start-line="113" selection-start-column="62" selection-end-line="113" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -230,11 +230,11 @@
         <option value="$PROJECT_DIR$/Experiments/pagerank_experiment_platform.py" />
         <option value="$PROJECT_DIR$/Experiments/model_handler.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/sentence_parse.py" />
-        <option value="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
         <option value="$PROJECT_DIR$/Preprocess/preprocess.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/t.py" />
-        <option value="$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/prepare_trectext.py" />
+        <option value="$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py" />
+        <option value="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
       </list>
     </option>
   </component>
@@ -675,20 +675,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00142" summary="experiments platform in process">
-      <created>1532934880630</created>
-      <option name="number" value="00142" />
-      <option name="presentableId" value="LOCAL-00142" />
-      <option name="project" value="LOCAL" />
-      <updated>1532934880630</updated>
-    </task>
-    <task id="LOCAL-00143" summary="experiments platform in process">
-      <created>1533026523670</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1533026523681</updated>
-    </task>
     <task id="LOCAL-00144" summary="experiments platform in process">
       <created>1533026553800</created>
       <option name="number" value="00144" />
@@ -1018,12 +1004,26 @@
       <option name="project" value="LOCAL" />
       <updated>1534063271850</updated>
     </task>
-    <option name="localTasksCounter" value="191" />
+    <task id="LOCAL-00191" summary="experiments platform in process">
+      <created>1534063366561</created>
+      <option name="number" value="00191" />
+      <option name="presentableId" value="LOCAL-00191" />
+      <option name="project" value="LOCAL" />
+      <updated>1534063366561</updated>
+    </task>
+    <task id="LOCAL-00192" summary="experiments platform in process">
+      <created>1534063751955</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1534063751955</updated>
+    </task>
+    <option name="localTasksCounter" value="193" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
-    <editor active="false" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16362661" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1435,24 +1435,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Experiments/experiment_data_processor.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="29" column="78" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="78" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="57" column="62" selection-start-line="57" selection-start-column="62" selection-end-line="57" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/prepare_trectext.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
@@ -1460,6 +1442,24 @@
           <folding>
             <element signature="e#0#65#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="60" column="34" selection-start-line="60" selection-start-column="34" selection-end-line="60" selection-end-column="34" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experiments/experiment_data_processor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="313">
+          <caret line="113" column="62" selection-start-line="113" selection-start-column="62" selection-end-line="113" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
