@@ -34,8 +34,8 @@ if __name__=="__main__":
     f.close()
     ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
 
-    reference_docs = {q:ranked_lists[q][-1] for q in ranked_lists}
-    winner_docs = {q:ranked_lists[q][0] for q in ranked_lists}
+    reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists}
+    winner_docs = {q:ranked_lists[q][0].replace("EPOCH","ROUND") for q in ranked_lists}
     a_doc_texts = load_file(params.trec_text_file)
     doc_texts={}
     for doc in a_doc_texts:
