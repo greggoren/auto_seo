@@ -55,7 +55,7 @@ if __name__=="__main__":
             new_sentence = sentence_map[query][sentence]
             modified_doc=reference_doc+"\n"+new_sentence
             summaries[reference_doc]=modified_doc
-            avoid = avoid_docs_for_working_set(reference_doc, reference_docs)
+            avoid = avoid_docs_for_working_set(reference_doc, list(reference_docs.values()))
             trec_text_file = create_trectext(doc_texts, summaries, run_name,avoid)
             added_index = create_index(trec_text_file,run_name)
             merged_index=merge_indices(added_index,run_name)
