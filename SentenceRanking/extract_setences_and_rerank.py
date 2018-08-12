@@ -68,7 +68,7 @@ if __name__=="__main__":
             lists=create_lists(results)
             print(lists)
             addition = abs(lists[query].index(reference_doc) - len(lists[query]))
-            f.write(run_name+"\t"+str(addition))
+            f.write(run_name+"\t"+str(addition)+"\n")
     f.close()
 
 
