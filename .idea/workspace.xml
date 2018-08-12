@@ -50,8 +50,8 @@
       <file leaf-file-name="extract_setences_and_rerank.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="472">
-              <caret line="61" column="37" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
+            <state relative-caret-position="450">
+              <caret line="57" column="62" selection-start-line="57" selection-start-column="62" selection-end-line="57" selection-end-column="62" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
               </folding>
@@ -62,8 +62,8 @@
       <file leaf-file-name="prepare_trectext.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/prepare_trectext.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="28" column="84" selection-start-line="28" selection-start-column="84" selection-end-line="28" selection-end-column="84" />
+            <state relative-caret-position="212">
+              <caret line="21" column="66" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
               </folding>
@@ -138,8 +138,8 @@
       <file leaf-file-name="experiment_data_processor.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Experiments/experiment_data_processor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="49">
-              <caret line="29" column="54" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="54" />
+            <state relative-caret-position="115">
+              <caret line="29" column="78" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="78" />
               <folding />
             </state>
           </provider>
@@ -230,10 +230,10 @@
         <option value="$PROJECT_DIR$/Experiments/pagerank_experiment_platform.py" />
         <option value="$PROJECT_DIR$/Experiments/model_handler.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/sentence_parse.py" />
-        <option value="$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py" />
         <option value="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
         <option value="$PROJECT_DIR$/Preprocess/preprocess.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/t.py" />
+        <option value="$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/prepare_trectext.py" />
       </list>
     </option>
@@ -675,20 +675,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00139" summary="experiments platform in process">
-      <created>1532430923388</created>
-      <option name="number" value="00139" />
-      <option name="presentableId" value="LOCAL-00139" />
-      <option name="project" value="LOCAL" />
-      <updated>1532430923388</updated>
-    </task>
-    <task id="LOCAL-00140" summary="experiments platform in process">
-      <created>1532431131715</created>
-      <option name="number" value="00140" />
-      <option name="presentableId" value="LOCAL-00140" />
-      <option name="project" value="LOCAL" />
-      <updated>1532431131715</updated>
-    </task>
     <task id="LOCAL-00141" summary="experiments platform in process">
       <created>1532517298200</created>
       <option name="number" value="00141" />
@@ -1018,7 +1004,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534062587910</updated>
     </task>
-    <option name="localTasksCounter" value="188" />
+    <task id="LOCAL-00188" summary="experiments platform in process">
+      <created>1534063009464</created>
+      <option name="number" value="00188" />
+      <option name="presentableId" value="LOCAL-00188" />
+      <option name="project" value="LOCAL" />
+      <updated>1534063009464</updated>
+    </task>
+    <task id="LOCAL-00189" summary="experiments platform in process">
+      <created>1534063097871</created>
+      <option name="number" value="00189" />
+      <option name="presentableId" value="LOCAL-00189" />
+      <option name="project" value="LOCAL" />
+      <updated>1534063097871</updated>
+    </task>
+    <option name="localTasksCounter" value="190" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1409,16 +1409,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="61" column="37" selection-start-line="61" selection-start-column="37" selection-end-line="61" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -1447,16 +1437,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Experiments/experiment_data_processor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="29" column="54" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="54" />
+        <state relative-caret-position="115">
+          <caret line="29" column="78" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="78" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="57" column="62" selection-start-line="57" selection-start-column="62" selection-end-line="57" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/prepare_trectext.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="28" column="84" selection-start-line="28" selection-start-column="84" selection-end-line="28" selection-end-column="84" />
+        <state relative-caret-position="212">
+          <caret line="21" column="66" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
           <folding>
             <element signature="e#0#65#0" expanded="true" />
           </folding>
