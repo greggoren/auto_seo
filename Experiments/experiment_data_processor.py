@@ -42,7 +42,7 @@ def create_trectext(document_text, summaries, run_name="", avoid=[], write_doc="
         if not query_to_docs.get(query,False):
             query_to_docs[query]=[]
         query_to_docs[query].append(document)
-        if write_doc==document:
+        if write_doc==document or write_doc=="":
             f.write('<DOC>\n')
             f.write('<DOCNO>' + document + '</DOCNO>\n')
             f.write('<TEXT>\n')
@@ -105,9 +105,10 @@ def add_docs_to_index(index,run_name=""):
 
 
 
-def merge_indices(new_index,run_name=""):
+def merge_indices(new_index,run_name="",new_index_name=""):
     path_to_folder = '/home/greg/auto_seo'
-    new_index_name = path_to_folder+'/new_merged_index'+run_name
+    if new_index_name=="":
+        new_index_name = path_to_folder+'/new_merged_index'+run_name
     if os.path.exists(new_index_name):
         print("deleting old merged index repository")
         command = "rm -r "+new_index_name
