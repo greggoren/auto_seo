@@ -55,6 +55,8 @@ if __name__=="__main__":
             new_sentence = sentence_map[query][sentence]
             modified_doc=reference_doc+"\n"+new_sentence
             summaries[reference_doc]=modified_doc
+            f = open("/home/greg/auto_seo/scripts/add",'w')
+            f.write(reference_doc+"\t"+new_sentence+"\n")
             avoid = avoid_docs_for_working_set(reference_doc, list(reference_docs.values()))
             trec_text_file = create_trectext(doc_texts, summaries, run_name,avoid)
             added_index = create_index(trec_text_file,run_name)
