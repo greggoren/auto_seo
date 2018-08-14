@@ -53,7 +53,7 @@ if __name__=="__main__":
         reference_text = doc_texts[reference_doc]
         for sentence in sentence_map[query]:
             run_name = sentence
-            new_sentence = sentence_map[query][sentence]
+            new_sentence = sentence_map[query][sentence].replace("\n","")
             if not new_sentence:
                 continue
             modified_doc=reference_doc+"\n"+new_sentence
