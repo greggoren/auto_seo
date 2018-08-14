@@ -52,11 +52,9 @@ if __name__=="__main__":
         reference_doc = reference_docs[query].replace("EPOCH","ROUND")
         reference_text = doc_texts[reference_doc]
         for sentence in sentence_map[query]:
-            if sentence=="":
-                continue
             run_name = sentence
             new_sentence = sentence_map[query][sentence]
-            if new_sentence=="":
+            if not new_sentence:
                 continue
             modified_doc=reference_doc+"\n"+new_sentence
             summaries[reference_doc]=modified_doc
