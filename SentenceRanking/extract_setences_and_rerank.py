@@ -56,10 +56,10 @@ if __name__=="__main__":
             modified_doc=reference_doc+"\n"+new_sentence
             summaries[reference_doc]=modified_doc
             add = open("/home/greg/auto_seo/scripts/add",'w')
-            add.write(reference_doc+"\t"+new_sentence+"\n")
+            add.write(reference_doc+"@@@"+new_sentence+"\n")
             add.close()
             # avoid = avoid_docs_for_working_set(reference_doc, list(reference_docs.values()))
-            # trec_text_file = create_trectext(doc_texts, summaries, run_name,[])
+            trec_text_file = create_trectext(doc_texts, summaries, "",[])
             # added_index = create_index(trec_text_file,run_name)
             # merged_index=merge_indices(added_index,run_name)
             features_dir = "Features"
