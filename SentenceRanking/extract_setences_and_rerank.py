@@ -55,7 +55,7 @@ if __name__=="__main__":
             new_sentence = sentence_map[query][sentence]
             modified_doc=reference_doc+"\n"+new_sentence
             summaries[reference_doc]=modified_doc
-            add = open("/home/greg/auto_seo/scripts/add",'w')
+            add = open("/home/greg/auto_seo/scripts/add",'w',encoding="utf8")
             add.write(reference_doc+"@@@"+new_sentence+"\n")
             add.close()
             # avoid = avoid_docs_for_working_set(reference_doc, list(reference_docs.values()))
