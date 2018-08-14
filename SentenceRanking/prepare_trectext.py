@@ -27,9 +27,10 @@ if __name__=="__main__":
     for doc in a_doc_texts:
         if doc.__contains__("ROUND-04"):
             doc_texts[doc]=a_doc_texts[doc]
-    trec_text_file = create_trectext(doc_texts, [], "",list(reference_docs.values()))
-    added_index = create_index(trec_text_file)
-    merged_index = merge_indices(added_index,"","/home/greg/baseindex")
+    trec_text_file = create_trectext(doc_texts, [], "",[])
+
+    # added_index = create_index(trec_text_file)
+    # merged_index = merge_indices(added_index,"","/home/greg/baseindex")
 
 
 
