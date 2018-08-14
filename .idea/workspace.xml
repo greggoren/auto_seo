@@ -50,8 +50,8 @@
       <file leaf-file-name="extract_setences_and_rerank.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+            <state relative-caret-position="440">
+              <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
               </folding>
@@ -675,20 +675,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00153" summary="experiments platform in process">
-      <created>1533062295092</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1533062295092</updated>
-    </task>
-    <task id="LOCAL-00154" summary="experiments platform in process">
-      <created>1533063657206</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1533063657206</updated>
-    </task>
     <task id="LOCAL-00155" summary="experiments platform in process">
       <created>1533066667055</created>
       <option name="number" value="00155" />
@@ -1018,7 +1004,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534279366464</updated>
     </task>
-    <option name="localTasksCounter" value="202" />
+    <task id="LOCAL-00202" summary="experiments platform in process">
+      <created>1534280339981</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1534280339982</updated>
+    </task>
+    <task id="LOCAL-00203" summary="experiments platform in process">
+      <created>1534281209187</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1534281209195</updated>
+    </task>
+    <option name="localTasksCounter" value="204" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1452,8 +1452,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
+        <state relative-caret-position="440">
+          <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
           <folding>
             <element signature="e#0#65#0" expanded="true" />
           </folding>
