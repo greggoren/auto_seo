@@ -52,6 +52,8 @@ if __name__=="__main__":
         reference_doc = reference_docs[query].replace("EPOCH","ROUND")
         reference_text = doc_texts[reference_doc]
         for sentence in sentence_map[query]:
+            if sentence=="":
+                continue
             run_name = sentence
             new_sentence = sentence_map[query][sentence]
             modified_doc=reference_doc+"\n"+new_sentence
@@ -59,7 +61,7 @@ if __name__=="__main__":
             add = open("/home/greg/auto_seo/scripts/add",'w',encoding="utf8")
             add.write(reference_doc+"@@@"+new_sentence.rstrip()+"\n")
             add.close()
-            time.sleep(5)
+            time.sleep(8)
             # avoid = avoid_docs_for_working_set(reference_doc, list(reference_docs.values()))
             trec_text_file = create_trectext(doc_texts, summaries, "",[])
             # added_index = create_index(trec_text_file,run_name)
