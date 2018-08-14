@@ -30,9 +30,9 @@ def avoid_docs_for_working_set(reference_doc,reference_docs):
 
 
 if __name__=="__main__":
-    f = open("dic4.pickle", "rb")
-    dic = pickle.load(f)
-    f.close()
+    # f = open("dic4.pickle", "rb")
+    # dic = pickle.load(f)
+    # f.close()
     ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
 
     reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists}
@@ -59,7 +59,7 @@ if __name__=="__main__":
             add = open("/home/greg/auto_seo/scripts/add",'w',encoding="utf8")
             add.write(reference_doc+"@@@"+new_sentence.rstrip()+"\n")
             add.close()
-            time.sleep(1)
+            time.sleep(5)
             # avoid = avoid_docs_for_working_set(reference_doc, list(reference_docs.values()))
             trec_text_file = create_trectext(doc_texts, summaries, "",[])
             # added_index = create_index(trec_text_file,run_name)
