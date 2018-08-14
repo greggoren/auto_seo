@@ -56,6 +56,8 @@ if __name__=="__main__":
                 continue
             run_name = sentence
             new_sentence = sentence_map[query][sentence]
+            if new_sentence=="":
+                continue
             modified_doc=reference_doc+"\n"+new_sentence
             summaries[reference_doc]=modified_doc
             add = open("/home/greg/auto_seo/scripts/add",'w',encoding="utf8")
