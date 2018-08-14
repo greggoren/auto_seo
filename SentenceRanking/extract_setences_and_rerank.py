@@ -12,6 +12,7 @@ from SentenceRanking.sentence_parse import map_sentences
 from SentenceRanking.sentence_parse import create_lists
 import params
 import sys
+import time
 import pickle
 
 
@@ -58,6 +59,7 @@ if __name__=="__main__":
             add = open("/home/greg/auto_seo/scripts/add",'w',encoding="utf8")
             add.write(reference_doc+"@@@"+new_sentence.rstrip()+"\n")
             add.close()
+            time.sleep(1)
             # avoid = avoid_docs_for_working_set(reference_doc, list(reference_docs.values()))
             trec_text_file = create_trectext(doc_texts, summaries, "",[])
             # added_index = create_index(trec_text_file,run_name)
