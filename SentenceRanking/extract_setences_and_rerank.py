@@ -61,7 +61,7 @@ if __name__=="__main__":
             add = open("/home/greg/auto_seo/scripts/add",'w',encoding="utf8")
             add.write(reference_doc+"@@@"+new_sentence.rstrip()+"\n")
             add.close()
-            time.sleep(8)
+            time.sleep(3)
             # avoid = avoid_docs_for_working_set(reference_doc, list(reference_docs.values()))
             trec_text_file = create_trectext(doc_texts, summaries, "",[])
             # added_index = create_index(trec_text_file,run_name)
@@ -78,6 +78,7 @@ if __name__=="__main__":
             s.close()
             addition = abs(lists[query].index(reference_doc) - len(lists[query]))
             f.write(run_name+"\t"+str(addition)+"\n")
+        index+=1
     f.close()
 
 
