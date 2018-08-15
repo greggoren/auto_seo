@@ -17,5 +17,5 @@ sentence_map=map_sentences(doc_texts,winner_docs)
 f = open("sentences","w")
 for query in sentence_map:
     for sentence in sentence_map[query]:
-        f.write(sentence+"\t"+sentence[query][sentence])
+        f.write(sentence+"\t"+sentence_map[query][sentence])
 f.close()
