@@ -24,5 +24,5 @@ f.close()
 f = open("topDocs","w")
 for query in top_docs:
     for doc in top_docs[query]:
-        f.write(query+"\t"+doc.replace("EPOCH","ROUND"))
+        f.write(query+"\t"+doc.replace("EPOCH","ROUND")+"\n")
 f.close()
