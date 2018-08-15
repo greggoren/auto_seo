@@ -68,7 +68,7 @@ if __name__=="__main__":
             # merged_index=merge_indices(added_index,run_name)
             features_dir = "Features"
             feature_file = "features"+run_name
-            create_features_file(features_dir, params.path_to_index, params.queries_xml,feature_file,run_name)
+            create_features_file(features_dir, params.path_to_index, params.queries_xml,feature_file,"")
             index_doc_name = create_index_to_doc_name_dict(feature_file)
             scores_file = run_model(feature_file)
             results = retrieve_scores(index_doc_name, scores_file)
