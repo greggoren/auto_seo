@@ -45,8 +45,8 @@ def order_trec_file(trec_file):
 
 
 def run_model(test_file):
-    java_path = "/lv_local/home/sgregory/jdk1.8.0_121/bin/java"
-    jar_path = "/lv_local/home/sgregory/SEO_CODE/model_running/RankLib.jar"
+    java_path = "java"
+    jar_path = "/home/greg/SEO_CODE/model_running/RankLib.jar"
     score_file = "scores/scores_of_seo_run"
     if not os.path.exists("scores/"):
         os.makedirs("scores/")
@@ -58,7 +58,7 @@ def run_model(test_file):
     return score_file
 
 def create_trec_eval_file(results):
-    trec_file = "/lv_local/home/sgregory/auto_seo/data/trec_file.txt"
+    trec_file = "\/home/greg/auto_seo/data/trec_file.txt"
     trec_file_access = open(trec_file, 'a')
     for doc in results:
         query = doc.split("-")[2]
