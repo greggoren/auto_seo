@@ -58,7 +58,7 @@ def run_model(test_file):
     return score_file
 
 def create_trec_eval_file(results):
-    trec_file = "\/home/greg/auto_seo/data/trec_file.txt"
+    trec_file = "/home/greg/auto_seo/data/trec_file.txt"
     trec_file_access = open(trec_file, 'a')
     for doc in results:
         query = doc.split("-")[2]
