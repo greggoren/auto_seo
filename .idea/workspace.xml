@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8887b834-fb1d-460c-ac59-66bb4132da32" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Utils/SVM_SGD.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Utils/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Utils/cross_validation.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Utils/evaluator.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Utils/preprocess_clueweb.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Experiments/stuff/prereq.py" afterPath="$PROJECT_DIR$/Experiments/stuff/prereq.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QualityImportance/cross_validation.py" afterPath="$PROJECT_DIR$/QualityImportance/cross_validation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/QualityImportance/evaluator.py" afterPath="$PROJECT_DIR$/QualityImportance/evaluator.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,21 +56,9 @@
       <file leaf-file-name="prereq.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Experiments/stuff/prereq.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+            <state relative-caret-position="242">
+              <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="prereq.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SentenceRanking/prereq.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
-              <caret line="26" column="59" selection-start-line="26" selection-start-column="59" selection-end-line="26" selection-end-column="59" />
-              <folding>
-                <element signature="e#0#65#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -72,8 +66,8 @@
       <file leaf-file-name="evaluator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/QualityImportance/evaluator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1518">
-              <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
+            <state relative-caret-position="283">
+              <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -87,28 +81,6 @@
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="t.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SentenceRanking/t.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -213,8 +185,6 @@
         <option value="$PROJECT_DIR$/QualityImportance/preprocess_clueweb.py" />
         <option value="$PROJECT_DIR$/QualityImportance/SVM_SGD.py" />
         <option value="$PROJECT_DIR$/QualityImportance/svm_models_handler.py" />
-        <option value="$PROJECT_DIR$/QualityImportance/evaluator.py" />
-        <option value="$PROJECT_DIR$/QualityImportance/cross_validation.py" />
         <option value="$PROJECT_DIR$/QualityImportance/svm_handler.py" />
         <option value="$PROJECT_DIR$/Multi_document_summary/pyndri_test.py" />
         <option value="$PROJECT_DIR$/QualityImportance/add_features.pyi" />
@@ -233,6 +203,8 @@
         <option value="$PROJECT_DIR$/SentenceRanking/sentence_parse.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py" />
         <option value="$PROJECT_DIR$/Experiments/stuff/prereq.py" />
+        <option value="$PROJECT_DIR$/QualityImportance/evaluator.py" />
+        <option value="$PROJECT_DIR$/QualityImportance/cross_validation.py" />
       </list>
     </option>
   </component>
@@ -303,7 +275,35 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="SentenceRanking" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QualityImportance" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -321,38 +321,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_seo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_seo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Experiments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_seo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_seo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Experiments" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stuff" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -364,17 +332,18 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Experiments/new_scores" />
-      <recent name="$PROJECT_DIR$/Experiments" />
-      <recent name="$PROJECT_DIR$/Multi_document_summary" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Experiments/stuff" />
       <recent name="$PROJECT_DIR$/Experiments" />
       <recent name="$PROJECT_DIR$/Multi_document_summary" />
       <recent name="$PROJECT_DIR$/single_doc_summary" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\Utils" />
+      <recent name="$PROJECT_DIR$/Experiments/new_scores" />
+      <recent name="$PROJECT_DIR$/Experiments" />
+      <recent name="$PROJECT_DIR$/Multi_document_summary" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -719,20 +688,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00173" summary="experiments platform in process">
-      <created>1533129474916</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1533129474916</updated>
-    </task>
-    <task id="LOCAL-00174" summary="experiments platform in process">
-      <created>1533134349210</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1533134349210</updated>
-    </task>
     <task id="LOCAL-00175" summary="experiments platform in process">
       <created>1533134362980</created>
       <option name="number" value="00175" />
@@ -1062,7 +1017,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534628700558</updated>
     </task>
-    <option name="localTasksCounter" value="222" />
+    <task id="LOCAL-00222" summary="experiments platform in process">
+      <created>1534628862869</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1534628862870</updated>
+    </task>
+    <task id="LOCAL-00223" summary="experiments platform in process">
+      <created>1534628942245</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1534628942245</updated>
+    </task>
+    <option name="localTasksCounter" value="224" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1222,8 +1191,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Experiments/pagerank_hist_1_06.png" />
-    <entry file="file://$PROJECT_DIR$/Experiments/pagerank_hist_1_07.png" />
     <entry file="file://$PROJECT_DIR$/Experiments/features_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -1457,24 +1424,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/QualityImportance/evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1518">
-          <caret line="71" column="8" selection-start-line="71" selection-start-column="8" selection-end-line="71" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/QualityImportance/cross_validation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
-          <caret line="118" column="23" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/prereq.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="572">
@@ -1519,10 +1468,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/QualityImportance/evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="63" column="34" selection-start-line="63" selection-start-column="34" selection-end-line="63" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/QualityImportance/cross_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="124" column="27" selection-start-line="124" selection-start-column="27" selection-end-line="124" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Utils/cross_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Experiments/stuff/prereq.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+        <state relative-caret-position="242">
+          <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
           <folding />
         </state>
       </provider>
