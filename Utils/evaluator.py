@@ -8,8 +8,8 @@ class eval:
 
 
     def __init__(self):
-        self.metrics = ["map","ndcg_cut.20","P.5","P.10"]
-        self.validation_metric = "ndcg_cut.20"
+        self.metrics = ["map","ndcg","P.2"]
+        self.validation_metric = "ndcg"
         self.doc_name_index = {}
 
     def remove_score_file_from_last_run(self):
