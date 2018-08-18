@@ -77,7 +77,7 @@ if __name__=="__main__":
             pickle.dump(lists,s)
             s.close()
             addition = abs(lists[query].index(reference_doc) - len(lists[query]))
-            f.write(run_name+"\t"+str(addition)+"\n")
+            f.write(run_name+"\t"+str(addition-1)+"\n")
         index+=1
     f.close()
 
