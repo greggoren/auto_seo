@@ -3,7 +3,6 @@ from QualityImportance import evaluator as e
 import numpy as np
 import os
 import subprocess
-# from QualityImportance import svm_models_handler as mh
 import sys
 from QualityImportance import SVM_SGD as s
 import operator

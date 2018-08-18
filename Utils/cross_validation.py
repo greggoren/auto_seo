@@ -1,11 +1,10 @@
-from QualityImportance import preprocess_clueweb as p
-from QualityImportance import evaluator as e
+from Utils import preprocess_clueweb as p
+from Utils import evaluator as e
 import numpy as np
 import os
 import subprocess
-# from QualityImportance import svm_models_handler as mh
 import sys
-from QualityImportance import SVM_SGD as s
+from Utils import SVM_SGD as s
 import operator
 from sklearn.datasets import dump_svmlight_file
 
