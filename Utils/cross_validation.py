@@ -95,7 +95,9 @@ def train_score(train_file, test_file, fold_number, C):
 
 if __name__ == "__main__":
     features_file = sys.argv[1]
+    print("features file=",features_file)
     qrels_file = sys.argv[2]
+    print("qrels file=", qrels_file)
     preprocess = p.preprocess()
     X, y, queries = preprocess.retrieve_data_from_file(features_file, True)
     number_of_queries = len(set(queries))
@@ -105,7 +107,6 @@ if __name__ == "__main__":
     folds = preprocess.create_folds(X, y, queries, 5)
     fold_number = 1
     C_array = [0.1, 0.01, 0.001]
-    # model_handler = mh.models_handler(C_array)
     validated = set()
     scores = {}
     models = {}
