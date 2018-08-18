@@ -101,6 +101,7 @@ if __name__ == "__main__":
     preprocess = p.preprocess()
     X, y, queries = preprocess.retrieve_data_from_file(features_file, True)
     number_of_queries = len(set(queries))
+    print("there are ",number_of_queries,'queries')
     evaluator = e.eval()
     evaluator.create_index_to_doc_name_dict(features_file)
 
