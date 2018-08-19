@@ -1,7 +1,7 @@
 import shutil
 import subprocess
 import os
-import utils.run_bash_command as run_bash_command
+from utils import run_bash_command
 
 class eval:
 

@@ -1,10 +1,10 @@
-from Utils import preprocess_clueweb as p
-from Utils import evaluator as e
+from CrossValidationUtils import preprocess_clueweb as p
+from CrossValidationUtils import evaluator as e
 import numpy as np
 import os
 import subprocess
 import sys
-from Utils import SVM_SGD as s
+from CrossValidationUtils import SVM_SGD as s
 import operator
 from sklearn.datasets import dump_svmlight_file
 

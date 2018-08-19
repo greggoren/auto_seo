@@ -1,5 +1,5 @@
 from itertools import combinations
-from utils import cosine_similarity
+from CrossValidationUtils import cosine_similarity
 import numpy as np
 
 

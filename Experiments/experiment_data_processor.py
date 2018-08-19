@@ -1,6 +1,6 @@
 import params
 import os
-from utils import run_bash_command
+from CrossValidationUtils import run_bash_command
 import sys
 import time
 

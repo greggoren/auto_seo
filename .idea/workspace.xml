@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8887b834-fb1d-460c-ac59-66bb4132da32" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Utils/cross_validation.py" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Utils/evaluator.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Utils/evaluator.py" afterPath="$PROJECT_DIR$/Utils/evaluator.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,19 +49,19 @@
         </entry>
       </file>
       <file leaf-file-name="cross_validation.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utils/cross_validation.py">
+        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/cross_validation.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="542">
               <caret line="133" column="31" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="31" />
               <folding>
-                <element signature="e#0#41#0" expanded="true" />
+                <element signature="e#0#56#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="SVM_SGD.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utils/SVM_SGD.py">
+        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/SVM_SGD.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="682">
               <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
@@ -70,10 +71,10 @@
         </entry>
       </file>
       <file leaf-file-name="evaluator.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Utils/evaluator.py">
+        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="84" column="33" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
+            <state relative-caret-position="66">
+              <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -104,7 +105,7 @@
         </entry>
       </file>
       <file leaf-file-name="preprocess_clueweb.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Utils/preprocess_clueweb.py">
+        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/preprocess_clueweb.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
               <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
@@ -182,7 +183,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Experiments/recovery.py" />
         <option value="$PROJECT_DIR$/Multi_document_summary/page_rank.py" />
         <option value="$PROJECT_DIR$/Multi_document_summary/multi_doc_summarization.py" />
         <option value="$PROJECT_DIR$/Experiments/experiment_platform.py" />
@@ -233,6 +233,7 @@
         <option value="$PROJECT_DIR$/Utils/cross_validation.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/sentence_parse.py" />
         <option value="$PROJECT_DIR$/Utils/evaluator.py" />
+        <option value="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" />
       </list>
     </option>
   </component>
@@ -303,20 +304,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_seo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="auto_seo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="SentenceRanking" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -360,6 +347,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Experiments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrossValidationUtils" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -730,13 +731,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00185" summary="experiments platform in process">
-      <created>1534062088858</created>
-      <option name="number" value="00185" />
-      <option name="presentableId" value="LOCAL-00185" />
-      <option name="project" value="LOCAL" />
-      <updated>1534062088859</updated>
-    </task>
     <task id="LOCAL-00186" summary="experiments platform in process">
       <created>1534062259987</created>
       <option name="number" value="00186" />
@@ -1073,7 +1067,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534683952963</updated>
     </task>
-    <option name="localTasksCounter" value="234" />
+    <task id="LOCAL-00234" summary="experiments platform in process">
+      <created>1534684204170</created>
+      <option name="number" value="00234" />
+      <option name="presentableId" value="LOCAL-00234" />
+      <option name="project" value="LOCAL" />
+      <updated>1534684204171</updated>
+    </task>
+    <option name="localTasksCounter" value="235" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1398,6 +1399,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="12" column="103" selection-start-line="12" selection-start-column="50" selection-end-line="12" selection-end-column="103" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1483,7 +1487,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/preprocess_clueweb.py">
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/preprocess_clueweb.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
@@ -1527,17 +1531,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/cross_validation.py">
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/cross_validation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="542">
           <caret line="133" column="31" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="31" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/SVM_SGD.py">
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/SVM_SGD.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
           <caret line="31" column="38" selection-start-line="31" selection-start-column="38" selection-end-line="31" selection-end-column="38" />
@@ -1553,10 +1557,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Utils/evaluator.py">
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="84" column="33" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
+        <state relative-caret-position="66">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

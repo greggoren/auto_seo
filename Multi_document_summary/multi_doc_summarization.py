@@ -2,7 +2,7 @@ from Preprocess.preprocess import convert_sentence_to_tfidf_vector
 from Preprocess.preprocess import create_sentence_indexes
 from Preprocess.preprocess import create_document_tf_idf_vector
 from Multi_document_summary.page_rank import page_rank,create_transition_graph
-from utils import cosine_similarity
+from CrossValidationUtils import cosine_similarity
 import params
 from Multi_document_summary.diversification import diversify
 import sys

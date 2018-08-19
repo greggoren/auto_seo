@@ -8,7 +8,7 @@ from Preprocess.preprocess import transform_terms_to_counts
 from Preprocess.preprocess import query_probability_given_docs
 import params
 from LanguageModels.models import KL_divergence
-from utils import cosine_similarity
+from CrossValidationUtils import cosine_similarity
 
 
 

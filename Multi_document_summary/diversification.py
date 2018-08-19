@@ -1,4 +1,4 @@
-from utils import cosine_similarity
+from CrossValidationUtils import cosine_similarity
 
 def diversify(scores, transition_matrix, k, query_vector, sentence_vectors, original_doc_vector, gamma):
     new_scores = {}

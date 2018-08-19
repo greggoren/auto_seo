@@ -1,5 +1,5 @@
 import os
-from utils import run_command
+from CrossValidationUtils import run_command
 
 def learn_svm(train_file, C):
     if not os.path.exists("./models_light/"):

@@ -1,6 +1,6 @@
 import pyndri
 import params
-from  utils import run_bash_command
+from  CrossValidationUtils import run_bash_command
 from time import time
 # command="~/.local/bin/PyndriQuery --loglevel warning \
 # 	--queries queries.txt \
