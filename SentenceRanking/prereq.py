@@ -1,5 +1,5 @@
 from Preprocess.preprocess import retrieve_ranked_lists,load_file
-from SentenceRanking.sentence_parse import map_sentences
+from SentenceRanking.sentence_parse import map_sentences, map_set_of_sentences
 import params
 
 
@@ -14,8 +14,8 @@ doc_texts={}
 for doc in a_doc_texts:
     if doc.__contains__("ROUND-04"):
         doc_texts[doc]=a_doc_texts[doc]
-sentence_map=map_sentences(doc_texts,winner_docs)
-f = open("sentences","w")
+sentence_map=map_set_of_sentences(doc_texts,top_docs)
+f = open("sentences_top","w")
 for query in sentence_map:
     for sentence in sentence_map[query]:
         f.write(sentence+"\t"+sentence_map[query][sentence].replace("\n","")+"\n")
