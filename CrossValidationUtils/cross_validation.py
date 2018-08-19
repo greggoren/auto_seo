@@ -137,6 +137,7 @@ if __name__ == "__main__":
             models[svm.C] = svm
         max_C = max(scores.items(), key=operator.itemgetter(1))[0]
         chosen_model = models[max_C]
-        chosen_model.predict(X, queries, test, evaluator)
+        trec_file = chosen_model.predict(X, queries, test, evaluator)
+
         fold_number += 1
     evaluator.run_trec_eval_on_test(qrels_file)

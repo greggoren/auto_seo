@@ -29,9 +29,7 @@ class eval:
         for index in test_indices:
             trec_file_access.write(self.set_qid_for_trec(queries[index])+" Q0 "+self.doc_name_index[index]+" "+str(0)+" "+str(results[index])+" seo\n")
         trec_file_access.close()
-        final=self.order_trec_file(trec_file)
-        run_bash_command("rm "+trec_file)
-        return final
+        return trec_file
 
 
 
@@ -40,6 +38,7 @@ class eval:
         command = "sort -k1,1 -k5nr -k2,1 "+trec_file+" > "+final
         for line in self.run_command(command):
             print(line)
+        run_bash_command("rm "+trec_file)
         return final
 
     def run_command(self, command):
@@ -50,6 +49,7 @@ class eval:
         return iter(p.stdout.readline, b'')
 
     def run_trec_eval(self, score_file,qrels):
+        score_file = self.order_trec_file(score_file)
         command = "./trec_eval -m " + self.validation_metric +" "+ qrels+" " + score_file
         for output_line in self.run_command(command):
             print("output line=",output_line)
