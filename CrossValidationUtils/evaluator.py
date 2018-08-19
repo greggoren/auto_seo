@@ -73,6 +73,8 @@ class eval:
             for output_line in self.run_command(command):
                 print(metric,output_line)
                 score = output_line.split()[-1].rstrip()
+                score = score.replace("b'","")
+                score = score.replace("'","")
                 score_data.append((metric, str(score)))
         summary_file = open("summary.tex", 'w')
         cols = "c|"*len(self.metrics)
