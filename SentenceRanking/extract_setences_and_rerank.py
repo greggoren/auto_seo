@@ -8,7 +8,7 @@ from Experiments.experiment_data_processor import create_features_file
 from Experiments.model_handler import run_model
 from Experiments.model_handler import retrieve_scores
 from Experiments.model_handler import create_index_to_doc_name_dict
-from SentenceRanking.sentence_parse import map_sentences
+from SentenceRanking.sentence_parse import map_sentences, map_set_of_sentences
 from SentenceRanking.sentence_parse import create_lists
 import params
 import sys
@@ -36,13 +36,13 @@ if __name__=="__main__":
     ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
 
     reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists}
-    winner_docs = {q:ranked_lists[q][0].replace("EPOCH","ROUND") for q in ranked_lists}
+    winner_docs = {q:ranked_lists[q][:3] for q in ranked_lists}
     a_doc_texts = load_file(params.trec_text_file)
     doc_texts={}
     for doc in a_doc_texts:
         if doc.__contains__("ROUND-04"):
             doc_texts[doc]=a_doc_texts[doc]
-    sentence_map=map_sentences(doc_texts,winner_docs)
+    sentence_map=map_set_of_sentences(doc_texts,winner_docs)
     summaries = {}
     f=open("labels",'a')
     index=1
@@ -62,10 +62,7 @@ if __name__=="__main__":
             add.write(reference_doc+"@@@"+new_sentence.rstrip()+"\n")
             add.close()
             time.sleep(1)
-            # avoid = avoid_docs_for_working_set(reference_doc, list(reference_docs.values()))
             trec_text_file = create_trectext(doc_texts, summaries, "",[])
-            # added_index = create_index(trec_text_file,run_name)
-            # merged_index=merge_indices(added_index,run_name)
             features_dir = "Features"
             feature_file = "features"+run_name
             create_features_file(features_dir, params.path_to_index, params.queries_xml,feature_file,"")
