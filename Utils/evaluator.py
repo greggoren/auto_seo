@@ -75,11 +75,13 @@ class eval:
                 print(metric,output_line)
                 score = output_line.split()[-1].rstrip()
                 score_data.append((metric, str(score)))
-        summary_file = open("summary", 'w')
-        summary_file.write("METRIC\tSCORE\n")
-        for score_record in score_data:
-            next_line = score_record[0] + "\t" + score_record[1] + "\n"
-            summary_file.write(next_line)
+        summary_file = open("summary.tex", 'w')
+        cols = "c|"*len(self.metrics)
+        summary_file.write("\\begin{tabular}{"+cols+"}\n")
+        next_line = " & ".join([s[0] for s in score_data])+"\n"
+        summary_file.write(next_line)
+        next_line = " & ".join([s[1] for s in score_data]) + "\n"
+        summary_file.write(next_line)
         summary_file.close()
 
     def create_index_to_doc_name_dict(self,features):
