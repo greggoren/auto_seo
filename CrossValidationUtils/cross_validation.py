@@ -141,4 +141,5 @@ if __name__ == "__main__":
 
         fold_number += 1
     evaluator.order_trec_file(trec_file)
+    run_bash_command("rm "+trec_file)
     evaluator.run_trec_eval_on_test(qrels_file)
