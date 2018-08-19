@@ -82,6 +82,7 @@ class eval:
         summary_file.write(next_line)
         next_line = " & ".join([s[1] for s in score_data]) + "\n"
         summary_file.write(next_line)
+        summary_file.write("\\end{tabular}")
         summary_file.close()
 
     def create_index_to_doc_name_dict(self,features):

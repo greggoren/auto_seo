@@ -72,8 +72,8 @@
       <file leaf-file-name="evaluator.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Utils/evaluator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
+            <state relative-caret-position="528">
+              <caret line="84" column="33" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -730,13 +730,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00184" summary="experiments platform in process">
-      <created>1534061926952</created>
-      <option name="number" value="00184" />
-      <option name="presentableId" value="LOCAL-00184" />
-      <option name="project" value="LOCAL" />
-      <updated>1534061926953</updated>
-    </task>
     <task id="LOCAL-00185" summary="experiments platform in process">
       <created>1534062088858</created>
       <option name="number" value="00185" />
@@ -1073,7 +1066,14 @@
       <option name="project" value="LOCAL" />
       <updated>1534683535599</updated>
     </task>
-    <option name="localTasksCounter" value="233" />
+    <task id="LOCAL-00233" summary="experiments platform in process">
+      <created>1534683952963</created>
+      <option name="number" value="00233" />
+      <option name="presentableId" value="LOCAL-00233" />
+      <option name="project" value="LOCAL" />
+      <updated>1534683952963</updated>
+    </task>
+    <option name="localTasksCounter" value="234" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1555,8 +1555,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Utils/evaluator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="83" column="35" selection-start-line="83" selection-start-column="35" selection-end-line="83" selection-end-column="35" />
+        <state relative-caret-position="528">
+          <caret line="84" column="33" selection-start-line="84" selection-start-column="33" selection-end-line="84" selection-end-column="33" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
