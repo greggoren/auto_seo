@@ -1,4 +1,4 @@
-from CrossValidationUtils import run_bash_command,run_bash_command_no_wait
+from utils import run_bash_command,run_bash_command_no_wait
 import os
 import time
 def run():

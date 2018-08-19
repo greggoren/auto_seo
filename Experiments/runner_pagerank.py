@@ -1,4 +1,4 @@
-from CrossValidationUtils import run_bash_command
+from utils import run_bash_command
 import os
 
 def run():

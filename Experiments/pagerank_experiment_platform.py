@@ -11,7 +11,6 @@ from Experiments.model_handler import retrieve_scores
 from Experiments.model_handler import create_index_to_doc_name_dict
 import params
 import pickle
-import pyndri
 import sys
 
 
