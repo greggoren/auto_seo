@@ -79,7 +79,7 @@ class eval:
         summary_file = open("summary.tex", 'w')
         cols = "c|"*len(self.metrics)
         summary_file.write("\\begin{tabular}{"+cols+"}\n")
-        next_line = " & ".join([s[0] for s in score_data])+"\n"
+        next_line = " & ".join([s[0] for s in score_data])+"\\\\ \n"
         summary_file.write(next_line)
         next_line = " & ".join([s[1] for s in score_data]) + "\n"
         summary_file.write(next_line)
