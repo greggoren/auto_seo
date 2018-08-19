@@ -1,6 +1,7 @@
 import shutil
 import subprocess
 import os
+import utils.run_bash_command as run_bash_command
 
 class eval:
 
@@ -16,7 +17,7 @@ class eval:
         if os._exists("scores"):
             os.remove("scores")
 
-    def create_trec_eval_file(self, test_indices, queries, results,model,validation=None):#TODO: need to sort file via unix command
+    def create_trec_eval_file(self, test_indices, queries, results,model,validation=None):
         if validation is not None:
             trec_file = "validation/trec_file_"+model+".txt"
             if not os.path.exists(os.path.dirname(trec_file)):
@@ -29,6 +30,7 @@ class eval:
             trec_file_access.write(self.set_qid_for_trec(queries[index])+" Q0 "+self.doc_name_index[index]+" "+str(0)+" "+str(results[index])+" seo\n")
         trec_file_access.close()
         self.order_trec_file(trec_file)
+        run_bash_command("rm "+trec_file)
         return trec_file
 
 

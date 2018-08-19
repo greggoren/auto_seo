@@ -13,6 +13,22 @@ def map_sentences(document_texts,winners):
             index+=1
     return sentence_map
 
+
+def map_set_of_sentences(document_texts,winners):
+    sentence_map = {}
+    for query in winners:
+        sentence_map[query] = {}
+        for top_doc in winners[query]:
+            winner = top_doc.replace("EPOCH", "ROUND")
+            text = document_texts[winner]
+            sentences = retrieve_sentences(text)
+            index = 1
+            for sentence in sentences:
+                sentence_map[query][winner + "_" + str(index)] = sentence
+                index += 1
+    return sentence_map
+
+
 def create_lists(scores):
     lists = {}
     for doc in scores:
