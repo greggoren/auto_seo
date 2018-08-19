@@ -29,9 +29,9 @@ class eval:
         for index in test_indices:
             trec_file_access.write(self.set_qid_for_trec(queries[index])+" Q0 "+self.doc_name_index[index]+" "+str(0)+" "+str(results[index])+" seo\n")
         trec_file_access.close()
-        self.order_trec_file(trec_file)
+        final=self.order_trec_file(trec_file)
         run_bash_command("rm "+trec_file)
-        return trec_file
+        return final
 
 
 
