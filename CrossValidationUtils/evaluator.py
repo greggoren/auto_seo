@@ -38,7 +38,6 @@ class eval:
         command = "sort -k1,1 -k5nr -k2,1 "+trec_file+" > "+final
         for line in self.run_command(command):
             print(line)
-        #run_bash_command("rm "+trec_file)
         return final
 
     def run_command(self, command):

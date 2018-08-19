@@ -140,4 +140,5 @@ if __name__ == "__main__":
         trec_file = chosen_model.predict(X, queries, test, evaluator)
 
         fold_number += 1
+    evaluator.order_trec_file(trec_file)
     evaluator.run_trec_eval_on_test(qrels_file)
