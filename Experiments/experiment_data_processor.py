@@ -35,16 +35,16 @@ def create_features_file_original(features_dir,index_path,queries_file,new_featu
     if not os.path.exists(features_dir):
         os.makedirs(features_dir)
 
-    command= params.ltr_features_script+" "+ queries_file + ' -stream=doc -index=' + index_path + ' -repository='+ index_path +' -useWorkingSet=true -workingSetFile='+ params.working_set_file+run_name + ' -workingSetFormat=trec'
+    command= "/home/greg/auto_seo/past_winners/LTRFeatures "+ queries_file + ' -stream=doc -index=' + index_path + ' -repository='+ index_path +' -useWorkingSet=true -workingSetFile=working_set'+run_name + ' -workingSetFormat=trec'
     print(command)
     out = run_bash_command(command)
     print(out)
-    command=params.cent_script+' ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile='+ params.working_set_file+run_name + ' -workingSetFormat=trec'
+    command='/home/greg/auto_seo/past_winners/Cent ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile=working_set'+run_name + ' -workingSetFormat=trec'
     print(command)
     out = run_bash_command(command)
     print(out)
     run_bash_command("mv doc*_* "+features_dir)
-    command = "perl "+params.features_generator_script_path+" "+features_dir+" "+params.working_set_file+run_name
+    command = "perl /home/greg/auto_seo/past_winners/generate.pl "+features_dir+" working_set"+run_name
     print(command)
     out=run_bash_command(command)
     print(out)
@@ -52,6 +52,43 @@ def create_features_file_original(features_dir,index_path,queries_file,new_featu
     print(command)
     out = run_bash_command(command)
     print(out)
+
+
+
+def create_trectext_original(document_text, summaries, run_name="", avoid=[], write_doc=""):
+    trec_text_file = "trectext"+run_name
+    f= open(params.new_trec_text_file+run_name,"w",encoding="utf-8")
+    query_to_docs = {}
+    for document in document_text:
+        if document in avoid:
+            continue
+        if document in summaries:
+            text = summaries[document]
+        else:
+            text = document_text[document]
+        query = document.split("-")[2]
+        if not query_to_docs.get(query,False):
+            query_to_docs[query]=[]
+        query_to_docs[query].append(document)
+        if write_doc==document or write_doc=="":
+            f.write('<DOC>\n')
+            f.write('<DOCNO>' + document + '</DOCNO>\n')
+            f.write('<TEXT>\n')
+            f.write(text.rstrip())
+            f.write('\n</TEXT>\n')
+            f.write('</DOC>\n')
+    f.close()
+    workingSetFilename = "working_set"+run_name
+    f = open(workingSetFilename, 'w')
+    for query, docnos in query_to_docs.items():
+        i = 1
+        for docid in docnos:
+            if docid not in avoid:
+                f.write(query.zfill(3) + ' Q0 ' + docid + ' ' + str(i) + ' -' + str(i) + ' indri\n')
+                i += 1
+
+    f.close()
+    return trec_text_file
 
 
 
