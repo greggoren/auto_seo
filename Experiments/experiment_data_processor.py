@@ -28,6 +28,33 @@ def create_features_file(features_dir,index_path,queries_file,new_features_file,
     out = run_bash_command(command)
     print(out)
 
+
+
+def create_features_file_original(features_dir,index_path,queries_file,new_features_file,run_name=""):
+    run_bash_command("rm -r "+features_dir)
+    if not os.path.exists(features_dir):
+        os.makedirs(features_dir)
+
+    command= params.ltr_features_script+" "+ queries_file + ' -stream=doc -index=' + index_path + ' -repository='+ index_path +' -useWorkingSet=true -workingSetFile='+ params.working_set_file+run_name + ' -workingSetFormat=trec'
+    print(command)
+    out = run_bash_command(command)
+    print(out)
+    command=params.cent_script+' ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile='+ params.working_set_file+run_name + ' -workingSetFormat=trec'
+    print(command)
+    out = run_bash_command(command)
+    print(out)
+    run_bash_command("mv doc*_* "+features_dir)
+    command = "perl "+params.features_generator_script_path+" "+features_dir+" "+params.working_set_file+run_name
+    print(command)
+    out=run_bash_command(command)
+    print(out)
+    command = "mv features "+new_features_file
+    print(command)
+    out = run_bash_command(command)
+    print(out)
+
+
+
 def create_trectext(document_text, summaries, run_name="", avoid=[], write_doc=""):
     trec_text_file = params.new_trec_text_file+run_name
     f= open(params.new_trec_text_file+run_name,"w",encoding="utf-8")
