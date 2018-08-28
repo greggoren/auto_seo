@@ -45,7 +45,7 @@ doc_texts = load_file(params.trec_text_file)
 merged_index=""
 for index in range(1,4):
     doc_text_for_round = get_docs(doc_texts, round=index)
-    trec_text_file = create_trectext_original(doc_text_for_round, [], "",[])
+    trec_text_file = create_trectext_original(doc_text_for_round, [], str(index),[])
     new_index = create_index(trec_text_file,str(index))
     if merged_index:
         run_bash_command("rm -r "+merged_index)
