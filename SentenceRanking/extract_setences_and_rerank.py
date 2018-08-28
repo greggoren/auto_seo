@@ -57,7 +57,7 @@ if __name__=="__main__":
         for sentence in sentence_map[query]:
             r_index = 1
             for reference_sentence in reference_sentences:
-                run_name = sentence+"_"+str(r_index)
+                run_name = sentence+"_"+str(r_index)+"_"+str(index)
                 new_sentence = sentence_map[query][sentence].replace("\n","")
                 if not new_sentence:
                     continue
