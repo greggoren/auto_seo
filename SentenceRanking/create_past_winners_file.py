@@ -1,5 +1,6 @@
 from Preprocess.preprocess import retrieve_ranked_lists,load_file
-from Experiments.experiment_data_processor import create_trectext, create_features_file_original
+from Experiments.experiment_data_processor import create_trectext, create_features_file_original, \
+    create_trectext_original
 from utils import run_command
 from utils import run_bash_command
 from Experiments.experiment_data_processor import merge_indices
@@ -44,7 +45,7 @@ doc_texts = load_file(params.trec_text_file)
 merged_index=""
 for index in range(1,4):
     doc_text_for_round = get_docs(doc_texts, round=index)
-    trec_text_file = create_trectext(doc_text_for_round, [], "",[])
+    trec_text_file = create_trectext_original(doc_text_for_round, [], "",[])
     new_index = create_index(trec_text_file,str(index))
     if merged_index:
         run_bash_command("rm -r "+merged_index)
