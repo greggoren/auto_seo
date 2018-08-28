@@ -35,16 +35,16 @@ def create_features_file_original(features_dir,index_path,queries_file,new_featu
     if not os.path.exists(features_dir):
         os.makedirs(features_dir)
 
-    command= "/home/greg/auto_seo/past_winners/LTRFeatures "+ queries_file + ' -stream=doc -index=' + index_path + ' -repository='+ index_path +' -useWorkingSet=true -workingSetFile=working_set'+run_name + ' -workingSetFormat=trec'
+    command= "/home/greg/auto_seo/past_winners/LTRFeatures "+ queries_file + ' -stream=doc -index=' + index_path + ' -repository='+ index_path +' -useWorkingSet=true -workingSetFile=/home/greg/auto_seo/SentenceRanking/working_set'+run_name + ' -workingSetFormat=trec'
     print(command)
     out = run_bash_command(command)
     print(out)
-    command='/home/greg/auto_seo/past_winners/Cent ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile=working_set'+run_name + ' -workingSetFormat=trec'
+    command='/home/greg/auto_seo/past_winners/Cent ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile=/home/greg/auto_seo/SentenceRanking/working_set'+run_name + ' -workingSetFormat=trec'
     print(command)
     out = run_bash_command(command)
     print(out)
     run_bash_command("mv doc*_* "+features_dir)
-    command = "perl /home/greg/auto_seo/past_winners/generate.pl "+features_dir+" working_set"+run_name
+    command = "perl /home/greg/auto_seo/past_winners/generate.pl "+features_dir+" /home/greg/auto_seo/SentenceRanking/working_set"+run_name
     print(command)
     out=run_bash_command(command)
     print(out)
@@ -56,7 +56,7 @@ def create_features_file_original(features_dir,index_path,queries_file,new_featu
 
 
 def create_trectext_original(document_text, summaries, run_name="", avoid=[], write_doc=""):
-    trec_text_file = "trectext"+run_name
+    trec_text_file = "/home/greg/auto_seo/SentenceRanking/trectext"+run_name
     f= open(params.new_trec_text_file+run_name,"w",encoding="utf-8")
     query_to_docs = {}
     for document in document_text:
@@ -78,7 +78,7 @@ def create_trectext_original(document_text, summaries, run_name="", avoid=[], wr
             f.write('\n</TEXT>\n')
             f.write('</DOC>\n')
     f.close()
-    workingSetFilename = "working_set"+run_name
+    workingSetFilename = "/home/greg/auto_seo/SentenceRanking/working_set"+run_name
     f = open(workingSetFilename, 'w')
     for query, docnos in query_to_docs.items():
         i = 1
