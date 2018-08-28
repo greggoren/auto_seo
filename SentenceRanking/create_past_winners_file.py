@@ -42,7 +42,7 @@ reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked
 winner_docs = {q:ranked_lists[q][:3] for q in ranked_lists}
 doc_texts = load_file(params.trec_text_file)
 merged_index=""
-for index in range(3):
+for index in range(1,4):
     doc_text_for_round = get_docs(doc_texts, round=index)
     trec_text_file = create_trectext(doc_text_for_round, [], "",[])
     new_index = create_index(trec_text_file,str(index))
