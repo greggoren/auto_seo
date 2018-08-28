@@ -45,7 +45,8 @@ if __name__=="__main__":
             doc_texts[doc]=a_doc_texts[doc]
     sentence_map=map_set_of_sentences(doc_texts,winner_docs)
     summaries = {}
-    f=open("labels",'a')
+    labels_file=open("labels", 'a')
+    sentence_data_file = open("senetces_add_remove", "w")
     index=1
     for query in sentence_map:
         print("in query",index, "out of",len(sentence_map))
@@ -65,6 +66,7 @@ if __name__=="__main__":
                 summaries[reference_doc]=modified_doc
                 add = open("/home/greg/auto_seo/scripts/add_remove",'w',encoding="utf8")
                 add.write(reference_doc+"@@@"+new_sentence.rstrip()+"@@@"+reference_sentence.rstrip()+"\n")
+                sentence_data_file.write(reference_doc + "@@@" + new_sentence.rstrip() + "@@@" + reference_sentence.rstrip() + "\n")
                 add.close()
                 time.sleep(1)
                 trec_text_file = create_trectext(doc_texts, summaries, "",[])
@@ -80,10 +82,11 @@ if __name__=="__main__":
                 s.close()
                 addition = abs(lists[query].index(reference_doc) - len(lists[query]))
                 query = sentence.split("-")[2]
-                f.write(query+" 1 "+run_name+" "+str(addition-1)+"\n")
+                labels_file.write(query + " 1 " + run_name + " " + str(addition - 1) + "\n")
                 r_index+=1
             index+=1
-    f.close()
+    labels_file.close()
+    sentence_data_file.close()
 
 
 
