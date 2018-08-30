@@ -64,7 +64,7 @@ if __name__=="__main__":
             for reference_sentence in reference_sentences:
                 run_name = sentence+"_"+str(r_index)
 
-
+                reference_sentence=reference_sentence.replace("\n", "")
                 if not reference_sentence:
                     continue
                 modified_doc=reference_doc+"\n"+new_sentence
