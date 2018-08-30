@@ -57,10 +57,15 @@ if __name__=="__main__":
 
         for sentence in sentence_map[query]:
             r_index = 1
+            new_sentence = sentence_map[query][sentence].replace("\n", "")
+            if not new_sentence:
+                continue
+
             for reference_sentence in reference_sentences:
                 run_name = sentence+"_"+str(r_index)
-                new_sentence = sentence_map[query][sentence].replace("\n","")
-                if not new_sentence:
+
+
+                if not reference_sentence:
                     continue
                 modified_doc=reference_doc+"\n"+new_sentence
                 summaries[reference_doc]=modified_doc
