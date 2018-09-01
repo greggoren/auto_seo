@@ -1,7 +1,7 @@
 import sys
 from random import shuffle
 import numpy as np
-from utils import run_command
+from utils import run_command,run_bash_command
 if __name__=="__main__":
     data ={}
     features_file =sys.argv[1]
@@ -10,6 +10,7 @@ if __name__=="__main__":
     score_data = {}
 
     for i in range(10):
+        run_bash_command("rm /home/greg/auto_seo/CrossValidationUtils/random_scores")
         scores = open("random_scores","w")
 
         with open(features_file) as features:
