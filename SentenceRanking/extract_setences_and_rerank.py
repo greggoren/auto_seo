@@ -71,7 +71,7 @@ if __name__=="__main__":
                 summaries[reference_doc]=modified_doc
                 add = open("/home/greg/auto_seo/scripts/add_remove",'w',encoding="utf8")
                 add.write(reference_doc+"@@@"+new_sentence.rstrip()+"@@@"+reference_sentence.rstrip()+"\n")
-                sentence_data_file.write(reference_doc + "@@@" + new_sentence.rstrip() + "@@@" + reference_sentence.rstrip() + "\n")
+                sentence_data_file.write(run_name + "@@@" + new_sentence.rstrip() + "@@@" + reference_sentence.rstrip() + "\n")
                 add.close()
                 time.sleep(1)
                 trec_text_file = create_trectext(doc_texts, summaries, "",[])
