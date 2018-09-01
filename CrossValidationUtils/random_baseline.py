@@ -10,6 +10,7 @@ if __name__=="__main__":
     score_data = {}
 
     for i in range(10):
+        print("in iteration",i+1)
         run_bash_command("rm /home/greg/auto_seo/CrossValidationUtils/random_scores")
         scores = open("random_scores","w")
 
