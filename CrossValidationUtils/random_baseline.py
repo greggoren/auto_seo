@@ -49,7 +49,7 @@ if __name__=="__main__":
     summary_file.write("\\begin{tabular}{"+cols+"}\n")
     next_line = " & ".join([s for s in score_data])+"\\\\ \n"
     summary_file.write(next_line)
-    next_line = " & ".join([np.mean(score_data[s]) for s in score_data]) + "\n"
+    next_line = " & ".join([str(np.mean(score_data[s])) for s in score_data]) + "\n"
     summary_file.write(next_line)
     summary_file.write("\\end{tabular}")
     summary_file.close()
