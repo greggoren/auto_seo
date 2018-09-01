@@ -8,7 +8,7 @@ if __name__=="__main__":
     scores = open("random_scores","w")
     with open(features_file) as features:
         for line in features:
-            query = line.split()[0]
+            query = line.split()[1].split(":")[1]
             sentence = line.split(" # ")[1]
             if query not in data:
                 data[query]=[]
