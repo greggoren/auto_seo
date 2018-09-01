@@ -4,15 +4,16 @@ import numpy as np
 from utils import run_command,run_bash_command
 
 if __name__=="__main__":
-    data ={}
+
     features_file =sys.argv[1]
     qrels =sys.argv[2]
 
     score_data = {}
 
     for i in range(10):
+        data = {}
         print("in iteration",i+1)
-        run_bash_command("rm /home/greg/auto_seo/CrossValidationUtils/random_scores")
+        #run_bash_command("rm /home/greg/auto_seo/CrossValidationUtils/random_scores")
         scores = open("/home/greg/auto_seo/CrossValidationUtils/random_scores","w")
 
         features = open(features_file)
