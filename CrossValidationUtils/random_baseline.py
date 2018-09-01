@@ -7,8 +7,7 @@ if __name__=="__main__":
     features_file =sys.argv[1]
     qrels =sys.argv[2]
 
-
-
+    score_data = {}
 
     for i in range(10):
         scores = open("random_scores","w")
@@ -28,7 +27,7 @@ if __name__=="__main__":
                     scores.write(query+" Q0 "+object.rstrip()+" 0 "+str(index)+" seo\n")
                     index+=1
             scores.close()
-            score_data ={}
+
             for metric in ["map","ndcg","P.2"]:
                 command = "./trec_eval -m " + metric + " "+qrels+" random_scores"
                 for output_line in run_command(command):
