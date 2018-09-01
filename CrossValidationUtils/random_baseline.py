@@ -38,7 +38,7 @@ if __name__=="__main__":
                     score = score.replace("'","")
                     if metric not in score_data:
                         score_data[metric]=[]
-                    score_data[metric].append(int(score))
+                    score_data[metric].append(float(score))
     summary_file = open("summary_random.tex", 'w')
     cols = "c|"*3
     cols="|"+cols
