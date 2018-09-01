@@ -13,32 +13,33 @@ if __name__=="__main__":
         run_bash_command("rm /home/greg/auto_seo/CrossValidationUtils/random_scores")
         scores = open("random_scores","w")
 
-        with open(features_file) as features:
-            for line in features:
-                query = line.split()[1].split(":")[1]
-                sentence = line.split(" # ")[1]
-                if query not in data:
-                    data[query]=[]
-                data[query].append(sentence)
+        features = open(features_file)
+        for line in features:
+            query = line.split()[1].split(":")[1]
+            sentence = line.split(" # ")[1]
+            if query not in data:
+                data[query]=[]
+            data[query].append(sentence)
 
-            for query in data:
-                shuffle(data[query])
-                index=1
-                for object in data[query]:
-                    scores.write(query+" Q0 "+object.rstrip()+" 0 "+str(index)+" seo\n")
-                    index+=1
-            scores.close()
+        for query in data:
+            shuffle(data[query])
+            index=1
+            for object in data[query]:
+                scores.write(query+" Q0 "+object.rstrip()+" 0 "+str(index)+" seo\n")
+                index+=1
+        scores.close()
 
-            for metric in ["map","ndcg","P.2"]:
-                command = "./trec_eval -m " + metric + " "+qrels+" random_scores"
-                for output_line in run_command(command):
-                    print(metric,output_line)
-                    score = output_line.split()[-1].rstrip()
-                    score = str(score).replace("b'","")
-                    score = score.replace("'","")
-                    if metric not in score_data:
-                        score_data[metric]=[]
-                    score_data[metric].append(float(score))
+        for metric in ["map","ndcg","P.2"]:
+            command = "./trec_eval -m " + metric + " "+qrels+" random_scores"
+            for output_line in run_command(command):
+                print(metric,output_line)
+                score = output_line.split()[-1].rstrip()
+                score = str(score).replace("b'","")
+                score = score.replace("'","")
+                if metric not in score_data:
+                    score_data[metric]=[]
+                score_data[metric].append(float(score))
+        features.close()
     summary_file = open("summary_random.tex", 'w')
     cols = "c|"*3
     cols="|"+cols
