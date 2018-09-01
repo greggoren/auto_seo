@@ -2,6 +2,7 @@ import sys
 from random import shuffle
 import numpy as np
 from utils import run_command,run_bash_command
+
 if __name__=="__main__":
     data ={}
     features_file =sys.argv[1]
@@ -12,7 +13,7 @@ if __name__=="__main__":
     for i in range(10):
         print("in iteration",i+1)
         run_bash_command("rm /home/greg/auto_seo/CrossValidationUtils/random_scores")
-        scores = open("random_scores","w")
+        scores = open("/home/greg/auto_seo/CrossValidationUtils/random_scores","w")
 
         features = open(features_file)
         for line in features:
@@ -31,7 +32,7 @@ if __name__=="__main__":
         scores.close()
 
         for metric in ["map","ndcg","P.2"]:
-            command = "./trec_eval -m " + metric + " "+qrels+" random_scores"
+            command = "./trec_eval -m " + metric + " "+qrels+" /home/greg/auto_seo/CrossValidationUtils/random_scores"
             for output_line in run_command(command):
                 print(metric,output_line)
                 score = output_line.split()[-1].rstrip()
