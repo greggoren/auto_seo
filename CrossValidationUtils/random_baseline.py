@@ -39,13 +39,13 @@ if __name__=="__main__":
                     if metric not in score_data:
                         score_data[metric]=[]
                     score_data[metric].append(int(score))
-        summary_file = open("summary_random.tex", 'w')
-        cols = "c|"*3
-        cols="|"+cols
-        summary_file.write("\\begin{tabular}{"+cols+"}\n")
-        next_line = " & ".join([s for s in score_data])+"\\\\ \n"
-        summary_file.write(next_line)
-        next_line = " & ".join([np.mean(score_data[s]) for s in score_data]) + "\n"
-        summary_file.write(next_line)
-        summary_file.write("\\end{tabular}")
-        summary_file.close()
+    summary_file = open("summary_random.tex", 'w')
+    cols = "c|"*3
+    cols="|"+cols
+    summary_file.write("\\begin{tabular}{"+cols+"}\n")
+    next_line = " & ".join([s for s in score_data])+"\\\\ \n"
+    summary_file.write(next_line)
+    next_line = " & ".join([np.mean(score_data[s]) for s in score_data]) + "\n"
+    summary_file.write(next_line)
+    summary_file.write("\\end{tabular}")
+    summary_file.close()
