@@ -18,7 +18,7 @@ if __name__=="__main__":
             shuffle(data[query])
             index=1
             for object in data[query]:
-                scores.write(query+" Q0 "+object+" 0 "+str(index)+" seo\n")
+                scores.write(query+" Q0 "+object.rstrip()+" 0 "+str(index)+" seo\n")
                 index+=1
         scores.close()
         score_data =[]
