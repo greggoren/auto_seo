@@ -6,7 +6,7 @@ logger = logging.getLogger('train_word2vec')
 logger.setLevel(logging.DEBUG)
 
 BASE_FILE_PATH    = os.path.dirname(os.path.abspath(__file__))
-FILES_FILE_PATH   = os.path.join(BASE_FILE_PATH, "files/")
+FILES_FILE_PATH   = os.path.join(BASE_FILE_PATH, "docFiles/")
 RESULTS_FILE_PATH = os.path.join(BASE_FILE_PATH, "results/")
 STOP_WORDS_FILE =os.path.join(BASE_FILE_PATH, "stopWordsList")
 class Sentences(object):
