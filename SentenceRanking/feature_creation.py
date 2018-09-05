@@ -122,7 +122,7 @@ def create_features(senteces_file,top_docs_file,doc_ids_file,model):
 def write_files(values,query,comb):
     for feature in values:
         f = open(feature+"_"+query,'a')
-        f.write(comb+" "+values[feature]+"\n")
+        f.write(comb+" "+str(values[feature])+"\n")
         f.close()
 
 
