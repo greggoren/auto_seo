@@ -28,7 +28,8 @@ def get_stemmed_document_vector(doc,model):
     vector = np.zeros(300)
     i=1
     for stem in doc:
-        vector +=model.wv[stem]
+        if stem in model.wv:
+            vector +=model.wv[stem]
         i+=1
     return vector/i
 
