@@ -16,7 +16,7 @@ if __name__=="__main__":
         total = len(labels)
         ratio = number_of_relevant/total
         average_ratio+=ratio
-        print(query+" & "+ str(round(number_of_relevant,3))+" & "+str(round(total,3))+" & "+str(round(ratio,3)))
+        print(query+" & "+ str(round(number_of_relevant,3))+" & "+str(round(total,3))+" & "+str(round(ratio,3))+"\\\\")
         print("\hline")
     average_ratio=average_ratio/len(stats)
     print("average_ratio=",average_ratio)
