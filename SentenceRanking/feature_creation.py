@@ -79,7 +79,8 @@ def init_top_doc_vectors(top_docs,doc_ids,model):
     for query in top_docs:
         docs = top_docs[query]
         command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp indri.jar DocStems "+" ".join([doc_ids[d.rstrip()] for d in docs])
-        run_bash_command(command)
+        print(command)
+        print(run_bash_command(command))
         top_docs_vectors[query]=[]
         with open("/home/greg/auto_seo/SentenceRanking/docsForVectors") as docs:
             for doc in docs:
