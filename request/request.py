@@ -57,7 +57,7 @@ f= open("summary.tex","w")
 f.write("\\begin{tabular}{|c|c|c|c|c|}\n")
 f.write("ROUND & Relevant & Total & NDCG@1 & NDCG@2 \\\\")
 f.write("\\hline\n")
-for rnd in stats:
+for rnd in sorted(list(stats.keys())):
     trec_tmp = "trec_file"+rnd+".txt"
     s = open(trec_tmp,"w")
     for query in stats[rnd]:
