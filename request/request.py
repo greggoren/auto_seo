@@ -62,7 +62,7 @@ for rnd in stats:
     s = open(trec_tmp,"w")
     for query in stats[rnd]:
         for doc in stats[rnd][query]:
-            s.write(query+" Q0 "+doc+" 1 "+stats[rnd][query][doc]+" request\n")
+            s.write(query+" Q0 "+doc.rstrip()+" 1 "+stats[rnd][query][doc]+" request\n")
     s.close()
     trec_file = order_trec_file(trec_tmp)
     run_bash_command("rm "+trec_tmp)
