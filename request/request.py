@@ -54,7 +54,7 @@ with open(relevance_file) as file:
 
         stats_rel[rnd].append(int(rel.rstrip()))
 f= open("summary.tex","w")
-f.write("\\begin{tabular}{|c|c|c|c|c}\n")
+f.write("\\begin{tabular}{|c|c|c|c|c|}\n")
 f.write("ROUND & Relevant & Total & NDCG@1 & NDCG@2 \\\\")
 f.write("\\hline\n")
 for rnd in stats:
@@ -70,7 +70,7 @@ for rnd in stats:
     run_bash_command("cat "+relevance_file+" | grep ROUND-"+rnd+" > "+qrels)
     score_data = run_trec_eval_on_test(qrels,trec_file)
 
-    f.write(rnd+" & "+str(sum([1 for i in stats_rel[rnd] if i>0]))+" & "+str(len(stats[rnd]))+" & "+score_data["ndcg_cut.1"]+" & "+score_data["ndcg_cut.2"]+"\\\\ \n")
+    f.write(rnd+" & "+str(sum([1 for i in stats_rel[rnd] if i>0]))+" & "+str(len(stats_rel[rnd]))+" & "+score_data["ndcg_cut.1"]+" & "+score_data["ndcg_cut.2"]+"\\\\ \n")
     f.write("\\hline\n")
 f.write("\\end{tabular}")
 f.close()
