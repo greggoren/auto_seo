@@ -49,10 +49,10 @@ with open(relevance_file) as file:
         query = line.split()[0]
         rnd = doc.split("-")[1]
         rel = line.split()[3]
-        if rnd not in stats:
-            stats[rnd] = []
+        if rnd not in stats_rel:
+            stats_rel[rnd] = []
 
-        stats[rnd].append(int(rel.rstrip()))
+        stats_rel[rnd].append(int(rel.rstrip()))
 f= open("summary.tex","w")
 f.write("\\begin{tabular}{|c|c|c|c|c}\n")
 f.write("ROUND & Relevant & Total & NDCG@1 & NDCG@2 \\\\")
