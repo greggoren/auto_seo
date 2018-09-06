@@ -70,6 +70,6 @@ for rnd in stats:
     run_bash_command("cat "+relevance_file+" | grep ROUND-"+rnd+" > "+qrels)
     score_data = run_trec_eval_on_test(qrels,trec_file)
 
-    f.write(rnd+" & "+str(sum([1 for i in stats_rel[rnd] if i>0]))+" & "+len(stats[rnd])+" & "+score_data["ndcg_cut.1"]+" & "+score_data["ndcg_cut.2"]+"\\\\ \n")
+    f.write(rnd+" & "+str(sum([1 for i in stats_rel[rnd] if i>0]))+" & "+str(len(stats[rnd]))+" & "+score_data["ndcg_cut.1"]+" & "+score_data["ndcg_cut.2"]+"\\\\ \n")
     f.write("\\hline\n")
 f.close()
