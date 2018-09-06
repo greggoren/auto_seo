@@ -59,10 +59,11 @@ f.write("ROUND & Relevant & Total & NDCG@1 & NDCG@2 \\\\")
 f.write("\\hline\n")
 for rnd in stats:
     trec_tmp = "trec_file"+rnd+".txt"
-    f = open(trec_tmp,"w")
+    s = open(trec_tmp,"w")
     for query in stats[rnd]:
         for doc in stats[rnd][query]:
-            f.write(query+" Q0 "+doc+" 1 "+stats[rnd][query][doc]+" request\n")
+            s.write(query+" Q0 "+doc+" 1 "+stats[rnd][query][doc]+" request\n")
+    s.close()
     trec_file = order_trec_file(trec_tmp)
     run_bash_command("rm "+trec_tmp)
     qrels = "qrels_"+rnd
