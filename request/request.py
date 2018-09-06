@@ -72,4 +72,5 @@ for rnd in stats:
 
     f.write(rnd+" & "+str(sum([1 for i in stats_rel[rnd] if i>0]))+" & "+str(len(stats[rnd]))+" & "+score_data["ndcg_cut.1"]+" & "+score_data["ndcg_cut.2"]+"\\\\ \n")
     f.write("\\hline\n")
+f.write("\\end{tabular}")
 f.close()
