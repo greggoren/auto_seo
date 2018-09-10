@@ -136,12 +136,34 @@ def feature_values(centroid,s_in,s_out,winner):
 
 
 
+
+
+def add_labeles(label_file_path,old_features,new_features_path):
+    label_file = open(label_file_path)
+    labels = {line.split()[2]:line.split()[3].replace("\n","") for line in label_file}
+    label_file.close()
+    new_features = open(new_features_path,"w")
+    with open(old_features) as features:
+        for line in features:
+            splited = line.split()
+            label = labels[splited[-1].rstrip()]
+            new_line = label+" "+" ".join(splited[1:])
+            new_features.write(new_line+"\n")
+        new_features.close()
+        return new_features_path
+
+
+
+
+
+
 if __name__=="__main__":
     qrels =sys.argv[1]
     sentences_file = "/home/greg/auto_seo/scripts/senetces_add_remove"
     top_docs_file= "/home/greg/auto_seo/scripts/topDocs"
     doc_ids_file = "/home/greg/auto_seo/scripts/docIDs"
     model_w2v =load_model()
+    features_path = "sentence_features"
     create_features(sentences_file,top_docs_file,doc_ids_file,model_w2v)
     command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp /home/greg/auto_seo/scripts/indri.jar Main"
     print(run_bash_command(command))
@@ -151,6 +173,7 @@ if __name__=="__main__":
     run_bash_command(command)
     command = "perl "+params.sentence_feature_creator+" vectorFeatures "+params.sentence_working_set
     run_bash_command(command)
-    command = "mv features sentence_features"
+    command = "mv features "+features_path
+    new_features = add_labeles(qrels,features_path,"new_sentence_features")
     run_bash_command(command)
-    cross_validation("sentence_features",qrels,"summary_all_features.tex")
+    cross_validation(new_features,qrels,"summary_all_features.tex")
