@@ -100,15 +100,12 @@ def train_score(train_file, test_file, fold_number, C):
     score_file = run_svm(C, model_file, test_file, fold_number)
     return score_file
 
-if __name__ == "__main__":
-    features_file = sys.argv[1]
-    print("features file=",features_file)
-    qrels_file = sys.argv[2]
-    print("qrels file=", qrels_file)
+
+def cross_validation(features_file,qrels_file,summary_file):
     preprocess = p.preprocess()
     X, y, queries = preprocess.retrieve_data_from_file(features_file, True)
     number_of_queries = len(set(queries))
-    print("there are ",number_of_queries,'queries')
+    print("there are ", number_of_queries, 'queries')
     evaluator = e.eval()
     evaluator.create_index_to_doc_name_dict(features_file)
 
@@ -132,7 +129,7 @@ if __name__ == "__main__":
             svm = s.svm_sgd(C)
             svm.w = weights
             score_file = svm.predict(X, queries, validation_set, evaluator, True)
-            score = evaluator.run_trec_eval(score_file,qrels_file)
+            score = evaluator.run_trec_eval(score_file, qrels_file)
             scores[svm.C] = score
             models[svm.C] = svm
         max_C = max(scores.items(), key=operator.itemgetter(1))[0]
@@ -141,5 +138,16 @@ if __name__ == "__main__":
 
         fold_number += 1
     evaluator.order_trec_file(trec_file)
-    run_bash_command("rm "+trec_file)
-    evaluator.run_trec_eval_on_test(qrels_file)
+    run_bash_command("rm " + trec_file)
+    evaluator.run_trec_eval_on_test(qrels_file,summary_file)
+
+if __name__ == "__main__":
+    features_file = sys.argv[1]
+    print("features file=",features_file)
+    qrels_file = sys.argv[2]
+    print("qrels file=", qrels_file)
+    if len(sys.argv)<4:
+        summary_file = "summary.tex"
+    else:
+        summary_file = sys.argv[3]
+    cross_validation(features_file,qrels_file,summary_file)

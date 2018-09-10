@@ -2,9 +2,9 @@ import numpy as np
 from krovetzstemmer import Stemmer
 from w2v import train_word2vec as model
 from utils import run_bash_command
-
-
-
+import params
+from CrossValidationUtils.cross_validation import cross_validation
+import sys
 
 
 
@@ -128,15 +128,16 @@ def write_files(values,query,comb):
 
 def feature_values(centroid,s_in,s_out,winner):
     result={}
-    result["docCosineToCentroidIn"]= cosine_similarity(centroid,s_in)
-    result["docCosineToCentroidOut"]= cosine_similarity(centroid,s_out)
-    result["docCosineToWinnerIn"]=cosine_similarity(winner,s_in)
-    result["docCosineToWinnerOut"]=cosine_similarity(winner,s_out)
+    result["docCosineToCentroidInVec"]= cosine_similarity(centroid,s_in)
+    result["docCosineToCentroidOutVec"]= cosine_similarity(centroid,s_out)
+    result["docCosineToWinnerInVec"]=cosine_similarity(winner,s_in)
+    result["docCosineToWinnerOutVec"]=cosine_similarity(winner,s_out)
     return result
 
 
 
 if __name__=="__main__":
+    qrels =sys.argv[1]
     sentences_file = "/home/greg/auto_seo/scripts/senetces_add_remove"
     top_docs_file= "/home/greg/auto_seo/scripts/topDocs"
     doc_ids_file = "/home/greg/auto_seo/scripts/docIDs"
@@ -148,3 +149,8 @@ if __name__=="__main__":
     run_bash_command(command)
     command ="mv doc*_* vectorFeatures"
     run_bash_command(command)
+    command = "perl "+params.sentence_feature_creator+" vectorFeatures "+params.sentence_working_set
+    run_bash_command(command)
+    command = "mv features sentence_features"
+    run_bash_command(command)
+    cross_validation("sentence_features",qrels,"summary_all_features.tex")

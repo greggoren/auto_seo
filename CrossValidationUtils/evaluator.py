@@ -63,7 +63,7 @@ class eval:
             print("no validation folder")
 
 
-    def run_trec_eval_on_test(self,qrels,trec_file=None):
+    def run_trec_eval_on_test(self,qrels,summary_file,trec_file=None):
         if trec_file is None:
             trec_file="scores"
         score_data = []
@@ -76,7 +76,7 @@ class eval:
                 score = str(score).replace("b'","")
                 score = score.replace("'","")
                 score_data.append((metric, str(score)))
-        summary_file = open("summary.tex", 'w')
+        summary_file = open(summary_file, 'w')
         cols = "c|"*len(self.metrics)
         summary_file.write("\\begin{tabular}{"+cols+"}\n")
         next_line = " & ".join([s[0] for s in score_data])+"\\\\ \n"
