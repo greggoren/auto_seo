@@ -174,6 +174,6 @@ if __name__=="__main__":
     command = "perl "+params.sentence_feature_creator+" vectorFeatures "+params.sentence_working_set
     run_bash_command(command)
     command = "mv features "+features_path
-    new_features = add_labeles(qrels,features_path,"new_sentence_features")
     run_bash_command(command)
+    new_features = add_labeles(qrels,features_path,"new_sentence_features")
     cross_validation(new_features,qrels,"summary_all_features.tex")
