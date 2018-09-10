@@ -55,11 +55,11 @@ class WordToVec(object):
                                            size      = 300, 
                                            window    = 8,
                                            min_count = 0, 
-                                           workers   = 4,compute_loss=True)
+                                           workers   = 4)
             
-            model.train(sentences      = sentences, 
+            model.train(sentences = sentences,
                         total_examples = model.corpus_count, 
-                        epochs         = 2)
+                        epochs = 5,compute_loss=True)
     
             # Normalized vectors
             model.wv.init_sims(replace = True)
