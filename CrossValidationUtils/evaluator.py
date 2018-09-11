@@ -9,7 +9,7 @@ class eval:
 
 
     def __init__(self):
-        self.metrics = ["map","ndcg","P.2"]
+        self.metrics = ["map","ndcg","P.2","P.5"]
         self.validation_metric = "ndcg"
         self.doc_name_index = {}
 
