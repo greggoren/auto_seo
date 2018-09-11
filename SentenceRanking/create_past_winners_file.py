@@ -52,7 +52,8 @@ for index in range(1,4):
     # merged_index = merge_indices(new_index=new_index,run_name=str(index),new_index_name="merged_index")
     feature_file = "features"+ "_" + str(index)
     features_dir = "Features"
-    create_features_file_original(features_dir=features_dir, index_path=merged_index, new_features_file=feature_file , run_name=str(index))
+    queries_file = "/home/greg/auto_seo/data/queries.xml"
+    create_features_file_original(features_dir=features_dir, index_path=merged_index, new_features_file=feature_file , run_name=str(index),queries_file=queries_file)
     index_doc_name = create_index_to_doc_name_dict(feature_file)
     scores_file = run_model(feature_file,str(index))
     results = retrieve_scores(index_doc_name, scores_file)
