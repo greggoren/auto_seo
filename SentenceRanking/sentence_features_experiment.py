@@ -99,11 +99,14 @@ def get_vectors(top_doc_vectors):
         result[query]=centroid
     return result,winners
 
-def create_features(senteces_file,top_docs_file,doc_ids_file,model):
+def create_features(senteces_file,top_docs_file,doc_ids_file,past_winners_file,model):
     top_docs = get_top_docs_per_query(top_docs_file)
     doc_ids = init_doc_ids(doc_ids_file)
+    past_winners_data = read_past_winners_file(past_winners_file)
+    past_winners_vectors = init_past_winners_vectors(past_winners_data,model)
     top_doc_vectors = init_top_doc_vectors(top_docs,doc_ids,model)
     centroids,winners = get_vectors(top_doc_vectors)
+    past_winner_centroids,_ =get_vectors(past_winners_vectors)
     with open(senteces_file) as s_file:
         for line in s_file:
             comb,sentence_in,sentence_out = line.split("\t")[0],line.split("\t")[1],line.split("\t")[2]
@@ -126,16 +129,39 @@ def write_files(values,query,comb):
         f.close()
 
 
-def feature_values(centroid,s_in,s_out,winner):
+def feature_values(centroid,s_in,s_out,winner,past_winner_centroid):
     result={}
     result["docCosineToCentroidInVec"]= cosine_similarity(centroid,s_in)
     result["docCosineToCentroidOutVec"]= cosine_similarity(centroid,s_out)
     result["docCosineToWinnerInVec"]=cosine_similarity(winner,s_in)
     result["docCosineToWinnerOutVec"]=cosine_similarity(winner,s_out)
+    result["docCosineToWinnerCentroidInVec"]=cosine_similarity(past_winner_centroid,s_in)
+    result["docCosineToWinnerCentroidOutVec"]=cosine_similarity(past_winner_centroid,s_out)
+
     return result
 
 
+def read_past_winners_file(winners_file):
+    winners_data ={}
+    stemmer = Stemmer()
+    with open(winners_file) as file:
+        for line in file:
+            query = line.split("\t")[0]
+            text = list.split("\t")[1]
+            if query not in winners_data:
+                winners_data[query]=[]
+            text = " ".join([stemmer.stem(word) for word in text.split()])
+            winners_data[query].append(text)
+    return winners_data
 
+
+def init_past_winners_vectors(winners_data,model):
+    winners_vectors = {}
+    for query in winners_data:
+        winners_vectors[query]=[]
+        for doc in winners_data[query]:
+            winners_vectors[query].append(get_document_vector(doc,model))
+    return winners_vectors
 
 
 def add_labeles(label_file_path,old_features,new_features_path):
@@ -151,6 +177,7 @@ def add_labeles(label_file_path,old_features,new_features_path):
             new_features.write(new_line+"\n")
         new_features.close()
         return new_features_path
+
 
 
 
