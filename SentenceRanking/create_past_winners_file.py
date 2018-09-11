@@ -46,10 +46,10 @@ for index in range(1,4):
     print("in epoch",index)
     doc_text_for_round = get_docs(doc_texts, round=index)
     trec_text_file = create_trectext_original(document_text=doc_text_for_round, summaries = [],run_name= str(index),avoid=[])
-    # new_index = create_index(trec_text_file,str(index))
-    # if merged_index:
-    #     run_bash_command("rm -r "+merged_index)
-    # merged_index = merge_indices(new_index=new_index,run_name=str(index),new_index_name="merged_index")
+    new_index = create_index(trec_text_file,str(index))
+    if merged_index:
+        run_bash_command("rm -r "+merged_index)
+    merged_index = merge_indices(new_index=new_index,run_name=str(index),new_index_name="merged_index")
     feature_file = "features"+ "_" + str(index)
     features_dir = "Features"
     queries_file = "/home/greg/auto_seo/data/queries.xml"
