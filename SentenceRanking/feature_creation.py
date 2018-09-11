@@ -128,8 +128,8 @@ def write_files(values,query,comb):
 
 def feature_values(centroid,s_in,s_out,winner):
     result={}
-    result["docCosineToCentroidInVec"]= cosine_similarity(centroid,s_in)
-    result["docCosineToCentroidOutVec"]= cosine_similarity(centroid,s_out)
+    #result["docCosineToCentroidInVec"]= cosine_similarity(centroid,s_in)
+    #result["docCosineToCentroidOutVec"]= cosine_similarity(centroid,s_out)
     result["docCosineToWinnerInVec"]=cosine_similarity(winner,s_in)
     result["docCosineToWinnerOutVec"]=cosine_similarity(winner,s_out)
     return result
