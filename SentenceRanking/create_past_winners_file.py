@@ -53,7 +53,7 @@ for index in range(1,4):
     features_dir = "Features"
     create_features_file_original(features_dir=features_dir, index_path=merged_index, new_features_file=feature_file , run_name=str(index))
     index_doc_name = create_index_to_doc_name_dict(feature_file)
-    scores_file = run_model(feature_file)
+    scores_file = run_model(feature_file,str(index))
     results = retrieve_scores(index_doc_name, scores_file)
     trec_file = create_trec_eval_file(results,str(index))
     order_trec_file(trec_file)
