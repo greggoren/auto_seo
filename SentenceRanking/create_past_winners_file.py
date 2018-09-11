@@ -45,11 +45,11 @@ merged_index=""
 for index in range(1,4):
     print("in epoch",index)
     doc_text_for_round = get_docs(doc_texts, round=index)
-    trec_text_file = create_trectext_original(doc_text_for_round, [], str(index),[])
-    new_index = create_index(trec_text_file,str(index))
-    if merged_index:
-        run_bash_command("rm -r "+merged_index)
-    merged_index = merge_indices(new_index=new_index,run_name=str(index),new_index_name="merged_index")
+    trec_text_file = create_trectext_original(document_text=doc_text_for_round, summaries = [],run_name= str(index),avoid=[])
+    # new_index = create_index(trec_text_file,str(index))
+    # if merged_index:
+    #     run_bash_command("rm -r "+merged_index)
+    # merged_index = merge_indices(new_index=new_index,run_name=str(index),new_index_name="merged_index")
     feature_file = "features"+ "_" + str(index)
     features_dir = "Features"
     create_features_file_original(features_dir=features_dir, index_path=merged_index, new_features_file=feature_file , run_name=str(index))

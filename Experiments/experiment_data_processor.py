@@ -174,11 +174,11 @@ def merge_indices(new_index,run_name="",new_index_name=""):
     path_to_folder = '/home/greg/auto_seo'
     if new_index_name=="":
         new_index_name = path_to_folder+'/new_merged_index'+run_name
-    print("deleting old merged index repository")
-    command = "rm -r "+path_to_folder+'/new_merged_index*'
-    print("delete command = ",command)
-    run_bash_command(command)
-    print("delete finished")
+    # print("deleting old merged index repository")
+    # command = "rm -r "+path_to_folder+'/new_merged_index*'
+    # print("delete command = ",command)
+    # run_bash_command(command)
+    # print("delete finished")
     command = '/home/greg/indri_test/bin/dumpindex '+new_index_name+' merge '+new_index+' '+params.corpus_path_56
     print("merging command:",command)
     sys.stdout.flush()
