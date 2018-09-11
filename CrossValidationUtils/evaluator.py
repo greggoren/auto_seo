@@ -78,6 +78,7 @@ class eval:
                 score_data.append((metric, str(score)))
         summary_file = open(summary_file, 'w')
         cols = "c|"*len(self.metrics)
+        cols = "|"+cols
         summary_file.write("\\begin{tabular}{"+cols+"}\n")
         next_line = " & ".join([s[0] for s in score_data])+"\\\\ \n"
         summary_file.write(next_line)
