@@ -10,9 +10,9 @@ import params
 def run_model(test_file,run_name=""):
     java_path = "/home/greg/jdk1.8.0_181/bin/java"
     jar_path = "/home/greg/SEO_CODE/model_running/RankLib.jar"
-    score_file = "scores/scores_of_seo_run"+run_name
-    if not os.path.exists("scores/"):
-        os.makedirs("scores/")
+    score_file = "scores_winners/scores_of_seo_run"+run_name
+    if not os.path.exists("scores_winners/"):
+        os.makedirs("scores_winners/")
     features = test_file
     model_path = params.model_path
     run_bash_command('touch ' + score_file)
