@@ -32,7 +32,7 @@ if __name__=="__main__":
                 index+=1
         scores.close()
 
-        for metric in ["map","ndcg","P.2"]:
+        for metric in ["map","ndcg","P.2","P.5"]:
             command = "./trec_eval -m " + metric + " "+qrels+" /home/greg/auto_seo/CrossValidationUtils/random_scores"
             for output_line in run_command(command):
                 print(metric,output_line)
