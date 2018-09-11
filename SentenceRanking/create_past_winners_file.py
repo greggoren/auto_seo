@@ -40,7 +40,6 @@ def order_trec_file(trec_file):
 ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
 
 reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists}
-winner_docs = {q:ranked_lists[q][:3] for q in ranked_lists}
 doc_texts = load_file(params.trec_text_file)
 merged_index=""
 for index in range(1,4):
@@ -58,6 +57,6 @@ for index in range(1,4):
     results = retrieve_scores(index_doc_name, scores_file)
     trec_file = create_trec_eval_file(results,str(index))
     order_trec_file(trec_file)
-    run_bash_command("rm "+trec_file)
+    # run_bash_command("rm "+trec_file)
 
 
