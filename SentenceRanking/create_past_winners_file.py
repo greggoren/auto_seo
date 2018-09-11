@@ -43,6 +43,7 @@ reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked
 doc_texts = load_file(params.trec_text_file)
 merged_index=""
 for index in range(1,4):
+    print("in epoch",index)
     doc_text_for_round = get_docs(doc_texts, round=index)
     trec_text_file = create_trectext_original(doc_text_for_round, [], str(index),[])
     new_index = create_index(trec_text_file,str(index))
