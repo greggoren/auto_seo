@@ -14,6 +14,7 @@ def run_trec_eval_on_test(qrels, trec_file):
                 break
             if line.split()[1] == "all":
                 break
+            print(line.split()[2].rstrip())
             score = float(line.split()[2].rstrip())
             query = line.split()[1]
             score = str(score).replace("b'", "")
