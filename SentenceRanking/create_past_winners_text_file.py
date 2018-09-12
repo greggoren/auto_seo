@@ -11,5 +11,5 @@ for run_name in range(1,4):
     for query in ranked_lists:
         text = doc_texts[winners[query]].rstrip()
         sentences = retrieve_sentences(text)
-        f.write(query+"@@@"+" ".join([a.rstrip()  for a in sentences])+"\n")
+        f.write(query+"@@@"+" ".join([a.replace("\n","")  for a in sentences])+"\n")
 f.close()
