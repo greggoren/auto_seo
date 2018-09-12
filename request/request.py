@@ -7,7 +7,7 @@ def run_trec_eval_on_test(qrels, trec_file):
     score_data = {}
     print("last stats:")
     for metric in metrics:
-        command = "./trec_eval -m -q " + metric + " " + qrels + " " + trec_file
+        command = "./trec_eval -q -m " + metric + " " + qrels + " " + trec_file
         score_data[metric]={}
         for line in run_command(command):
             if len(line.split()) <= 1:
