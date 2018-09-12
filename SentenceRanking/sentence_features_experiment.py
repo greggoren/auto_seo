@@ -112,10 +112,11 @@ def create_features(senteces_file,top_docs_file,doc_ids_file,past_winners_file,m
             comb,sentence_in,sentence_out = line.split("\t")[0],line.split("\t")[1],line.split("\t")[2]
             query = comb.split("-")[2]
             centroid = centroids[query]
+            past_winner_centroid = past_winner_centroids[query]
             winner =winners[query]
             sentence_vector_in = get_sentence_vector(sentence_in,model)
             sentence_vector_out = get_sentence_vector(sentence_out,model)
-            values = feature_values(centroid,sentence_vector_in,sentence_vector_out,winner)
+            values = feature_values(centroid,sentence_vector_in,sentence_vector_out,winner,past_winner_centroid)
             write_files(values,query,comb)
 
 
