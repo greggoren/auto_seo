@@ -1,4 +1,4 @@
-from Preprocess.preprocess import retrieve_ranked_lists,load_file
+from Preprocess.preprocess import retrieve_ranked_lists,load_file,retrieve_sentences
 import params
 
 doc_texts = load_file(params.trec_text_file)
@@ -9,5 +9,7 @@ for run_name in range(1,4):
     ranked_lists = retrieve_ranked_lists(trec_file)
     winners = {q:ranked_lists[q][0] for q in ranked_lists}
     for query in ranked_lists:
-        f.write(query+"@@@"+doc_texts[winners[query]][1:].rstrip()+"\n")
+        text = doc_texts[winners[query]].rstrip()
+        sentences = retrieve_sentences(text)
+        f.write(query+"@@@"+" ".join([a.rstrip()  for a in sentences])+"\n")
 f.close()
