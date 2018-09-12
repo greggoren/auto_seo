@@ -189,9 +189,10 @@ if __name__=="__main__":
     sentences_file = "/home/greg/auto_seo/scripts/senetces_add_remove"
     top_docs_file= "/home/greg/auto_seo/scripts/topDocs"
     doc_ids_file = "/home/greg/auto_seo/scripts/docIDs"
+    past_winners_file ="/home/greg/auto_seo/scripts/past_winners_file"
     model_w2v =load_model()
     features_path = "sentence_features"
-    create_features(sentences_file,top_docs_file,doc_ids_file,model_w2v)
+    create_features(sentences_file,top_docs_file,doc_ids_file,past_winners_file,model_w2v)
     command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp /home/greg/auto_seo/scripts/indri.jar Main"
     print(run_bash_command(command))
     command= "mkdir vectorFeatures"
