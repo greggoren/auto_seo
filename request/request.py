@@ -7,13 +7,18 @@ def run_trec_eval_on_test(qrels, trec_file):
     score_data = {}
     print("last stats:")
     for metric in metrics:
-        command = "./trec_eval -m " + metric + " " + qrels + " " + trec_file
-        for output_line in run_command(command):
-            print(metric, output_line)
-            score = output_line.split()[-1].rstrip()
+        command = "./trec_eval -m -q " + metric + " " + qrels + " " + trec_file
+        score_data[metric]={}
+        for line in run_command(command):
+            if len(line.split()) <= 1:
+                break
+            if line.split()[1] == "all":
+                break
+            score = float(line.split()[2].rstrip())
+            query = line.split()[1]
             score = str(score).replace("b'", "")
             score = score.replace("'", "")
-            score_data[metric] = str(score)
+            score_data[metric][query] = str(score)
     return score_data
 
 
@@ -50,12 +55,13 @@ with open(relevance_file) as file:
         rnd = doc.split("-")[1]
         rel = line.split()[3]
         if rnd not in stats_rel:
-            stats_rel[rnd] = []
-
-        stats_rel[rnd].append(int(rel.rstrip()))
+            stats_rel[rnd] = {}
+        if query not in stats_rel[rnd]:
+            stats_rel[rnd][query] = []
+        stats_rel[rnd][query].append(int(rel.rstrip()))
 f= open("summary.tex","w")
-f.write("\\begin{tabular}{|c|c|c|c|c|}\n")
-f.write("ROUND & Relevant & Total & NDCG@1 & NDCG@2 \\\\")
+f.write("\\begin{tabular}{|c|c|c|c|c|c|}\n")
+f.write("ROUND & Query & Relevant & Total & NDCG@1 & NDCG@2 \\\\")
 f.write("\\hline\n")
 for rnd in sorted(list(stats.keys())):
     trec_tmp = "trec_file"+rnd+".txt"
@@ -69,8 +75,9 @@ for rnd in sorted(list(stats.keys())):
     qrels = "qrels_"+rnd
     run_bash_command("cat "+relevance_file+" | grep ROUND-"+rnd+" > "+qrels)
     score_data = run_trec_eval_on_test(qrels,trec_file)
+    for query in score_data["ndcg_cut.1"]:
 
-    f.write(rnd+" & "+str(sum([1 for i in stats_rel[rnd] if i>0]))+" & "+str(len(stats_rel[rnd]))+" & "+score_data["ndcg_cut.1"]+" & "+score_data["ndcg_cut.2"]+"\\\\ \n")
-    f.write("\\hline\n")
+        f.write(rnd+" & "+query+" & "+str(sum([1 for i in stats_rel[rnd][query] if i>0]))+" & "+str(len(stats_rel[rnd][query]))+" & "+score_data["ndcg_cut.1"][query]+" & "+score_data["ndcg_cut.2"][query]+"\\\\ \n")
+        f.write("\\hline\n")
 f.write("\\end{tabular}")
 f.close()

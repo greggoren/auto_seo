@@ -20,8 +20,8 @@ def kendall_distance(ranked1, ranked2):
     return float(discordant) / len(all_pairs)
 
 
-ranks_tf_idf_file = 'scores_TFIDF'
-ranks_vec_file = 'scores_vec'
+ranks_tf_idf_file = 'scores_tfidf_past'
+ranks_vec_file = 'scores_vec_past'
 
 ranked_lists_tfidf = retrieve_ranked_lists(ranks_tf_idf_file)
 ranked_lists_vec = retrieve_ranked_lists(ranks_vec_file)
