@@ -147,7 +147,7 @@ def read_past_winners_file(winners_file):
     with open(winners_file) as file:
         for line in file:
             query = line.split("\t")[0]
-            text = list.split("\t")[1]
+            text = line.split("\t")[1]
             if query not in winners_data:
                 winners_data[query]=[]
             text = " ".join([stemmer.stem(word) for word in text.split()])
