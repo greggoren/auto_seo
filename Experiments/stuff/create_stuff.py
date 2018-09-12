@@ -10,4 +10,4 @@ for doc in a_doc_texts:
 
 summaries = {}
 
-create_trectext(doc_texts, [], summaries, "")
+create_trectext(document_text=doc_texts, avoid=[], summaries=summaries, run_name="")
