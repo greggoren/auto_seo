@@ -146,8 +146,8 @@ def read_past_winners_file(winners_file):
     stemmer = Stemmer()
     with open(winners_file) as file:
         for line in file:
-            query = line.split("\t")[0]
-            text = line.split("\t")[1]
+            query = line.split("@@@")[0]
+            text = line.split("@@@")[1]
             if query not in winners_data:
                 winners_data[query]=[]
             text = " ".join([stemmer.stem(word) for word in text.split()])
