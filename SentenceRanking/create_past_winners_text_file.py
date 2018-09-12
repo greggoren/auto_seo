@@ -9,5 +9,5 @@ for run_name in range(1,4):
     ranked_lists = retrieve_ranked_lists(trec_file)
     winners = {q:ranked_lists[q][0] for q in ranked_lists}
     for query in ranked_lists:
-        f.write(query+"\t"+doc_texts[winners[query]].rstrip()+"\n")
+        f.write(query+"\t"+doc_texts[winners[query]][1:].rstrip()+"\n")
 f.close()
