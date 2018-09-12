@@ -16,7 +16,7 @@ def run_trec_eval_on_test(qrels, trec_file):
                 break
             print(line)
             score = float(line.split()[2].rstrip())
-            query = line.split()[1]
+            query = str(line.split()[1])
             score = str(score).replace("b'", "")
             score = score.replace("'", "")
             score_data[metric][query] = str(score)
