@@ -12,7 +12,7 @@ def run_trec_eval_on_test(qrels, trec_file):
         for line in run_command(command):
             if len(line.split()) <= 1:
                 break
-            if line.split()[1] == "all":
+            if line.split()[1].replace("b'", "").replace("'","") == "all":
                 break
             print(line)
             score = float(line.split()[2].rstrip())
