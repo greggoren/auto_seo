@@ -32,9 +32,9 @@ def get_overlapping_queries(regular_queries_file,extended_queries_file):
     regular_queries = open(regular_queries_file)
     extended_queries = open(extended_queries_file)
     regular_queries_map ={line.split(":")[1].rstrip():line.split(":")[0] for line in regular_queries}
-    regular_queries_map_rev ={line.split(":")[0].rstrip():line.split(":")[1] for line in regular_queries}
+    regular_queries_map_rev ={line.split(":")[0].rstrip():line.split(":")[1].rstrip() for line in regular_queries}
     extended_queries_map ={line.split(":")[1].rstrip():line.split(":")[0] for line in extended_queries}
-    extended_queries_map_rev ={line.split(":")[0].rstrip():line.split(":")[1] for line in extended_queries}
+    extended_queries_map_rev ={line.split(":")[0]:line.split(":")[1].rstrip() for line in extended_queries}
     for query_text in regular_queries_map:
         if query_text in extended_queries_map:
             overlapping[extended_queries_map[query_text]]=regular_queries_map[query_text]
