@@ -12,7 +12,7 @@ def combine(qrels,prels,regular_queries_file,extended_queries_file):
             rel = line.split()[2]
             if query in overllaping_map:
                 if overllaping_map[query] in qrels_data:
-                    if doc in qrels[overllaping_map[query]]:
+                    if doc in qrels_data[overllaping_map[query]]:
                         continue
                     else:
                         final_qrels.write(overllaping_map[query] + " 1 " + doc + " " + rel + "\n")
