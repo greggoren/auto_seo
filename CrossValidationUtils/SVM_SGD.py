@@ -25,8 +25,8 @@ class svm_sgd:
         return float(errors)/len(validation)
 
 
-    def predict(self,X,queries,test_indices,eval,validation=None):
+    def predict(self,X,queries,test_indices,eval,fold,validation=None):
         results = {}
         for index in test_indices:
             results[index] = np.dot(self.w,X[index].T)
-        return eval.create_trec_eval_file(test_indices,queries,results,str(self.C),validation)
+        return eval.create_trec_eval_file(test_indices,queries,results,str(self.C),"svm",fold,validation)

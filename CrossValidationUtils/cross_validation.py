@@ -128,13 +128,13 @@ def cross_validation(features_file,qrels_file,summary_file):
             weights = recover_model(model_file)
             svm = s.svm_sgd(C)
             svm.w = weights
-            score_file = svm.predict(X, queries, validation_set, evaluator, True)
+            score_file = svm.predict(X, queries, validation_set, evaluator, fold_number,True)
             score = evaluator.run_trec_eval(score_file, qrels_file)
             scores[svm.C] = score
             models[svm.C] = svm
         max_C = max(scores.items(), key=operator.itemgetter(1))[0]
         chosen_model = models[max_C]
-        trec_file = chosen_model.predict(X, queries, test, evaluator)
+        trec_file = chosen_model.predict(X, queries, test, evaluator,fold_number)
 
         fold_number += 1
     evaluator.order_trec_file(trec_file)

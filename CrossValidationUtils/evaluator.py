@@ -13,13 +13,14 @@ class eval:
         self.validation_metric = "ndcg_cut.20"
         self.doc_name_index = {}
 
-    def remove_score_file_from_last_run(self):
-        if os._exists("scores"):
-            os.remove("scores")
+    def remove_score_file_from_last_run(self,method):
+        file = method+"_scores"
+        if os._exists(file):
+            os.remove(file)
 
-    def create_trec_eval_file(self, test_indices, queries, results,model,method,validation=None):
+    def create_trec_eval_file(self, test_indices, queries, results,model,method,fold,validation=None):
         if validation is not None:
-            trec_file = method+"_validation/trec_file_"+model+".txt"
+            trec_file = method+"_validation/"+str(fold)+"/trec_file_"+model+".txt"
             if not os.path.exists(os.path.dirname(trec_file)):
                 os.makedirs(os.path.dirname(trec_file))
 
@@ -56,9 +57,9 @@ class eval:
             break
         return score
 
-    def empty_validation_files(self):
+    def empty_validation_files(self,method):
         try:
-            shutil.rmtree("validation")
+            shutil.rmtree(method+"_validation")
         except:
             print("no validation folder")
 
