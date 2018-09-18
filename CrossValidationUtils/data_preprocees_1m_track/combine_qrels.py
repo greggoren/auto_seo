@@ -1,6 +1,6 @@
 def combine(qrels,prels,regular_queries_file,extended_queries_file):
     final_qrels = open("mq_track_qrels","w")
-    overllaping_map = get_overlapping_queries(regular_queries_file,extended_queries_file)
+    overllaping_map,_,__ = get_overlapping_queries(regular_queries_file,extended_queries_file)
     qrels_data = get_qrels_stats(qrels)
     with open(qrels) as file:
         for line in file:
@@ -27,11 +27,13 @@ def get_overlapping_queries(regular_queries_file,extended_queries_file):
     regular_queries = open(regular_queries_file)
     extended_queries = open(extended_queries_file)
     regular_queries_map ={line.split(":")[1].rstrip():line.split(":")[0] for line in regular_queries}
+    regular_queries_map_rev ={line.split(":")[0].rstrip():line.split(":")[1] for line in regular_queries}
     extended_queries_map ={line.split(":")[1].rstrip():line.split(":")[0] for line in extended_queries}
+    extended_queries_map_rev ={line.split(":")[0].rstrip():line.split(":")[1] for line in extended_queries}
     for query_text in regular_queries_map:
         if query_text in extended_queries_map:
             overlapping[extended_queries_map[query_text]]=regular_queries_map[query_text]
-    return overlapping
+    return overlapping,regular_queries_map_rev,extended_queries_map_rev
 
 def get_qrels_stats(qrels):
     stats ={}
@@ -42,6 +44,24 @@ def get_qrels_stats(qrels):
             stats[line.split()[0]].append(line.split()[2])
         return stats
 
-def create_queries_xml():
+def create_queries_xml(regular_queries_file,extended_queries_file):
+    overlapping_map,regular_queries_map,extended_queries_map = get_overlapping_queries(regular_queries_file,extended_queries_file)
     xml_file = open("mq_queries.xml","w")
     xml_file.write("<parameters>\n")
+    for query in regular_queries_map:
+        xml_file.write("<query><number>"+query+"</number><text>#combine("+regular_queries_map[query]+")</text></query>\n")
+    for query in extended_queries_file:
+        if query in overlapping_map:
+            continue
+        else:
+            xml_file.write("<query><number>" + query + "</number><text>#combine(" + extended_queries_map[
+                query] + ")</text></query>\n")
+    xml_file.write("</parameters>\n")
+    xml_file.close()
+
+qrels = "../data/qrels"
+prels = "../data/updated_prels"
+regular_queries_file = "../data/queries.txt"
+extended_queries_file = "../data/mq_queries.txt"
+combine(qrels,prels,regular_queries_file,extended_queries_file)
+create_queries_xml(regular_queries_file,extended_queries_file)
