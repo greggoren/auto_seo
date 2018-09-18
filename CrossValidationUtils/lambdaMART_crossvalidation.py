@@ -37,8 +37,8 @@ if __name__=="__main__":
     leaves=[5,10,25,50]
     model_handler = mh.model_handler_LambdaMart(trees,leaves)
     validated = set()
+    evaluator.empty_validation_files("lm")
     for train,test in folds:
-        evaluator.empty_validation_files("lm")
         validated, validation_set, train_set = preprocess.create_validation_set(number_of_folds, validated, set(train),
                                                                                 number_of_queries, queries)
         validation_set=list(validation_set)
