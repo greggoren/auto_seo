@@ -19,7 +19,7 @@ def filter(prels_file,doc_names_file):
 
 def get_docs(doc_names_file):
     f = open(doc_names_file)
-    docs = [doc.rstrip() for doc in f]
+    docs = {doc.rstrip():True for doc in f}
     f.close()
     return docs
 
