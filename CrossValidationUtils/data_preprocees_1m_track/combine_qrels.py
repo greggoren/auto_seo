@@ -66,7 +66,7 @@ def create_queries_xml(regular_queries_file,extended_queries_file,extended_queri
 
 qrels = "../data/qrels"
 prels = "../data/updated_prels"
-regular_queries_file = "../data/mq_queries.txt"
+regular_queries_file = "../data/queries.txt"
 extended_queries_file = "../data/mq_queries.txt"
 extended_queries = get_extended_queries(prels)
 combine(qrels,prels,regular_queries_file,extended_queries_file)
