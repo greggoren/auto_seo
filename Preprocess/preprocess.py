@@ -19,6 +19,25 @@ def load_file(filename):
                 docs[name]=att.text
     return docs
 
+
+def get_queries_data(filename):
+    tree = ET.parse(filename)
+    root = tree.getroot()
+    query_data={}
+    for topic in root:
+        query_number = topic.attrib["number"].zfill(3)
+        query_data[query_number]={}
+        for att in topic:
+            if att.tag=="query":
+                query_text = att.text
+                query_data[query_number]["query"]=query_text
+            else:
+                query_description = att.text
+                query_data[query_number]["description"]=query_description
+                break
+    return query_data
+
+
 # def turn_sentence_into_terms(sentence,index,token2id):
 #     result = []
 #     words = index.tokenize(sentence)

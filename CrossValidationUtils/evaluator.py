@@ -9,22 +9,22 @@ class eval:
 
 
     def __init__(self):
-        self.metrics = ["map","ndcg","P.2","P.5"]
-        self.validation_metric = "ndcg"
+        self.metrics = ["map","ndcg_cut.20","P.10","P.5"]
+        self.validation_metric = "ndcg_cut.20"
         self.doc_name_index = {}
 
     def remove_score_file_from_last_run(self):
         if os._exists("scores"):
             os.remove("scores")
 
-    def create_trec_eval_file(self, test_indices, queries, results,model,validation=None):
+    def create_trec_eval_file(self, test_indices, queries, results,model,method,validation=None):
         if validation is not None:
-            trec_file = "validation/trec_file_"+model+".txt"
+            trec_file = method+"_validation/trec_file_"+model+".txt"
             if not os.path.exists(os.path.dirname(trec_file)):
                 os.makedirs(os.path.dirname(trec_file))
 
         else:
-            trec_file = "scores.txt"
+            trec_file = method+"_scores.txt"
         trec_file_access = open(trec_file,'a')
         for index in test_indices:
             trec_file_access.write(self.set_qid_for_trec(queries[index])+" Q0 "+self.doc_name_index[index]+" "+str(0)+" "+str(results[index])+" seo\n")
@@ -32,7 +32,7 @@ class eval:
         return trec_file
 
 
-
+    #
     def order_trec_file(self,trec_file):
         final = trec_file.replace(".txt","")
         command = "sort -k1,1 -k5nr -k2,1 "+trec_file+" > "+final

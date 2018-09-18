@@ -35,7 +35,13 @@ for query in ranked_lists_tfidf:
     list_vec = ranked_lists_vec[query]
     kt = kendalltau(list_tf_idf,list_vec)
     sp = spearmanr(list_tf_idf,list_vec)
+
     kt_dist = kendall_distance(list_tf_idf,list_vec)
+    print(kt)
+    print(kt_dist)
+    print(list_vec)
+    print(list_tf_idf)
+
     sum_kt +=kt[0]
     sum_kt_dist+=kt_dist
     sum_spearman+=sp[0]
