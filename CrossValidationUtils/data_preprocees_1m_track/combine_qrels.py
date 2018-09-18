@@ -20,7 +20,10 @@ def combine(qrels,prels,regular_queries_file,extended_queries_file):
 
 
 
-
+def get_extended_queries(prels):
+    f = open(prels)
+    queries = [line.split()[0] for line in f]
+    return set(queries)
 
 def get_overlapping_queries(regular_queries_file,extended_queries_file):
     overlapping = {}
@@ -44,7 +47,7 @@ def get_qrels_stats(qrels):
             stats[line.split()[0]].append(line.split()[2])
         return stats
 
-def create_queries_xml(regular_queries_file,extended_queries_file):
+def create_queries_xml(regular_queries_file,extended_queries_file,extended_queries):
     overlapping_map,regular_queries_map,extended_queries_map = get_overlapping_queries(regular_queries_file,extended_queries_file)
     xml_file = open("mq_queries.xml","w")
     xml_file.write("<parameters>\n")
@@ -53,7 +56,7 @@ def create_queries_xml(regular_queries_file,extended_queries_file):
     for query in extended_queries_file:
         if query in overlapping_map:
             continue
-        else:
+        elif query in extended_queries:
             xml_file.write("<query><number>" + query + "</number><text>#combine(" + extended_queries_map[
                 query] + ")</text></query>\n")
     xml_file.write("</parameters>\n")
@@ -61,7 +64,8 @@ def create_queries_xml(regular_queries_file,extended_queries_file):
 
 qrels = "../data/qrels"
 prels = "../data/updated_prels"
-regular_queries_file = "../data/queries.txt"
+regular_queries_file = "../data/mq_queries.txt"
 extended_queries_file = "../data/mq_queries.txt"
+extended_queries = get_extended_queries(prels)
 combine(qrels,prels,regular_queries_file,extended_queries_file)
-create_queries_xml(regular_queries_file,extended_queries_file)
+create_queries_xml(regular_queries_file,extended_queries_file,extended_queries)

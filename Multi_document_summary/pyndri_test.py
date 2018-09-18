@@ -3,7 +3,7 @@ import params
 from  CrossValidationUtils import run_bash_command
 from time import time
 # command="~/.local/bin/PyndriQuery --loglevel warning \
-# 	--queries queries.txt \
+# 	--queries mq_queries.txt \
 # 	--index "+params.path_to_index+" \
 # 	--smoothing_method dirichlet --smoothing_param auto --prf \
 # 	test.run"
