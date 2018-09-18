@@ -25,6 +25,7 @@ def combine(qrels,prels,regular_queries_file,extended_queries_file):
 def get_extended_queries(prels):
     f = open(prels)
     queries = [line.split()[0] for line in f]
+    f.close()
     return set(queries)
 
 def get_overlapping_queries(regular_queries_file,extended_queries_file):
