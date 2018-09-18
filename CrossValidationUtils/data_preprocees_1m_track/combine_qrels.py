@@ -62,7 +62,7 @@ def create_queries_xml(regular_queries_file,extended_queries_file,extended_queri
     xml_file.write("<parameters>\n")
     for query in regular_queries_map:
         xml_file.write("<query><number>"+query+"</number><text>#combine("+regular_queries_map[query]+")</text></query>\n")
-    for query in extended_queries_file:
+    for query in extended_queries_map:
         if query in overlapping_map:
             continue
         elif query in extended_queries:
