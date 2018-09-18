@@ -64,9 +64,9 @@ class eval:
             print("no validation folder")
 
 
-    def run_trec_eval_on_test(self,qrels,summary_file,trec_file=None):
+    def run_trec_eval_on_test(self,qrels,summary_file,method,trec_file=None):
         if trec_file is None:
-            trec_file="scores"
+            trec_file=method+"_scores"
         score_data = []
         print("last stats:")
         for metric in self.metrics:

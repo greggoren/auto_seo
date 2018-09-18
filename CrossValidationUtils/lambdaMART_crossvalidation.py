@@ -51,5 +51,5 @@ if __name__=="__main__":
         results = model_handler.retrieve_scores(test,scores_file)
         test_trec = evaluator.create_trec_eval_file(test,queries,results,"_".join([str(a) for a in model_handler.chosen_model_per_fold[fold_number]],fold_number,"lm"))
         fold_number += 1
-    evaluator.run_trec_eval_on_test(test_trec,qrels_file)
+    evaluator.run_trec_eval_on_test(qrels_file,summary_file,"lm")
     run_bash_command("rm " + test_trec)

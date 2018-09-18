@@ -139,7 +139,7 @@ def cross_validation(features_file,qrels_file,summary_file):
         fold_number += 1
     evaluator.order_trec_file(trec_file)
     run_bash_command("rm " + trec_file)
-    evaluator.run_trec_eval_on_test(qrels_file,summary_file)
+    evaluator.run_trec_eval_on_test(qrels_file,summary_file,"svm")
 
 if __name__ == "__main__":
     features_file = sys.argv[1]
