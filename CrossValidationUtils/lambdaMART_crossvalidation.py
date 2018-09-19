@@ -48,7 +48,7 @@ if __name__=="__main__":
         model_handler.fit_model_on_train_set_and_choose_best(train_file,validation_file,validation_set,queries,fold_number,evaluator,qrels_file)
         scores_file=model_handler.run_model_on_test(test_file,fold_number)
         results = model_handler.retrieve_scores(test,scores_file)
-        test_trec = evaluator.create_trec_eval_file(test,queries,results,"_".join([str(a) for a in model_handler.chosen_model_per_fold[fold_number]],fold_number,"lm"))
+        test_trec = evaluator.create_trec_eval_file(test,queries,results,"_".join([str(a) for a in model_handler.chosen_model_per_fold[fold_number]]),"lm",fold_number)
         fold_number += 1
     evaluator.run_trec_eval_on_test(qrels_file,summary_file,"lm")
     run_bash_command("rm " + test_trec)
