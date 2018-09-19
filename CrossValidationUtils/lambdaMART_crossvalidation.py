@@ -20,7 +20,7 @@ if __name__=="__main__":
     qrels_file = sys.argv[2]
     print("qrels file=", qrels_file)
     if len(sys.argv) < 4:
-        summary_file = "summary.tex"
+        summary_file = "summary_lm.tex"
     else:
         summary_file = sys.argv[3]
     number_of_folds = 5
