@@ -32,7 +32,7 @@ class model_handler_LambdaMart:
         command = self.java_path + ' -jar ' + self.jar_path + ' -train ' + train_file + ' -ranker 6    -metric2t NDCG@20' \
                                                                                         ' -tree ' + str(number_of_trees) + ' -leaf ' + str(number_of_leaves) +' -save ' +model_path
         print("command = ", command)
-        self.run_bash_command(command)
+        run_bash_command(command)
         return model_path
 
     def run_model(self,test_file,fold,trees,leaves,model_path):#TODO:add to main functionality + test file
