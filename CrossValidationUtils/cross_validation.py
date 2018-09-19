@@ -147,7 +147,7 @@ if __name__ == "__main__":
     qrels_file = sys.argv[2]
     print("qrels file=", qrels_file)
     if len(sys.argv)<4:
-        summary_file = "summary.tex"
+        summary_file = "svm_summary.tex"
     else:
         summary_file = sys.argv[3]
     cross_validation(features_file,qrels_file,summary_file)
