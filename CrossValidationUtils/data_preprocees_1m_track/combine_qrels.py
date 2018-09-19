@@ -1,13 +1,18 @@
 def combine(qrels,prels,regular_queries_file,extended_queries_file):
     final_qrels = open("mq_track_qrels","w")
-    overllaping_map,_,__ = get_overlapping_queries(regular_queries_file,extended_queries_file)
+    overllaping_map,regular_map,extended_map = get_overlapping_queries(regular_queries_file,extended_queries_file)
     qrels_data = get_qrels_stats(qrels)
+    seen = []
     with open(qrels) as file:
         for line in file:
+            query = line.split()[0]
+            seen.append(regular_map[query])
             final_qrels.write(line)
     with open(prels) as file:
         for line in file:
             query = line.split()[0]
+            if extended_map[query] in seen:
+                continue
             doc = line.split()[1]
             rel = line.split()[2]
             if query in overllaping_map:
