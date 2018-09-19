@@ -79,11 +79,14 @@ def create_queries_xml(regular_queries_file,extended_queries_file,extended_queri
                 query] + ")</text></query>\n")
     xml_file.write("</parameters>\n")
     xml_file.close()
+    seen = []
     query_text_file = open("mq_queries.txt","w")
     for query in regular_queries_map:
         query_text_file.write(query+":"+regular_queries_map[query]+"\n")
+        if regular_queries_map[query] not in seen:
+            seen.append(regular_queries_map[query])
     for query in extended_queries_map:
-        if query in overlapping_map:
+        if query in overlapping_map or extended_queries_map[query] in seen:
             continue
         elif query in extended_queries:
             query_text_file.write(query + ":" + extended_queries_map[query] + "\n")
