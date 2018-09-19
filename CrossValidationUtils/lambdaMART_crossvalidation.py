@@ -41,7 +41,6 @@ if __name__=="__main__":
     for train,test in folds:
         validated, validation_set, train_set = preprocess.create_validation_set(number_of_folds, validated, set(train),
                                                                                 number_of_queries, queries)
-        validation_set=list(validation_set)
         model_handler.set_queries_to_folds(queries,test,fold_number)
         train_file = preprocess.create_train_file(X[train_set], y[train_set], queries[train_set],fold_number)
         validation_file = preprocess.create_train_file(X[validation_set], y[validation_set], queries[validation_set], fold_number,True)

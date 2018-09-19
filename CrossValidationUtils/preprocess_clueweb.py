@@ -82,7 +82,7 @@ class preprocess:
     def create_train_file(self, X, y, queries, fold, test=False):
         add = ""
         if test:
-            add = "_test"
+            add = "_validation"
         train_file = "features" + add+ "_" + str(fold)
         with open(train_file, 'w') as feature_file:
             for i, doc in enumerate(X):
@@ -95,7 +95,7 @@ class preprocess:
         add = ""
         if test:
             add = "_test"
-        train_file = "LambdaMart_features" + str(fold) + "_" + add
+        train_file = "features" + str(fold) + "_" + add
         with open(train_file, 'w') as feature_file:
             for i, doc in enumerate(X):
                 features = " ".join([str(a + 1) + ":" + str(b) for a, b in enumerate(doc)])
