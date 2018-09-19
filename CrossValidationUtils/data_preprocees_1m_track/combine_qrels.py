@@ -6,7 +6,8 @@ def combine(qrels,prels,regular_queries_file,extended_queries_file):
     with open(qrels) as file:
         for line in file:
             query = line.split()[0]
-            seen.append(regular_map[query])
+            if regular_map[query] not in seen:
+                seen.append(regular_map[query])
             final_qrels.write(line)
     with open(prels) as file:
         for line in file:
