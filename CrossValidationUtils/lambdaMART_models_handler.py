@@ -29,6 +29,8 @@ class model_handler_LambdaMart:
         else:
             add=""
         model_path = self.model_base_path+str(fold) +"/" + add +'model_' + str(number_of_trees) + "_" + str(number_of_leaves)
+        if not os.path.exists(os.path.dirname(model_path)):
+            os.makedirs(os.path.dirname(model_path))
         command = self.java_path + ' -jar ' + self.jar_path + ' -train ' + train_file + ' -ranker 6    -metric2t NDCG@20' \
                                                                                         ' -tree ' + str(number_of_trees) + ' -leaf ' + str(number_of_leaves) +' -save ' +model_path
         print("command = ", command)
@@ -86,8 +88,8 @@ class model_handler_LambdaMart:
         scores={}
         for trees_number in self.trees_param:
             for leaf_number in self.leaves_param:
-                self.create_model_LambdaMart(trees_number,leaf_number,train_file,fold)
-                score_file = self.run_model(test_file,fold,trees_number,leaf_number)
+                model_path= self.create_model_LambdaMart(trees_number,leaf_number,train_file,fold)
+                score_file = self.run_model(test_file,fold,trees_number,leaf_number,model_path)
                 results = self.retrieve_scores(validation_indices,score_file)
                 trec_file=evaluator.create_trec_eval_file(validation_indices,queries,results,"_".join([str(a) for a in (trees_number,leaf_number)]),"lm",fold,True)
                 final_trec_eval = evaluator.order_trec_file(trec_file)
