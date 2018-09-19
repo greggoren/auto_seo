@@ -82,8 +82,8 @@ def create_queries_xml(regular_queries_file,extended_queries_file,extended_queri
         if query in overlapping_map or extended_queries_map[query] in seen:
             continue
         elif query in extended_queries:
-            xml_file.write("<query><number>" + index_map[query] + "</number><text>#combine(" + extended_queries_map[
-                query] + ")</text></query>\n")
+            xml_file.write("<query><number>" + index_map[query] + "</number><text>#combine( " + extended_queries_map[
+                query] + " )</text></query>\n")
     xml_file.write("</parameters>\n")
     xml_file.close()
     seen = []
