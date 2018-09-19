@@ -3,11 +3,14 @@ def combine(qrels,prels,regular_queries_file,extended_queries_file):
     overllaping_map,regular_map,extended_map = get_overlapping_queries(regular_queries_file,extended_queries_file)
     qrels_data = get_qrels_stats(qrels)
     seen = []
+    index = 1
+    index_map={}
     with open(qrels) as file:
         for line in file:
             query = line.split()[0]
             if regular_map[query] not in seen:
                 seen.append(regular_map[query])
+                index+=1
             final_qrels.write(line)
     with open(prels) as file:
         for line in file:
@@ -16,6 +19,9 @@ def combine(qrels,prels,regular_queries_file,extended_queries_file):
                 continue
             doc = line.split()[1]
             rel = line.split()[2]
+            if query not in index_map:
+                index+=1
+                index_map[query]=str(index).zfill(3)
             if query in overllaping_map:
                 if overllaping_map[query] in qrels_data:
                     if doc in qrels_data[overllaping_map[query]]:
@@ -23,8 +29,9 @@ def combine(qrels,prels,regular_queries_file,extended_queries_file):
                     else:
                         final_qrels.write(overllaping_map[query] + " 1 " + doc + " " + rel + "\n")
             else:
-                final_qrels.write(query+" 1 "+ doc + " " + rel + "\n")
+                final_qrels.write(index_map[query]+" 1 "+ doc + " " + rel + "\n")
     final_qrels.close()
+    return index_map
 
 
 
@@ -62,7 +69,7 @@ def get_qrels_stats(qrels):
             stats[line.split()[0]].append(line.split()[2])
         return stats
 
-def create_queries_xml(regular_queries_file,extended_queries_file,extended_queries):
+def create_queries_xml(regular_queries_file,extended_queries_file,extended_queries,index_map):
     overlapping_map,regular_queries_map,extended_queries_map = get_overlapping_queries(regular_queries_file,extended_queries_file)
     seen =[]
     xml_file = open("mq_queries.xml","w")
@@ -75,7 +82,7 @@ def create_queries_xml(regular_queries_file,extended_queries_file,extended_queri
         if query in overlapping_map or extended_queries_map[query] in seen:
             continue
         elif query in extended_queries:
-            xml_file.write("<query><number>" + query + "</number><text>#combine(" + extended_queries_map[
+            xml_file.write("<query><number>" + index_map[query] + "</number><text>#combine(" + extended_queries_map[
                 query] + ")</text></query>\n")
     xml_file.write("</parameters>\n")
     xml_file.close()
@@ -89,7 +96,7 @@ def create_queries_xml(regular_queries_file,extended_queries_file,extended_queri
         if query in overlapping_map or extended_queries_map[query] in seen:
             continue
         elif query in extended_queries:
-            query_text_file.write(query + ":" + extended_queries_map[query] + "\n")
+            query_text_file.write(index_map[query] + ":" + extended_queries_map[query] + "\n")
     query_text_file.close()
 
 
@@ -98,5 +105,5 @@ prels = "../data/updated_prels"
 regular_queries_file = "../data/queries.txt"
 extended_queries_file = "../data/mq_queries.txt"
 extended_queries = get_extended_queries(prels)
-combine(qrels,prels,regular_queries_file,extended_queries_file)
-create_queries_xml(regular_queries_file,extended_queries_file,extended_queries)
+index_map=combine(qrels,prels,regular_queries_file,extended_queries_file)
+create_queries_xml(regular_queries_file,extended_queries_file,extended_queries,index_map)
