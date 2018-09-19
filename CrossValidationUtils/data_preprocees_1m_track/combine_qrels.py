@@ -75,7 +75,7 @@ def create_queries_xml(regular_queries_file,extended_queries_file,extended_queri
     xml_file = open("mq_queries.xml","w")
     xml_file.write("<parameters>\n")
     for query in regular_queries_map:
-        xml_file.write("<query><number>"+query+"</number><text>#combine("+regular_queries_map[query]+")</text></query>\n")
+        xml_file.write("<query><number>"+query+"</number><text>#combine( "+regular_queries_map[query]+" )</text></query>\n")
         if regular_queries_map[query] not in seen:
             seen.append(regular_queries_map[query])
     for query in extended_queries_map:
