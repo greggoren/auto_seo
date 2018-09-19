@@ -64,12 +64,15 @@ def get_qrels_stats(qrels):
 
 def create_queries_xml(regular_queries_file,extended_queries_file,extended_queries):
     overlapping_map,regular_queries_map,extended_queries_map = get_overlapping_queries(regular_queries_file,extended_queries_file)
+    seen =[]
     xml_file = open("mq_queries.xml","w")
     xml_file.write("<parameters>\n")
     for query in regular_queries_map:
         xml_file.write("<query><number>"+query+"</number><text>#combine("+regular_queries_map[query]+")</text></query>\n")
+        if regular_queries_map[query] not in seen:
+            seen.append(regular_queries_map[query])
     for query in extended_queries_map:
-        if query in overlapping_map:
+        if query in overlapping_map or extended_queries_map[query] in seen:
             continue
         elif query in extended_queries:
             xml_file.write("<query><number>" + query + "</number><text>#combine(" + extended_queries_map[
