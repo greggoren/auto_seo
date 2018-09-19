@@ -8,7 +8,10 @@ def add_labeles(label_file_path,old_features,new_features_path):
         for line in features:
             splited = line.split()
             if splited[-1].rstrip() in labels:
-                label = labels[splited[-1].rstrip()]
+                if int(labels[splited[-1].rstrip()])>=0:
+                    label = labels[splited[-1].rstrip()]
+                else:
+                    label = "0"
             else:
                 label="0"
             new_line = label+" "+" ".join(splited[1:])
