@@ -116,7 +116,7 @@ def cross_validation(features_file,qrels_file,summary_file):
     scores = {}
     models = {}
     for train, test in folds:
-        evaluator.empty_validation_files()
+        evaluator.empty_validation_files("svm")
         validated, validation_set, train_set = preprocess.create_validation_set(5, validated,
                                                                                 set(train),
                                                                                 number_of_queries, queries)

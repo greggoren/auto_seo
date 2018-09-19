@@ -29,7 +29,7 @@ if __name__=="__main__":
     number_of_queries = len(set(queries))
     evaluator = e.eval()
     evaluator.create_index_to_doc_name_dict(features_file)
-    evaluator.remove_score_file_from_last_run()
+    evaluator.remove_score_file_from_last_run("lm")
 
     folds = preprocess.create_folds(X, y, queries, number_of_folds)
     fold_number = 1
