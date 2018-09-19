@@ -1,5 +1,5 @@
 import CrossValidationUtils.preprocess_clueweb as p
-import CrossValidationUtils.lambdaMart_models_handler as mh
+import CrossValidationUtils.lambdaMART_models_handler as mh
 import CrossValidationUtils.evaluator as e
 from utils import run_bash_command
 import sys
