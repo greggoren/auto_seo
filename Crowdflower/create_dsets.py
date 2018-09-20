@@ -5,6 +5,12 @@ import csv
 from copy import deepcopy
 from random import uniform
 
+
+def convert_sentences_to_sentence_task(sentences):
+    new_text =""
+    for j in range(len(sentences)):
+        new_text+=str(j+1)+") "+sentences[j].replace("\n","")+"\n"
+    return new_text
 def convert_to_quality_ds(data,headers):
     new_rows = {}
     for i in data:
@@ -21,7 +27,7 @@ def convert_text_to_sentence_task(text):
     sentences = retrieve_sentences(text)
     new_text =""
     for j in range(len(sentences)):
-        new_text+=str(j+1)+") "+sentences[j]+"\n"
+        new_text+=str(j+1)+") "+sentences[j].replace("\n","")+"\n"
     return new_text
 
 ranked_lists = retrieve_ranked_lists("trec_file")
