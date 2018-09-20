@@ -122,7 +122,7 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
                                                                                 number_of_queries, queries)
         train_file = "train" + str(fold_number) + ".txt"
         run_bash_command("rm " + train_file)
-        dump_svmlight_file(X[train], y[train], train_file, query_id=queries[train], zero_based=False)
+        dump_svmlight_file(X[train_set], y[train_set], train_file, query_id=queries[train_set], zero_based=False)
         if append_file:
             print("appending train features")
             run_bash_command("cat " + append_file + " >> " + train_file)
