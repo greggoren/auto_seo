@@ -101,7 +101,7 @@ def train_score(train_file, test_file, fold_number, C):
     return score_file
 
 
-def cross_validation(features_file,qrels_file,summary_file):
+def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
     preprocess = p.preprocess()
     X, y, queries = preprocess.retrieve_data_from_file(features_file, True)
     number_of_queries = len(set(queries))
@@ -123,6 +123,9 @@ def cross_validation(features_file,qrels_file,summary_file):
         train_file = "train" + str(fold_number) + ".txt"
         run_bash_command("rm " + train_file)
         dump_svmlight_file(X[train], y[train], train_file, query_id=queries[train], zero_based=False)
+        if append_file:
+            print("appending train features")
+            run_bash_command("cat " + append_file + " >> " + train_file)
         for C in C_array:
             model_file = learn_svm(C, train_file, fold_number)
             weights = recover_model(model_file)
@@ -150,4 +153,8 @@ if __name__ == "__main__":
         summary_file = "svm_summary.tex"
     else:
         summary_file = sys.argv[3]
-    cross_validation(features_file,qrels_file,summary_file)
+    if len(sys.argv) < 5:
+        append_features = ""
+    else:
+        append_features = sys.argv[4]
+    cross_validation(features_file,qrels_file,summary_file,append_features)
