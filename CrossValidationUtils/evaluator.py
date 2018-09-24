@@ -29,7 +29,6 @@ class eval:
                     break
                 if str(line.split()[1]).replace("b'", "").replace("'", "") == "all":
                     break
-                print(line)
                 score = float(line.split()[2].rstrip())
                 # query = str(line.split()[1])
                 # query = query.replace("b'", "")
