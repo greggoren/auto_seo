@@ -43,3 +43,24 @@ def analyze(stats):
 
 
 
+
+qrels = "../qrels"
+prels = "../mq_track_qrels"
+
+stats = read_qrels_stats(prels)
+args = analyze(stats)
+print("added diff level=",args[0])
+print("avg added diff level=",args[1])
+print("added bin level=",args[2])
+print("avg added bin level=",args[3])
+
+lm_score1 ="../svm_scores"
+lm_score2 ="../svm_scores_extended"
+svm_score1="../lm_scores"
+svm_score2="../lm_scores_extended"
+
+print("significance for svm change")
+analyze_significance(qrels,svm_score1,svm_score2)
+
+print("significance for lm change")
+analyze_significance(qrels,lm_score1,lm_score2)
