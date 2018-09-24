@@ -54,8 +54,8 @@ print("avg added diff level=",args[1])
 print("added bin level=",args[2])
 print("avg added bin level=",args[3])
 
-lm_score1 ="../svm_scores_regular"
-lm_score2 ="../svm_scores_extended"
+lm_score1 ="../svm_scores"
+lm_score2 ="../svm_scores_extended1"
 svm_score1="../lm_scores"
 svm_score2="../lm_scores_extended"
 
