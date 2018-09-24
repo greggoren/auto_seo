@@ -1,7 +1,7 @@
 import shutil
 import subprocess
 import os
-from utils import run_bash_command
+from utils import run_bash_command,run_command
 
 class eval:
 
@@ -17,6 +17,28 @@ class eval:
         file = method+"_scores"
         if os._exists(file):
             os.remove(file)
+
+    def run_trec_eval_by_query(self,qrels, trec_file):
+        score_data = {}
+        print("last stats:")
+        for metric in self.metrics:
+            command = "./trec_eval -q -m " + metric + " " + qrels + " " + trec_file
+            score_data[metric] = []
+            for line in run_command(command):
+                if len(line.split()) <= 1:
+                    break
+                if str(line.split()[1]).replace("b'", "").replace("'", "") == "all":
+                    break
+                print(line)
+                score = float(line.split()[2].rstrip())
+                # query = str(line.split()[1])
+                # query = query.replace("b'", "")
+                # query = query.replace("'", "")
+                score = str(score).replace("b'", "")
+                score = score.replace("'", "")
+                score_data[metric].append(float(score))
+        return score_data
+
 
     def create_trec_eval_file(self, test_indices, queries, results,model,method,fold,validation=None):
         if validation is not None:
