@@ -115,7 +115,7 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
     validated = set()
     scores = {}
     models = {}
-    method ="svm_rank"
+    method ="svm_light"
     svm = s.svm_sgd()
     for train, test in folds:
         evaluator.empty_validation_files(method)
@@ -130,11 +130,11 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
             run_bash_command("cat " + append_file + " >> " + train_file)
         for C in C_array:
 
-            model_file = svm.learn_svm_rank_model(train_file, fold_number,C)
+            model_file = svm.learn_svm_light_model(train_file, fold_number,C)
             weights = recover_model(model_file)
 
             svm.w = weights
-            scores_file = svm.run_svm_rank_model(validation_file,model_file,fold_number)
+            scores_file = svm.run_svm_light_model(validation_file,model_file,fold_number)
             results = svm.retrieve_scores(validation_set,scores_file)
             score_file = evaluator.create_trec_eval_file(validation_set, queries, results, str(C),method, fold_number, True)
             score = evaluator.run_trec_eval(score_file, qrels_file)
@@ -143,10 +143,9 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
         max_C = max(scores.items(), key=operator.itemgetter(1))[0]
         print("on fold",fold_number,"chosen model:",max_C)
         chosen_model = models[max_C]
-        test_scores_file=svm.run_svm_rank_model(test_file,chosen_model,fold_number)
+        test_scores_file=svm.run_svm_light_model(test_file,chosen_model,fold_number)
         results = svm.retrieve_scores(test, test_scores_file)
         trec_file = evaluator.create_trec_eval_file(validation_set, queries, results, "", method, fold_number)
-
         fold_number += 1
     evaluator.order_trec_file(trec_file)
     run_bash_command("rm " + trec_file)

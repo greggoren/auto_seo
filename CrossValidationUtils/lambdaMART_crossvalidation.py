@@ -48,13 +48,13 @@ if __name__=="__main__":
         validated, validation_set, train_set = preprocess.create_validation_set(number_of_folds, validated, set(train),
                                                                                 number_of_queries, queries)
         model_handler.set_queries_to_folds(queries,test,fold_number)
-        train_file = preprocess.create_train_file(X[train_set], y[train_set], queries[train_set],fold_number)
+        train_file = preprocess.create_train_file(X[train_set], y[train_set], queries[train_set],fold_number,"lm")
         if append_features:
             print("appending train features")
             run_bash_command("cat "+append_features+" >> "+train_file)
 
-        validation_file = preprocess.create_train_file(X[validation_set], y[validation_set], queries[validation_set], fold_number,True)
-        test_file = preprocess.create_train_file_cv(X[test], y[test], queries[test], fold_number, True)
+        validation_file = preprocess.create_train_file(X[validation_set], y[validation_set], queries[validation_set], fold_number,"lm",True)
+        test_file = preprocess.create_train_file_cv(X[test], y[test], queries[test], fold_number,"lm", True)
         model_handler.fit_model_on_train_set_and_choose_best(train_file,validation_file,validation_set,queries,fold_number,evaluator,qrels_file)
         scores_file=model_handler.run_model_on_test(test_file,fold_number)
         results = model_handler.retrieve_scores(test,scores_file)

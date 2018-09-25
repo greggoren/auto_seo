@@ -79,11 +79,11 @@ class preprocess:
                 test_indices.extend(relevant_indices)
         return train_indices, test_indices
     #
-    def create_train_file(self, X, y, queries, fold, test=False):
+    def create_train_file(self, X, y, queries, fold, method, test=False):
         add = ""
         if test:
             add = "_validation"
-        train_file = "features" + add+ "_" + str(fold)
+        train_file = "features_" + method + add + "_" + str(fold)
         with open(train_file, 'w') as feature_file:
             for i, doc in enumerate(X):
                 features = " ".join([str(a + 1) + ":" + str(b) for a, b in enumerate(doc)])
@@ -91,11 +91,11 @@ class preprocess:
                 feature_file.write(line)
         return train_file
 
-    def create_train_file_cv(self, X, y, queries, fold, test=False):
+    def create_train_file_cv(self, X, y, queries, fold, method,test=False):
         add = ""
         if test:
             add = "_test"
-        train_file = "features" + str(fold) + "_" + add
+        train_file = "features_"+method  + add+"_"+ str(fold)
         with open(train_file, 'w') as feature_file:
             for i, doc in enumerate(X):
                 features = " ".join([str(a + 1) + ":" + str(b) for a, b in enumerate(doc)])
