@@ -68,7 +68,7 @@ class svm_handler:
 
 
     def learn_svm_rank_model(self,train_file,fold,C):
-        models_folder = "svm_light_models/" + str(fold) + "/"
+        models_folder = "svm_rank_models/" + str(fold) + "/"
         if not os.path.exists(models_folder):
             os.makedirs(models_folder)
         model_file = models_folder + "model_"+str(C)+".txt"
