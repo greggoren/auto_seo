@@ -124,9 +124,11 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
                                                                                 set(train),
                                                                                 number_of_queries, queries)
         train_set = sorted(list(train_set))
+        validation_set=sorted(list(validation_set))
+        test_set = sorted(list(test))
         train_file = preprocess.create_train_file(X[train_set], y[train_set], queries[train_set], fold_number,method)
         validation_file = preprocess.create_train_file(X[validation_set], y[validation_set], queries[validation_set], fold_number,method,True)
-        test_file = preprocess.create_train_file_cv(X[test], y[test], queries[test], fold_number,method,True)
+        test_file = preprocess.create_train_file_cv(X[test_set], y[test_set], queries[test_set], fold_number,method,True)
         if append_file:
             print("appending train features")
             run_bash_command("cat " + append_file + " >> " + train_file)
@@ -146,8 +148,8 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
         print("on fold",fold_number,"chosen model:",max_C)
         chosen_model = models[max_C]
         test_scores_file=svm.run_svm_rank_model(test_file,chosen_model,fold_number)
-        results = svm.retrieve_scores(test, test_scores_file)
-        trec_file = evaluator.create_trec_eval_file(test, queries, results, "", method, fold_number)
+        results = svm.retrieve_scores(test_set, test_scores_file)
+        trec_file = evaluator.create_trec_eval_file(test_set, queries, results, "", method, fold_number)
 
         fold_number += 1
     evaluator.order_trec_file(trec_file)
