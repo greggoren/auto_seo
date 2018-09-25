@@ -147,7 +147,7 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
         chosen_model = models[max_C]
         test_scores_file=svm.run_svm_light_model(test_file,chosen_model,fold_number)
         results = svm.retrieve_scores(test, test_scores_file)
-        trec_file = evaluator.create_trec_eval_file(validation_set, queries, results, "", method, fold_number)
+        trec_file = evaluator.create_trec_eval_file(test, queries, results, "", method, fold_number)
         fold_number += 1
     evaluator.order_trec_file(trec_file)
     run_bash_command("rm " + trec_file)
