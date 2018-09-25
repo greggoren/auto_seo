@@ -125,6 +125,7 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
                                                                                 set(train),
                                                                                 number_of_queries, queries)
         number_of_queries_in_fold = len(set(queries[train_set]))
+        train_set = sorted(list(train_set))
         train_file = preprocess.create_train_file(X[train_set], y[train_set], queries[train_set], fold_number,method)
         validation_file = preprocess.create_train_file(X[validation_set], y[validation_set], queries[validation_set], fold_number,method,True)
         test_file = preprocess.create_train_file_cv(X[test], y[test], queries[test], fold_number,method,True)

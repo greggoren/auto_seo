@@ -60,7 +60,7 @@ class svm_handler:
         models_folder = "svm_light_models/" + str(fold) + "/"
         if not os.path.exists(models_folder):
             os.makedirs(models_folder)
-        model_file = models_folder + "model_"+str(C)+"txt"
+        model_file = models_folder + "model_"+str(C)+".txt"
         command = "./svm_learn -z p -c "+str(C)+" "+ train_file + " " + model_file
         out = run_bash_command(command)
         print(out)
@@ -71,7 +71,7 @@ class svm_handler:
         models_folder = "svm_light_models/" + str(fold) + "/"
         if not os.path.exists(models_folder):
             os.makedirs(models_folder)
-        model_file = models_folder + "model_"+str(C)+"txt"
+        model_file = models_folder + "model_"+str(C)+".txt"
         command = "./svm_rank_learn -c "+str(C)+" "+ train_file + " " + model_file
         out = run_bash_command(command)
         print(out)
