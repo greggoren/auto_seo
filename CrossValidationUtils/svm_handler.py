@@ -2,7 +2,7 @@ import numpy as np
 import os
 from utils import run_bash_command
 
-class svm_sgd:
+class svm_handler:
 
     def __init__(self):
         pass

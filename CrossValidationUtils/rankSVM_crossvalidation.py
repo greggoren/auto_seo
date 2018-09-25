@@ -4,7 +4,7 @@ import numpy as np
 import os
 import subprocess
 import sys
-from CrossValidationUtils import SVM_SGD as s
+from CrossValidationUtils import svm_handler as s
 import operator
 from sklearn.datasets import dump_svmlight_file
 
@@ -116,7 +116,7 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
     scores = {}
     models = {}
     method ="svm_rank"
-    svm = s.svm_sgd()
+    svm = s.svm_handler()
     for train, test in folds:
         evaluator.empty_validation_files(method)
         validated, validation_set, train_set = preprocess.create_validation_set(5, validated,
