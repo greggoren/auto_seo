@@ -60,7 +60,7 @@ class svm_handler:
         if not os.path.exists(models_folder):
             os.makedirs(models_folder)
         model_file = models_folder + "model_"+str(C)+".txt"
-        command = "./svm_learn -z p -c "+str(C)+" "+ train_file + " " + model_file
+        command = "./svm_learn -z p -c "+str(C)+" -m 10000 "+ train_file + " " + model_file
         out = run_bash_command(command)
         print(out)
         return model_file
