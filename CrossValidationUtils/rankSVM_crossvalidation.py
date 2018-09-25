@@ -111,7 +111,8 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
 
     folds = preprocess.create_folds(X, y, queries, 5)
     fold_number = 1
-    C_array = [0.1, 0.01, 0.0001,1,10,100,10000]
+    # C_array = [0.1, 0.01, 0.0001,1,10,100,10000]
+    C_array = [0.1, 0.01, 0.0001]
     validated = set()
     scores = {}
     models = {}
