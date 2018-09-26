@@ -49,8 +49,7 @@ class RankSVM(svm.LinearSVC):
         if not os.path.exists(models_folder):
             os.makedirs(models_folder)
         model_file = models_folder + "model_" + str(C) + ".pkl"
-        X_trans, y_trans = RankSVM.transform_pairwise(X, y)
-        super(RankSVM, self).fit(X_trans, y_trans)
+        super(RankSVM, self).fit(X, y)
         with open(model_file,'wb') as model:
             pickle.dump(model,self)
         return model_file

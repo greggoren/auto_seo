@@ -123,9 +123,11 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
         validated, validation_set, train_set = preprocess.create_validation_set(5, validated,
                                                                                 set(train),
                                                                                 number_of_queries, queries)
+        print("transforming data",flush=True)
+        transformed_X,transformed_y = s.RankSVM.transform_pairwise(X[train_set],y[train_set])
         for C in C_array:
             svm = s.RankSVM(C)
-            model_file = svm.fit(X[train_set], y[train_set],fold_number,C)
+            model_file = svm.fit(transformed_X, transformed_y,fold_number,C)
             scores_file = svm.predict(X[validation_set],fold_number,C,model_file)
             results = svm.retrieve_scores(validation_set,scores_file)
             score_file = evaluator.create_trec_eval_file(validation_set, queries, results, str(C),method, fold_number, True)
