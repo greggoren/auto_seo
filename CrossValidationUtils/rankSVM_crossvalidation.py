@@ -111,15 +111,15 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
 
     folds = preprocess.create_folds(X, y, queries, 5)
     fold_number = 1
-    C_array = [0.1, 0.01, 0.0001,1,10,100,10000]
-    # C_array = [0.1, 0.01, 0.0001]
+    # C_array = [0.1, 0.01, 0.0001,1,10,100,10000]
+    C_array = [0.1, 0.01, 0.0001]
     validated = set()
     scores = {}
     models = {}
     method ="svm_rank"
     svm = s.svm_handler()
+    evaluator.empty_validation_files(method)
     for train, test in folds:
-        evaluator.empty_validation_files(method)
         validated, validation_set, train_set = preprocess.create_validation_set(5, validated,
                                                                                 set(train),
                                                                                 number_of_queries, queries)
