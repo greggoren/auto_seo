@@ -50,18 +50,18 @@ class svm_handler:
         if not os.path.exists(predictions_folder):
             os.makedirs(predictions_folder)
         predictions_file = predictions_folder+os.path.basename(model_file)
-        command = "./svm_classify "+test_file +" "+model_file+" "+  predictions_file
+        command = "./svm-predict "+test_file +" "+model_file+" "+  predictions_file
         out = run_bash_command(command)
         print(out)
         return predictions_file
 
-    def learn_svm_light_model(self,train_file,fold,C_value,number_of_queries):
-        C = C_value/number_of_queries
+    def learn_svm_light_model(self,train_file,fold,C,number_of_queries):
         models_folder = "svm_light_models/" + str(fold) + "/"
         if not os.path.exists(models_folder):
             os.makedirs(models_folder)
         model_file = models_folder + "model_"+str(C)+".txt"
-        command = "./svm_learn -z p -c "+str(C)+" -m 70000 "+ train_file + " " + model_file
+        # command = "./svm_learn -z p -c "+str(C)+" -m 70000 "+ train_file + " " + model_file
+        command = "./svm-train -s 0 -c "+str(C)+" "+ train_file + " " + model_file
         out = run_bash_command(command)
         print(out)
         return model_file
