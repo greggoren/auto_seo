@@ -42,7 +42,7 @@ class RankSVM(svm.LinearSVC):
 
 
     def __init__(self,C):
-        super(RankSVM,self).__init__(C=C)
+        super(RankSVM,self).__init__(C=C,loss="hinge")
     def fit(self, X, y,fold,C):
 
         models_folder = "svm_rank_own_models/" + str(fold) + "/"
