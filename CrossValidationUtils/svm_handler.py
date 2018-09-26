@@ -61,7 +61,7 @@ class svm_handler:
             os.makedirs(models_folder)
         model_file = models_folder + "model_"+str(C)+".txt"
         # command = "./svm_learn -z p -c "+str(C)+" -m 70000 "+ train_file + " " + model_file
-        command = "./svm-train -s 0 -c "+str(C)+" -m 30000 -e 0.1 "+ train_file + " " + model_file
+        command = "./svm-train -s 0 -c "+str(C)+" -m 30000 -t 0 "+ train_file + " " + model_file
         out = run_bash_command(command)
         print(out)
         return model_file
