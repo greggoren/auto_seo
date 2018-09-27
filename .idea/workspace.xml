@@ -6,7 +6,6 @@
     </list>
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track/preprocess_data_set.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="auto_seo.iws" />
@@ -50,14 +49,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="149" column="43" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="43" />
+            <state relative-caret-position="330">
+              <caret line="115" column="16" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="qrels" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/data/qrels">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,11 +119,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocess_data_set.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="preprocess_data_set.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track/preprocess_data_set.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+            <state relative-caret-position="308">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -147,18 +156,8 @@
       <file leaf-file-name="combine_qrels.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track/combine_qrels.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
+            <state relative-caret-position="2046">
               <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="preprocess_clueweb.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/preprocess_clueweb.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="89" column="65" selection-start-line="89" selection-start-column="65" selection-end-line="89" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -244,13 +243,13 @@
         <option value="$PROJECT_DIR$/CrossValidationUtils/SVM_SGD.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/lambdaMART_crossvalidation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/data/svmLight_crossvalidation.py" />
-        <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/data/rank_svm_implementation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rank_svm_crossvalidation_own_imp.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rank_svm_implementation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/svm_handler.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/svmLight_crossvalidation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track/preprocess_data_set.py" />
+        <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
       </list>
     </option>
   </component>
@@ -744,20 +743,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00363" summary="experiments platform in process">
-      <created>1537356799444</created>
-      <option name="number" value="00363" />
-      <option name="presentableId" value="LOCAL-00363" />
-      <option name="project" value="LOCAL" />
-      <updated>1537356799445</updated>
-    </task>
-    <task id="LOCAL-00364" summary="experiments platform in process">
-      <created>1537357787355</created>
-      <option name="number" value="00364" />
-      <option name="presentableId" value="LOCAL-00364" />
-      <option name="project" value="LOCAL" />
-      <updated>1537357787355</updated>
-    </task>
     <task id="LOCAL-00365" summary="experiments platform in process">
       <created>1537358125251</created>
       <option name="number" value="00365" />
@@ -1087,7 +1072,21 @@
       <option name="project" value="LOCAL" />
       <updated>1538042405389</updated>
     </task>
-    <option name="localTasksCounter" value="412" />
+    <task id="LOCAL-00412" summary="renaming">
+      <created>1538043547490</created>
+      <option name="number" value="00412" />
+      <option name="presentableId" value="LOCAL-00412" />
+      <option name="project" value="LOCAL" />
+      <updated>1538043547490</updated>
+    </task>
+    <task id="LOCAL-00413" summary="renaming">
+      <created>1538044131563</created>
+      <option name="number" value="00413" />
+      <option name="presentableId" value="LOCAL-00413" />
+      <option name="project" value="LOCAL" />
+      <updated>1538044131564</updated>
+    </task>
+    <option name="localTasksCounter" value="414" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1547,14 +1546,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/data/qrels">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/request/request.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
@@ -1607,30 +1598,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track/combine_qrels.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/lambdaMART_crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="904">
           <caret line="50" column="113" selection-start-line="50" selection-start-column="113" selection-end-line="50" selection-end-column="113" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="149" column="43" selection-start-line="149" selection-start-column="43" selection-end-line="149" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1687,9 +1660,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track/preprocess_data_set.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="29" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        <state relative-caret-position="308">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/data/qrels">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track/combine_qrels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2046">
+          <caret line="93" column="43" selection-start-line="93" selection-start-column="43" selection-end-line="93" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="115" column="16" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
