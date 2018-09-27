@@ -7,7 +7,6 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/svm_handler.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/svm_handler.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -74,7 +73,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svm_handler.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="svm_handler.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/svm_handler.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="306">
@@ -98,11 +97,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="svmLight_crossvalidation.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="svmLight_crossvalidation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/svmLight_crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1080">
-              <caret line="152" column="46" selection-start-line="152" selection-start-column="46" selection-end-line="152" selection-end-column="46" />
+            <state relative-caret-position="90">
+              <caret line="115" column="21" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -247,12 +246,12 @@
         <option value="$PROJECT_DIR$/CrossValidationUtils/SVM_SGD.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/lambdaMART_crossvalidation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/data/svmLight_crossvalidation.py" />
-        <option value="$PROJECT_DIR$/CrossValidationUtils/svmLight_crossvalidation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/data/rank_svm_implementation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rank_svm_crossvalidation_own_imp.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rank_svm_implementation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/svm_handler.py" />
+        <option value="$PROJECT_DIR$/CrossValidationUtils/svmLight_crossvalidation.py" />
       </list>
     </option>
   </component>
@@ -746,13 +745,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00361" summary="experiments platform in process">
-      <created>1537354257723</created>
-      <option name="number" value="00361" />
-      <option name="presentableId" value="LOCAL-00361" />
-      <option name="project" value="LOCAL" />
-      <updated>1537354257723</updated>
-    </task>
     <task id="LOCAL-00362" summary="experiments platform in process">
       <created>1537356463080</created>
       <option name="number" value="00362" />
@@ -1089,7 +1081,14 @@
       <option name="project" value="LOCAL" />
       <updated>1537967831854</updated>
     </task>
-    <option name="localTasksCounter" value="410" />
+    <task id="LOCAL-00410" summary="renaming">
+      <created>1537968333341</created>
+      <option name="number" value="00410" />
+      <option name="presentableId" value="LOCAL-00410" />
+      <option name="project" value="LOCAL" />
+      <updated>1537968333341</updated>
+    </task>
+    <option name="localTasksCounter" value="411" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1674,22 +1673,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/svmLight_crossvalidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="152" column="46" selection-start-line="152" selection-start-column="46" selection-end-line="152" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/svm_handler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="63" column="63" selection-start-line="63" selection-start-column="63" selection-end-line="63" selection-end-column="63" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/svmLight_crossvalidation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="115" column="21" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
