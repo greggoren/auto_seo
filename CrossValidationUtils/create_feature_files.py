@@ -9,7 +9,7 @@ def create_features_file(features_dir,queries_file,run_name=""):
     if not os.path.exists(features_dir):
         os.makedirs(features_dir)
 
-    command= "/home/greg/auto_seo/scripts/LTRFeatures"+" "+ queries_file + ' -stream=doc -index=' + "/home/greg/cluewebindex" + ' -repository='+ "/home/greg/cluewebindex" +' -useWorkingSet=true -workingSetFile=extended_working_set'+run_name  + ' -workingSetFormat=trec'
+    command= "/home/greg/auto_seo/scripts/LTRFeatures"+" "+ queries_file + ' -stream=doc -index=' + "/home/greg/cluewebindex" + ' -repository='+ "/home/greg/cluewebindex" +' -useWorkingSet=true -workingSetFile=extended_working_set_'+run_name  + ' -workingSetFormat=trec'
     print(command)
     out = run_bash_command(command)
     print(out)
@@ -18,7 +18,7 @@ def create_features_file(features_dir,queries_file,run_name=""):
     print(command)
     out=run_bash_command(command)
     print(out)
-    command = "mv features append_features"+run_name
+    command = "mv features append_features_"+run_name
     print(command)
     out = run_bash_command(command)
     print(out)
