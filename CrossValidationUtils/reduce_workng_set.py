@@ -47,6 +47,8 @@ def post_analysis(append_file):
 def create_working_set(working_set,number_of_docs):
     f = open("extended_working_set_"+str(number_of_docs),"w")
     for query in working_set:
+        if int(query)<=200:
+            continue
         for i,doc in enumerate(working_set[query]):
             f.write(query+" Q0 "+doc+" "+str(i+1)+" "+str(-i-1)+" indri\n")
     f.close()
