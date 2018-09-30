@@ -28,4 +28,4 @@ def create_features_file(features_dir,queries_file,run_name=""):
 runs = [25,50,100]
 for run in runs:
     run_name = str(run)
-    create_features_file("mq_Features_"+run_name,"../mq_queries.xml",run_name)
+    create_features_file("mq_Features_"+run_name,"../scripts/mq_queries.xml",run_name)
