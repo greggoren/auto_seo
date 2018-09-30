@@ -20,7 +20,7 @@ def create_append_file(working_set,feature_file,number_of_docs):
     f = open("append_features_mq_"+str(number_of_docs),"w")
     with open(feature_file) as features:
         for line in features:
-            doc = line.split(" # ")[1]
+            doc = line.split(" # ")[1].rstrip()
             query = line.split()[1].split(":")[1]
             if doc in working_set[query]:
                 f.write(line)
