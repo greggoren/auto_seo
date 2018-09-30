@@ -6,7 +6,7 @@ def get_new_working_set(working_set_file,number_of_docs):
     with open(working_set_file) as working_set:
         for line in working_set:
             query=line.split()[0]
-            doc = line.split()[1]
+            doc = line.split()[2]
             if query not in new_working_set:
                 new_working_set[query]=[]
             if len(new_working_set[query])>=number_of_docs:

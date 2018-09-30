@@ -6,11 +6,7 @@
     </list>
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CrossValidationUtils/reduce_workng_set.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/svmLight_crossvalidation.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/svmLight_crossvalidation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_dsets.py" afterPath="$PROJECT_DIR$/Crowdflower/create_dsets.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_sentene_test_questions.py" afterPath="$PROJECT_DIR$/Crowdflower/create_sentene_test_questions.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,8 +64,8 @@
       <file leaf-file-name="reduce_workng_set.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/reduce_workng_set.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+            <state relative-caret-position="176">
+              <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -703,20 +699,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00367" summary="experiments platform in process">
-      <created>1537359515648</created>
-      <option name="number" value="00367" />
-      <option name="presentableId" value="LOCAL-00367" />
-      <option name="project" value="LOCAL" />
-      <updated>1537359515648</updated>
-    </task>
-    <task id="LOCAL-00368" summary="experiments platform in process">
-      <created>1537359871915</created>
-      <option name="number" value="00368" />
-      <option name="presentableId" value="LOCAL-00368" />
-      <option name="project" value="LOCAL" />
-      <updated>1537359871915</updated>
-    </task>
     <task id="LOCAL-00369" summary="experiments platform in process">
       <created>1537360337053</created>
       <option name="number" value="00369" />
@@ -1046,7 +1028,21 @@
       <option name="project" value="LOCAL" />
       <updated>1538119312920</updated>
     </task>
-    <option name="localTasksCounter" value="416" />
+    <task id="LOCAL-00416" summary="renaming">
+      <created>1538300732995</created>
+      <option name="number" value="00416" />
+      <option name="presentableId" value="LOCAL-00416" />
+      <option name="project" value="LOCAL" />
+      <updated>1538300732995</updated>
+    </task>
+    <task id="LOCAL-00417" summary="renaming">
+      <created>1538305555543</created>
+      <option name="number" value="00417" />
+      <option name="presentableId" value="LOCAL-00417" />
+      <option name="project" value="LOCAL" />
+      <updated>1538305555543</updated>
+    </task>
+    <option name="localTasksCounter" value="418" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1650,8 +1646,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/reduce_workng_set.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+        <state relative-caret-position="176">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
           <folding />
         </state>
       </provider>
