@@ -53,9 +53,9 @@ def create_working_set(working_set,number_of_docs):
 
 
 if __name__=="__main__":
-    feature_file = sys.argv[1]
+    # feature_file = sys.argv[1]
     number_of_docs = int(sys.argv[2])
-    working_set_file = sys.argv[3]
+    working_set_file = sys.argv[1]
     new_working_set = get_new_working_set(working_set_file,number_of_docs)
     create_working_set(new_working_set,number_of_docs)
     # create_append_file(new_working_set,feature_file,number_of_docs)
