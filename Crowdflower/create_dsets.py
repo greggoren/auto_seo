@@ -9,7 +9,7 @@ from random import uniform
 def convert_sentences_to_sentence_task(sentences):
     new_text =""
     for j in range(len(sentences)):
-        new_text+=str(j+1)+") "+sentences[j].replace("\n","")+"\n"
+        new_text+=str(j+1)+") "+sentences[j].replace("\n","")+"\n\n\n\n"
     return new_text
 def convert_to_quality_ds(data,headers):
     new_rows = {}
@@ -27,7 +27,7 @@ def convert_text_to_sentence_task(text):
     sentences = retrieve_sentences(text)
     new_text =""
     for j in range(len(sentences)):
-        new_text+=str(j+1)+") "+sentences[j].replace("\n","")+"\n"
+        new_text+=str(j+1)+") "+sentences[j].replace("\n","")+"\r\n\r\n\r\n\r\n"
     return new_text
 
 ranked_lists = retrieve_ranked_lists("trec_file")
