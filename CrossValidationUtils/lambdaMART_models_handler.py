@@ -28,7 +28,9 @@ class model_handler_LambdaMart:
             add="test"
         else:
             add=""
-        model_path = self.model_base_path+str(fold) +"/" + add +'model_' + str(number_of_trees) + "_" + str(number_of_leaves)
+        # model_path = self.model_base_path+str(fold) +"/" + add +'model_' + str(number_of_trees) + "_" + str(number_of_leaves)
+        model_path = "lm_models/"+str(fold) +"/"+ add +'model_' + str(number_of_trees) + "_" + str(number_of_leaves)
+
         if not os.path.exists(os.path.dirname(model_path)):
             os.makedirs(os.path.dirname(model_path))
         command = self.java_path + ' -jar ' + self.jar_path + ' -train ' + train_file + ' -ranker 6    -metric2t NDCG@20' \
@@ -38,7 +40,8 @@ class model_handler_LambdaMart:
         return model_path
 
     def run_model(self,test_file,fold,trees,leaves,model_path):#TODO:add to main functionality + test file
-        score_file = self.code_base_path+"lm_scores/"+str(fold)+"/score" + str(trees)+"_"+str(leaves)
+        # score_file = self.code_base_path+"lm_scores/"+str(fold)+"/score" + str(trees)+"_"+str(leaves)
+        score_file = "lm_scores/"+str(fold)+"/score" + str(trees)+"_"+str(leaves)
         if not os.path.exists(os.path.dirname(score_file)):
             os.makedirs(os.path.dirname(score_file))
         run_bash_command('touch '+score_file)
@@ -48,12 +51,12 @@ class model_handler_LambdaMart:
     #
     def run_model_on_test(self,test_file,fold):
         trees,leaves = self.chosen_model_per_fold[fold]
-        score_file = self.code_base_path + "lm_scores/" + str(fold) + "/score" + str(trees) + "_" + str(leaves)
+        score_file = "lm_scores/" + str(fold) + "/score" + str(trees) + "_" + str(leaves)
         if not os.path.exists(os.path.dirname(score_file)):
             os.makedirs(os.path.dirname(score_file))
         run_bash_command('touch ' + score_file)
 
-        model_path =self.model_base_path+str(fold) +"/model_" + str(trees) + "_" + str(leaves)
+        model_path ="lm_models/"+str(fold) +"/model_" + str(trees) + "_" + str(leaves)
         run_bash_command('touch '+score_file)
         command = self.java_path + " -jar " + self.jar_path + " -load " + model_path + " -rank " + test_file + " -score " + score_file
         run_bash_command(command)

@@ -7,7 +7,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/combine_labels.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/combine_labels.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/lambdaMART_models_handler.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/lambdaMART_models_handler.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,12 +84,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="combine_labels.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="combine_labels.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/combine_labels.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+            <state relative-caret-position="704">
+              <caret line="32" column="23" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="23" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lambdaMART_models_handler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/lambdaMART_models_handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-83">
+              <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,16 +111,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="22">
               <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sentence.csv" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Crowdflower/sentence.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -222,7 +224,6 @@
         <option value="$PROJECT_DIR$/Preprocess/preprocess.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track/filter_prels.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track/combine_qrels.py" />
-        <option value="$PROJECT_DIR$/CrossValidationUtils/lambdaMART_models_handler.py" />
         <option value="$PROJECT_DIR$/Crowdflower/comparison_test_set.py" />
         <option value="$PROJECT_DIR$/Crowdflower/comparison_test2.csv" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/cross_validation.py" />
@@ -245,6 +246,7 @@
         <option value="$PROJECT_DIR$/CrossValidationUtils/reduce_workng_set.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/create_feature_files.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/combine_labels.py" />
+        <option value="$PROJECT_DIR$/CrossValidationUtils/lambdaMART_models_handler.py" />
       </list>
     </option>
   </component>
@@ -720,20 +722,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00377" summary="experiments platform in process">
-      <created>1537451377563</created>
-      <option name="number" value="00377" />
-      <option name="presentableId" value="LOCAL-00377" />
-      <option name="project" value="LOCAL" />
-      <updated>1537451377566</updated>
-    </task>
-    <task id="LOCAL-00378" summary="experiments platform in process">
-      <created>1537453913666</created>
-      <option name="number" value="00378" />
-      <option name="presentableId" value="LOCAL-00378" />
-      <option name="project" value="LOCAL" />
-      <updated>1537453913666</updated>
-    </task>
     <task id="LOCAL-00379" summary="experiments platform in process">
       <created>1537454624121</created>
       <option name="number" value="00379" />
@@ -1063,7 +1051,21 @@
       <option name="project" value="LOCAL" />
       <updated>1538379418663</updated>
     </task>
-    <option name="localTasksCounter" value="426" />
+    <task id="LOCAL-00426" summary="renaming">
+      <created>1538380058473</created>
+      <option name="number" value="00426" />
+      <option name="presentableId" value="LOCAL-00426" />
+      <option name="project" value="LOCAL" />
+      <updated>1538380058473</updated>
+    </task>
+    <task id="LOCAL-00427" summary="renaming">
+      <created>1538380525846</created>
+      <option name="number" value="00427" />
+      <option name="presentableId" value="LOCAL-00427" />
+      <option name="project" value="LOCAL" />
+      <updated>1538380525880</updated>
+    </task>
+    <option name="localTasksCounter" value="428" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1524,16 +1526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/lambdaMART_models_handler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="593">
-          <caret line="57" column="86" selection-start-line="57" selection-start-column="86" selection-end-line="57" selection-end-column="86" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/svm_handler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -1670,9 +1662,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/combine_labels.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="36" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        <state relative-caret-position="704">
+          <caret line="32" column="23" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/lambdaMART_models_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-83">
+          <caret line="31" column="48" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
