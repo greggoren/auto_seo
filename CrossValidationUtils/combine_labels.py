@@ -15,8 +15,10 @@ def add_labeles(label_file_path,old_features,new_features_path):
     with open(old_features) as features:
         for line in features:
             splited = line.split()
-            if splited[-1].rstrip() in labels:
-                if int(labels[splited[-1].rstrip()])>=0:
+            query = splited[1].split(":")[1]
+
+            if splited[-1].rstrip() in labels[query]:
+                if int(labels[query][splited[-1].rstrip()])>=0:
                     label = labels[splited[-1].rstrip()]
                 else:
                     label = "0"
