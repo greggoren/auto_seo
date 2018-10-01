@@ -41,7 +41,7 @@ class model_handler_LambdaMart:
 
     def run_model(self,test_file,fold,trees,leaves,model_path):#TODO:add to main functionality + test file
         # score_file = self.code_base_path+"lm_scores/"+str(fold)+"/score" + str(trees)+"_"+str(leaves)
-        score_file = "lm_scores/"+str(fold)+"/score" + str(trees)+"_"+str(leaves)
+        score_file = "lm_score/"+str(fold)+"/score" + str(trees)+"_"+str(leaves)
         if not os.path.exists(os.path.dirname(score_file)):
             os.makedirs(os.path.dirname(score_file))
         run_bash_command('touch '+score_file)
@@ -51,7 +51,7 @@ class model_handler_LambdaMart:
     #
     def run_model_on_test(self,test_file,fold):
         trees,leaves = self.chosen_model_per_fold[fold]
-        score_file = "lm_scores/" + str(fold) + "/score" + str(trees) + "_" + str(leaves)
+        score_file = "lm_score/" + str(fold) + "/score" + str(trees) + "_" + str(leaves)
         if not os.path.exists(os.path.dirname(score_file)):
             os.makedirs(os.path.dirname(score_file))
         run_bash_command('touch ' + score_file)
