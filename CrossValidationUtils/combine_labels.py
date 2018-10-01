@@ -1,7 +1,15 @@
 import sys
 def add_labeles(label_file_path,old_features,new_features_path):
+    labels = {}
     label_file = open(label_file_path)
-    labels = {line.split()[2]:line.split()[3].replace("\n","") for line in label_file}
+    # labels = {line.split()[2]:line.split()[3].replace("\n","") for line in label_file}
+    for line in labels:
+        query = line.split()[0]
+        doc = line.split()[2]
+        score = line.split()[3].replace("\n","")
+        if query not in labels:
+            labels[query]={}
+        labels[query][doc]=score
     label_file.close()
     new_features = open(new_features_path,"w")
     with open(old_features) as features:
