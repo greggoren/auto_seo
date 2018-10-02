@@ -71,9 +71,6 @@ if __name__=="__main__":
                 scores_file = run_model(feature_file)
                 results = retrieve_scores(index_doc_name, scores_file)
                 lists=create_lists(results)
-                s = open("lists_"+run_name,'wb')
-                pickle.dump(lists,s)
-                s.close()
                 addition = abs(lists[query].index(reference_doc) - len(lists[query]))
                 query = sentence.split("-")[2]
                 labels_file.write(query + " 1 " + run_name + " " + str(addition - 1) + "\n")
