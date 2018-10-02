@@ -75,7 +75,7 @@ if __name__=="__main__":
                 query = sentence.split("-")[2]
                 labels_file.write(query + " 1 " + run_name + " " + str(addition - 1) + "\n")
                 r_index+=1
-            index+=1
+        index+=1
     labels_file.close()
     sentence_data_file.close()
 

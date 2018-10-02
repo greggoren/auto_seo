@@ -14,10 +14,10 @@ def create_features_file(features_dir,index_path,queries_file,new_features_file,
     print(command)
     out = run_bash_command(command)
     print(out)
-    command=params.cent_script+' ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile='+ params.working_set_file+run_name + ' -workingSetFormat=trec'
-    print(command)
-    out = run_bash_command(command)
-    print(out)
+    # command=params.cent_script+' ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile='+ params.working_set_file+run_name + ' -workingSetFormat=trec'
+    # print(command)
+    # out = run_bash_command(command)
+    # print(out)
     run_bash_command("mv doc*_* "+features_dir)
     command = "perl "+params.features_generator_script_path+" "+features_dir+" "+params.working_set_file+run_name
     print(command)
@@ -39,10 +39,10 @@ def create_features_file_original(features_dir,index_path,queries_file,new_featu
     print(command)
     out = run_bash_command(command)
     print(out)
-    command='/home/greg/auto_seo/past_winners/Cent ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile=/home/greg/auto_seo/SentenceRanking/working_set'+run_name + ' -workingSetFormat=trec'
-    print(command)
-    out = run_bash_command(command)
-    print(out)
+    # command='/home/greg/auto_seo/past_winners/Cent ' + queries_file + ' -index=' + index_path + ' -useWorkingSet=true -workingSetFile=/home/greg/auto_seo/SentenceRanking/working_set'+run_name + ' -workingSetFormat=trec'
+    # print(command)
+    # out = run_bash_command(command)
+    # print(out)
     run_bash_command("mv doc*_* "+features_dir)
     command = "perl /home/greg/auto_seo/past_winners/generate.pl "+features_dir+" /home/greg/auto_seo/SentenceRanking/working_set"+run_name
     print(command)
