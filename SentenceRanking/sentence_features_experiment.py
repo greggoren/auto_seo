@@ -3,7 +3,7 @@ from krovetzstemmer import Stemmer
 from w2v import train_word2vec as model
 from utils import run_bash_command
 import params
-from CrossValidationUtils.cross_validation import cross_validation
+from CrossValidationUtils.rankSVM_crossvalidation import cross_validation
 import sys
 
 
@@ -37,8 +37,34 @@ def get_document_vector(doc,model):
     words = doc.split()
     return get_stemmed_document_vector(words,model)
 
+
+def clean_text(text):
+    text = text.replace(".", " ")
+    text = text.replace("-", " ")
+    text = text.replace(",", " ")
+    text = text.replace(":", " ")
+    text = text.replace("?", " ")
+    text = text.replace("$", " ")
+    text = text.replace("%", " ")
+    text = text.replace("<", " ")
+    text = text.replace(">", " ")
+    text = text.replace("\\", " ")
+    text = text.replace("*", " ")
+    text = text.replace(";", " ")
+    text = text.replace("`", "")
+    text = text.replace("'", "")
+    text = text.replace("@", " ")
+    text = text.replace("\n", " ")
+    text = text.replace("\"", "")
+    text = text.replace("/", " ")
+    text = text.replace("(", "")
+    text = text.replace(")", "")
+    return text
+
+
 def get_sentence_vector(sentence,model):
     stemmer = Stemmer()
+    sentence = clean_text(sentence)
     words = sentence.split()
     stemmed =[stemmer.stem(w) for w in words]
     return get_stemmed_document_vector(stemmed,model)
@@ -151,7 +177,7 @@ def read_past_winners_file(winners_file):
             text = line.split("@@@")[1]
             if query not in winners_data:
                 winners_data[query]=[]
-            text = " ".join([stemmer.stem(word) for word in text.split()])
+            text = " ".join([stemmer.stem(word) for word in clean_text(text).split()])
             winners_data[query].append(text)
     return winners_data
 

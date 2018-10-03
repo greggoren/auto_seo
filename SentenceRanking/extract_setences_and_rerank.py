@@ -37,7 +37,7 @@ if __name__=="__main__":
             doc_texts[doc]=a_doc_texts[doc]
     sentence_map=map_set_of_sentences(doc_texts,winner_docs)
     summaries = {}
-    labels_file=open("labels", 'a')
+    labels_file=open("labels", 'w')
     sentence_data_file = open("senetces_add_remove", "w")
     index=1
     for query in sentence_map:
@@ -73,7 +73,7 @@ if __name__=="__main__":
                 lists=create_lists(results)
                 addition = abs(lists[query].index(reference_doc) - len(lists[query]))
                 query = sentence.split("-")[2]
-                labels_file.write(query + " 1 " + run_name + " " + str(addition - 1) + "\n")
+                labels_file.write(query + " 1 " + run_name + " " + str(addition - 1)+" seo" + "\n")
                 r_index+=1
         index+=1
     labels_file.close()
