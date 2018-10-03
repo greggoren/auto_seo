@@ -5,7 +5,7 @@ from utils import run_bash_command
 import params
 from CrossValidationUtils.rankSVM_crossvalidation import cross_validation
 import sys
-
+import math
 
 
 def get_top_docs_per_query(top_docs_file):
@@ -70,11 +70,18 @@ def get_sentence_vector(sentence,model):
     return get_stemmed_document_vector(stemmed,model)
 
 
-def get_centroid(doc_vectors):
-    sum = np.zeros(300)
+def get_centroid(doc_vectors,decay=False):
+    sum_of_vecs = np.zeros(300)
+    if decay:
+        decay_factors = [math.exp(-(len(doc_vectors)-i)) for i in range(len(doc_vectors))]
+        denominator = sum(decay_factors)
+        for i,doc in enumerate(doc_vectors):
+
+            sum_of_vecs+=(doc*decay_factors[i]/denominator)
+        return sum_of_vecs
     for doc in doc_vectors:
-        sum+=doc
-    return sum/len(doc_vectors)
+        sum_of_vecs+=doc
+    return sum_of_vecs/len(doc_vectors)
 
 
 def cosine_similarity(v1,v2):
@@ -110,20 +117,27 @@ def init_top_doc_vectors(top_docs,doc_ids,model):
         print(run_bash_command(command))
         top_docs_vectors[query]=[]
         with open("/home/greg/auto_seo/SentenceRanking/docsForVectors") as docs:
-            for doc in docs:
+            for i,doc in enumerate(docs):
                 top_docs_vectors[query].append(get_document_vector(doc,model))
     return top_docs_vectors
 
 
-def get_vectors(top_doc_vectors):
+def get_vectors(top_doc_vectors,decay=False):
     result={}
     winners = {}
     for query in top_doc_vectors:
         vectors = top_doc_vectors[query]
         winners[query]=vectors[0]
-        centroid = get_centroid(vectors)
+        centroid = get_centroid(vectors,decay=decay)
         result[query]=centroid
     return result,winners
+
+def combine_winners(winners,past_winners):
+    for query in winners:
+        winner_vec = winners[query]
+        past_winners[query].append(winner_vec)
+    return past_winners
+
 
 def create_features(senteces_file,top_docs_file,doc_ids_file,past_winners_file,model):
     top_docs = get_top_docs_per_query(top_docs_file)
@@ -132,17 +146,20 @@ def create_features(senteces_file,top_docs_file,doc_ids_file,past_winners_file,m
     past_winners_vectors = init_past_winners_vectors(past_winners_data,model)
     top_doc_vectors = init_top_doc_vectors(top_docs,doc_ids,model)
     centroids,winners = get_vectors(top_doc_vectors)
-    past_winner_centroids,_ =get_vectors(past_winners_vectors)
+    # past_winner_centroids,_ =get_vectors(past_winners_vectors)
+    past_winners_vectors =combine_winners(winners,past_winners_vectors)
+    combine_winners(winners,past_winners_vectors)
+    past_winner_centroids=get_vectors(past_winners_vectors,True)
     with open(senteces_file) as s_file:
         for line in s_file:
             comb,sentence_in,sentence_out = line.split("\t")[0],line.split("\t")[1],line.split("\t")[2]
             query = comb.split("-")[2]
             centroid = centroids[query]
             past_winner_centroid = past_winner_centroids[query]
-            winner =winners[query]
+            # winner =winners[query]
             sentence_vector_in = get_sentence_vector(sentence_in,model)
             sentence_vector_out = get_sentence_vector(sentence_out,model)
-            values = feature_values(centroid,sentence_vector_in,sentence_vector_out,winner,past_winner_centroid)
+            values = feature_values(centroid,sentence_vector_in,sentence_vector_out,past_winner_centroid)
             write_files(values,query,comb)
 
 
@@ -156,12 +173,12 @@ def write_files(values,query,comb):
         f.close()
 
 
-def feature_values(centroid,s_in,s_out,winner,past_winner_centroid):
+def feature_values(centroid,s_in,s_out,past_winner_centroid):
     result={}
     result["docCosineToCentroidInVec"]= cosine_similarity(centroid,s_in)
     result["docCosineToCentroidOutVec"]= cosine_similarity(centroid,s_out)
-    result["docCosineToWinnerInVec"]=cosine_similarity(winner,s_in)
-    result["docCosineToWinnerOutVec"]=cosine_similarity(winner,s_out)
+    # result["docCosineToWinnerInVec"]=cosine_similarity(winner,s_in)
+    # result["docCosineToWinnerOutVec"]=cosine_similarity(winner,s_out)
     result["docCosineToWinnerCentroidInVec"]=cosine_similarity(past_winner_centroid,s_in)
     result["docCosineToWinnerCentroidOutVec"]=cosine_similarity(past_winner_centroid,s_out)
 
@@ -182,12 +199,14 @@ def read_past_winners_file(winners_file):
     return winners_data
 
 
-def init_past_winners_vectors(winners_data,model):
+def init_past_winners_vectors(winners_data,model):#TODO:make sure right order of winners
     winners_vectors = {}
     for query in winners_data:
         winners_vectors[query]=[]
-        for doc in winners_data[query]:
-            winners_vectors[query].append(get_document_vector(doc,model))
+        # decay_factors = [math.exp(-(i+2)) for i in range(len(winners_data[query]))]
+        # denominator = sum(decay_factors)
+        for i,doc in enumerate(winners_data[query]):
+            winners_vectors[query].append(get_document_vector(doc,model))#*decay_factors[i]/denominator)
     return winners_vectors
 
 
