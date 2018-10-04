@@ -250,4 +250,4 @@ if __name__=="__main__":
     command = "mv features "+features_path
     run_bash_command(command)
     new_features = add_labeles(qrels,features_path,"new_sentence_features")
-    cross_validation(new_features,qrels,"summary_all_features.tex","svm_rank",["map","ndcg","P2","P.5"],"")
+    cross_validation(new_features,qrels,"summary_all_features.tex","svm_rank",["map","ndcg","P.2","P.5"],"")
