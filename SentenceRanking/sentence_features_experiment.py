@@ -73,7 +73,8 @@ def get_sentence_vector(sentence,model):
 def get_centroid(doc_vectors,decay=False):
     sum_of_vecs = np.zeros(300)
     if decay:
-        decay_factors = [math.exp(-(len(doc_vectors)-i)) for i in range(len(doc_vectors))]
+        # decay_factors = [math.exp(-(len(doc_vectors)-i)) for i in range(len(doc_vectors))]
+        decay_factors = [0.95**(len(doc_vectors)-i) for i in range(len(doc_vectors))]
         denominator = sum(decay_factors)
         for i,doc in enumerate(doc_vectors):
 
