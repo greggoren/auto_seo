@@ -8,8 +8,8 @@ class eval:
 
 
 
-    def __init__(self):
-        self.metrics = ["map","ndcg_cut.20","P.10","P.5"]
+    def __init__(self,metrics):
+        self.metrics = metrics
         self.validation_metric = "ndcg_cut.20"
         self.doc_name_index = {}
 

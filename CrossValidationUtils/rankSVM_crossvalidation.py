@@ -101,12 +101,12 @@ def recover_model(model):
 #     return score_file
 
 
-def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
+def cross_validation(features_file,qrels_file,summary_file,method,metrics,append_file = ""):
     preprocess = p.preprocess()
     X, y, queries = preprocess.retrieve_data_from_file(features_file, True)
     number_of_queries = len(set(queries))
     print("there are ", number_of_queries, 'queries')
-    evaluator = e.eval()
+    evaluator = e.eval(metrics)
     evaluator.create_index_to_doc_name_dict(features_file)
 
     folds = preprocess.create_folds(X, y, queries, 5)
@@ -116,7 +116,6 @@ def cross_validation(features_file,qrels_file,summary_file,append_file = ""):
     validated = set()
     scores = {}
     models = {}
-    method ="svm_rank"
     svm = s.svm_handler()
     evaluator.empty_validation_files(method)
     for train, test in folds:
@@ -169,4 +168,5 @@ if __name__ == "__main__":
         append_features = ""
     else:
         append_features = sys.argv[4]
-    cross_validation(features_file,qrels_file,summary_file,append_features)
+    metrics = ["map","ndcg_cut.20","P.10","P.5"]
+    cross_validation(features_file,qrels_file,summary_file,"svm_rank",metrics,append_features)

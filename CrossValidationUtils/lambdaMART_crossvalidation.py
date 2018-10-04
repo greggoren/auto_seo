@@ -31,7 +31,8 @@ if __name__=="__main__":
     preprocess = p.preprocess()
     X,y,queries=preprocess.retrieve_data_from_file(features_file,True)
     number_of_queries = len(set(queries))
-    evaluator = e.eval()
+    metrics =["map","ndcg_cut.20","P.10","P.5"]
+    evaluator = e.eval(metrics)
     evaluator.create_index_to_doc_name_dict(features_file)
     evaluator.remove_score_file_from_last_run("lm")
 
