@@ -149,7 +149,7 @@ def create_features(senteces_file,top_docs_file,doc_ids_file,past_winners_file,m
     # past_winner_centroids,_ =get_vectors(past_winners_vectors)
     past_winners_vectors =combine_winners(winners,past_winners_vectors)
     combine_winners(winners,past_winners_vectors)
-    past_winner_centroids=get_vectors(past_winners_vectors,True)
+    past_winner_centroids,_=get_vectors(past_winners_vectors,True)
     with open(senteces_file) as s_file:
         for line in s_file:
             comb,sentence_in,sentence_out = line.split("\t")[0],line.split("\t")[1],line.split("\t")[2]
