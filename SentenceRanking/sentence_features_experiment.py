@@ -178,10 +178,10 @@ def feature_values(centroid,s_in,s_out,past_winner_centroid):
     result={}
     result["docCosineToCentroidInVec"]= cosine_similarity(centroid,s_in)
     result["docCosineToCentroidOutVec"]= cosine_similarity(centroid,s_out)
-    # result["docCosineToWinnerInVec"]=cosine_similarity(winner,s_in)
-    # result["docCosineToWinnerOutVec"]=cosine_similarity(winner,s_out)
-    # result["docCosineToWinnerCentroidInVec"]=cosine_similarity(past_winner_centroid,s_in)
-    # result["docCosineToWinnerCentroidOutVec"]=cosine_similarity(past_winner_centroid,s_out)
+    result["docCosineToWinnerInVec"]=cosine_similarity(winner,s_in)
+    result["docCosineToWinnerOutVec"]=cosine_similarity(winner,s_out)
+    result["docCosineToWinnerCentroidInVec"]=cosine_similarity(past_winner_centroid,s_in)
+    result["docCosineToWinnerCentroidOutVec"]=cosine_similarity(past_winner_centroid,s_out)
 
     return result
 
