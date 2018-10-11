@@ -4,6 +4,7 @@ from krovetzstemmer import Stemmer
 import numpy as np
 from itertools import combinations
 from random import shuffle,seed
+import torch
 class PairWiseDataLoaer(Dataset):
     def __init__(self,data_file,queries_file):
         self.model = WordToVec().load_model()
@@ -99,6 +100,6 @@ class PairWiseDataLoaer(Dataset):
 
     def __getitem__(self, idx):
         combination = self.combinations[idx]
-        vectors = [self.get_sentence_vector(s) for s in combination]
+        vectors = [torch.from_numpy(self.get_sentence_vector(s)) for s in combination]
         label = self.label[idx]
         return vectors,label
