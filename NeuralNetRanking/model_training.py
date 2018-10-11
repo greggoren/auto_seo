@@ -19,7 +19,7 @@ data_loading = DataLoader(data,num_workers=4,shuffle=True,batch_size=5)
 epochs = 5
 for epoch in range(epochs):
     running_loss = 0.0
-    for i,batch in data_loading:
+    for i,batch in enumerate(data_loading):
         inputs, labels = batch
         optimizer.zero_grad()
 
