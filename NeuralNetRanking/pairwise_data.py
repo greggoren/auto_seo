@@ -17,8 +17,9 @@ class PairWiseDataLoaer(Dataset):
         self.read_file(data_file)
         self.combinations = {}
         print("creating combinations")
-        self.create_combinations()
         self.label = {}
+        self.create_combinations()
+
 
     def get_sentence_vector(self,sentence):
         stemmer = Stemmer()
