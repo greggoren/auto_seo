@@ -9,11 +9,14 @@ class PairWiseDataLoaer(Dataset):
     def __init__(self,data_file,queries_file):
         self.model = WordToVec().load_model()
         self.queries = {}
+        print("filling queries")
         self.fill_queries(queries_file)
         self.raw_data = {}
         self.scores = {}
+        print("reading data")
         self.read_file(data_file)
         self.combinations = {}
+        print("creating combinations")
         self.create_combinations()
         self.label = {}
 
@@ -80,7 +83,7 @@ class PairWiseDataLoaer(Dataset):
         for query in self.scores:
             combination_names = list(self.scores[query].keys())
             for pair in combinations(combination_names,2):
-                shuffle(pair)
+                shuffle(list(pair))
                 comb1,comb2 = pair
                 if self.scores[query][comb1]==self.scores[query][comb2]:
                     continue
