@@ -1,5 +1,4 @@
 import torch.optim as optim
-import torch.nn as nn
 from NeuralNetRanking.feed_forward_net import SimpleRankNet
 from NeuralNetRanking.pairwise_data import PairWiseDataLoaer
 from torch.utils.data import DataLoader
@@ -14,7 +13,7 @@ queries_file = "/home/greg/auto_seo/data/queris.txt"
 net = SimpleRankNet(300,50,1)
 print(net)
 criterion = NewHingeLoss()
-optimizer = optim.SGD(net.parameters(), lr=0.001, mo0mentum=0.9)
+optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 data = PairWiseDataLoaer(data_file,queries_file)
 data_loading = DataLoader(data,num_workers=4,shuffle=True,batch_size=5)
 epochs = 5
