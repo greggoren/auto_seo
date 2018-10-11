@@ -3,7 +3,7 @@ from NeuralNetRanking.feed_forward_net import SimpleRankNet
 from NeuralNetRanking.pairwise_data import PairWiseDataLoaer
 from torch.utils.data import DataLoader
 from NeuralNetRanking.loss import NewHingeLoss
-
+import torch
 
 
 
@@ -12,6 +12,8 @@ data_file ="/home/greg/auto_seo/NeuralNetRanking/new_sentences_add_remove"
 queries_file = "/home/greg/auto_seo/data/queris.txt"
 net = SimpleRankNet(300,50,1)
 net = net.double()
+device = torch.device('cuda' if torch.cuda.is_avaliable() else 'cpu')
+model = net.to(device)
 print(net)
 criterion = NewHingeLoss()
 optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
