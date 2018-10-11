@@ -104,6 +104,6 @@ class PairWiseDataLoaer(Dataset):
 
     def __getitem__(self, idx):
         combination = self.combinations[idx]
-        vectors = [torch.from_numpy(self.get_sentence_vector(s),) for s in combination]
+        vectors = [torch.from_numpy(self.get_sentence_vector(s)) for s in combination]
         label = self.label[idx]
         return vectors,label

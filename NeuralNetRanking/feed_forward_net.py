@@ -19,8 +19,8 @@ class SimpleRankNet(nn.Module):
 
     def split_data(self,x):
         # query_index = self.vec_dimension*2+1
-        sentence_comb1 = torch.cat((x[0],x[1],x[2]),0)
-        sentence_comb2 = torch.cat((x[2],x[3],x[4]),0)
+        sentence_comb1 = torch.cat((x[0],x[1],x[2]),1)
+        sentence_comb2 = torch.cat((x[2],x[3],x[4]),1)
         return sentence_comb1,sentence_comb2
 
     def forward(self,x):
