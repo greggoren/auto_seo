@@ -13,7 +13,7 @@ def get_labels(features_file):
     stats={}
     with open(features_file) as features:
         for line in features:
-            label = line.split()
+            label = line.split()[0]
             comb = line.split()[-1].rstrip()
             stats[comb] = label
     return stats
