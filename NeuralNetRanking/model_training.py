@@ -9,8 +9,8 @@ from NeuralNetRanking.loss import NewHingeLoss
 
 
 
-data_file =""
-queries_file = ""
+data_file ="/home/greg/auto_seo/NeuralNetRanking/new_sentences_add_remove"
+queries_file = "/home/greg/auto_seo/data/queris.txt"
 net = SimpleRankNet(300,50,1)
 print(net)
 criterion = NewHingeLoss()
