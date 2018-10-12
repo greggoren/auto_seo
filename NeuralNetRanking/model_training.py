@@ -12,8 +12,9 @@ data_file ="/home/greg/auto_seo/NeuralNetRanking/new_sentences_add_remove"
 queries_file = "/home/greg/auto_seo/data/queris.txt"
 net = SimpleRankNet(300,50,1)
 net = net.double()
-device = torch.device('cuda' if torch.cuda.is_avaliable() else 'cpu')
-model = net.to(device)
+use_gpu = lambda x=True: torch.set_default_tensor_type(torch.cuda.FloatTensor
+                                             if torch.cuda.is_available() and x
+                                             else torch.FloatTensor)
 print(net)
 criterion = NewHingeLoss()
 optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
@@ -34,7 +35,7 @@ for epoch in range(epochs):
 
         # print statistics
         running_loss += loss.item()
-        if i % 2000 == 1999:  # print every 2000 mini-batches
+        if i % 200 == 0:  # print every 2000 mini-batches
             print('[%d, %5d] loss: %.3f' %
-                  (epoch + 1, i + 1, running_loss / 2000))
+                  (epoch + 1, i + 1, running_loss / 200))
             running_loss = 0.0
