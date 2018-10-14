@@ -10,12 +10,12 @@ import os
 
 
 
-def get_sentence_vector(sentence):
+def get_sentence_vector(sentence,model):
     stemmer = Stemmer()
     sentence = clean_text(sentence)
     words = sentence.split()
     stemmed = [stemmer.stem(w) for w in words]
-    return get_stemmed_document_vector(stemmed)
+    return get_stemmed_document_vector(stemmed,model)
 
 
 def clean_text(text):
