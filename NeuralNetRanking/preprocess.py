@@ -119,7 +119,7 @@ def save_data(combinations,labels,model):
 
 
 
-if __name__=="main":
+if __name__=="__main__":
     print("--== preprocess for NN ==--")
     print("loading w2v model")
     model = WordToVec().load_model()
