@@ -26,10 +26,12 @@ def get_total_coherence_level():
         for row in data:
             if row["_golden"]=="TRUE":
                 continue
+
             id = row["id"]
 
             if id not in stats:
                 continue
+            print("mutual example")
             value = 0
             if row["which_document_has_experienced_manipulation"]!="":
                 if row["which_document_has_experienced_manipulation"]!=row["check_one_gold"]:
@@ -77,8 +79,10 @@ def create_sentence_similarities(stats):
                     window.append(ref_sentences[i - 1])
 
                 ref_vector = get_sentence_vector(ref_sentence,model)
-                window_centroid,_ = get_vectors(window)
-
+                window_dict = {}
+                window_dict[0]=window
+                window_centroid_dict,_ = get_vectors(window_dict)
+                window_centroid=window_centroid_dict[0]
                 similarity_to_window = cosine_similarity(window_centroid,sentence_vec)
                 similarity_to_ref_sentence = cosine_similarity(ref_vector,sentence_vec)
                 row["id"]=run_name
