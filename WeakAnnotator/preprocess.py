@@ -72,12 +72,12 @@ def create_sentence_similarities(stats):
                 print("run name in stats")
                 window = []
                 if i == 0:
-                    window.append(ref_sentences[1])
+                    window.append(get_sentence_vector(ref_sentences[1],model))
                 elif i+1 == len(ref_sentences):
-                    window.append(ref_sentences[i-1])
+                    window.append(get_sentence_vector(ref_sentences[i-1],model))
                 else:
-                    window.append(ref_sentences[i+1])
-                    window.append(ref_sentences[i - 1])
+                    window.append(get_sentence_vector(ref_sentences[i+1],model))
+                    window.append(get_sentence_vector(ref_sentences[i - 1],model))
 
                 ref_vector = get_sentence_vector(ref_sentence,model)
                 window_dict = {}

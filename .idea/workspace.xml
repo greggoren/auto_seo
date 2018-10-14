@@ -78,8 +78,8 @@
       <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WeakAnnotator/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+            <state relative-caret-position="240">
+              <caret line="79" column="80" selection-start-line="79" selection-start-column="80" selection-end-line="79" selection-end-column="80" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -693,20 +693,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00412" summary="renaming">
-      <created>1538043547490</created>
-      <option name="number" value="00412" />
-      <option name="presentableId" value="LOCAL-00412" />
-      <option name="project" value="LOCAL" />
-      <updated>1538043547490</updated>
-    </task>
-    <task id="LOCAL-00413" summary="renaming">
-      <created>1538044131563</created>
-      <option name="number" value="00413" />
-      <option name="presentableId" value="LOCAL-00413" />
-      <option name="project" value="LOCAL" />
-      <updated>1538044131564</updated>
-    </task>
     <task id="LOCAL-00414" summary="renaming">
       <created>1538053273349</created>
       <option name="number" value="00414" />
@@ -1036,7 +1022,21 @@
       <option name="project" value="LOCAL" />
       <updated>1539497678995</updated>
     </task>
-    <option name="localTasksCounter" value="461" />
+    <task id="LOCAL-00461" summary="renaming">
+      <created>1539497892686</created>
+      <option name="number" value="00461" />
+      <option name="presentableId" value="LOCAL-00461" />
+      <option name="project" value="LOCAL" />
+      <updated>1539497892687</updated>
+    </task>
+    <task id="LOCAL-00462" summary="renaming">
+      <created>1539497995762</created>
+      <option name="number" value="00462" />
+      <option name="presentableId" value="LOCAL-00462" />
+      <option name="project" value="LOCAL" />
+      <updated>1539497995762</updated>
+    </task>
+    <option name="localTasksCounter" value="463" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1167,7 +1167,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/WeakAnnotator/preprocess.py</url>
-          <line>97</line>
+          <line>98</line>
           <option name="timeStamp" value="140" />
         </line-breakpoint>
       </breakpoints>
@@ -1627,8 +1627,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WeakAnnotator/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+        <state relative-caret-position="240">
+          <caret line="79" column="80" selection-start-line="79" selection-start-column="80" selection-end-line="79" selection-end-column="80" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
