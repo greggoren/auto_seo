@@ -10,7 +10,7 @@ indexes = df.index[df.score == 0].tolist()
 shuffle(indexes)
 indexes_sliced = indexes[:84]
 df_1 = df[df.score==1]
-df_0 = df.iloc[indexes]
+df_0 = df.iloc[indexes_sliced]
 frames = [df_0,df_1]
 df_unified = pd.concat(frames)
 print("len:",len(df_unified))

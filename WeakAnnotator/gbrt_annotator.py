@@ -1,4 +1,6 @@
 from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import GradientBoostingClassifier
 import pandas as pd
 from random import shuffle
 from sklearn.model_selection import cross_val_score
@@ -12,7 +14,7 @@ df_0 = df.iloc[indexes_sliced]
 frames = [df_0,df_1]
 df_unified = pd.concat(frames)
 
-logisticRegr = LogisticRegression(class_weight='balanced')
+logisticRegr = GradientBoostingRegressor()
 
 scores = cross_val_score(logisticRegr, df_unified.iloc[:,1:-1], df_unified.iloc[:,-1], cv=5)
 print("cv acc:")
