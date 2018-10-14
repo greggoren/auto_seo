@@ -1,7 +1,7 @@
 from w2v.train_word2vec import WordToVec
 from krovetzstemmer import Stemmer
 import numpy as np
-from itertools import combinations_obj
+from itertools import combinations
 from random import shuffle,seed
 import torch
 import pickle
