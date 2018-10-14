@@ -63,7 +63,7 @@ def create_sentence_similarities(stats):
             row = {}
             sentence_vec = get_sentence_vector(sentence_map[query][sentence],model=model)
             for i,ref_sentence in enumerate(ref_sentences):
-                run_name = sentence+str(i+1)
+                run_name = sentence+"_"+str(i+1)
                 if run_name not in stats:
                     continue
                 print("run nqme in stats")
