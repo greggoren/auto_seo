@@ -1,5 +1,7 @@
 import csv
 import numpy
+from docutils.nodes import header
+
 from Preprocess.preprocess import retrieve_ranked_lists,load_file,retrieve_sentences
 from SentenceRanking.sentence_parse import map_sentences, map_set_of_sentences
 import params
@@ -18,6 +20,7 @@ def get_total_coherence_level():
                 stats[id]=[]
 
             value = 0
+            print(row)
             if row["which_document_has_experienced_manipulation"].split("_")[1]!=row["check_one_gold"].split("Document")[1]:
                 value=1
             stats[id].append(value)
