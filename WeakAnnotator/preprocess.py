@@ -66,6 +66,7 @@ def create_sentence_similarities(stats):
                 run_name = sentence+str(i+1)
                 if run_name not in stats:
                     continue
+                print("run nqme in stats")
                 window = []
                 if i == 0:
                     window.append(ref_sentences[1])
