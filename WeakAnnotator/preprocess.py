@@ -30,8 +30,9 @@ def get_total_coherence_level():
             id = row["id"]
 
             if id not in stats:
-                continue
-            print("mutual example")
+                stats[id]=[]
+            #     continue
+            # print("mutual example")
             value = 0
             if row["which_document_has_experienced_manipulation"]!="":
                 if row["which_document_has_experienced_manipulation"]!=row["check_one_gold"]:
@@ -68,7 +69,7 @@ def create_sentence_similarities(stats):
                 run_name = sentence+"_"+str(i+1)
                 if run_name not in stats:
                     continue
-                print("run nqme in stats")
+                print("run name in stats")
                 window = []
                 if i == 0:
                     window.append(ref_sentences[1])
