@@ -7,7 +7,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NeuralNetRanking/preprocess.py" afterPath="$PROJECT_DIR$/NeuralNetRanking/preprocess.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NeuralNetRanking/pairwise_data.py" afterPath="$PROJECT_DIR$/NeuralNetRanking/pairwise_data.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -54,8 +54,8 @@
       <file leaf-file-name="feed_forward_net.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+            <state relative-caret-position="814">
+              <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -75,23 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WeakAnnotator/preprocess.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="105" column="56" selection-start-line="105" selection-start-column="56" selection-end-line="105" selection-end-column="56" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pairwise_data.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pairwise_data.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/pairwise_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="684">
-              <caret line="106" column="86" selection-start-line="106" selection-start-column="86" selection-end-line="106" selection-end-column="86" />
+            <state relative-caret-position="308">
+              <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -99,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
+            <state relative-caret-position="702">
+              <caret line="136" column="18" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -196,8 +184,8 @@
         <option value="$PROJECT_DIR$/WeakAnnotator/logistic_annotator.py" />
         <option value="$PROJECT_DIR$/WeakAnnotator/gbrt_annotator.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py" />
-        <option value="$PROJECT_DIR$/NeuralNetRanking/pairwise_data.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/preprocess.py" />
+        <option value="$PROJECT_DIR$/NeuralNetRanking/pairwise_data.py" />
       </list>
     </option>
   </component>
@@ -641,13 +629,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00456" summary="renaming">
-      <created>1539496504013</created>
-      <option name="number" value="00456" />
-      <option name="presentableId" value="LOCAL-00456" />
-      <option name="project" value="LOCAL" />
-      <updated>1539496504013</updated>
-    </task>
     <task id="LOCAL-00457" summary="renaming">
       <created>1539496840014</created>
       <option name="number" value="00457" />
@@ -984,7 +965,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539521779414</updated>
     </task>
-    <option name="localTasksCounter" value="505" />
+    <task id="LOCAL-00505" summary="renaming">
+      <created>1539521896158</created>
+      <option name="number" value="00505" />
+      <option name="presentableId" value="LOCAL-00505" />
+      <option name="project" value="LOCAL" />
+      <updated>1539521896158</updated>
+    </task>
+    <option name="localTasksCounter" value="506" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1496,16 +1484,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WeakAnnotator/preprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="105" column="56" selection-start-line="105" selection-start-column="56" selection-end-line="105" selection-end-column="56" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WeakAnnotator/logistic_annotator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -1528,20 +1506,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="37" column="8" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="8" />
+        <state relative-caret-position="814">
+          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NeuralNetRanking/pairwise_data.py">
+    <entry file="file://$PROJECT_DIR$/WeakAnnotator/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="684">
-          <caret line="106" column="86" selection-start-line="106" selection-start-column="86" selection-end-line="106" selection-end-column="86" />
+        <state relative-caret-position="416">
+          <caret line="105" column="56" selection-start-line="105" selection-start-column="56" selection-end-line="105" selection-end-column="56" />
           <folding>
-            <element signature="e#0#36#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1558,10 +1536,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
+        <state relative-caret-position="702">
+          <caret line="136" column="18" selection-start-line="136" selection-start-column="18" selection-end-line="136" selection-end-column="18" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NeuralNetRanking/pairwise_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="14" column="8" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
           </folding>
         </state>
       </provider>
