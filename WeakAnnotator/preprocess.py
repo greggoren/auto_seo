@@ -89,7 +89,10 @@ def create_sentence_similarities(stats):
                 row["id"]=run_name
                 row["similarity_to_window"]=similarity_to_window
                 row["similarity_to_ref_sentence"] = similarity_to_ref_sentence
-                row["score"]=numpy.mean(stats[run_name])
+                score = 0
+                if numpy.mean(stats[run_name])>0.5:
+                    score=1
+                row["score"]=score
                 rows[index]=row
                 index+=1
     return rows
