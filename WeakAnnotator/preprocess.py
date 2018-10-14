@@ -67,9 +67,10 @@ def create_sentence_similarities(stats):
         text = doc_texts[ref_doc]
         ref_sentences = retrieve_sentences(text)
         for sentence in sentence_map[query]:
-            row = {}
+
             sentence_vec = get_sentence_vector(sentence_map[query][sentence],model=model)
             for i,ref_sentence in enumerate(ref_sentences):
+                row = {}
                 run_name = sentence+"_"+str(i+1)
                 if run_name not in stats:
                     continue
