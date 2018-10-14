@@ -9,7 +9,7 @@ indexes = df.index[df.score == 0].tolist()
 
 logisticRegr = LogisticRegression(class_weight='balanced')
 
-scores = cross_val_score(logisticRegr, df.iloc[:,1:-1], df.iloc[:,-1], cv=5,scoring="balanced_accuracy")
+scores = cross_val_score(logisticRegr, df.iloc[:,1:-1], df.iloc[:,-1], cv=5,scoring="accuracy")
 print("cv acc:")
 print(scores.mean())
 
