@@ -90,8 +90,8 @@
       <file leaf-file-name="logistic_annotator.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WeakAnnotator/logistic_annotator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+            <state relative-caret-position="393">
+              <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -629,20 +629,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00433" summary="renaming">
-      <created>1538573445086</created>
-      <option name="number" value="00433" />
-      <option name="presentableId" value="LOCAL-00433" />
-      <option name="project" value="LOCAL" />
-      <updated>1538573445086</updated>
-    </task>
-    <task id="LOCAL-00434" summary="renaming">
-      <created>1538648179402</created>
-      <option name="number" value="00434" />
-      <option name="presentableId" value="LOCAL-00434" />
-      <option name="project" value="LOCAL" />
-      <updated>1538648179403</updated>
-    </task>
     <task id="LOCAL-00435" summary="renaming">
       <created>1538649203063</created>
       <option name="number" value="00435" />
@@ -972,7 +958,21 @@
       <option name="project" value="LOCAL" />
       <updated>1539510326968</updated>
     </task>
-    <option name="localTasksCounter" value="482" />
+    <task id="LOCAL-00482" summary="renaming">
+      <created>1539510616506</created>
+      <option name="number" value="00482" />
+      <option name="presentableId" value="LOCAL-00482" />
+      <option name="project" value="LOCAL" />
+      <updated>1539510616506</updated>
+    </task>
+    <task id="LOCAL-00483" summary="renaming">
+      <created>1539510958560</created>
+      <option name="number" value="00483" />
+      <option name="presentableId" value="LOCAL-00483" />
+      <option name="project" value="LOCAL" />
+      <updated>1539510958560</updated>
+    </task>
+    <option name="localTasksCounter" value="484" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1539,8 +1539,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WeakAnnotator/logistic_annotator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="28" column="52" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+        <state relative-caret-position="393">
+          <caret line="30" column="30" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>

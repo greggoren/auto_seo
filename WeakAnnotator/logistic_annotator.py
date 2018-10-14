@@ -3,6 +3,7 @@ import pandas as pd
 from random import shuffle
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import cross_val_score
+from sklearn.preprocessing import StandardScaler
 
 df = pd.read_csv("coherence.csv",delimiter=",")
 indexes = df.index[df.score == 0].tolist()
@@ -15,10 +16,12 @@ indexes_sliced = indexes[:84]
 
 
 logisticRegr = LogisticRegression(class_weight='balanced')
+scaler = StandardScaler()
+X_std = scaler.fit_transform(df.iloc[:,1:-1])
+data = df.iloc[:,1:-1]
+print(data)
 
-
-
-scores = cross_val_score(logisticRegr, df.iloc[:,1:-1], df.iloc[:,-1], cv=5)
+scores = cross_val_score(logisticRegr, X_std, df.iloc[:,-1], cv=5)
 print("cv acc:")
 print(scores.mean())
 
