@@ -1,4 +1,5 @@
 import csv
+import numpy
 from Preprocess.preprocess import retrieve_ranked_lists,load_file,retrieve_sentences
 from SentenceRanking.sentence_parse import map_sentences, map_set_of_sentences
 import params
@@ -82,7 +83,7 @@ def create_sentence_similarities(stats):
                 row["id"]=run_name
                 row["similarity_to_window"]=similarity_to_window
                 row["similarity_to_ref_sentence"] = similarity_to_ref_sentence
-                row["score"]=stats[run_name]
+                row["score"]=numpy.mean(stats[run_name])
                 rows[index]=row
                 index+=1
     return rows
