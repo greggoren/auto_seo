@@ -77,23 +77,28 @@ def create_sentence_similarities(stats):
                 print("run name in stats")
                 window = []
                 if i == 0:
+                    window.append(numpy.ones(300))
                     window.append(get_sentence_vector(ref_sentences[1],model))
+
                 elif i+1 == len(ref_sentences):
                     window.append(get_sentence_vector(ref_sentences[i-1],model))
+                    window.append(numpy.ones(300))
                 else:
+                    window.append(get_sentence_vector(ref_sentences[i - 1], model))
                     window.append(get_sentence_vector(ref_sentences[i+1],model))
-                    window.append(get_sentence_vector(ref_sentences[i - 1],model))
+
 
                 ref_vector = get_sentence_vector(ref_sentence,model)
-                window_dict = {}
-                window_dict[0]=window
-                window_centroid_dict,_ = get_vectors(window_dict)
-                window_centroid=window_centroid_dict[0]
-                similarity_to_window = cosine_similarity(window_centroid,sentence_vec)
+                # window_dict = {}
+                # window_dict[0]=window
+                # window_centroid_dict,_ = get_vectors(window_dict)
+                # window_centroid=window_centroid_dict[0]
+                # similarity_to_window = cosine_similarity(window_centroid,sentence_vec)
                 similarity_to_ref_sentence = cosine_similarity(ref_vector,sentence_vec)
                 row["id"]=run_name
-                row["similarity_to_window"]=similarity_to_window
+                row["similarity_to_prev"]=cosine_similarity(sentence_vec,window[0])
                 row["similarity_to_ref_sentence"] = similarity_to_ref_sentence
+                row["similarity_to_pred"] = cosine_similarity(sentence_vec,window[1])
                 score = 0
                 if numpy.mean(stats[run_name])>0.5:
                     score=1
@@ -106,7 +111,7 @@ def create_sentence_similarities(stats):
 
 stats = get_total_coherence_level()
 rows = create_sentence_similarities(stats)
-fieldnames = ["id","similarity_to_window","similarity_to_ref_sentence","score"]
+fieldnames = ["id","similarity_to_prev","similarity_to_pred","similarity_to_ref_sentence","score"]
 with open("coherence.csv","w",newline='') as data_set:
     writer = csv.DictWriter(data_set,fieldnames=fieldnames)
     writer.writeheader()

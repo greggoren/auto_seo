@@ -16,12 +16,8 @@ indexes_sliced = indexes[:84]
 
 
 logisticRegr = LogisticRegression(class_weight='balanced')
-scaler = StandardScaler()
-X_std = scaler.fit_transform(df.iloc[:,1:-1])
-data = df.iloc[:,1:-1]
-print(data)
 
-scores = cross_val_score(logisticRegr, X_std, df.iloc[:,-1], cv=5)
+scores = cross_val_score(logisticRegr, df.iloc[:,1:-1], df.iloc[:,-1], cv=5)
 print("cv acc:")
 print(scores.mean())
 
