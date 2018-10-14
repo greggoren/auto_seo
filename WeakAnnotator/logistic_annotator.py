@@ -6,7 +6,8 @@ from sklearn.model_selection import cross_val_score
 
 df = pd.read_csv("coherence.csv",delimiter=",")
 indexes = df.index[df.score == 0].tolist()
-indexes_sliced = shuffle(indexes)[:84]
+shuffle(indexes)
+indexes_sliced = indexes[:84]
 df_1 = df[df.score==1]
 df_0 = df.iloc[indexes]
 frames = [df_0,df_1]
