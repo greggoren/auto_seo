@@ -12,13 +12,13 @@ data_file ="/home/greg/auto_seo/NeuralNetRanking/new_sentences_add_remove"
 queries_file = "/home/greg/auto_seo/data/queris.txt"
 net = SimpleRankNet(300,50,1)
 net = net.double()
-use_gpu = lambda x=True: torch.set_default_tensor_type(torch.cuda.FloatTensor
-                                             if torch.cuda.is_available() and x
-                                             else torch.FloatTensor)
+# use_gpu = lambda x=True: torch.set_default_tensor_type(torch.cuda.FloatTensor
+#                                              if torch.cuda.is_available() and x
+#                                              else torch.FloatTensor)
 print(net)
 criterion = NewHingeLoss()
 optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
-data = PairWiseDataLoaer(data_file,queries_file)
+data = PairWiseDataLoaer("labels/labels.pkl","input/")
 data_loading = DataLoader(data,num_workers=4,shuffle=True,batch_size=5)
 epochs = 5
 for epoch in range(epochs):
