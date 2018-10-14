@@ -99,10 +99,11 @@ def create_sentence_similarities(stats):
                 row["similarity_to_prev"]=cosine_similarity(sentence_vec,window[0])
                 row["similarity_to_ref_sentence"] = similarity_to_ref_sentence
                 row["similarity_to_pred"] = cosine_similarity(sentence_vec,window[1])
-                score = 0
-                if numpy.mean(stats[run_name])>0.5:
-                    score=1
-                row["score"]=score
+                # score = 0
+                # if numpy.mean(stats[run_name])>0.5:
+                #     score=1
+                # row["score"]=score
+                row["score"]=numpy.mean(stats[run_name])
                 rows[index]=row
                 index+=1
     return rows
