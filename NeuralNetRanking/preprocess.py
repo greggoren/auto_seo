@@ -81,6 +81,7 @@ def create_combinations(scores,raw_data):
     seed(9001)
     index = 0
     label = {}
+    combinations_obj = {}
     for query in scores:
         combination_names = list(scores[query].keys())
         for pair in combinations(combination_names, 2):
