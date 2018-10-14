@@ -9,3 +9,5 @@ x_train,y_train,x_test,y_test = train.iloc[:,1:-1],train.iloc[:,-1],test.iloc[:,
 logisticRegr = LogisticRegression()
 logisticRegr.fit(x_train,y_train)
 print("accuracy is:",logisticRegr.score(x_test,y_test))
+print(logisticRegr.predict(x_test))
+
