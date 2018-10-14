@@ -1,7 +1,7 @@
 from w2v.train_word2vec import WordToVec
 from krovetzstemmer import Stemmer
 import numpy as np
-from itertools import combinations
+from itertools import combinations_obj
 from random import shuffle,seed
 import torch
 import pickle
@@ -88,7 +88,7 @@ def create_combinations(scores,raw_data):
             comb1, comb2 = pair
             if scores[query][comb1] == scores[query][comb2]:
                 continue
-            combinations[index] = (
+            combinations_obj[index] = (
                 raw_data[comb1][0], raw_data[comb1][1], raw_data[comb1][2], raw_data[comb2][0],
                 raw_data[comb2][1])
             if scores[query][comb1] > scores[query][comb2]:
@@ -97,7 +97,7 @@ def create_combinations(scores,raw_data):
             else:
                 label[index] = -1
             index += 1
-    return combinations,label
+    return combinations_obj, label
 
 
 
@@ -130,8 +130,8 @@ if __name__=="__main__":
     print("loading data set file")
     scores, raw_data = read_file(data_file,queries)
     print("creating combinations")
-    combinations, labels = create_combinations(scores, raw_data)
+    combinations_obj, labels = create_combinations(scores, raw_data)
     print("saving pickle files")
-    save_data(combinations,labels,model)
+    save_data(combinations_obj, labels, model)
     print("DONE!")
 
