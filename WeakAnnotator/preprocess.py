@@ -103,5 +103,5 @@ with open("coherence.csv","w",newline='') as data_set:
     writer = csv.DictWriter(data_set,fieldnames=fieldnames)
     writer.writeheader()
     for i in rows:
-        row = row[i]
+        row = rows[i]
         writer.writerow(row)
