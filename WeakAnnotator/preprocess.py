@@ -9,7 +9,7 @@ from w2v.train_word2vec import WordToVec
 from SentenceRanking.sentence_features_experiment import get_sentence_vector,get_vectors,cosine_similarity
 def get_total_coherence_level():
     stats={}
-    with open("comb.csv") as file:
+    with open("comb.csv",encoding="utf-8") as file:
         data = csv.DictReader(file,delimiter=",")
         for row in data:
             if row["_golden"]=="true":
@@ -25,7 +25,7 @@ def get_total_coherence_level():
             if row["which_document_has_experienced_manipulation"].split("_")[1]!=row["check_one_gold"].split("Document")[1]:
                 value=1
             stats[id].append(value)
-    with open("ident.csv") as file:
+    with open("ident.csv",encoding="utf-8") as file:
         data = csv.DictReader(file, delimiter=",")
         for row in data:
             if row["_golden"]=="true":
