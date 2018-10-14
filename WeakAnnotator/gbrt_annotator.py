@@ -20,8 +20,9 @@ for e in n_estimators:
         for train,test in split:
             gbrtRegr.fit(df.iloc[train,1:-1],df.iloc[train, -1])
             predictions = gbrtRegr.predict(df.iloc[test,1:-1])
-            r2.append(r2_score(predictions,df.iloc[test,-1]))
-            mse.append(mean_squared_error(predictions,df.iloc[test,-1]))
+            print(predictions)
+            r2.append(r2_score(df.iloc[test,-1],predictions))
+            mse.append(mean_squared_error(df.iloc[test,-1],predictions))
 
         print("cv r2:")
         print(np.mean(r2))
