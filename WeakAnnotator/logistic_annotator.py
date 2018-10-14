@@ -14,7 +14,7 @@ indexes_sliced = indexes[:84]
 # df_unified = pd.concat(frames)
 
 
-logisticRegr = LogisticRegression()
+logisticRegr = LogisticRegression(class_weight='balanced')
 
 
 
@@ -26,6 +26,6 @@ print(scores.mean())
 
 train,test = train_test_split(df, test_size=0.25)
 x_train,y_train,x_test,y_test = train.iloc[:,1:-1],train.iloc[:,-1],test.iloc[:,1:-1],test.iloc[:,-1]
-logisticRegr.fit(x_train,y_train,sample_weight="auto")
+logisticRegr.fit(x_train,y_train)
 print("accuracy is on one shot :",logisticRegr.score(x_test,y_test))
 print(logisticRegr.predict(x_test))
