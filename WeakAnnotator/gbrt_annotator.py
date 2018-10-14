@@ -16,8 +16,8 @@ df = pd.read_csv("coherence.csv",delimiter=",")
 
 gbrtRegr = GradientBoostingRegressor()
 
-scores = cross_val_score(gbrtRegr, df.iloc[:, 1:-1], df.iloc[:, -1], cv=5,)
-print("cv acc:")
+scores = cross_val_score(gbrtRegr, df.iloc[:, 1:-1], df.iloc[:, -1], cv=5,scoring="r2")
+print("cv r2:")
 print(scores.mean())
 
 

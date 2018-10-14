@@ -7,6 +7,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WeakAnnotator/gbrt_annotator.py" afterPath="$PROJECT_DIR$/WeakAnnotator/gbrt_annotator.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -86,7 +87,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logistic_annotator.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="logistic_annotator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WeakAnnotator/logistic_annotator.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
@@ -98,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gbrt_annotator.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gbrt_annotator.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WeakAnnotator/gbrt_annotator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+            <state relative-caret-position="418">
+              <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -195,8 +196,8 @@
         <option value="$PROJECT_DIR$/Crowdflower/comparison_test2.csv" />
         <option value="$PROJECT_DIR$/WeakAnnotator/feature_creation.py" />
         <option value="$PROJECT_DIR$/WeakAnnotator/preprocess.py" />
-        <option value="$PROJECT_DIR$/WeakAnnotator/gbrt_annotator.py" />
         <option value="$PROJECT_DIR$/WeakAnnotator/logistic_annotator.py" />
+        <option value="$PROJECT_DIR$/WeakAnnotator/gbrt_annotator.py" />
       </list>
     </option>
   </component>
@@ -609,13 +610,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00442" summary="renaming">
-      <created>1539252353248</created>
-      <option name="number" value="00442" />
-      <option name="presentableId" value="LOCAL-00442" />
-      <option name="project" value="LOCAL" />
-      <updated>1539252353249</updated>
-    </task>
     <task id="LOCAL-00443" summary="renaming">
       <created>1539264357949</created>
       <option name="number" value="00443" />
@@ -952,7 +946,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539513844481</updated>
     </task>
-    <option name="localTasksCounter" value="491" />
+    <task id="LOCAL-00491" summary="renaming">
+      <created>1539513941692</created>
+      <option name="number" value="00491" />
+      <option name="presentableId" value="LOCAL-00491" />
+      <option name="project" value="LOCAL" />
+      <updated>1539513941692</updated>
+    </task>
+    <option name="localTasksCounter" value="492" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1510,20 +1511,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WeakAnnotator/gbrt_annotator.py">
+    <entry file="file://$PROJECT_DIR$/WeakAnnotator/logistic_annotator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="55" selection-start-line="18" selection-start-column="55" selection-end-line="18" selection-end-column="55" />
+        <state relative-caret-position="242">
+          <caret line="11" column="85" selection-start-line="11" selection-start-column="85" selection-end-line="11" selection-end-column="85" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WeakAnnotator/logistic_annotator.py">
+    <entry file="file://$PROJECT_DIR$/WeakAnnotator/gbrt_annotator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="85" selection-start-line="11" selection-start-column="85" selection-end-line="11" selection-end-column="85" />
+        <state relative-caret-position="418">
+          <caret line="19" column="12" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
