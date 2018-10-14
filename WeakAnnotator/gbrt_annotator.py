@@ -5,7 +5,7 @@ from sklearn.metrics import r2_score,mean_squared_error
 import numpy as np
 df = pd.read_csv("coherence.csv",delimiter=",")
 kf = KFold(n_splits=5)
-split = kf.split(df)
+
 n_estimators= [150,200,500,1000,10000]
 n_depth = [1,2,3,4,5,10,100]
 
@@ -14,11 +14,12 @@ for e in n_estimators:
 
 
         print("fitting on params: max_depth=",d,"n_estimators=",e)
-
+        gbrtRegr = GradientBoostingRegressor(n_estimators=e, max_depth=d)
+        split = kf.split(df)
         r2=[]
         mse = []
         for train,test in split:
-            gbrtRegr = GradientBoostingRegressor(n_estimators=e, max_depth=d)
+
             gbrtRegr.fit(df.iloc[train,1:-1],df.iloc[train, -1])
             predictions = gbrtRegr.predict(df.iloc[test,1:-1])
             print(predictions)
