@@ -123,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/WeakAnnotator/logistic_annotator.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="154">
-              <caret line="7" column="80" selection-start-line="7" selection-start-column="80" selection-end-line="7" selection-end-column="80" />
+              <caret line="7" column="95" selection-start-line="7" selection-start-column="95" selection-end-line="7" selection-end-column="95" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -695,13 +695,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00418" summary="renaming">
-      <created>1538305726382</created>
-      <option name="number" value="00418" />
-      <option name="presentableId" value="LOCAL-00418" />
-      <option name="project" value="LOCAL" />
-      <updated>1538305726382</updated>
-    </task>
     <task id="LOCAL-00419" summary="renaming">
       <created>1538309763540</created>
       <option name="number" value="00419" />
@@ -1038,7 +1031,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539500470446</updated>
     </task>
-    <option name="localTasksCounter" value="467" />
+    <task id="LOCAL-00467" summary="renaming">
+      <created>1539500865949</created>
+      <option name="number" value="00467" />
+      <option name="presentableId" value="LOCAL-00467" />
+      <option name="project" value="LOCAL" />
+      <updated>1539500865954</updated>
+    </task>
+    <option name="localTasksCounter" value="468" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1632,7 +1632,7 @@
     <entry file="file://$PROJECT_DIR$/WeakAnnotator/logistic_annotator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
-          <caret line="7" column="80" selection-start-line="7" selection-start-column="80" selection-end-line="7" selection-end-column="80" />
+          <caret line="7" column="95" selection-start-line="7" selection-start-column="95" selection-end-line="7" selection-end-column="95" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
