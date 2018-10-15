@@ -19,7 +19,7 @@ net.cuda()
 print(net)
 criterion = NewHingeLoss()
 optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
-data = PairWiseDataLoaer("labels/labels.pkl","input/")
+data = PairWiseDataLoaer("labels/labels.pkl","input_gpu/")
 data_loading = DataLoader(data,num_workers=4,shuffle=True,batch_size=5)
 epochs = 5
 for epoch in range(epochs):
