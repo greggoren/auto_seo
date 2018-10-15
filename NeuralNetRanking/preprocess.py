@@ -104,17 +104,17 @@ def create_combinations(scores,raw_data):
 
 
 def save_data(combinations,labels,model):
-    labels_dir = "labels/"
-    if not os.path.exists(labels_dir):
-        os.makedirs(labels_dir)
-    with open(labels_dir+"labels.pkl","wb") as labels_data:
-        pickle.dump(labels,labels_data)
-    data_dir = "input/"
+    # labels_dir = "labels/"
+    # if not os.path.exists(labels_dir):
+    #     os.makedirs(labels_dir)
+    # with open(labels_dir+"labels.pkl","wb") as labels_data:
+    #     pickle.dump(labels,labels_data)
+    data_dir = "input_gpu/"
     if not os.path.exists(data_dir):
         os.makedirs(data_dir)
     for idx in combinations:
         combination = combinations[idx]
-        vectors = [torch.from_numpy(get_sentence_vector(s,model)) for s in combination]
+        vectors = [torch.from_numpy(get_sentence_vector(s,model)).cuda() for s in combination]
         with open(data_dir+str(idx),"wb") as input_point:
             pickle.dump(vectors,input_point)
 
