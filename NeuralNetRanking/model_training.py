@@ -12,6 +12,7 @@ data_file ="/home/greg/auto_seo/NeuralNetRanking/new_sentences_add_remove"
 queries_file = "/home/greg/auto_seo/data/queris.txt"
 net = SimpleRankNet(300,50,1)
 net = net.double()
+net.cuda()
 # use_gpu = lambda x=True: torch.set_default_tensor_type(torch.cuda.FloatTensor
 #                                              if torch.cuda.is_available() and x
 #                                              else torch.FloatTensor)
