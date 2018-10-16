@@ -11,5 +11,4 @@ class NewHingeLoss(_Loss):
 
 
     def forward(self, input1,input2, target):
-        input = input1-input2
-        return F.hinge_embedding_loss(input, target, self.margin, self.size_average)
+        return F.margin_ranking_loss(input1, input2, self.margin, self.size_average)
