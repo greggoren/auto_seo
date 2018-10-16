@@ -34,13 +34,11 @@ if __name__=="__main__":
         running_loss = 0.0
         for i,batch in enumerate(data_loading):
             inputs, labels = batch
+            print(labels)
             optimizer.zero_grad()
 
             # forward + backward + optimize
             out1,out2 = net(inputs)
-            print(out1)
-            out1 = torch.DoubleTensor([out1])
-            out2 = torch.DoubleTensor([out2])
             loss = criterion(out1,out1, labels)
             loss.backward()
             optimizer.step()
