@@ -29,7 +29,7 @@ if __name__=="__main__":
     data = PairWiseDataLoaer("labels/labels.pkl",input_dir)
     print("in data loading")
     data_loading = DataLoader(data,num_workers=4,shuffle=True,batch_size=5)
-    epochs = 5
+    epochs = 1000
     for epoch in range(epochs):
         running_loss = 0.0
         for i,batch in enumerate(data_loading):
@@ -46,5 +46,5 @@ if __name__=="__main__":
             running_loss += loss.item()
             if i % 2000 == 0:  # print every 2000 mini-batches
                 print('[%d, %5d] loss: %.3f' %
-                      (epoch + 1, i + 1, running_loss / 2000))
+                      (epoch + 1, i + 1, running_loss / 2000),flush=True)
                 running_loss = 0.0
