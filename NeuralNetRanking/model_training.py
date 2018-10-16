@@ -41,7 +41,7 @@ if __name__=="__main__":
             out1,out2 = net(inputs)
 
             optimizer.zero_grad()
-            loss = criterion(out1,out1, labels)
+            loss = criterion(out1,out2, labels)
             loss.backward()
             optimizer.step()
 
