@@ -1,4 +1,5 @@
 import torch.optim as optim
+import torch
 from NeuralNetRanking.feed_forward_net import SimpleRankNet
 from NeuralNetRanking.pairwise_data import PairWiseDataLoaer
 from torch.utils.data import DataLoader
@@ -59,6 +60,10 @@ def predict_folder_content(input_folder,model):
 
 
 def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,summary_file):
+
+
+    torch.multiprocessing.set_start_method("spawn")
+
     lrs = [0.1,0.01,0.001]
     batch_sizes = [5,10,15]
     epochs = range(1,6)

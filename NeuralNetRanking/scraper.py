@@ -1,4 +1,5 @@
-import operator
-y ={"a":1,"b":2,"c":3}
-a = max(y.items(),key=operator.itemgetter(1))[0]
+import torch
+a = torch.DoubleTensor([1]).cuda()
 print(a)
+b = torch.DoubleTensor([-1]).cuda()
+print(a+b)
