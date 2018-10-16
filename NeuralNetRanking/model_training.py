@@ -4,6 +4,7 @@ from NeuralNetRanking.pairwise_data import PairWiseDataLoaer
 from torch.utils.data import DataLoader
 from NeuralNetRanking.loss import NewHingeLoss
 import torch
+import torch.nn as nn
 
 
 
