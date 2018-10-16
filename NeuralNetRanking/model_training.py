@@ -38,8 +38,8 @@ if __name__=="__main__":
 
             # forward + backward + optimize
             out1,out2 = net(inputs)
-            out1 = torch.DoubleTensor([out1]).cuda()
-            out2 = torch.DoubleTensor([out2]).cuda()
+            out1 = torch.DoubleTensor([out1])
+            out2 = torch.DoubleTensor([out2])
             loss = criterion(out1,out1, labels)
             loss.backward()
             optimizer.step()
