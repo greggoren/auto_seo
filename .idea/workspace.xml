@@ -6,9 +6,12 @@
     </list>
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/NeuralNetRanking/scraper.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py" afterPath="$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py" afterPath="$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NeuralNetRanking/model_training.py" afterPath="$PROJECT_DIR$/NeuralNetRanking/model_training.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,6 +28,7 @@
     <SUITE FILE_PATH="coverage/auto_seo$t.coverage" NAME="t Coverage Results" MODIFIED="1534062540014" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SentenceRanking" />
     <SUITE FILE_PATH="coverage/auto_seo1$parsing_test.coverage" NAME="parsing_test Coverage Results" MODIFIED="1532430905320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Experiments" />
     <SUITE FILE_PATH="coverage/auto_seo$test.coverage" NAME="test Coverage Results" MODIFIED="1536751198612" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SentenceRanking" />
+    <SUITE FILE_PATH="coverage/auto_seo$scraper.coverage" NAME="scraper Coverage Results" MODIFIED="1539691922324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/NeuralNetRanking" />
     <SUITE FILE_PATH="coverage/auto_seo1$pyndri_test.coverage" NAME="pyndri_test Coverage Results" MODIFIED="1533129455276" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Multi_document_summary" />
     <SUITE FILE_PATH="coverage/auto_seo$create_dsets.coverage" NAME="create_dsets Coverage Results" MODIFIED="1538241455547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Crowdflower" />
     <SUITE FILE_PATH="coverage/auto_seo$filter_prels.coverage" NAME="filter_prels Coverage Results" MODIFIED="1537293983528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track" />
@@ -67,8 +71,8 @@
       <file leaf-file-name="model_training.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/model_training.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
+            <state relative-caret-position="528">
+              <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -103,10 +107,32 @@
       <file leaf-file-name="crossvalidation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+            <state relative-caret-position="528">
+              <caret line="93" column="56" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="scraper.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/NeuralNetRanking/scraper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="44">
+              <caret line="2" column="44" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="145" column="66" selection-start-line="145" selection-start-column="16" selection-end-line="145" selection-end-column="66" />
+              <folding>
+                <element signature="e#0#56#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,8 +141,8 @@
       <file leaf-file-name="create_crossvalidation_setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="614">
-              <caret line="126" column="11" selection-start-line="126" selection-start-column="11" selection-end-line="126" selection-end-column="11" />
+            <state relative-caret-position="86">
+              <caret line="193" column="59" selection-start-line="193" selection-start-column="59" selection-end-line="193" selection-end-column="59" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -170,7 +196,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/SentenceRanking/create_past_winners_text_file.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/test.py" />
         <option value="$PROJECT_DIR$/request/request.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/similarity_between_ranks.py" />
@@ -198,7 +223,6 @@
         <option value="$PROJECT_DIR$/CrossValidationUtils/lambdaMART_models_handler.py" />
         <option value="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py" />
-        <option value="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/lambdaMART_crossvalidation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/net.py" />
@@ -217,8 +241,10 @@
         <option value="$PROJECT_DIR$/NeuralNetRanking/pairwise_data.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/preprocess.py" />
-        <option value="$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/create_cross_validation.py" />
+        <option value="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" />
+        <option value="$PROJECT_DIR$/NeuralNetRanking/scraper.py" />
+        <option value="$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/model_training.py" />
       </list>
@@ -294,6 +320,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CrossValidationUtils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -333,7 +373,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.preprocess">
+  <component name="RunManager" selected="Python.scraper">
     <configuration default="false" name="create_dsets" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -348,24 +388,6 @@
       <module name="auto_seo" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Crowdflower/create_dsets.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="combine_qrels" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="auto_seo" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CrossValidationUtils/data_preprocees_1m_track/combine_qrels.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -420,6 +442,24 @@
       <module name="auto_seo" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/WeakAnnotator/preprocess.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="scraper" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/NeuralNetRanking" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="auto_seo" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/NeuralNetRanking/scraper.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -634,18 +674,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.create_dsets" />
-      <item index="1" class="java.lang.String" itemvalue="Python.combine_qrels" />
-      <item index="2" class="java.lang.String" itemvalue="Python.create_sentene_test_questions" />
-      <item index="3" class="java.lang.String" itemvalue="Python.comparison_test_set" />
-      <item index="4" class="java.lang.String" itemvalue="Python.preprocess" />
+      <item index="1" class="java.lang.String" itemvalue="Python.create_sentene_test_questions" />
+      <item index="2" class="java.lang.String" itemvalue="Python.comparison_test_set" />
+      <item index="3" class="java.lang.String" itemvalue="Python.preprocess" />
+      <item index="4" class="java.lang.String" itemvalue="Python.scraper" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.preprocess" />
-        <item index="1" class="java.lang.String" itemvalue="Python.create_dsets" />
-        <item index="2" class="java.lang.String" itemvalue="Python.create_sentene_test_questions" />
-        <item index="3" class="java.lang.String" itemvalue="Python.comparison_test_set" />
-        <item index="4" class="java.lang.String" itemvalue="Python.combine_qrels" />
+        <item index="0" class="java.lang.String" itemvalue="Python.scraper" />
+        <item index="1" class="java.lang.String" itemvalue="Python.preprocess" />
+        <item index="2" class="java.lang.String" itemvalue="Python.create_dsets" />
+        <item index="3" class="java.lang.String" itemvalue="Python.create_sentene_test_questions" />
+        <item index="4" class="java.lang.String" itemvalue="Python.comparison_test_set" />
       </list>
     </recent_temporary>
   </component>
@@ -663,20 +703,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
-    </task>
-    <task id="LOCAL-00463" summary="renaming">
-      <created>1539498205653</created>
-      <option name="number" value="00463" />
-      <option name="presentableId" value="LOCAL-00463" />
-      <option name="project" value="LOCAL" />
-      <updated>1539498205653</updated>
-    </task>
-    <task id="LOCAL-00464" summary="renaming">
-      <created>1539498471926</created>
-      <option name="number" value="00464" />
-      <option name="presentableId" value="LOCAL-00464" />
-      <option name="project" value="LOCAL" />
-      <updated>1539498471930</updated>
     </task>
     <task id="LOCAL-00465" summary="renaming">
       <created>1539499900453</created>
@@ -1007,7 +1033,21 @@
       <option name="project" value="LOCAL" />
       <updated>1539590547702</updated>
     </task>
-    <option name="localTasksCounter" value="512" />
+    <task id="LOCAL-00512" summary="renaming">
+      <created>1539601861913</created>
+      <option name="number" value="00512" />
+      <option name="presentableId" value="LOCAL-00512" />
+      <option name="project" value="LOCAL" />
+      <updated>1539601861913</updated>
+    </task>
+    <task id="LOCAL-00513" summary="renaming">
+      <created>1539680168219</created>
+      <option name="number" value="00513" />
+      <option name="presentableId" value="LOCAL-00513" />
+      <option name="project" value="LOCAL" />
+      <updated>1539680168220</updated>
+    </task>
+    <option name="localTasksCounter" value="514" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1020,30 +1060,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="0" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2203125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20856202" sideWeight="0.084375" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32711306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40724477" sideWeight="0.915625" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2788145" sideWeight="0.49791667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45993415" sideWeight="0.8958333" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40724477" sideWeight="0.915625" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32711306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45993415" sideWeight="0.8958333" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1206,13 +1246,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rank_svm_implementation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="51" column="37" selection-start-line="51" selection-start-column="37" selection-end-line="51" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rank_svm_crossvalidation_own_imp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
@@ -1311,13 +1344,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/lambdaMART_models_handler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
@@ -1381,17 +1407,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/w2v/train_word2vec.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1650">
           <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1550,20 +1570,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NeuralNetRanking/scraper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="44" selection-start-line="2" selection-start-column="18" selection-end-line="2" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="31" selection-start-line="21" selection-start-column="31" selection-end-line="21" selection-end-column="31" />
+        <state relative-caret-position="528">
+          <caret line="93" column="56" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="104" column="26" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="145" column="66" selection-start-line="145" selection-start-column="16" selection-end-line="145" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="614">
-          <caret line="126" column="11" selection-start-line="126" selection-start-column="11" selection-end-line="126" selection-end-column="11" />
+        <state relative-caret-position="86">
+          <caret line="193" column="59" selection-start-line="193" selection-start-column="59" selection-end-line="193" selection-end-column="59" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -1572,8 +1618,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/model_training.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="21" column="55" selection-start-line="21" selection-start-column="55" selection-end-line="21" selection-end-column="55" />
+        <state relative-caret-position="528">
+          <caret line="24" column="54" selection-start-line="24" selection-start-column="54" selection-end-line="24" selection-end-column="54" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>

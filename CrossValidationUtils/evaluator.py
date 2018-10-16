@@ -54,7 +54,23 @@ class eval:
         return trec_file
 
 
-    #
+
+    def create_trec_eval_file_nn(self,results,comb_index,file_name,test = False):
+        access = "w"
+        if test:
+            access = "a"
+        f = open(file_name,access)
+
+        for index in results:
+            combination = comb_index[index]
+            query = combination.split("-")[2]
+            line = query+" Q0 "+combination+" "+str(0)+" "+str(results[index])+" seo\n"
+            f.write(line)
+
+
+
+
+
     def order_trec_file(self,trec_file):
         final = trec_file.replace(".txt","")
         command = "sort -k1,1 -k5nr -k2,1 "+trec_file+" > "+final

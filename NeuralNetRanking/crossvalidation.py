@@ -5,6 +5,9 @@ from torch.utils.data import DataLoader
 from NeuralNetRanking.loss import NewHingeLoss
 import os
 import pickle
+import operator
+from CrossValidationUtils.evaluator import eval
+from utils import run_bash_command
 
 def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold):
     net = SimpleRankNet(300, 50, 1)
@@ -13,7 +16,7 @@ def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold):
     criterion = NewHingeLoss()
     optimizer = optim.SGD(net.parameters(), lr=lr, momentum=momentum)
     data = PairWiseDataLoaer(labels_file, input_dir)
-    data_loading = DataLoader(data, num_workers=4, shuffle=True, batch_size=batch_size)
+    data_loading = DataLoader(data, num_workers=5, shuffle=True, batch_size=batch_size)
     epochs = epochs
     for epoch in range(epochs):
         running_loss = 0.0
@@ -39,6 +42,68 @@ def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold):
     model_name = "model_"+str(lr)+"_"+str(momentum)+"_"+str(batch_size)+"_"+str(epochs)
     with open(models_dir+model_name,"wb") as model_file:
         pickle.dump(net,model_file)
+    return net,model_file
+
+
+
+def load_object(file):
+    with open(file,"rb") as example:
+        return pickle.load(example)
+
+def predict_folder_content(input_folder,model):
+    results={}
+    for file in os.listdir(input_folder):
+        sample = load_object(input_folder + file)
+        results[file] = model(sample)[0]
+    return results
+
+
+def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,summary_file):
+    lrs = [0.1,0.01,0.001]
+    batch_sizes = [5,10,15]
+    epochs = range(1,6)
+    momentums = [0.9]
+    scores={}
+    models = {}
+    evaluator = eval(metrics=["map","ndcg_cut.20","P.5","P.10"])
+    test_trec_file = "NN_test_trec_file.txt"
+    for fold in range(1,number_of_folds+1):
+        models[fold]={}
+        scores[fold]={}
+        training_folder = folds_folder+str(fold)+"/train/"
+        validation_folder = folds_folder+str(fold)+"/validation/"
+        test_folder = folds_folder+str(fold)+"/test/"
+        validation_results_folder = folds_folder+str(fold)+"/validation_results/"
+        if not os.path.exists(validation_folder):
+            os.makedirs(validation_results_folder)
+        current_labels_file = ""
+        for lr in lrs:
+            for epoch in epochs:
+                for momentum in momentums:
+                    for batch_size in batch_sizes:
+                        model_name ="_".join((str(lr),str(epoch),str(momentum),str(batch_size)))
+                        model,model_file = train_model(lr,momentum,current_labels_file,training_folder,batch_size,epoch,fold)
+                        results = predict_folder_content(validation_folder,model)
+                        trec_file_name = validation_results_folder+"NN_"+model_name+".txt"
+                        evaluator.create_trec_eval_file_nn(results,combination_name_indexes,trec_file_name)
+                        final_trec_file  = evaluator.order_trec_file(trec_file_name)
+                        score = evaluator.run_trec_eval(final_trec_file,qrels)
+                        scores[fold][model_name] = float(score)
+                        models[fold][model_name]=model_file
+        best_model = max(scores[fold].items(), key=operator.itemgetter(1))[0]
+        print("chosen model on fold",fold,":",best_model)
+        test_model = load_object(models[fold][best_model])
+        results = predict_folder_content(test_folder,test_model)
+        evaluator.create_trec_eval_file_nn(results, combination_name_indexes, test_trec_file,True)
+    final_trec_file = evaluator.order_trec_file(test_trec_file)
+    run_bash_command("rm "+test_trec_file)
+    evaluator.run_trec_eval_on_test(summary_file=summary_file,qrels=qrels,method="NN",trec_file=final_trec_file)
+
+
+
+
+
+
 
 
 
