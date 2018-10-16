@@ -39,6 +39,7 @@ if __name__=="__main__":
 
             # forward + backward + optimize
             out1,out2 = net(inputs)
+
             optimizer.zero_grad()
             loss = criterion(out1,out1, labels)
             loss.backward()
@@ -50,3 +51,5 @@ if __name__=="__main__":
                 print('[%d, %5d] loss: %.3f' %
                       (epoch + 1, i + 1, running_loss / 2000),flush=True)
                 running_loss = 0.0
+                print(out1)
+                print(out2)
