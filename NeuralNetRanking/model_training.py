@@ -6,7 +6,7 @@ from NeuralNetRanking.loss import NewHingeLoss
 import torch
 import torch.cuda as cuda
 
-
+torch.multiprocessing.set_start_method("spawn")
 
 
 data_file ="/home/greg/auto_seo/NeuralNetRanking/new_sentences_add_remove"
