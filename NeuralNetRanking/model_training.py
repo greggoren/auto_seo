@@ -15,8 +15,9 @@ net = SimpleRankNet(300,50,1)
 net = net.double()
 input_dir = "input/"
 if torch.cuda.available():
+    print("cuda bitch!")
     net.cuda()
-    input_dir="input_gpu"
+    input_dir="input_gpu/"
 # use_gpu = lambda x=True: torch.set_default_tensor_type(torch.cuda.FloatTensor
 #                                              if torch.cuda.is_available() and x
 #                                              else torch.FloatTensor)
