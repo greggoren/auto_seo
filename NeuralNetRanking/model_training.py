@@ -25,7 +25,7 @@ if __name__=="__main__":
     #                                              else torch.FloatTensor)
     print(net)
     criterion = NewHingeLoss()
-    optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+    optimizer = optim.SGD(net.parameters(), lr=0.01, momentum=0.9)
     data = PairWiseDataLoaer("labels/labels.pkl",input_dir)
     print("in data loading")
     data_loading = DataLoader(data,num_workers=4,shuffle=True,batch_size=5)
