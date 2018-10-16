@@ -55,7 +55,7 @@
       <file leaf-file-name="feed_forward_net.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
+            <state relative-caret-position="396">
               <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
@@ -67,8 +67,8 @@
       <file leaf-file-name="model_training.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/model_training.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
-              <caret line="48" column="72" selection-start-line="48" selection-start-column="72" selection-end-line="48" selection-end-column="72" />
+            <state relative-caret-position="594">
+              <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -99,7 +99,7 @@
       <file leaf-file-name="pairwise_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/pairwise_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2508">
+            <state relative-caret-position="2354">
               <caret line="114" column="32" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
@@ -111,7 +111,7 @@
       <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="540">
+            <state relative-caret-position="2134">
               <caret line="105" column="41" selection-start-line="105" selection-start-column="41" selection-end-line="105" selection-end-column="41" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
@@ -123,7 +123,7 @@
       <file leaf-file-name="crossvalidation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1430">
+            <state relative-caret-position="1210">
               <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
@@ -145,7 +145,7 @@
       <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="174">
+            <state relative-caret-position="3014">
               <caret line="145" column="66" selection-start-line="145" selection-start-column="16" selection-end-line="145" selection-end-column="66" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
@@ -157,7 +157,7 @@
       <file leaf-file-name="create_crossvalidation_setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
+            <state relative-caret-position="4026">
               <caret line="193" column="59" selection-start-line="193" selection-start-column="59" selection-end-line="193" selection-end-column="59" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
@@ -710,13 +710,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00490" summary="renaming">
-      <created>1539513844481</created>
-      <option name="number" value="00490" />
-      <option name="presentableId" value="LOCAL-00490" />
-      <option name="project" value="LOCAL" />
-      <updated>1539513844481</updated>
-    </task>
     <task id="LOCAL-00491" summary="renaming">
       <created>1539513941692</created>
       <option name="number" value="00491" />
@@ -1053,7 +1046,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539705508608</updated>
     </task>
-    <option name="localTasksCounter" value="539" />
+    <task id="LOCAL-00539" summary="renaming">
+      <created>1539705752941</created>
+      <option name="number" value="00539" />
+      <option name="presentableId" value="LOCAL-00539" />
+      <option name="project" value="LOCAL" />
+      <updated>1539705752942</updated>
+    </task>
+    <option name="localTasksCounter" value="540" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1073,23 +1073,23 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23710209" sideWeight="0.08802083" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32711306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23710209" sideWeight="0.91197914" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2788145" sideWeight="0.49791667" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45993415" sideWeight="0.8958333" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23710209" sideWeight="0.91197914" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32711306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.45993415" sideWeight="0.8958333" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1403,7 +1403,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1650">
           <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1528,13 +1527,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="104" column="26" selection-start-line="104" selection-start-column="26" selection-end-line="104" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
+        <state relative-caret-position="4026">
           <caret line="193" column="59" selection-start-line="193" selection-start-column="59" selection-end-line="193" selection-end-column="59" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
@@ -1544,7 +1542,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/pairwise_data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2508">
+        <state relative-caret-position="2354">
           <caret line="114" column="32" selection-start-line="114" selection-start-column="32" selection-end-line="114" selection-end-column="32" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
@@ -1562,7 +1560,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
+        <state relative-caret-position="3014">
           <caret line="145" column="66" selection-start-line="145" selection-start-column="16" selection-end-line="145" selection-end-column="66" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
@@ -1572,7 +1570,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1430">
+        <state relative-caret-position="1210">
           <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
@@ -1584,7 +1582,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
           <caret line="75" column="0" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1598,7 +1595,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
+        <state relative-caret-position="2134">
           <caret line="105" column="41" selection-start-line="105" selection-start-column="41" selection-end-line="105" selection-end-column="41" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
@@ -1616,7 +1613,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
+        <state relative-caret-position="396">
           <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
@@ -1626,8 +1623,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/model_training.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="48" column="72" selection-start-line="48" selection-start-column="72" selection-end-line="48" selection-end-column="72" />
+        <state relative-caret-position="594">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
           </folding>

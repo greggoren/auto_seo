@@ -4,6 +4,7 @@ from NeuralNetRanking.pairwise_data import PairWiseDataLoaer
 from torch.utils.data import DataLoader
 from NeuralNetRanking.loss import NewHingeLoss
 import torch
+from torch.nn.modules.loss import MarginRankingLoss
 import torch.cuda as cuda
 
 
@@ -24,7 +25,7 @@ if __name__=="__main__":
     #                                              if torch.cuda.is_available() and x
     #                                              else torch.FloatTensor)
     print(net)
-    criterion = NewHingeLoss()
+    criterion = MarginRankingLoss()
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
     data = PairWiseDataLoaer("labels/labels.pkl",input_dir)
     print("in data loading")
