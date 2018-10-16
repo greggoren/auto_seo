@@ -38,6 +38,7 @@ if __name__=="__main__":
 
             # forward + backward + optimize
             out1,out2 = net(inputs)
+            print(out1)
             out1 = torch.DoubleTensor([out1])
             out2 = torch.DoubleTensor([out2])
             loss = criterion(out1,out1, labels)
