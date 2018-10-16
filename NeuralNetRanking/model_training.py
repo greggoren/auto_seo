@@ -29,7 +29,7 @@ if __name__=="__main__":
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
     data = PairWiseDataLoaer("labels/labels.pkl",input_dir)
     print("in data loading")
-    data_loading = DataLoader(data,num_workers=5,shuffle=True,batch_size=100)
+    data_loading = DataLoader(data,num_workers=5,shuffle=True,batch_size=5)
     epochs = 1000
     for epoch in range(epochs):
         running_loss = 0.0
