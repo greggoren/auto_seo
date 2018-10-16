@@ -11,4 +11,4 @@ class NewHingeLoss(_Loss):
 
 
     def forward(self, input1,input2, target):
-        return F.margin_ranking_loss(input1, input2, self.margin, self.size_average)
+        return F.margin_ranking_loss(input1, input2,target, self.margin, self.size_average)

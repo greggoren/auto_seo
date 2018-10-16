@@ -34,7 +34,6 @@ if __name__=="__main__":
         running_loss = 0.0
         for i,batch in enumerate(data_loading):
             inputs, labels = batch
-            print(labels)
             optimizer.zero_grad()
 
             # forward + backward + optimize
