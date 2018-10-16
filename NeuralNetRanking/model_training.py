@@ -4,7 +4,7 @@ from NeuralNetRanking.pairwise_data import PairWiseDataLoaer
 from torch.utils.data import DataLoader
 from NeuralNetRanking.loss import NewHingeLoss
 import torch
-import torch.nn as nn
+import torch.cuda as cuda
 
 
 
@@ -14,7 +14,7 @@ queries_file = "/home/greg/auto_seo/data/queris.txt"
 net = SimpleRankNet(300,50,1)
 net = net.double()
 input_dir = "input/"
-if torch.cuda.available():
+if cuda.is_available():
     print("cuda bitch!")
     net.cuda()
     input_dir="input_gpu/"
