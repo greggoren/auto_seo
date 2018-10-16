@@ -5,9 +5,10 @@ from torch.utils.data import DataLoader
 from NeuralNetRanking.loss import NewHingeLoss
 import torch
 import torch.cuda as cuda
-
-torch.multiprocessing.set_start_method("spawn")
-
+try:
+    torch.multiprocessing.set_start_method("spawn")
+except RuntimeError:
+    pass
 
 data_file ="/home/greg/auto_seo/NeuralNetRanking/new_sentences_add_remove"
 queries_file = "/home/greg/auto_seo/data/queris.txt"
@@ -25,6 +26,7 @@ print(net)
 criterion = NewHingeLoss()
 optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
 data = PairWiseDataLoaer("labels/labels.pkl",input_dir)
+print("in data loading")
 data_loading = DataLoader(data,num_workers=4,shuffle=True,batch_size=5)
 epochs = 5
 for epoch in range(epochs):
