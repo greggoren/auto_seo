@@ -25,7 +25,7 @@ if __name__=="__main__":
     #                                              if torch.cuda.is_available() and x
     #                                              else torch.FloatTensor)
     print(net)
-    criterion = MarginRankingLoss()
+    criterion = MarginRankingLoss(margin=1)
     optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
     data = PairWiseDataLoaer("labels/labels.pkl",input_dir)
     print("in data loading")
@@ -35,10 +35,11 @@ if __name__=="__main__":
         running_loss = 0.0
         for i,batch in enumerate(data_loading):
             inputs, labels = batch
-            optimizer.zero_grad()
+
 
             # forward + backward + optimize
             out1,out2 = net(inputs)
+            optimizer.zero_grad()
             loss = criterion(out1,out1, labels)
             loss.backward()
             optimizer.step()
