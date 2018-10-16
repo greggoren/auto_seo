@@ -93,10 +93,10 @@ def create_combinations(scores,raw_data):
                 raw_data[comb1][0], raw_data[comb1][1], raw_data[comb1][2], raw_data[comb2][0],
                 raw_data[comb2][1])
             if scores[query][comb1] > scores[query][comb2]:
-                label[index] = 1
+                label[index] = torch.Tensor(1).cuda()
 
             else:
-                label[index] = -1
+                label[index] = torch.Tensor(-1).cuda()
             index += 1
     return combinations_obj, label
 
@@ -104,19 +104,19 @@ def create_combinations(scores,raw_data):
 
 
 def save_data(combinations,labels,model):
-    # labels_dir = "labels/"
-    # if not os.path.exists(labels_dir):
-    #     os.makedirs(labels_dir)
-    # with open(labels_dir+"labels.pkl","wb") as labels_data:
-    #     pickle.dump(labels,labels_data)
-    data_dir = "input_gpu/"
-    if not os.path.exists(data_dir):
-        os.makedirs(data_dir)
-    for idx in combinations:
-        combination = combinations[idx]
-        vectors = [torch.from_numpy(get_sentence_vector(s,model)).cuda() for s in combination]
-        with open(data_dir+str(idx),"wb") as input_point:
-            pickle.dump(vectors,input_point)
+    labels_dir = "labels/"
+    if not os.path.exists(labels_dir):
+        os.makedirs(labels_dir)
+    with open(labels_dir+"labels.pkl","wb") as labels_data:
+        pickle.dump(labels,labels_data)
+    # data_dir = "input_gpu/"
+    # if not os.path.exists(data_dir):
+    #     os.makedirs(data_dir)
+    # for idx in combinations:
+    #     combination = combinations[idx]
+    #     vectors = [torch.from_numpy(get_sentence_vector(s,model)).cuda() for s in combination]
+    #     with open(data_dir+str(idx),"wb") as input_point:
+    #         pickle.dump(vectors,input_point)
 
 
 

@@ -18,14 +18,14 @@ class SimpleRankNet(nn.Module):
         x = F.relu(self.layer1(x))
         x = F.relu(self.layer2(x))
         x = self.layer3(x)
-        return x.cuda()
+        return x
 
 
     def define_block2(self,x):
         x = F.relu(self.layer4(x))
         x = F.relu(self.layer5(x))
         x = self.layer6(x)
-        return x.cuda()
+        return x
 
 
 
