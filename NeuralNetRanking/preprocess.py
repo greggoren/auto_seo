@@ -6,7 +6,7 @@ from random import shuffle,seed
 import torch
 import pickle
 import os
-
+from torch.autograd import Variable
 
 
 
@@ -93,10 +93,10 @@ def create_combinations(scores,raw_data):
                 raw_data[comb1][0], raw_data[comb1][1], raw_data[comb1][2], raw_data[comb2][0],
                 raw_data[comb2][1])
             if scores[query][comb1] > scores[query][comb2]:
-                label[index] = torch.Tensor(1).cuda()
+                label[index] = Variable(1).cuda()
 
             else:
-                label[index] = torch.Tensor(-1).cuda()
+                label[index] = Variable(-1).cuda()
             index += 1
     return combinations_obj, label
 
