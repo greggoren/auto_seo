@@ -192,14 +192,14 @@ def create_crossvalidation_folders(folds,query_indexes,input_dir,model,raw_data,
         if not os.path.exists(current_validation_folder):
             os.makedirs(current_validation_folder)
         validation_queries = folds[int(validation_set)]
-        validation_index=1
+        validation_index=0
         for query in validation_queries:
             validation_index=create_inference_folds(current_validation_folder,raw_data,query,combination_index,model,validation_index)
         current_test_folder = folds_dir + str(fold) + "/test/"
         if not os.path.exists(current_test_folder):
             os.makedirs(current_test_folder)
         test_queries = folds[fold]
-        test_index = 1
+        test_index = 0
         for query in test_queries:
            test_index = create_inference_folds(current_test_folder,raw_data,query,combination_index,model,test_index)
 
