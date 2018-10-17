@@ -97,8 +97,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
                         results = predict_folder_content(validation_folder,model)
                         trec_file_name = validation_results_folder+"NN_"+model_name+".txt"
                         evaluator.create_trec_eval_file_nn(results,combination_name_indexes["val"][fold],trec_file_name)
-                        final_trec_file  = evaluator.order_trec_file(trec_file_name)
-                        score = evaluator.run_trec_eval(final_trec_file,qrels)
+                        score = evaluator.run_trec_eval(trec_file_name,qrels)
                         scores[fold][model_name] = float(score)
                         models[fold][model_name]=model_file
         best_model = max(scores[fold].items(), key=operator.itemgetter(1))[0]
