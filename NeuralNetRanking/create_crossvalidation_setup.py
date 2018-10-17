@@ -216,9 +216,11 @@ if __name__=="__main__":
     scores, raw_data = read_file(data_file,queries)
     print("creating combinations")
     combinations_obj, labels ,query_indexes,combination_index= create_combinations(scores, raw_data)
-    print("determining folds")
-    folds =create_crossvalidation_folds(query_indexes, 5)
-    print("creating folders")
-    create_crossvalidation_folders(folds, query_indexes, "input_gpu/", model, raw_data, combination_index,labels)
-    print("DONE!!")
+    with open("comb_index.pkl","wb") as comb_index_file:
+        pickle.dump(combination_index,comb_index_file)
+    # print("determining folds")
+    # folds =create_crossvalidation_folds(query_indexes, 5)
+    # print("creating folders")
+    # create_crossvalidation_folders(folds, query_indexes, "input_gpu/", model, raw_data, combination_index,labels)
+    # print("DONE!!")
 
