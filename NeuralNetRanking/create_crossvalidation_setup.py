@@ -135,7 +135,7 @@ def determine_folds(fold,folds):
         validation_set = fold + 1
     else:
         validation_set = 1
-    training_set = set(folds.keys()).difference(set(validation_set)).difference(set(fold))
+    training_set = [i for i in folds if i!=fold and i!=validation_set]
     return training_set,validation_set
 
 
