@@ -111,11 +111,11 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
 
 
 if __name__=="__name__":
-    folds_folder=""
+    folds_folder="folds/"
     number_of_folds=5
-    combination_name_indexes=load_object("")
-    qrels=""
-    summary_file=""
+    combination_name_indexes=load_object("comb_index.pkl")
+    qrels="/home/greg/auto_seo/SentenceRanking/labels_final"
+    summary_file="NN_cv_summary.tex"
     crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,summary_file)
 
 
