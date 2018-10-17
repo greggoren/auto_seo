@@ -75,6 +75,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
     evaluator = eval(metrics=["map","ndcg_cut.20","P.5","P.10"])
     test_trec_file = "NN_test_trec_file.txt"
     for fold in range(1,number_of_folds+1):
+        print("in fold:",fold)
         models[fold]={}
         scores[fold]={}
         training_folder = folds_folder+str(fold)+"/train/"
@@ -110,12 +111,13 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
 
 
 
-if __name__=="__name__":
+if __name__=="__main__":
     folds_folder="folds/"
     number_of_folds=5
     combination_name_indexes=load_object("comb_index.pkl")
     qrels="/home/greg/auto_seo/SentenceRanking/labels_final"
     summary_file="NN_cv_summary.tex"
+    print("starting CV")
     crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,summary_file)
 
 
