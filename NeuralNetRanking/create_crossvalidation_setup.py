@@ -183,8 +183,9 @@ def create_crossvalidation_folders(folds,query_indexes,input_dir,model,raw_data,
                     orig = input_dir+str(index)
                     dest = current_train_folder+str(running_index)
                     copyfile(orig,dest)
+                    fold_labels[running_index] = labels[index]
                     running_index+=1
-                    fold_labels[running_index]=labels[index]
+
         save_single_object(label_file_prefix + str(fold) + ".pkl", fold_labels)
         current_validation_folder = folds_dir+str(fold)+"/validation/"
         if not os.path.exists(current_validation_folder):
