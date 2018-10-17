@@ -168,38 +168,38 @@ def create_crossvalidation_folders(folds,query_indexes,input_dir,model,raw_data,
     label_file_prefix = "labels_fold_"
     for fold in folds:
         fold_labels={}
-        if not os.path.exists(folds_dir+str(fold)):
-            os.makedirs(folds_dir+str(fold))
+        # if not os.path.exists(folds_dir+str(fold)):
+        #     os.makedirs(folds_dir+str(fold))
         training_set, validation_set=determine_folds(fold,folds)
-        current_train_folder = folds_dir+str(fold)+"/train/"
-        if not os.path.exists(current_train_folder):
-            os.makedirs(current_train_folder)
+        # current_train_folder = folds_dir+str(fold)+"/train/"
+        # if not os.path.exists(current_train_folder):
+        #     os.makedirs(current_train_folder)
         running_index = 1
         for train_fold in training_set:
-            queries = folds[train_fold]
+        #     queries = folds[train_fold]
             for query in queries:
                 indexes = query_indexes[query]
                 for index in indexes:
-                    orig = input_dir+str(index)
-                    dest = current_train_folder+str(running_index)
-                    copyfile(orig,dest)
+        #             orig = input_dir+str(index)
+        #             dest = current_train_folder+str(running_index)
+        #             copyfile(orig,dest)
                     running_index+=1
                     fold_labels[running_index]=labels[index]
         save_single_object(label_file_prefix + str(fold) + ".pkl", fold_labels)
-        current_validation_folder = folds_dir+str(fold)+"/validation/"
-        if not os.path.exists(current_validation_folder):
-            os.makedirs(current_validation_folder)
-        validation_queries = folds[int(validation_set)]
-        validation_index=1
-        for query in validation_queries:
-            validation_index=create_inference_folds(current_validation_folder,raw_data,query,combination_index,model,validation_index)
-        current_test_folder = folds_dir + str(fold) + "/test/"
-        if not os.path.exists(current_test_folder):
-            os.makedirs(current_test_folder)
-        test_queries = folds[fold]
-        test_index = 1
-        for query in test_queries:
-           test_index = create_inference_folds(current_test_folder,raw_data,query,combination_index,model,test_index)
+        # current_validation_folder = folds_dir+str(fold)+"/validation/"
+        # if not os.path.exists(current_validation_folder):
+        #     os.makedirs(current_validation_folder)
+        # validation_queries = folds[int(validation_set)]
+        # validation_index=1
+        # for query in validation_queries:
+        #     validation_index=create_inference_folds(current_validation_folder,raw_data,query,combination_index,model,validation_index)
+        # current_test_folder = folds_dir + str(fold) + "/test/"
+        # if not os.path.exists(current_test_folder):
+        #     os.makedirs(current_test_folder)
+        # test_queries = folds[fold]
+        # test_index = 1
+        # for query in test_queries:
+        #    test_index = create_inference_folds(current_test_folder,raw_data,query,combination_index,model,test_index)
 
 
 
@@ -218,9 +218,9 @@ if __name__=="__main__":
     combinations_obj, labels ,query_indexes,combination_index= create_combinations(scores, raw_data)
     with open("comb_index.pkl","wb") as comb_index_file:
         pickle.dump(combination_index,comb_index_file)
-    # print("determining folds")
-    # folds =create_crossvalidation_folds(query_indexes, 5)
-    # print("creating folders")
-    # create_crossvalidation_folders(folds, query_indexes, "input_gpu/", model, raw_data, combination_index,labels)
-    # print("DONE!!")
+    print("determining folds")
+    folds =create_crossvalidation_folds(query_indexes, 5)
+    print("creating folders")
+    create_crossvalidation_folders(folds, query_indexes, "input_gpu/", model, raw_data, combination_index,labels)
+    print("DONE!!")
 
