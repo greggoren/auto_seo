@@ -10,11 +10,14 @@ import operator
 from CrossValidationUtils.evaluator import eval
 from utils import run_bash_command
 from torch.nn.modules.loss import MarginRankingLoss
-
+import torch.cuda as cuda
 def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold):
     net = SimpleRankNet(300, 150, 1)
     net = net.double()
-    net.cuda()
+    if cuda.is_available():
+        print("cuda is on!!")
+        net.cuda()
+
     criterion = MarginRankingLoss(margin=1)
     optimizer = optim.SGD(net.parameters(), lr=lr, momentum=momentum)
     data = PairWiseDataLoaer(labels_file, input_dir)
@@ -24,17 +27,17 @@ def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold):
         running_loss = 0.0
         for i, batch in enumerate(data_loading):
             inputs, labels = batch
-            optimizer.zero_grad()
 
             # forward + backward + optimize
             out1, out2 = net(inputs)
+            optimizer.zero_grad()
             loss = criterion(out1, out2, labels)
             loss.backward()
             optimizer.step()
 
             # print statistics
             running_loss += loss.item()
-            if i % 1000 == 0:  # print every 2000 mini-batches
+            if i % 1000 == 999:  # print every 2000 mini-batches
                 print('[%d, %5d] loss: %.3f' %
                       (epoch + 1, i + 1, running_loss / 1000))
                 running_loss = 0.0
