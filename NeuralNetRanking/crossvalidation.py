@@ -118,7 +118,7 @@ if __name__=="__main__":
     folds_folder="folds/"
     number_of_folds=5
     combination_name_indexes=load_object("test_names.pkl")
-    print(combination_name_indexes)
+    print(combination_name_indexes["val"][1])
     qrels="/home/greg/auto_seo/SentenceRanking/labels_final"
     summary_file="NN_cv_summary.tex"
     print("starting CV")
