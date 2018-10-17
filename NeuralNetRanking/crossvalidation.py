@@ -60,8 +60,6 @@ def predict_folder_content(input_folder,model):
     results={}
     for file in os.listdir(input_folder):
         sample = load_object(input_folder + file)
-
-        print(len(sample))
         results[file] = model(sample)[0]
     return results
 

@@ -109,14 +109,15 @@ def save_data(combinations,labels,model):
         os.makedirs(labels_dir)
     with open(labels_dir+"labels.pkl","wb") as labels_data:
         pickle.dump(labels,labels_data)
-    # data_dir = "input_gpu/"
-    # if not os.path.exists(data_dir):
-    #     os.makedirs(data_dir)
-    # for idx in combinations:
-    #     combination = combinations[idx]
-    #     vectors = [torch.from_numpy(get_sentence_vector(s,model)).cuda() for s in combination]
-    #     with open(data_dir+str(idx),"wb") as input_point:
-    #         pickle.dump(vectors,input_point)
+    data_dir = "input_gpu/"
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir)
+    for idx in combinations:
+        combination = combinations[idx]
+        vectors = [torch.from_numpy(get_sentence_vector(s,model)).cuda() for s in combination]
+        tensors = [torch.cat((vectors[0],vectors[1],vectors[2]),1),torch.cat((vectors[3],vectors[4],vectors[2]),1)]
+        with open(data_dir+str(idx),"wb") as input_point:
+            pickle.dump(tensors,input_point)
 
 
 
