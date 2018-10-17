@@ -84,7 +84,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
         validation_results_folder = folds_folder+str(fold)+"/validation_results/"
         if not os.path.exists(validation_folder):
             os.makedirs(validation_results_folder)
-        current_labels_file = ""
+        current_labels_file = "labels_fold_"+str(fold)+".pkl"
         for lr in lrs:
             for epoch in epochs:
                 for momentum in momentums:
