@@ -160,7 +160,7 @@ def create_inference_folds(output_dir, raw_data, query, combination_index, model
                    torch.cat((vectors[3], vectors[4], vectors[2]), 0)]
         save_single_object(output_dir + str(running_index),tensors)
         running_index+=1
-    return running_index
+    return running_index,test_names
 
 
 
@@ -199,14 +199,14 @@ def create_crossvalidation_folders(folds,query_indexes,input_dir,model,raw_data,
         validation_queries = folds[int(validation_set)]
         validation_index=0
         for query in validation_queries:
-            validation_index=create_inference_folds(current_validation_folder,raw_data,query,combination_index,model,validation_index,test_names["val"][fold])
+            validation_index,test_names=create_inference_folds(current_validation_folder,raw_data,query,combination_index,model,validation_index,test_names["val"][fold])
         current_test_folder = folds_dir + str(fold) + "/test/"
         if not os.path.exists(current_test_folder):
             os.makedirs(current_test_folder)
         test_queries = folds[fold]
         test_index = 0
         for query in test_queries:
-           test_index = create_inference_folds(current_test_folder,raw_data,query,combination_index,model,test_index,test_names["test"][fold])
+           test_index,test_names = create_inference_folds(current_test_folder,raw_data,query,combination_index,model,test_index,test_names["test"][fold])
 
     save_single_object("test_names.pkl",test_names)
 
