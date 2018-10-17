@@ -37,7 +37,7 @@ def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold):
 
             # print statistics
             running_loss += loss.item()
-            if i % 1000 == 999:  # print every 2000 mini-batches
+            if i % 1000 == 999:  # print every 1000 mini-batches
                 print('[%d, %5d] loss: %.3f' %
                       (epoch + 1, i + 1, running_loss / 1000))
                 running_loss = 0.0
@@ -60,6 +60,7 @@ def predict_folder_content(input_folder,model):
     results={}
     for file in os.listdir(input_folder):
         sample = load_object(input_folder + file)
+        print(sample)
         results[file] = model(sample)[0]
     return results
 
