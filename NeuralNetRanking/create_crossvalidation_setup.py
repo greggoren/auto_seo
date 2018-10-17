@@ -208,7 +208,7 @@ def create_crossvalidation_folders(folds,query_indexes,input_dir,model,raw_data,
         for query in test_queries:
            test_index = create_inference_folds(current_test_folder,raw_data,query,combination_index,model,test_index,test_names["test"][fold])
 
-        save_single_object("test_names.pkl",test_names)
+    save_single_object("test_names.pkl",test_names)
 
 
 
