@@ -96,7 +96,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
                         model,model_file = train_model(lr,momentum,current_labels_file,training_folder,batch_size,epoch,fold)
                         results = predict_folder_content(validation_folder,model)
                         trec_file_name = validation_results_folder+"NN_"+model_name+".txt"
-                        evaluator.create_trec_eval_file_nn(results,combination_name_indexes,trec_file_name)
+                        evaluator.create_trec_eval_file_nn(results,combination_name_indexes["val"][fold],trec_file_name)
                         final_trec_file  = evaluator.order_trec_file(trec_file_name)
                         score = evaluator.run_trec_eval(final_trec_file,qrels)
                         scores[fold][model_name] = float(score)
@@ -106,7 +106,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
         # test_model = load_object(models[fold][best_model])
         test_model = torch.load(models[fold][best_model])
         results = predict_folder_content(test_folder,test_model)
-        evaluator.create_trec_eval_file_nn(results, combination_name_indexes, test_trec_file,True)
+        evaluator.create_trec_eval_file_nn(results, combination_name_indexes["test"][fold], test_trec_file,True)
     final_trec_file = evaluator.order_trec_file(test_trec_file)
     run_bash_command("rm "+test_trec_file)
     evaluator.run_trec_eval_on_test(summary_file=summary_file,qrels=qrels,method="NN",trec_file=final_trec_file)
@@ -117,7 +117,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
 if __name__=="__main__":
     folds_folder="folds/"
     number_of_folds=5
-    combination_name_indexes=load_object("comb_index.pkl")
+    combination_name_indexes=load_object("test_names.pkl")
     qrels="/home/greg/auto_seo/SentenceRanking/labels_final"
     summary_file="NN_cv_summary.tex"
     print("starting CV")
