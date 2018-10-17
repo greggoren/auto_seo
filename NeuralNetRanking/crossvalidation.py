@@ -9,12 +9,13 @@ import pickle
 import operator
 from CrossValidationUtils.evaluator import eval
 from utils import run_bash_command
+from torch.nn.modules.loss import MarginRankingLoss
 
 def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold):
-    net = SimpleRankNet(300, 50, 1)
+    net = SimpleRankNet(300, 150, 1)
     net = net.double()
     net.cuda()
-    criterion = NewHingeLoss()
+    criterion = MarginRankingLoss(margin=1)
     optimizer = optim.SGD(net.parameters(), lr=lr, momentum=momentum)
     data = PairWiseDataLoaer(labels_file, input_dir)
     data_loading = DataLoader(data, num_workers=5, shuffle=True, batch_size=batch_size)
@@ -27,7 +28,7 @@ def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold):
 
             # forward + backward + optimize
             out1, out2 = net(inputs)
-            loss = criterion(out1, out1, labels)
+            loss = criterion(out1, out2, labels)
             loss.backward()
             optimizer.step()
 
@@ -41,9 +42,10 @@ def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold):
     if not os.path.exists(models_dir):
         os.makedirs(models_dir)
     model_name = "model_"+str(lr)+"_"+str(momentum)+"_"+str(batch_size)+"_"+str(epochs)
-    with open(models_dir+model_name,"wb") as model_file:
-        pickle.dump(net,model_file)
-    return net,model_file
+    torch.save(net,models_dir+model_name)
+    # with open(models_dir+model_name,"wb") as model_file:
+    #     pickle.dump(net,model_file)
+    return net,models_dir+model_name
 
 
 
@@ -65,8 +67,8 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
     torch.multiprocessing.set_start_method("spawn")
 
     lrs = [0.1,0.01,0.001]
-    batch_sizes = [5,10,15]
-    epochs = range(1,6)
+    batch_sizes = [5]
+    epochs = [5,10,17]
     momentums = [0.9]
     scores={}
     models = {}
@@ -97,7 +99,8 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
                         models[fold][model_name]=model_file
         best_model = max(scores[fold].items(), key=operator.itemgetter(1))[0]
         print("chosen model on fold",fold,":",best_model)
-        test_model = load_object(models[fold][best_model])
+        # test_model = load_object(models[fold][best_model])
+        test_model = torch.load(models[fold][best_model])
         results = predict_folder_content(test_folder,test_model)
         evaluator.create_trec_eval_file_nn(results, combination_name_indexes, test_trec_file,True)
     final_trec_file = evaluator.order_trec_file(test_trec_file)
@@ -107,6 +110,13 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
 
 
 
+if __name__=="__name__":
+    folds_folder=""
+    number_of_folds=5
+    combination_name_indexes=load_object("")
+    qrels=""
+    summary_file=""
+    crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,summary_file)
 
 
 

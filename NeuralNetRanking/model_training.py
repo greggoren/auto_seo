@@ -2,7 +2,6 @@ import torch.optim as optim
 from NeuralNetRanking.feed_forward_net import SimpleRankNet
 from NeuralNetRanking.pairwise_data import PairWiseDataLoaer
 from torch.utils.data import DataLoader
-from NeuralNetRanking.loss import NewHingeLoss
 import torch
 from torch.nn.modules.loss import MarginRankingLoss
 import torch.cuda as cuda
