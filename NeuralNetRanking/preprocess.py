@@ -115,7 +115,7 @@ def save_data(combinations,labels,model):
     for idx in combinations:
         combination = combinations[idx]
         vectors = [torch.from_numpy(get_sentence_vector(s,model)).cuda() for s in combination]
-        tensors = [torch.cat((vectors[0],vectors[1],vectors[2]),1),torch.cat((vectors[3],vectors[4],vectors[2]),1)]
+        tensors = [torch.cat((vectors[0],vectors[1],vectors[2]),0),torch.cat((vectors[3],vectors[4],vectors[2]),0)]
         with open(data_dir+str(idx),"wb") as input_point:
             pickle.dump(tensors,input_point)
 
