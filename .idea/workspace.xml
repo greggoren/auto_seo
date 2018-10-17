@@ -7,7 +7,8 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NeuralNetRanking/preprocess.py" afterPath="$PROJECT_DIR$/NeuralNetRanking/preprocess.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py" afterPath="$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py" afterPath="$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,11 +53,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="feed_forward_net.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="feed_forward_net.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-10">
-              <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+            <state relative-caret-position="408">
+              <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -108,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="117" column="113" selection-start-line="117" selection-start-column="113" selection-end-line="117" selection-end-column="113" />
+            <state relative-caret-position="286">
+              <caret line="117" column="115" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="115" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -157,8 +158,8 @@
       <file leaf-file-name="create_crossvalidation_setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-627">
-              <caret line="158" column="67" selection-start-line="158" selection-start-column="67" selection-end-line="158" selection-end-column="67" />
+            <state relative-caret-position="517">
+              <caret line="159" column="66" selection-start-line="159" selection-start-column="66" selection-end-line="159" selection-end-column="66" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -249,10 +250,10 @@
         <option value="$PROJECT_DIR$/NeuralNetRanking/scraper.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/loss.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/model_training.py" />
-        <option value="$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py" />
-        <option value="$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/preprocess.py" />
+        <option value="$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py" />
+        <option value="$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py" />
       </list>
     </option>
   </component>
@@ -710,13 +711,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00522" summary="renaming">
-      <created>1539699925795</created>
-      <option name="number" value="00522" />
-      <option name="presentableId" value="LOCAL-00522" />
-      <option name="project" value="LOCAL" />
-      <updated>1539699925795</updated>
-    </task>
     <task id="LOCAL-00523" summary="renaming">
       <created>1539700786042</created>
       <option name="number" value="00523" />
@@ -1053,7 +1047,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539802665801</updated>
     </task>
-    <option name="localTasksCounter" value="571" />
+    <task id="LOCAL-00571" summary="renaming">
+      <created>1539802849492</created>
+      <option name="number" value="00571" />
+      <option name="presentableId" value="LOCAL-00571" />
+      <option name="project" value="LOCAL" />
+      <updated>1539802849492</updated>
+    </task>
+    <option name="localTasksCounter" value="572" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1603,10 +1604,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/NeuralNetRanking/preprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="117" column="115" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="115" />
+          <folding>
+            <element signature="e#0#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-627">
-          <caret line="158" column="67" selection-start-line="158" selection-start-column="67" selection-end-line="158" selection-end-column="67" />
+        <state relative-caret-position="517">
+          <caret line="159" column="66" selection-start-line="159" selection-start-column="66" selection-end-line="159" selection-end-column="66" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
@@ -1615,20 +1626,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10">
-          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        <state relative-caret-position="408">
+          <caret line="36" column="4" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="4" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NeuralNetRanking/preprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="117" column="113" selection-start-line="117" selection-start-column="113" selection-end-line="117" selection-end-column="113" />
-          <folding>
-            <element signature="e#0#40#0" expanded="true" />
           </folding>
         </state>
       </provider>

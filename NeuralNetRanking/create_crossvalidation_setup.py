@@ -153,10 +153,11 @@ def create_inference_folds(output_dir, raw_data, query, combination_index, model
         data = raw_data[combination]
         parts = (data[0],data[1],data[2])
         vectors = [torch.from_numpy(get_sentence_vector(s, model)).cuda() for s in parts]
-        extension = [torch.from_numpy(np.zeros(300)).cuda for i in range(len(vectors))]
+        extension = [torch.from_numpy(np.zeros(300)).cuda for i in range(len(vectors)-1)]
         vectors.extend(extension)
-
-        save_single_object(output_dir + str(running_index),vectors)
+        tensors = [torch.cat((vectors[0], vectors[1], vectors[2]), 0),
+                   torch.cat((vectors[3], vectors[4], vectors[2]), 0)]
+        save_single_object(output_dir + str(running_index),tensors)
         running_index+=1
     return running_index
 

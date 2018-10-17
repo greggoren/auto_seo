@@ -29,13 +29,13 @@ class SimpleRankNet(nn.Module):
 
 
 
-    def split_data(self,x):
-        sentence_comb1 = torch.cat((x[0],x[1],x[2]),1)
-        sentence_comb2 = torch.cat((x[2],x[3],x[4]),1)
-        return sentence_comb1,sentence_comb2
+    # def split_data(self,x):
+    #     sentence_comb1 = torch.cat((x[0],x[1],x[2]),1)
+    #     sentence_comb2 = torch.cat((x[2],x[3],x[4]),1)
+    #     return sentence_comb1,sentence_comb2
 
     def forward(self,x):
-        comb1,comb2 = self.split_data(x)
+        comb1,comb2 = x[0],x[1]
         out1 = self.define_block1(comb1)
         out2 = self.define_block2(comb2)
         return out1,out2
