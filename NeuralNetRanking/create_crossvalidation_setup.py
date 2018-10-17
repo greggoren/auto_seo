@@ -147,9 +147,10 @@ def save_single_object(file_name, obj):
 
 
 
-def create_inference_folds(output_dir, raw_data, query, combination_index, model, running_index):
+def create_inference_folds(output_dir, raw_data, query, combination_index, model, running_index,test_names):
     combinations = combination_index[query]
     for combination in combinations:
+        test_names[running_index]=combination
         data = raw_data[combination]
         parts = (data[0],data[1],data[2])
         vectors = [torch.from_numpy(get_sentence_vector(s, model)).cuda() for s in parts]
@@ -168,7 +169,10 @@ def create_inference_folds(output_dir, raw_data, query, combination_index, model
 def create_crossvalidation_folders(folds,query_indexes,input_dir,model,raw_data,combination_index,labels):
     folds_dir = "folds/"
     label_file_prefix = "labels_fold_"
+    test_names={"test":{},"val":{}}
     for fold in folds:
+        test_names["test"][fold]={}
+        test_names["val"][fold]={}
         fold_labels={}
         if not os.path.exists(folds_dir+str(fold)):
             os.makedirs(folds_dir+str(fold))
@@ -195,14 +199,16 @@ def create_crossvalidation_folders(folds,query_indexes,input_dir,model,raw_data,
         validation_queries = folds[int(validation_set)]
         validation_index=0
         for query in validation_queries:
-            validation_index=create_inference_folds(current_validation_folder,raw_data,query,combination_index,model,validation_index)
+            validation_index=create_inference_folds(current_validation_folder,raw_data,query,combination_index,model,validation_index,test_names["val"][fold])
         current_test_folder = folds_dir + str(fold) + "/test/"
         if not os.path.exists(current_test_folder):
             os.makedirs(current_test_folder)
         test_queries = folds[fold]
         test_index = 0
         for query in test_queries:
-           test_index = create_inference_folds(current_test_folder,raw_data,query,combination_index,model,test_index)
+           test_index = create_inference_folds(current_test_folder,raw_data,query,combination_index,model,test_index,test_names["test"][fold])
+
+        save_single_object("test_names.pkl",test_names)
 
 
 
