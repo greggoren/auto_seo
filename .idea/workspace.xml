@@ -155,8 +155,8 @@
       <file leaf-file-name="create_crossvalidation_setup.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="122" column="67" selection-start-line="122" selection-start-column="67" selection-end-line="122" selection-end-column="67" />
+            <state relative-caret-position="627">
+              <caret line="221" column="112" selection-start-line="221" selection-start-column="112" selection-end-line="221" selection-end-column="112" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -708,20 +708,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00498" summary="renaming">
-      <created>1539516067541</created>
-      <option name="number" value="00498" />
-      <option name="presentableId" value="LOCAL-00498" />
-      <option name="project" value="LOCAL" />
-      <updated>1539516067541</updated>
-    </task>
-    <task id="LOCAL-00499" summary="renaming">
-      <created>1539516661980</created>
-      <option name="number" value="00499" />
-      <option name="presentableId" value="LOCAL-00499" />
-      <option name="project" value="LOCAL" />
-      <updated>1539516661980</updated>
-    </task>
     <task id="LOCAL-00500" summary="renaming">
       <created>1539521083695</created>
       <option name="number" value="00500" />
@@ -1051,7 +1037,21 @@
       <option name="project" value="LOCAL" />
       <updated>1539790013111</updated>
     </task>
-    <option name="localTasksCounter" value="547" />
+    <task id="LOCAL-00547" summary="renaming">
+      <created>1539790603779</created>
+      <option name="number" value="00547" />
+      <option name="presentableId" value="LOCAL-00547" />
+      <option name="project" value="LOCAL" />
+      <updated>1539790603779</updated>
+    </task>
+    <task id="LOCAL-00548" summary="renaming">
+      <created>1539790705586</created>
+      <option name="number" value="00548" />
+      <option name="presentableId" value="LOCAL-00548" />
+      <option name="project" value="LOCAL" />
+      <updated>1539790705586</updated>
+    </task>
+    <option name="localTasksCounter" value="549" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1621,8 +1621,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="122" column="67" selection-start-line="122" selection-start-column="67" selection-end-line="122" selection-end-column="67" />
+        <state relative-caret-position="627">
+          <caret line="221" column="112" selection-start-line="221" selection-start-column="112" selection-end-line="221" selection-end-column="112" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>

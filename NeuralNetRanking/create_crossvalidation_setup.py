@@ -219,6 +219,6 @@ if __name__=="__main__":
     print("determining folds")
     folds =create_crossvalidation_folds(query_indexes, 5)
     print("creating folders")
-    create_crossvalidation_folders(folds, query_indexes, "input_gpu/", model, raw_data, combination_index)
+    create_crossvalidation_folders(folds, query_indexes, "input_gpu/", model, raw_data, combination_index,labels)
     print("DONE!!")
 
