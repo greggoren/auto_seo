@@ -155,8 +155,8 @@
       <file leaf-file-name="create_crossvalidation_setup.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="221" column="112" selection-start-line="221" selection-start-column="112" selection-end-line="221" selection-end-column="112" />
+            <state relative-caret-position="319">
+              <caret line="137" column="90" selection-start-line="137" selection-start-column="90" selection-end-line="137" selection-end-column="90" />
               <folding>
                 <element signature="e#0#40#0" expanded="true" />
               </folding>
@@ -708,13 +708,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00500" summary="renaming">
-      <created>1539521083695</created>
-      <option name="number" value="00500" />
-      <option name="presentableId" value="LOCAL-00500" />
-      <option name="project" value="LOCAL" />
-      <updated>1539521083695</updated>
-    </task>
     <task id="LOCAL-00501" summary="renaming">
       <created>1539521301387</created>
       <option name="number" value="00501" />
@@ -1051,7 +1044,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539790705586</updated>
     </task>
-    <option name="localTasksCounter" value="549" />
+    <task id="LOCAL-00549" summary="renaming">
+      <created>1539790927160</created>
+      <option name="number" value="00549" />
+      <option name="presentableId" value="LOCAL-00549" />
+      <option name="project" value="LOCAL" />
+      <updated>1539790927160</updated>
+    </task>
+    <option name="localTasksCounter" value="550" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1621,8 +1621,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="221" column="112" selection-start-line="221" selection-start-column="112" selection-end-line="221" selection-end-column="112" />
+        <state relative-caret-position="319">
+          <caret line="137" column="90" selection-start-line="137" selection-start-column="90" selection-end-line="137" selection-end-column="90" />
           <folding>
             <element signature="e#0#40#0" expanded="true" />
           </folding>
