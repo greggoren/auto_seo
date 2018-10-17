@@ -176,7 +176,7 @@ def create_crossvalidation_folders(folds,query_indexes,input_dir,model,raw_data,
         #     os.makedirs(current_train_folder)
         running_index = 1
         for train_fold in training_set:
-        #     queries = folds[train_fold]
+            queries = folds[train_fold]
             for query in queries:
                 indexes = query_indexes[query]
                 for index in indexes:
