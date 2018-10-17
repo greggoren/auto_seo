@@ -104,10 +104,10 @@ def create_combinations(scores,raw_data):
                 raw_data[comb1][0], raw_data[comb1][1], raw_data[comb1][2], raw_data[comb2][0],
                 raw_data[comb2][1])
             if scores[query][comb1] > scores[query][comb2]:
-                label[index] = 1
+                label[index] = torch.DoubleTensor([1]).cuda()
 
             else:
-                label[index] = -1
+                label[index] = torch.DoubleTensor([-1]).cuda()
             query_indexes[query].append(index)
             index += 1
     return combinations_obj, label,query_indexes,combination_index
