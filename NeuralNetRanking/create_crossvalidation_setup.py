@@ -120,6 +120,7 @@ def create_crossvalidation_folds(query_indexes,number_of_folds):
     queries = list(query_indexes.keys())
     shuffle(queries)
     number_of_queries_per_fold = math.floor(len(queries)/number_of_folds)
+    print("there are ",number_of_queries_per_fold,"queries per fold")
     folds = {i+1:[] for i in range(number_of_folds)}
     i=1
     for query in queries:
