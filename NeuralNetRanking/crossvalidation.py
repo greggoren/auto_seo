@@ -119,7 +119,7 @@ if __name__=="__main__":
     combination_name_indexes=load_object("test_names.pkl")
     print(combination_name_indexes["val"][1][0])
     qrels="/home/greg/auto_seo/SentenceRanking/labels_final1"
-    summary_file="NN_cv_summary.tex"
+    summary_file="NN_cv_summary_with_dropout.tex"
     print("starting CV")
     crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,summary_file)
 
