@@ -22,8 +22,11 @@ def get_total_coherence_level():
             value = 0
             if row["which_document_has_experienced_manipulation"]=="":
                 continue
-            print(row)
-            if row["which_document_has_experienced_manipulation"].split("_")[1]!=row["check_one_gold"].split("Document")[1]:
+            if "document_" in  row["check_one_gold"]:
+                ref = row["check_one_gold"].split("document_")[1]
+            else:
+                ref = row["check_one_gold"].split("Document")[1]
+            if row["which_document_has_experienced_manipulation"].split("_")[1]!=ref:
                 value=1
             stats[id].append(value)
     with open("ident.csv",encoding="utf-8") as file:
