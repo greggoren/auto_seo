@@ -95,7 +95,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
                     for batch_size in batch_sizes:
                         for p in dropouts:
                             model_name ="_".join((str(lr),str(epoch),str(momentum),str(batch_size)))
-                            model,model_file = train_model(lr,momentum,current_labels_file,training_folder,batch_size,epoch,fold)
+                            model,model_file = train_model(lr,momentum,current_labels_file,training_folder,batch_size,epoch,fold,p)
                             results = predict_folder_content(validation_folder,model)
                             trec_file_name = validation_results_folder+"NN_"+model_name+".txt"
                             evaluator.create_trec_eval_file_nn(results,combination_name_indexes["val"][fold],trec_file_name)
