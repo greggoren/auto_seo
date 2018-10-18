@@ -12,7 +12,7 @@ def get_total_coherence_level():
     with open("comb.csv",encoding="utf-8") as file:
         data = csv.DictReader(file,delimiter=",")
         for row in data:
-            if row["_golden"]=="true":
+            if row["_golden"]=="true" or row["_golden"]=="TRUE":
                 continue
             id = row["id"]
 
@@ -28,7 +28,7 @@ def get_total_coherence_level():
     with open("ident.csv",encoding="utf-8") as file:
         data = csv.DictReader(file, delimiter=",")
         for row in data:
-            if row["_golden"]=="true":
+            if row["_golden"] == "true" or row["_golden"] == "TRUE":
                 continue
 
             id = row["id"]
