@@ -44,7 +44,7 @@ def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold,p):
     models_dir = "models/"+str(fold)+"/"
     if not os.path.exists(models_dir):
         os.makedirs(models_dir)
-    model_name = "model_"+str(lr)+"_"+str(momentum)+"_"+str(batch_size)+"_"+str(epochs)
+    model_name = "model_"+str(lr)+"_"+str(momentum)+"_"+str(batch_size)+"_"+str(epochs)+"_"+str(p)
     torch.save(net,models_dir+model_name)
     # with open(models_dir+model_name,"wb") as model_file:
     #     pickle.dump(net,model_file)
@@ -94,7 +94,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
                 for momentum in momentums:
                     for batch_size in batch_sizes:
                         for p in dropouts:
-                            model_name ="_".join((str(lr),str(epoch),str(momentum),str(batch_size)))
+                            model_name ="_".join((str(lr),str(epoch),str(momentum),str(batch_size),str(p)))
                             model,model_file = train_model(lr,momentum,current_labels_file,training_folder,batch_size,epoch,fold,p)
                             results = predict_folder_content(validation_folder,model)
                             trec_file_name = validation_results_folder+"NN_"+model_name+".txt"

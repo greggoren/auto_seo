@@ -7,6 +7,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py" afterPath="$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -129,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crossvalidation.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="crossvalidation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="606">
-              <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+            <state relative-caret-position="418">
+              <caret line="46" column="97" selection-start-line="46" selection-start-column="97" selection-end-line="46" selection-end-column="97" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -141,11 +142,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WeakAnnotator/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="103" column="16" selection-start-line="103" selection-start-column="16" selection-end-line="106" selection-end-column="34" />
+            <state relative-caret-position="302">
+              <caret line="106" column="34" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -248,8 +249,8 @@
         <option value="$PROJECT_DIR$/NeuralNetRanking/preprocess.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/prereq.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py" />
-        <option value="$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py" />
         <option value="$PROJECT_DIR$/WeakAnnotator/preprocess.py" />
+        <option value="$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py" />
       </list>
     </option>
   </component>
@@ -707,13 +708,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00547" summary="renaming">
-      <created>1539790603779</created>
-      <option name="number" value="00547" />
-      <option name="presentableId" value="LOCAL-00547" />
-      <option name="project" value="LOCAL" />
-      <updated>1539790603779</updated>
-    </task>
     <task id="LOCAL-00548" summary="renaming">
       <created>1539790705586</created>
       <option name="number" value="00548" />
@@ -1050,7 +1044,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539849763593</updated>
     </task>
-    <option name="localTasksCounter" value="596" />
+    <task id="LOCAL-00596" summary="renaming">
+      <created>1539850895066</created>
+      <option name="number" value="00596" />
+      <option name="presentableId" value="LOCAL-00596" />
+      <option name="project" value="LOCAL" />
+      <updated>1539850895066</updated>
+    </task>
+    <option name="localTasksCounter" value="597" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1605,22 +1606,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py">
+    <entry file="file://$PROJECT_DIR$/WeakAnnotator/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="92" column="32" selection-start-line="92" selection-start-column="32" selection-end-line="92" selection-end-column="32" />
+        <state relative-caret-position="302">
+          <caret line="106" column="34" selection-start-line="106" selection-start-column="34" selection-end-line="106" selection-end-column="34" />
           <folding>
-            <element signature="e#0#27#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WeakAnnotator/preprocess.py">
+    <entry file="file://$PROJECT_DIR$/NeuralNetRanking/crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="103" column="16" selection-start-line="103" selection-start-column="16" selection-end-line="106" selection-end-column="34" />
+        <state relative-caret-position="418">
+          <caret line="46" column="97" selection-start-line="46" selection-start-column="97" selection-end-line="46" selection-end-column="97" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
