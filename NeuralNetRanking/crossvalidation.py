@@ -11,8 +11,8 @@ from CrossValidationUtils.evaluator import eval
 from utils import run_bash_command
 from torch.nn.modules.loss import MarginRankingLoss
 import torch.cuda as cuda
-def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold):
-    net = SimpleRankNet(300, 150, 1)
+def train_model(lr,momentum,labels_file,input_dir,batch_size,epochs,fold,p):
+    net = SimpleRankNet(300, 150, 1,p)
     net = net.double()
     if cuda.is_available():
         print("cuda is on!!")
@@ -69,10 +69,11 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
 
     torch.multiprocessing.set_start_method("spawn")
 
-    lrs = [0.1,0.01,0.001]
+    lrs = [0.01,0.001]
     batch_sizes = [5]
     epochs = [5,10,17]
     momentums = [0.9]
+    dropouts = [0.2,0.5]
     scores={}
     models = {}
     evaluator = eval(metrics=["map","ndcg_cut.20","P.5","P.10"])
@@ -92,14 +93,15 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
             for epoch in epochs:
                 for momentum in momentums:
                     for batch_size in batch_sizes:
-                        model_name ="_".join((str(lr),str(epoch),str(momentum),str(batch_size)))
-                        model,model_file = train_model(lr,momentum,current_labels_file,training_folder,batch_size,epoch,fold)
-                        results = predict_folder_content(validation_folder,model)
-                        trec_file_name = validation_results_folder+"NN_"+model_name+".txt"
-                        evaluator.create_trec_eval_file_nn(results,combination_name_indexes["val"][fold],trec_file_name)
-                        score = evaluator.run_trec_eval(trec_file_name,qrels)
-                        scores[fold][model_name] = float(score)
-                        models[fold][model_name]=model_file
+                        for p in dropouts:
+                            model_name ="_".join((str(lr),str(epoch),str(momentum),str(batch_size)))
+                            model,model_file = train_model(lr,momentum,current_labels_file,training_folder,batch_size,epoch,fold)
+                            results = predict_folder_content(validation_folder,model)
+                            trec_file_name = validation_results_folder+"NN_"+model_name+".txt"
+                            evaluator.create_trec_eval_file_nn(results,combination_name_indexes["val"][fold],trec_file_name)
+                            score = evaluator.run_trec_eval(trec_file_name,qrels)
+                            scores[fold][model_name] = float(score)
+                            models[fold][model_name]=model_file
         best_model = max(scores[fold].items(), key=operator.itemgetter(1))[0]
         print("chosen model on fold",fold,":",best_model)
         # test_model = load_object(models[fold][best_model])
