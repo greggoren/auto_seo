@@ -99,6 +99,8 @@ def create_sentence_similarities(stats):
                 row["similarity_to_prev"]=cosine_similarity(sentence_vec,window[0])
                 row["similarity_to_ref_sentence"] = similarity_to_ref_sentence
                 row["similarity_to_pred"] = cosine_similarity(sentence_vec,window[1])
+                row["similarity_to_prev_ref"] = cosine_similarity(ref_vector,window[0])
+                row["similarity_to_pred_ref"] = cosine_similarity(ref_vector,window[1])
                 # score = 0
                 # if numpy.mean(stats[run_name])>0.5:
                 #     score=1
@@ -112,7 +114,7 @@ def create_sentence_similarities(stats):
 
 stats = get_total_coherence_level()
 rows = create_sentence_similarities(stats)
-fieldnames = ["id","similarity_to_prev","similarity_to_pred","similarity_to_ref_sentence","score"]
+fieldnames = ["id","similarity_to_prev","similarity_to_pred","similarity_to_ref_sentence","similarity_to_prev_ref","similarity_to_pred_ref","score"]
 with open("coherence.csv","w",newline='') as data_set:
     writer = csv.DictWriter(data_set,fieldnames=fieldnames)
     writer.writeheader()
