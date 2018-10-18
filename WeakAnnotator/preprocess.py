@@ -39,8 +39,6 @@ def get_total_coherence_level():
 
             if id not in stats:
                 stats[id]=[]
-            #     continue
-            # print("mutual example")
             value = 0
             if row["which_document_has_experienced_manipulation"]!="":
                 if row["which_document_has_experienced_manipulation"]!=row["check_one_gold"]:
