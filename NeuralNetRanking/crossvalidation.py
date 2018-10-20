@@ -69,9 +69,9 @@ def predict_folder_content(input_folder,model):
         index[i] = file
         i+=1
         if len(batch)>=mini_batch_size:
-
-            results_of_batch = model(torch.DoubleTensor(batch))#[0].
+            results_of_batch = model(torch.stack(batch))
             for j,row in enumerate(results_of_batch):
+
                 result = row[0].data[0].item()
                 results[int(index[j])] = result
             batch = []
