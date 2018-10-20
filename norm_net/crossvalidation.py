@@ -4,6 +4,7 @@ from mpmath.libmp.libmpf import normalize1
 
 from norm_net.feed_forward_net import SimpleRankNet
 from norm_net.pairwise_data import PairWiseDataLoaer
+from norm_net.pairwise_test_loader import PairWiseDataLoaerTest
 from torch.utils.data import DataLoader
 from NeuralNetRanking.loss import NewHingeLoss
 import os
@@ -59,10 +60,17 @@ def load_object(file):
         return pickle.load(example)
 
 def predict_folder_content(input_folder,model):
+    data = PairWiseDataLoaerTest(input_folder)
+    data_loading = DataLoader(data, num_workers=5, shuffle=True, batch_size=5)
     results={}
-    for file in os.listdir(input_folder):
-        sample = load_object(input_folder + file)
-        results[int(file)] = model(sample)[0].data[0].item()
+
+    for i, batch in enumerate(data_loading):
+        samples,indexes = batch
+        out1, out2 = model(samples)
+        for j,t in enumerate(out1):
+            result = t.data[0].item()
+            idx = indexes[j].data[0].item()
+            results[idx]=result
     return results
 
 
