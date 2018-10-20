@@ -13,7 +13,7 @@ class SimpleRankNet(nn.Module):
         self.layer6 = nn.Linear(out2, out3)
         self.vec_dimension = vec_dimension
         self.droput = nn.Dropout(dropout_p)
-        self.norm1 = nn.BatchNorm1d(vec_dimension)
+        self.norm1 = nn.BatchNorm1d(vec_dimension*3)
         self.norm2 = nn.BatchNorm1d(out2)
 
 
