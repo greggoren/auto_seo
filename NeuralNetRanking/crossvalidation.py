@@ -87,7 +87,8 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
 
     lrs = [0.01,0.001]
     batch_sizes = [5]
-    epochs = [5,10,17]
+    # epochs = [5,10,17]
+    epochs = [1]
     momentums = [0.9]
     # dropouts = [0.2,0.5]
     scores={}
