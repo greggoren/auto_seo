@@ -3,7 +3,7 @@ import CrossValidationUtils.lambdaMART_models_handler as mh
 import CrossValidationUtils.evaluator as e
 from utils import run_bash_command
 import sys
-
+import os
 
 def get_results(score_file,test_indices):
     results={}
@@ -41,9 +41,10 @@ if __name__=="__main__":
         for tree in trees:
             for leaf in leaves:
                 model_file =model_handler.create_model_LambdaMart(number_of_leaves=leaf,number_of_trees=tree,train_file=train_file,fold=fold_number)
+                model_name =os.path.basename(model_file).replace(".txt","")
                 scores_file  = model_handler.run_model(model_path=model_file,test_file=test_file,trees=tree,leaves=leaf,fold=fold_number)
                 results = get_results(scores_file,test)
-                trec_file = evaluator.create_trec_eval_file(test_indices=test,queries=queries,results=results,model=model_file,method="lm",fold=0,validation=True)
+                trec_file = evaluator.create_trec_eval_file(test_indices=test,queries=queries,results=results,model=model_name,method="lm",fold=0,validation=True)
                 trecs.append(trec_file)
                 trecs = list(set(trecs))
         fold_number+=1
