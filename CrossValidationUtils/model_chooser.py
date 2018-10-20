@@ -30,7 +30,7 @@ if __name__=="__main__":
     folds = preprocess.create_folds(X, y, queries, number_of_folds)
     fold_number = 1
     trees = [250,500]
-    leaves=[5,10]
+    leaves=[1,]
     model_handler = mh.model_handler_LambdaMart(trees,leaves)
     evaluator.empty_validation_files("lm")
     trecs = []
