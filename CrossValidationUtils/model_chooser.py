@@ -37,7 +37,7 @@ if __name__=="__main__":
     for train,test in folds:
         model_handler.set_queries_to_folds(queries,test,fold_number)
         train_file = preprocess.create_train_file(X[train], y[train], queries[train],fold_number,"lm")
-        test_file = preprocess.create_train_file(X[test], y[test], queries[test],fold_number,"lm","True")
+        test_file = preprocess.create_train_file(X[test], y[test], queries[test],fold_number,"lm",True)
         for tree in trees:
             for leaf in leaves:
                 model_file =model_handler.create_model_LambdaMart(number_of_leaves=leaf,number_of_trees=tree,train_file=train_file,fold=fold_number)
