@@ -2,6 +2,7 @@ import torch.optim as optim
 import torch
 from NeuralNetRanking.feed_forward_net import SimpleRankNet
 from NeuralNetRanking.pairwise_data import PairWiseDataLoaer
+from NeuralNetRanking.pairwise_test_loader import  PairWiseDataLoaerTest
 from torch.utils.data import DataLoader
 from NeuralNetRanking.loss import NewHingeLoss
 import os
@@ -57,27 +58,39 @@ def load_object(file):
         return pickle.load(example)
 
 def predict_folder_content(input_folder,model):
+    data = PairWiseDataLoaerTest(input_folder)
+    data_loading = DataLoader(data, num_workers=5, shuffle=True, batch_size=5)
     results={}
-    mini_batch_size = 5
-    batch = []
-    index={}
-    i=0
-    for file in os.listdir(input_folder):
 
-        sample = load_object(input_folder + file)
-        batch.append(sample)
-        index[i] = file
-        i+=1
-        if len(batch)>=mini_batch_size:
-            results_of_batch = model(torch.stack(batch))
-            for j,row in enumerate(results_of_batch):
-
-                result = row[0].data[0].item()
-                results[int(index[j])] = result
-            batch = []
-            index={}
-            i=0
+    for i, batch in enumerate(data_loading):
+        samples,indexes = batch
+        out1, out2 = model(samples)
+        for j,t in enumerate(out1):
+            result = t.data[0].item()
+            idx = indexes[j].data[0].item()
+            results[idx]=result
     return results
+
+    # mini_batch_size = 5
+    # batch = []
+    # index={}
+    # i=0
+    # for file in os.listdir(input_folder):
+    #
+    #     sample = load_object(input_folder + file)
+    #     batch.append(sample)
+    #     index[i] = file
+    #     i+=1
+    #     if len(batch)>=mini_batch_size:
+    #         results_of_batch = model(torch.stack(batch))
+    #         for j,row in enumerate(results_of_batch):
+    #
+    #             result = row[0].data[0].item()
+    #             results[int(index[j])] = result
+    #         batch = []
+    #         index={}
+    #         i=0
+    # return results
 
 
 def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,summary_file):
