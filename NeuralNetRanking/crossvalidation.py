@@ -76,7 +76,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
     # dropouts = [0.2,0.5]
     scores={}
     models = {}
-    evaluator = eval(metrics=["map","ndcg_cut.20","P.5","P.10"])
+    evaluator = eval(metrics=["map","ndcg","P.2","P.5"])
     test_trec_file = "NN_test_trec_file.txt"
     for fold in range(1,number_of_folds+1):
         print("in fold:",fold)
