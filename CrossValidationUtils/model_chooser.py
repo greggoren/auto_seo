@@ -33,11 +33,11 @@ if __name__=="__main__":
     leaves=[5,10,25,50]
     model_handler = mh.model_handler_LambdaMart(trees,leaves)
     evaluator.empty_validation_files("lm")
+    trecs = []
     for train,test in folds:
         model_handler.set_queries_to_folds(queries,test,fold_number)
         train_file = preprocess.create_train_file(X[train], y[train], queries[train],fold_number,"lm")
         test_file = preprocess.create_train_file(X[test], y[test], queries[test],fold_number,"lm","True")
-        trecs = []
         for tree in trees:
             for leaf in leaves:
                 model_file =model_handler.create_model_LambdaMart(number_of_leaves=leaf,number_of_trees=tree,train_file=train_file,fold=fold_number)
@@ -46,6 +46,7 @@ if __name__=="__main__":
                 trec_file = evaluator.create_trec_eval_file(test,queries,results,model_file,"lm",0)
                 trecs.append(trec_file)
                 trecs = list(set(trecs))
+        fold_number+=1
     for trec_file in trecs:
         print("working on ",trec_file)
         evaluator.run_trec_eval(trec_file,qrels_file)
