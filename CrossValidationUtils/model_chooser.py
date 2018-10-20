@@ -9,7 +9,7 @@ def get_results(score_file,test_indices):
     results={}
     with open(score_file) as scores:
         for index,score in enumerate(scores):
-            results[test_indices[index]]=score
+            results[test_indices[index]]=score.rstrip()
     return results
 
 

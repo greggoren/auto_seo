@@ -78,8 +78,8 @@
       <file leaf-file-name="model_chooser.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/model_chooser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+            <state relative-caret-position="242">
+              <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
               <folding>
                 <element signature="e#0#51#0" expanded="true" />
               </folding>
@@ -90,8 +90,8 @@
       <file leaf-file-name="evaluator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="41" column="29" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="29" />
+            <state relative-caret-position="407">
+              <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -641,20 +641,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00564" summary="renaming">
-      <created>1539797277967</created>
-      <option name="number" value="00564" />
-      <option name="presentableId" value="LOCAL-00564" />
-      <option name="project" value="LOCAL" />
-      <updated>1539797277967</updated>
-    </task>
-    <task id="LOCAL-00565" summary="renaming">
-      <created>1539799378726</created>
-      <option name="number" value="00565" />
-      <option name="presentableId" value="LOCAL-00565" />
-      <option name="project" value="LOCAL" />
-      <updated>1539799378726</updated>
-    </task>
     <task id="LOCAL-00566" summary="renaming">
       <created>1539799746152</created>
       <option name="number" value="00566" />
@@ -984,7 +970,21 @@
       <option name="project" value="LOCAL" />
       <updated>1540044573032</updated>
     </task>
-    <option name="localTasksCounter" value="613" />
+    <task id="LOCAL-00613" summary="renaming">
+      <created>1540044787546</created>
+      <option name="number" value="00613" />
+      <option name="presentableId" value="LOCAL-00613" />
+      <option name="project" value="LOCAL" />
+      <updated>1540044787547</updated>
+    </task>
+    <task id="LOCAL-00614" summary="renaming">
+      <created>1540045189960</created>
+      <option name="number" value="00614" />
+      <option name="presentableId" value="LOCAL-00614" />
+      <option name="project" value="LOCAL" />
+      <updated>1540045189960</updated>
+    </task>
+    <option name="localTasksCounter" value="615" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1532,16 +1532,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="41" column="29" selection-start-line="41" selection-start-column="8" selection-end-line="41" selection-end-column="29" />
+        <state relative-caret-position="407">
+          <caret line="49" column="23" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/model_chooser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
+        <state relative-caret-position="242">
+          <caret line="11" column="54" selection-start-line="11" selection-start-column="54" selection-end-line="11" selection-end-column="54" />
           <folding>
             <element signature="e#0#51#0" expanded="true" />
           </folding>
