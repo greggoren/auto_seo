@@ -58,9 +58,25 @@ def load_object(file):
 
 def predict_folder_content(input_folder,model):
     results={}
+    mini_batch_size = 5
+    batch = []
+    index={}
+    i=0
     for file in os.listdir(input_folder):
+
         sample = load_object(input_folder + file)
-        results[int(file)] = model(sample)[0].data[0].item()
+        batch.append(sample)
+        index[i] = file
+        i+=1
+        if len(batch)>=mini_batch_size:
+
+            results_of_batch = model(batch)#[0].
+            for j,row in enumerate(results_of_batch):
+                result = row[0].data[0].item()
+                results[int(index[j])] = result
+            batch = []
+            index={}
+            i=0
     return results
 
 
