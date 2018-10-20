@@ -43,7 +43,7 @@ if __name__=="__main__":
                 model_file =model_handler.create_model_LambdaMart(number_of_leaves=leaf,number_of_trees=tree,train_file=train_file,fold=fold_number)
                 scores_file  = model_handler.run_model(model_path=model_file,test_file=test_file,trees=tree,leaves=leaf,fold=fold_number)
                 results = get_results(scores_file,test)
-                trec_file = evaluator.create_trec_eval_file(test,queries,results,model_file,"lm",0)
+                trec_file = evaluator.create_trec_eval_file(test_indices=test,queries=queries,results=results,model=model_file,method="lm",fold=0,validation=True)
                 trecs.append(trec_file)
                 trecs = list(set(trecs))
         fold_number+=1
