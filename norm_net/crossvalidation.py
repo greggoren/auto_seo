@@ -1,7 +1,9 @@
 import torch.optim as optim
 import torch
-from NeuralNetRanking.feed_forward_net import SimpleRankNet
-from NeuralNetRanking.pairwise_data import PairWiseDataLoaer
+from mpmath.libmp.libmpf import normalize1
+
+from norm_net.feed_forward_net import SimpleRankNet
+from norm_net.pairwise_data import PairWiseDataLoaer
 from torch.utils.data import DataLoader
 from NeuralNetRanking.loss import NewHingeLoss
 import os
