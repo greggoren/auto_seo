@@ -12,7 +12,7 @@ class PairWiseDataLoaerTest(Dataset):
 
 
     def __len__(self):
-        return len(self.length)
+        return self.length
 
     def __getitem__(self, idx):
         input_file = self.input_dir+str(idx)
