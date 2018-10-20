@@ -1,5 +1,5 @@
 from torch.utils.data import Dataset
-
+import os
 import pickle
 class PairWiseDataLoaerTest(Dataset):
     def __init__(self,input_dir):
@@ -7,11 +7,12 @@ class PairWiseDataLoaerTest(Dataset):
         # self.labels = pickle.load(f)
         # f.close()
         self.input_dir = input_dir
+        self.length = len(os.listdir(input_dir))
 
 
 
     def __len__(self):
-        return len(self.labels)
+        return len(self.length)
 
     def __getitem__(self, idx):
         input_file = self.input_dir+str(idx)

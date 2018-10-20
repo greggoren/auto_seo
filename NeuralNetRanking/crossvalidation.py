@@ -64,7 +64,9 @@ def predict_folder_content(input_folder,model):
 
     for i, batch in enumerate(data_loading):
         samples,indexes = batch
+        print(indexes)
         out1, out2 = model(samples)
+        print(out1)
         for j,t in enumerate(out1):
             result = t.data[0].item()
             idx = indexes[j].data[0].item()
