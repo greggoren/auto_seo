@@ -6,7 +6,7 @@ qrels = "/home/greg/auto_seo/CrossValidationUtils/mq_track_qrels"
 base_folder = "/home/greg/auto_seo/CrossValidationUtils/lm_validation/0/"
 for tree in trees:
     for leaf in leaves:
-        file_name = base_folder+"trec_file_model_"+str(tree)+"_"+str(5)+".txt"
+        file_name = base_folder+"trec_file_model_"+str(tree)+"_"+str(leaf)+".txt"
         tmp_file = file_name+"_tmp"
         f = open(tmp_file,"w")
         with open(file_name) as file:
