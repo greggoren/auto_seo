@@ -99,7 +99,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
     torch.multiprocessing.set_start_method("spawn")
 
     lrs = [0.01,0.001]
-    batch_sizes = [5]
+    batch_sizes = [4]
     epochs = [5,10,17]
     # epochs = [1]
     momentums = [0.9]
@@ -123,7 +123,6 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
             for epoch in epochs:
                 for momentum in momentums:
                     for batch_size in batch_sizes:
-                        # for p in dropouts:
                         model_name ="_".join((str(lr),str(epoch),str(momentum),str(batch_size)))
                         model,model_file = train_model(lr,momentum,current_labels_file,training_folder,batch_size,epoch,fold)
                         results = predict_folder_content(validation_folder,model)
@@ -134,7 +133,6 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
                         models[fold][model_name]=model_file
         best_model = max(scores[fold].items(), key=operator.itemgetter(1))[0]
         print("chosen model on fold",fold,":",best_model)
-        # test_model = load_object(models[fold][best_model])
         test_model = torch.load(models[fold][best_model])
         results = predict_folder_content(test_folder,test_model)
         evaluator.create_trec_eval_file_nn(results, combination_name_indexes["test"][fold], test_trec_file,True)
@@ -149,7 +147,6 @@ if __name__=="__main__":
     folds_folder="folds/"
     number_of_folds=5
     combination_name_indexes=load_object("test_names.pkl")
-    print(combination_name_indexes["val"][1][0])
     qrels="/home/greg/auto_seo/SentenceRanking/labels_final1"
     summary_file="NN_cv_summary_with_dropout.tex"
     print("starting CV")
