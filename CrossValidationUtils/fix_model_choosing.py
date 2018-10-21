@@ -12,7 +12,7 @@ for tree in trees:
         with open(file_name) as file:
             for line in file:
                 new_line_splits = line.split()
-                new_line = " ".join([new_line_splits[0],new_line_splits[1],new_line_splits[2],new_line_splits[3],new_line_splits[6],new_line_splits[7]]+'\n')
+                new_line = " ".join([new_line_splits[0],new_line_splits[1],new_line_splits[2],new_line_splits[3],new_line_splits[6],new_line_splits[7]])+'\n'
                 f.write(new_line)
         f.close()
         print("on ",tmp_file)
