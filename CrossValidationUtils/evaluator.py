@@ -86,8 +86,8 @@ class eval:
         return iter(p.stdout.readline, b'')
 
     def run_trec_eval(self, score_file,qrels):
-        score_file = self.order_trec_file(score_file)
-        command = "./trec_eval -m " + self.validation_metric +" "+ qrels+" " + score_file
+        score_file_final = self.order_trec_file(score_file)
+        command = "./trec_eval -m " + self.validation_metric +" "+ qrels+" " + score_file_final
         for output_line in self.run_command(command):
             print("output line=",output_line)
             score = output_line.split()[-1].rstrip()
