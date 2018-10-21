@@ -127,7 +127,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
 
 if __name__=="__main__":
     folds_folder="folds/"
-    number_of_folds=5
+    number_of_folds=4
     combination_name_indexes=load_object("test_names.pkl")
     print(combination_name_indexes["val"][1][0])
     qrels="/home/greg/auto_seo/SentenceRanking/labels_final1"
