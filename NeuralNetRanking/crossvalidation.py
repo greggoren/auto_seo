@@ -99,7 +99,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
     torch.multiprocessing.set_start_method("spawn")
 
     lrs = [0.01,0.001]
-    batch_sizes = [4]
+    batch_sizes = [3]
     epochs = [5,10,17]
     # epochs = [1]
     momentums = [0.9]

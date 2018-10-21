@@ -80,7 +80,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
     torch.multiprocessing.set_start_method("spawn")
 
     lrs = [0.01,0.001]
-    batch_sizes = [5]
+    batch_sizes = [3]
     epochs = [5,10,17]
     momentums = [0.9]
     dropouts = [0.2,0.5]
@@ -127,7 +127,7 @@ def crossvalidation(folds_folder,number_of_folds,combination_name_indexes,qrels,
 
 if __name__=="__main__":
     folds_folder="folds/"
-    number_of_folds=4
+    number_of_folds=5
     combination_name_indexes=load_object("test_names.pkl")
     print(combination_name_indexes["val"][1][0])
     qrels="/home/greg/auto_seo/SentenceRanking/labels_final1"
