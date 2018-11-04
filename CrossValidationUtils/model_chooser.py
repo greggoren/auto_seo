@@ -48,7 +48,13 @@ if __name__=="__main__":
                 trecs.append(trec_file)
                 trecs = list(set(trecs))
         fold_number+=1
+    scores ={}
     for trec_file in trecs:
         print("working on ",trec_file)
-        evaluator.run_trec_eval(trec_file,qrels_file)
+        score = evaluator.run_trec_eval(trec_file,qrels_file)
+        scores[trec_file]=score
+
+    sorted_files = sorted(list(scores.keys()),key=lambda x:scores[x],reverse=True)
+    for file in sorted_files:
+        print(file,scores[file])
 
