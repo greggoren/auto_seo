@@ -10,7 +10,7 @@ class eval:
 
     def __init__(self,metrics):
         self.metrics = metrics
-        self.validation_metric = "ndcg_cut.20"
+        self.validation_metric = "ndcg_cut.5"
         self.doc_name_index = {}
 
     def remove_score_file_from_last_run(self,method):
