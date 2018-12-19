@@ -1,10 +1,11 @@
 import sys
-from random import shuffle
+from random import shuffle,seed
 import numpy as np
 from utils import run_command,run_bash_command
 
 
 def run_random(features_file,qrels,num):
+    seed(9001)
     score_data = {}
 
     for i in range(10):
@@ -30,7 +31,7 @@ def run_random(features_file,qrels,num):
         scores.close()
 
         for metric in ["map", "ndcg", "P.2", "P.5"]:
-            command = "./trec_eval -m " + metric + " " + qrels + " random_scores"
+            command = "./trec_eval -m " + metric + " " + qrels + " random_scores"+num
             for output_line in run_command(command):
                 print(metric, output_line)
                 score = output_line.split()[-1].rstrip()
