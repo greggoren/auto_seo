@@ -41,7 +41,7 @@ def run_random(features_file,qrels,num):
                     score_data[metric] = []
                 score_data[metric].append(float(score))
         features.close()
-    summary_file = open("summary_random.tex", 'w')
+    summary_file = open("summary_random"+str(num)+".tex", 'w')
     cols = "c|" * 3
     cols = "|" + cols
     summary_file.write("\\begin{tabular}{" + cols + "}\n")
