@@ -94,14 +94,18 @@ def keepagreement(ident,sentence):
         if sentence[id]==ident[id]:
             res[id]=sentence[id]
             query = id.split("-")[2]
+            if query not in counts:
+                counts[query]=[]
             if ident[id]==1:
-                counts[query]=counts.get(query,0)+1
+                counts[query].append(1)
+            else:
+                counts[query].append(0)
     final_res ={}
     for id in res:
         query = id.split("-")[2]
         if query in counts:
             final_res[id] = res[id]
-    return final_res
+    return final_res,counts
 
 def get_coherent_ratio(results):
     sum=0

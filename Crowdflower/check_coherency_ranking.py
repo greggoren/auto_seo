@@ -92,12 +92,20 @@ sentence_mturk=mturk_ds_creator.update_dict(sentence_mturk,sentence_mturk_new)
 
 sentence_results = mturk_ds_creator.combine_results(sentence_fe,sentence_mturk)
 
-
+lines={}
+stats={"ratio":{},"queries":{}}
 for i in range(2,5):
     ident_annotation,ident_ratio = mturk_ds_creator.create_annotations(ident_results,i)
     sentence_annotation,sentence_ratio = mturk_ds_creator.create_annotations(sentence_results,i)
-    results = mturk_ds_creator.keepagreement(ident_annotation,sentence_annotation)
-    print("We are left with",len(results),"out of",len(sentence_annotation))
+    results,counts = mturk_ds_creator.keepagreement(ident_annotation,sentence_annotation)
+    line = "We are left with",len(results),"out of",len(sentence_annotation)
+    print(line)
+    lines[i]=line
+    stats["ratio"][i]=sum([sum(counts[q]) for q in counts])/sum([len(counts[q] for q in counts)])
+    stats["queries"][i]=len(counts)
     new_features,qrels = create_sentence_similarities_ds(results)
     cross_validation(new_features,qrels,"summary_labels_"+str(i)+".tex","svm_rank",["map","ndcg","P.2","P.5"],"")
     run_random(new_features,qrels,str(i))
+
+print(lines)
+print(stats)
