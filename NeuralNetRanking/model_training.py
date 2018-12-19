@@ -36,7 +36,6 @@ if __name__=="__main__":
             inputs, labels = batch
 
 
-            # forward + backward + optimize
             out1,out2 = net(inputs)
 
             optimizer.zero_grad()

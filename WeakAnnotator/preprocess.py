@@ -1,12 +1,11 @@
 import csv
 import numpy
-from docutils.nodes import header
 
 from Preprocess.preprocess import retrieve_ranked_lists,load_file,retrieve_sentences
 from SentenceRanking.sentence_parse import map_sentences, map_set_of_sentences
 import params
 from w2v.train_word2vec import WordToVec
-from SentenceRanking.sentence_features_experiment import get_sentence_vector,get_vectors,cosine_similarity
+from SentenceRanking.sentence_features_experiment import get_sentence_vector,cosine_similarity
 def get_total_coherence_level():
     stats={}
     with open("comb.csv",encoding="utf-8") as file:

@@ -14,7 +14,7 @@ def create_histogram(x,x_label,y_label,file_name):
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     plt.grid(True)
-    plt.savefig(file_name)
+    plt.savefig(file_name,format="eps")
     plt.clf()
 
 

@@ -6,11 +6,11 @@ from copy import deepcopy
 from random import uniform
 
 
-def convert_sentences_to_sentence_task(sentences):
-    new_text =""
-    for j in range(len(sentences)):
-        new_text+=str(j+1)+") "+sentences[j].replace("\n","")+"\n\n\n\n"
-    return new_text
+# def convert_sentences_to_sentence_task(sentences):
+#     new_text =""
+#     for j in range(len(sentences)):
+#         new_text+=str(j+1)+") "+sentences[j].replace("\n","")+"\n\n\n\n"
+#     return new_text
 def convert_to_quality_ds(data,headers):
     new_rows = {}
     for i in data:
@@ -48,6 +48,8 @@ for query in sentence_map:
     reference = reference_docs[query]
     text = doc_texts[reference][1:]
     sentences =[s.replace("\"","") for s in retrieve_sentences(text)]
+    if len(sentences)<11:
+        continue
     for sentence in sentence_map[query]:
 
         sentence_text = sentence_map[query][sentence].replace("\"","")
@@ -121,7 +123,7 @@ with open("quality.csv","w",encoding="utf8",newline='') as f:
 
 
 sentence_task_headers=fieldnames = ["ID","text","query","description","check_one_gold","check_one_gold_reason","_golden"]
-with open("sentence.csv","w",encoding="utf8",newline='') as f:
+with open("sentence11.csv","w",encoding="utf8",newline='') as f:
     writer = csv.DictWriter(f, fieldnames=sentence_task_headers)
     writer.writeheader()
     for t in sentence_data:
