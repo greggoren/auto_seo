@@ -3,6 +3,7 @@ from copy import deepcopy
 import numpy as np
 from scipy.stats import pearsonr as p
 from scipy.stats import spearmanr as s
+from math import fsum
 def read_ds_fe(filename,ident=False):
     result={}
     if ident:
@@ -103,7 +104,7 @@ def keepagreement(ident,sentence):
     final_res ={}
     for id in res:
         query = id.split("-")[2]
-        if sum(counts[query])>0:
+        if fsum(counts[query])>0:
             final_res[id] = res[id]
     return final_res,counts
 
