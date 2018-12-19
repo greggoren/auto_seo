@@ -101,7 +101,7 @@ for i in range(2,5):
     line = "We are left with",len(results),"out of",len(sentence_annotation)
     print(line)
     lines[i]=line
-    stats["ratio"][i]=sum([sum(counts[q]) for q in counts])/sum([len(counts[q] for q in counts)])
+    stats["ratio"][i]=sum([sum(counts[q]) for q in counts])/sum([len(counts[q]) for q in counts])
     stats["queries"][i]=len(counts)
     new_features,qrels = create_sentence_similarities_ds(results)
     cross_validation(new_features,qrels,"summary_labels_"+str(i)+".tex","svm_rank",["map","ndcg","P.2","P.5"],"")
