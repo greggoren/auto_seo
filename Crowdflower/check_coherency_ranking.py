@@ -102,7 +102,7 @@ for i in range(2,5):
     print(line)
     lines[i]=line
     stats["ratio"][i]=sum([sum(counts[q]) for q in counts])/sum([len(counts[q]) for q in counts])
-    stats["queries"][i]=len(counts)
+    stats["queries"][i]=len([1 for q in counts if sum(counts[q])>0])
     new_features,qrels = create_sentence_similarities_ds(results)
     cross_validation(new_features,qrels,"summary_labels_"+str(i)+".tex","svm_rank",["map","ndcg","P.2","P.5"],"")
     run_random(new_features,qrels,str(i))

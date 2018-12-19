@@ -103,7 +103,7 @@ def keepagreement(ident,sentence):
     final_res ={}
     for id in res:
         query = id.split("-")[2]
-        if query in counts:
+        if sum(counts[query])>0:
             final_res[id] = res[id]
     return final_res,counts
 
