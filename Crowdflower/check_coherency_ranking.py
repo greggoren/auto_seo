@@ -38,12 +38,12 @@ def create_sentence_similarities_ds(stats):
                     continue
                 window = []
                 if i == 0:
-                    window.append(numpy.ones(300))
+                    window.append(get_sentence_vector(ref_sentences[1],model))
                     window.append(get_sentence_vector(ref_sentences[1],model))
 
                 elif i+1 == len(ref_sentences):
                     window.append(get_sentence_vector(ref_sentences[i-1],model))
-                    window.append(numpy.ones(300))
+                    window.append(get_sentence_vector(ref_sentences[i-1],model))
                 else:
                     window.append(get_sentence_vector(ref_sentences[i - 1], model))
                     window.append(get_sentence_vector(ref_sentences[i+1],model))
