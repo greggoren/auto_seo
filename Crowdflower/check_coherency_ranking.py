@@ -96,8 +96,6 @@ sentence_results = mturk_ds_creator.combine_results(sentence_fe,sentence_mturk)
 for i in range(2,5):
     ident_annotation,ident_ratio = mturk_ds_creator.create_annotations(ident_results,i)
     sentence_annotation,sentence_ratio = mturk_ds_creator.create_annotations(sentence_results,i)
-
-
     results = mturk_ds_creator.keepagreement(ident_annotation,sentence_annotation)
     print("We are left with",len(results),"out of",len(sentence_annotation))
     new_features,qrels = create_sentence_similarities_ds(results)
