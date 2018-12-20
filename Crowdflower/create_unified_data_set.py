@@ -180,5 +180,5 @@ if __name__=="__main__":
         weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
         rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file)
-        cross_validation(new_qrels_with_weighted_file, weighted_mean_scores, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "")
+        cross_validation(new_features_with_demotion_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "")
         run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta))
