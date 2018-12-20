@@ -124,9 +124,9 @@ def get_stats_for_task(stats):
                 continue
             if stats[id][key]!=stats[id]["golden"]:
                 count+=1
-            if count not in results:
-                results[count]=0
-            results[count]+=1
+        if count not in results:
+            results[count]=0
+        results[count]+=1
     return results
 
 def update_dict(old,new):
