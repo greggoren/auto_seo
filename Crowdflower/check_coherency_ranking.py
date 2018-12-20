@@ -107,5 +107,14 @@ for i in range(2,5):
     cross_validation(new_features,qrels,"summary_labels_"+str(i)+".tex","svm_rank",["map","ndcg","P.2","P.5"],"")
     run_random(new_features,qrels,str(i))
 
+
+sentence_hist = mturk_ds_creator.get_stats_for_task(sentence_mturk)
+ident_hist = mturk_ds_creator.get_stats_for_task(ident_mturk)
+
+
 print(lines)
 print(stats)
+
+
+print(sentence_hist)
+print(ident_hist)

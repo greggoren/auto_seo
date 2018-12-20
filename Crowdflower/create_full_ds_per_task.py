@@ -114,6 +114,16 @@ def get_coherent_ratio(results):
         sum+=results[id]
     return sum/len(results)
 
+
+def get_stats_for_task(stats):
+    results={}
+    for id in stats:
+        count = sum(stats[id])
+        if count not in results:
+            results[count]=0
+        results[count]+=1
+    return results
+
 def update_dict(old,new):
     for id in new:
         old[id]=new[id]
