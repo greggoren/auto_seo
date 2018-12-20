@@ -44,7 +44,10 @@ def create_harmonic_mean_score(seo_scores,coherency_scores):
         current_score = seo_scores[id]
         coherency_score = coherency_scores[id]
         new_coherency_score = coherency_score*(4/5)
-        harmonic_mean = (2*new_coherency_score*current_score)/(new_coherency_score+current_score)
+        if new_coherency_score!=0 or current_score!=0:
+            harmonic_mean = (2*new_coherency_score*current_score)/(new_coherency_score+current_score)
+        else:
+            harmonic_mean = 0
         new_scores[id]=harmonic_mean
     return new_scores
 
