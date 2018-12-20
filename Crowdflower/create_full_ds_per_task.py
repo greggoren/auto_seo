@@ -78,8 +78,8 @@ def get_tags(results):
 def aggregate_results(sentence,identification):
     aggregation = {}
     for id in sentence:
-        sentence_rank = sum(sentence[id])
-        ident_rank = sum(identification[id])
+        sentence_rank = min(5,sum(sentence[id]))
+        ident_rank = min(5,sum(identification[id]))
         unified_rank = (sentence_rank+ident_rank)/2
         aggregation[id] = unified_rank
     return aggregation

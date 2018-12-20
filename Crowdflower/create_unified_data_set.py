@@ -20,9 +20,9 @@ def read_seo_score(labels):
 
 def get_level(score):
     demotion_level = 0
-    if score >=0 and score <=2:
+    if score >=0 and score <2:
         demotion_level=2
-    elif score >2 and score <=4:
+    elif score >=2 and score <4:
         demotion_level=1
     return demotion_level
 
