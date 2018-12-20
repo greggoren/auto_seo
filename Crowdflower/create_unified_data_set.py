@@ -177,7 +177,7 @@ if __name__=="__main__":
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
         new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
-        weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results)
+        weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
         rewrite_fetures(modified_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file)
         cross_validation(new_qrels_with_weighted_file, weighted_mean_scores, "summary_labels_weighted"+str(beta)+".tex",
