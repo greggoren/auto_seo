@@ -4,6 +4,8 @@ import numpy as np
 from scipy.stats import pearsonr as p
 from scipy.stats import spearmanr as s
 from math import fsum
+
+
 def read_ds_fe(filename,ident=False):
     result={}
     if ident:
@@ -58,6 +60,29 @@ def combine_results(fe_res,mturk_res):
         result[id]=fe_res[id]
     return result
 
+
+
+def get_tags(results):
+    stats = {}
+    for id in results:
+        stats[id] = []
+        for key in results[id]:
+            if key == "golden":
+                continue
+            if results[id][key] == results[id]["golden"]:
+                stats[id].append(0)
+            else:
+                stats[id].append(1)
+    return stats
+
+def aggregate_results(sentence,identification):
+    aggregation = {}
+    for id in sentence:
+        sentence_rank = sum(sentence[id])
+        ident_rank = sum(identification[id])
+        unified_rank = (sentence_rank+ident_rank)/2
+        aggregation[id] = unified_rank
+    return aggregation
 
 def create_annotations(results,num):
     stats={}
