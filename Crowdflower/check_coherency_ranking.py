@@ -108,8 +108,8 @@ for i in range(2,5):
     run_random(new_features,qrels,str(i))
 
 
-sentence_hist = mturk_ds_creator.get_stats_for_task(sentence_mturk)
-ident_hist = mturk_ds_creator.get_stats_for_task(ident_mturk)
+sentence_hist = mturk_ds_creator.get_stats_for_task(sentence_results)
+ident_hist = mturk_ds_creator.get_stats_for_task(ident_results)
 
 
 print(lines)
