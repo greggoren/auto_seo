@@ -45,9 +45,9 @@ def run_random(features_file,qrels,num):
     cols = "c|" * 3
     cols = "|" + cols
     summary_file.write("\\begin{tabular}{" + cols + "}\n")
-    next_line = " & ".join([s for s in score_data]) + "\\\\ \n"
+    next_line = " & ".join([s for s in ["map", "ndcg", "P.2", "P.5"]]) + "\\\\ \n"
     summary_file.write(next_line)
-    next_line = " & ".join([str(np.mean(score_data[s])) for s in score_data]) + "\n"
+    next_line = " & ".join([str(round(np.mean(score_data[s]),4)) for s in ["map", "ndcg", "P.2", "P.5"]]) + "\n"
     summary_file.write(next_line)
     summary_file.write("\\end{tabular}")
     summary_file.close()

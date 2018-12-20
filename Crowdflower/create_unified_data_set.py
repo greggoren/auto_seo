@@ -173,7 +173,7 @@ if __name__=="__main__":
                      "svm_rank",
                      ["map", "ndcg", "P.2", "P.5"], "")
     run_random(new_features_with_demotion_file, new_qrels_with_demotion_file, "harmonic")
-    betas = [i for i in range(start=0,stop=1,step=0.1)]
+    betas = [i for i in range(0,1,0.1)]
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
         new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
