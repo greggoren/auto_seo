@@ -138,14 +138,16 @@ def get_histogram(dataset):
     for id in dataset:
         if dataset[id]<=1:
             bucket =0
-        elif dataset[id]<=2:
+        elif dataset[id]<2:
             bucket =1
-        elif dataset[id]<=3:
+        elif dataset[id]<3:
             bucket =2
-        elif dataset[id]<=4:
+        elif dataset[id]<4:
             bucket =3
-        else:
+        elif dataset[id]<5:
             bucket=4
+        else:
+            bucket=5
         if bucket not in hist:
             hist[bucket]=0
         hist[bucket]+=1
