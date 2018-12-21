@@ -276,7 +276,7 @@ if __name__=="__main__":
         run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta))
         weighted_hist = get_histogram(weighted_mean_scores)
         write_histogram_for_weighted_scores(weighted_hist,"weighted_histogram.tex",beta)
-        write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"SvmRank")
+        write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RankSVM")
         write_weighted_results("summary_randomweighted_"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RandomBaseline")
 
     print("queries=",len(get_dataset_stas(aggregated_results)))
