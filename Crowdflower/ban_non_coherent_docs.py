@@ -43,22 +43,29 @@ def retrieve_initial_documents():
                     initial_query_docs[text]=name
     return initial_query_docs
 
-def get_scores(filename,reverse):
-    scores = {}
+def get_scores(scores,filename,reverse):
+    # scores = {}
     with open(filename,encoding="utf-8") as file:
         reader = csv.DictReader(file)
+        seen=[]
         for row in reader:
             text = row["post_content"].rstrip().replace("\n","").replace(" ","").replace('&','and').replace("'","").lower()
             if text in reverse:
                 doc = reverse[text]
-                if doc not in scores:
+                id = doc.split("-")[3]
+                query = doc.split("-")[2]
+                key = query+"_"+id
+                current_key = "ROUND-04-"+query+"-"+id
+                if key not in seen:
                     scores[doc]=0
+                    seen.append(key)
+
                 if "this_document_is" in row:
                     if row["this_document_is"].lower()=="valid":
-                        scores[doc]+=1
+                        scores[current_key]+=1
                 else:
                     if row["check_one"].lower() == "valid":
-                        scores[doc] += 1
+                        scores[current_key] += 1
     return scores
 
 def get_dataset_stas(dataset):

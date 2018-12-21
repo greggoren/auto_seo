@@ -202,9 +202,12 @@ def write_weighted_results(weighted_results_file,filename,beta):
 if __name__=="__main__":
     dir = "nimo_annotations"
     sorted_files = sort_files_by_date(dir)
-    needed_file = sorted_files[3]
+
     original_docs = retrieve_initial_documents()
-    scores = get_scores(dir + "/" + needed_file, original_docs)
+    scores={}
+    for k in range(4):
+        needed_file = sorted_files[k]
+        scores = get_scores(dir + "/" + needed_file, original_docs)
 
     ident_filename_fe = "figure-eight/ident_current.csv"
     ident_filename_mturk = "Mturk/Manipulated_Document_Identification.csv"
