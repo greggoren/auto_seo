@@ -136,7 +136,7 @@ def rewrite_fetures(new_scores, coherency_features_set, old_features_file, new_f
 def get_histogram(dataset):
     hist ={}
     for id in dataset:
-        if dataset[id]<=1:
+        if dataset[id]<1:
             bucket =0
         elif dataset[id]<2:
             bucket =1
