@@ -207,7 +207,7 @@ if __name__=="__main__":
     scores={}
     for k in range(4):
         needed_file = sorted_files[k]
-        scores = get_scores(dir + "/" + needed_file, original_docs)
+        scores = get_scores(scores,dir + "/" + needed_file,original_docs)
 
     ident_filename_fe = "figure-eight/ident_current.csv"
     ident_filename_mturk = "Mturk/Manipulated_Document_Identification.csv"
