@@ -7,7 +7,7 @@ import params
 from w2v.train_word2vec import WordToVec
 from CrossValidationUtils.rankSVM_crossvalidation import cross_validation
 from CrossValidationUtils.random_baseline import run_random
-from Crowdflower.ban_non_coherent_docs import get_scores,sort_files_by_date,retrieve_initial_documents,ban_non_coherent_docs,get_dataset_stas
+from Crowdflower.ban_non_coherent_docs import get_scores,sort_files_by_date,retrieve_initial_documents,ban_non_coherent_docs,get_dataset_stas,get_banned_queries
 from pathlib import Path
 
 def read_seo_score(labels):
@@ -176,12 +176,13 @@ def write_histogram_for_weighted_scores(hist_scores,filename,beta):
         else:
             line += "0"+add
     f.write(line)
+    f.write("\\hline\n")
     if beta>0.9:
         f.write("\\end{tabular}\n")
     f.close()
 
 
-def write_weighted_results(weighted_results_file,filename,beta):
+def write_weighted_results(weighted_results_file,filename,beta,method):
     with open(weighted_results_file) as file_w:
         file = Path(filename)
         flag = False
@@ -190,12 +191,16 @@ def write_weighted_results(weighted_results_file,filename,beta):
                 if not flag:
                     f = open(filename, "a")
                     flag=True
-                if j<3:
+                if j<2:
                     f.write(line)
+                if j==2:
+                    f.write(method+" & "+line)
+                    f.write("\\hline\n")
             else:
                 if j==2:
                     f = open(filename, "a")
-                    f.write(line)
+                    f.write(method+" & "+line)
+                    f.write("\\hline\n")
         if beta > 0.9:
             f.write("\\end{tabular}\n")
         f.close()
@@ -204,6 +209,8 @@ def write_weighted_results(weighted_results_file,filename,beta):
 
 
 if __name__=="__main__":
+    ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
+    reference_docs = {q: ranked_lists[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists}
     dir = "nimo_annotations"
     sorted_files = sort_files_by_date(dir)
 
@@ -212,7 +219,7 @@ if __name__=="__main__":
     for k in range(4):
         needed_file = sorted_files[k]
         scores = get_scores(scores,dir + "/" + needed_file,original_docs)
-
+    banned_queries = get_banned_queries(scores,reference_docs)
     ident_filename_fe = "figure-eight/ident_current.csv"
     ident_filename_mturk = "Mturk/Manipulated_Document_Identification.csv"
     ident_fe = mturk_ds_creator.read_ds_fe(ident_filename_fe, True)
@@ -233,13 +240,13 @@ if __name__=="__main__":
     sentence_tags = mturk_ds_creator.get_tags(sentence_results)
     ident_tags = mturk_ds_creator.get_tags(ident_results)
     tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
-    aggregated_results = ban_non_coherent_docs(scores,tmp_aggregated_results)
+    aggregated_results = ban_non_coherent_docs(banned_queries,tmp_aggregated_results)
 
     coherency_features = ["similarity_to_prev", "similarity_to_ref_sentence", "similarity_to_pred",
                           "similarity_to_prev_ref", "similarity_to_pred_ref"]
     seo_scores_file = "labels_final1"
     tmp_seo_scores = read_seo_score(seo_scores_file)
-    seo_scores = ban_non_coherent_docs(scores,tmp_seo_scores)
+    seo_scores = ban_non_coherent_docs(banned_queries,tmp_seo_scores)
     modified_scores= modify_seo_score_by_demotion(seo_scores,aggregated_results)
     seo_features_file = "new_sentence_features"
     coherency_features_set = create_coherency_features()
@@ -269,7 +276,8 @@ if __name__=="__main__":
         run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta))
         weighted_hist = get_histogram(weighted_mean_scores)
         write_histogram_for_weighted_scores(weighted_hist,"weighted_histogram.tex",beta)
-        write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta)
+        write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"SvmRank")
+        write_weighted_results("summary_randomweighted_"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RandomBaseline")
 
     print("queries=",len(get_dataset_stas(aggregated_results)))
     print("examples=",len(aggregated_results))

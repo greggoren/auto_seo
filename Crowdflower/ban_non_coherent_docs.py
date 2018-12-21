@@ -76,10 +76,20 @@ def get_dataset_stas(dataset):
         stats[query]=True
     return stats
 
-def ban_non_coherent_docs(scores,dataset):
+
+
+def get_banned_queries(scores,reference_docs):
+    banned = []
+    for query in reference_docs:
+        if scores[reference_docs[query]]<3:
+            banned.append(query)
+    return banned
+
+def ban_non_coherent_docs(banned,dataset):
     final_dataset={}
     for id in dataset:
         doc = id.split("_")[0]
-        if scores[doc]>=3:
+        query = doc.split("-")[2]
+        if query not in banned:
             final_dataset[id]=dataset[id]
     return final_dataset

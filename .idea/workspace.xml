@@ -7,6 +7,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/ban_non_coherent_docs.py" afterPath="$PROJECT_DIR$/Crowdflower/ban_non_coherent_docs.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" afterPath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
     </list>
     <ignored path="auto_seo.iws" />
@@ -58,7 +59,7 @@
       <file leaf-file-name="reduce_for_rerun.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crowdflower/reduce_for_rerun.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
+            <state relative-caret-position="264">
               <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
               <folding />
             </state>
@@ -78,10 +79,34 @@
       <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="149" column="20" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
+            <state relative-caret-position="570">
+              <caret line="245" column="77" selection-start-line="245" selection-start-column="77" selection-end-line="245" selection-end-column="77" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sentence_features_experiment.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SentenceRanking/sentence_features_experiment.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1040">
+              <caret line="155" column="107" selection-start-line="155" selection-start-column="107" selection-end-line="155" selection-end-column="107" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="extract_setences_and_rerank.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="30" selection-end-column="91" />
+              <folding>
+                <element signature="e#0#65#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,7 +115,7 @@
       <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-768">
+            <state relative-caret-position="2090">
               <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
               <folding />
             </state>
@@ -100,7 +125,7 @@
       <file leaf-file-name="evaluator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="424">
+            <state relative-caret-position="2530">
               <caret line="118" column="23" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
               <folding />
             </state>
@@ -110,7 +135,7 @@
       <file leaf-file-name="create_full_ds_per_task.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_full_ds_per_task.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1762">
+            <state relative-caret-position="1254">
               <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -123,7 +148,7 @@
         <entry file="file://$PROJECT_DIR$/Crowdflower/ban_non_coherent_docs.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="504">
-              <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
+              <caret line="80" column="22" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="22" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -134,7 +159,7 @@
       <file leaf-file-name="preprocess.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2880">
+            <state relative-caret-position="1078">
               <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
               <folding>
                 <element signature="e#0#34#0" expanded="true" />
@@ -270,8 +295,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -320,6 +343,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -687,13 +712,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00618" summary="renaming">
-      <created>1540048119281</created>
-      <option name="number" value="00618" />
-      <option name="presentableId" value="LOCAL-00618" />
-      <option name="project" value="LOCAL" />
-      <updated>1540048119281</updated>
-    </task>
     <task id="LOCAL-00619" summary="renaming">
       <created>1540048342365</created>
       <option name="number" value="00619" />
@@ -1030,7 +1048,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545355268759</updated>
     </task>
-    <option name="localTasksCounter" value="667" />
+    <task id="LOCAL-00667" summary="renaming">
+      <created>1545355332321</created>
+      <option name="number" value="00667" />
+      <option name="presentableId" value="LOCAL-00667" />
+      <option name="project" value="LOCAL" />
+      <updated>1545355332321</updated>
+    </task>
+    <option name="localTasksCounter" value="668" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1050,7 +1075,6 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41822174" sideWeight="0.18385416" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32711306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
@@ -1064,6 +1088,7 @@
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32711306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2546652" sideWeight="0.8921875" order="3" side_tool="false" content_ui="tabs" />
@@ -1476,15 +1501,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="836">
           <caret line="42" column="121" selection-start-line="42" selection-start-column="121" selection-end-line="42" selection-end-column="121" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/reduce_for_rerun.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
+        <state relative-caret-position="264">
           <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
           <folding />
         </state>
@@ -1492,7 +1514,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2880">
+        <state relative-caret-position="1078">
           <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
           <folding>
             <element signature="e#0#34#0" expanded="true" />
@@ -1504,9 +1526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="636">
           <caret line="49" column="63" selection-start-line="49" selection-start-column="63" selection-end-line="49" selection-end-column="63" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1514,7 +1533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1522,19 +1540,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="29" column="66" selection-start-line="29" selection-start-column="66" selection-end-line="29" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1548,7 +1553,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
+        <state relative-caret-position="2530">
           <caret line="118" column="23" selection-start-line="118" selection-start-column="23" selection-end-line="118" selection-end-column="23" />
           <folding />
         </state>
@@ -1556,35 +1561,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-768">
+        <state relative-caret-position="2090">
           <caret line="103" column="4" selection-start-line="103" selection-start-column="4" selection-end-line="103" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/sentence_features_experiment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="155" column="107" selection-start-line="155" selection-start-column="107" selection-end-line="155" selection-end-column="107" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crowdflower/ban_non_coherent_docs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="67" column="42" selection-start-line="67" selection-start-column="42" selection-end-line="67" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_full_ds_per_task.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1762">
+        <state relative-caret-position="1254">
           <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
@@ -1592,10 +1577,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/sentence_features_experiment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1040">
+          <caret line="155" column="107" selection-start-line="155" selection-start-column="107" selection-end-line="155" selection-end-column="107" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="29" column="4" selection-start-line="29" selection-start-column="4" selection-end-line="30" selection-end-column="91" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crowdflower/ban_non_coherent_docs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="80" column="22" selection-start-line="80" selection-start-column="4" selection-end-line="80" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="149" column="20" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
+        <state relative-caret-position="570">
+          <caret line="245" column="77" selection-start-line="245" selection-start-column="77" selection-end-line="245" selection-end-column="77" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
