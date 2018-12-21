@@ -194,12 +194,12 @@ def write_weighted_results(weighted_results_file,filename,beta,method):
                 if j<2:
                     f.write(line)
                 if j==2:
-                    f.write(method+" & "+str(beta)+" & "+line)
+                    f.write(method+" & "+str(beta)+" & "+line.rstrip()+" \\\\ \n")
                     f.write("\\hline\n")
             else:
                 if j==2:
                     f = open(filename, "a")
-                    f.write(method+" & "+str(beta)+" & "+line)
+                    f.write(method+" & "+str(beta)+" & "+line.rstrip()+" \\\\ \n")
                     f.write("\\hline\n")
         if beta > 0.9:
             f.write("\\end{tabular}\n")

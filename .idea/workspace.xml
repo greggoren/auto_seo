@@ -7,6 +7,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" afterPath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -77,8 +78,8 @@
       <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="644">
-              <caret line="266" column="46" selection-start-line="266" selection-start-column="46" selection-end-line="266" selection-end-column="46" />
+            <state relative-caret-position="292">
+              <caret line="196" column="81" selection-start-line="196" selection-start-column="81" selection-end-line="196" selection-end-column="81" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -710,13 +711,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00622" summary="renaming">
-      <created>1540050397655</created>
-      <option name="number" value="00622" />
-      <option name="presentableId" value="LOCAL-00622" />
-      <option name="project" value="LOCAL" />
-      <updated>1540050397655</updated>
-    </task>
     <task id="LOCAL-00623" summary="renaming">
       <created>1540050562040</created>
       <option name="number" value="00623" />
@@ -1053,7 +1047,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545372855244</updated>
     </task>
-    <option name="localTasksCounter" value="671" />
+    <task id="LOCAL-00671" summary="renaming">
+      <created>1545373115396</created>
+      <option name="number" value="00671" />
+      <option name="presentableId" value="LOCAL-00671" />
+      <option name="project" value="LOCAL" />
+      <updated>1545373115396</updated>
+    </task>
+    <option name="localTasksCounter" value="672" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1607,8 +1608,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="644">
-          <caret line="266" column="46" selection-start-line="266" selection-start-column="46" selection-end-line="266" selection-end-column="46" />
+        <state relative-caret-position="292">
+          <caret line="196" column="81" selection-start-line="196" selection-start-column="81" selection-end-line="196" selection-end-column="81" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
