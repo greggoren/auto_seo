@@ -48,7 +48,7 @@ def get_scores(filename,reverse):
     with open(filename,encoding="utf-8") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            text = row["post_content"].replace('&','and').rstrip().replace("\n","").replace(" ","").lower()
+            text = row["post_content"].rstrip().replace("\n","").replace(" ","").replace('&','and').lower()
             if text in reverse:
                 doc = reverse[text]
                 if doc not in scores:
