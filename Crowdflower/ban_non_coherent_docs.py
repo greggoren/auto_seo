@@ -39,7 +39,7 @@ def retrieve_initial_documents():
                 name=att.text
             else:
                 if name.__contains__("ROUND-04-"):
-                    text = str(att.text).rstrip().replace("\n","").replace(" ","").replace('&','and').lower()
+                    text = str(att.text).rstrip().replace("\n","").replace(" ","").replace('&','and').replace("'","").lower()
                     initial_query_docs[text]=name
     return initial_query_docs
 
@@ -48,7 +48,7 @@ def get_scores(filename,reverse):
     with open(filename,encoding="utf-8") as file:
         reader = csv.DictReader(file)
         for row in reader:
-            text = row["post_content"].rstrip().replace("\n","").replace(" ","").replace('&','and').lower()
+            text = row["post_content"].rstrip().replace("\n","").replace(" ","").replace('&','and').replace("'","").lower()
             if text in reverse:
                 doc = reverse[text]
                 if doc not in scores:
