@@ -264,7 +264,7 @@ if __name__=="__main__":
     cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic.tex",
                      "svm_rank",
                      ["map", "ndcg", "P.2", "P.5"], "")
-    run_random(new_features_with_demotion_file, new_qrels_with_demotion_file, "harmonic")
+    run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic")
     betas = [i/10 for i in range(0,11)]
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
