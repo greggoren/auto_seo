@@ -123,6 +123,8 @@ def rewrite_fetures(new_scores, coherency_features_set, old_features_file, new_f
             features = line.split()[2:-3]
             number_of_features = len(features)
             id = line.split(" # ")[1].rstrip()
+            if id not in new_scores:
+                continue
             coherency_features = [str(i)+":"+str(coherency_features_set[id][feature]) for i,feature in enumerate(coherency_features_names,start=number_of_features+1)]
             new_line = str(new_scores[id]) + " " + qid + " " + " ".join(features) + " " + " ".join(coherency_features) + " # " + id + "\n"
             f.write(new_line)
