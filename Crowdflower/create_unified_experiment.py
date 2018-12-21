@@ -170,7 +170,7 @@ def write_histogram_for_weighted_scores(hist_scores,filename,beta):
         if i==5:
             add =" \n"
         if i in hist_scores:
-            line+=hist_scores[i]+add
+            line+=str(hist_scores[i])+add
         else:
             line += "0"+add
     f.write(line)
