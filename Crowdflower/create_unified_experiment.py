@@ -191,7 +191,7 @@ def write_histogram_for_weighted_scores(hist_scores,filename,beta,last=False):
         cols = "|"+cols
         f.write("\\begin{tabular}{"+cols+"} \n")
         f.write("\\hline \n")
-        f.write("$\\beta$ & 0 & 1 & 2 & 3 & 4 & 5 \\\\ \n")
+        f.write("$ \\beta $ & 0 & 1 & 2 & 3 & 4 \\\\ \n")
         f.write("\\hline \n")
     else:
         f = open(filename, "a")
@@ -220,7 +220,7 @@ def write_weighted_results(weighted_results_file,filename,beta,method,flag=False
                     f.write(line)
                     f.write("\\hline\n")
                 if j==1:
-                    f.write("METHOD & $ \\beta $ & "+line.upper())
+                    f.write("METHOD & $ \\beta $ & "+line.upper().rstrip()+"\\\\ \n")
                     f.write("\\hline\n")
                 if j==2:
                     f.write(method+" & "+str(beta)+" & "+line)
