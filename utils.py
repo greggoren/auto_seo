@@ -8,6 +8,8 @@ def cosine_similarity(v1,v2):
         sumxx += x*x
         sumyy += y*y
         sumxy += x*y
+    if sumxx==0 or sumyy==0:
+        return 0
     return sumxy/math.sqrt(sumxx*sumyy)
 
 # def cosine_similarity(v1,v2):
