@@ -88,6 +88,7 @@ def get_average_score_increase(seo_scores, ranked_lists_file):
     stats[1] = np.mean([np.mean(lists[q][:1]) for q in lists])
     stats[2] = np.mean([np.mean(lists[q][:2]) for q in lists])
     stats[5] = np.mean([np.mean(lists[q]) for q in lists])
+    print(stats)
     return stats
 
 def recover_model(model):
