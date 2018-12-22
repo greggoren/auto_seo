@@ -101,7 +101,7 @@ class eval:
             print("no validation folder")
 
 
-    def run_trec_eval_on_test(self,qrels,summary_file,method,trec_file=None):
+    def run_trec_eval_on_test(self,qrels,summary_file,method,trec_file=None,increase_stats=False):
         if trec_file is None:
             trec_file=method+"_scores"
         score_data = []
@@ -115,12 +115,22 @@ class eval:
                 score = score.replace("'","")
                 score_data.append((metric, str(score)))
         summary_file = open(summary_file, 'w')
-        cols = "c|"*len(self.metrics)
+        if not increase_stats:
+            cols = "c|"*len(self.metrics)
+        else:
+            cols = "c|" * (len(self.metrics)+len(increase_stats))
         cols = "|"+cols
         summary_file.write("\\begin{tabular}{"+cols+"}\n")
-        next_line = " & ".join([s[0] for s in score_data])+"\\\\ \n"
+        if not increase_stats:
+            next_line = " & ".join([s[0] for s in score_data])+"\\\\ \n"
+        else:
+            next_line = " & ".join([s[0] for s in score_data])+" & "+" & ".join(["1","2","5"])+"\n"
+
         summary_file.write(next_line)
-        next_line = " & ".join([s[1] for s in score_data]) + "\n"
+        if not increase_stats:
+            next_line = " & ".join([s[1] for s in score_data]) + "\n"
+        else:
+            next_line = " & ".join([s[1] for s in score_data]) +" & "+" & ".join([increase_stats[j] for j in [1,2,5]])+ + "\\\\ \n"
         summary_file.write(next_line)
         summary_file.write("\\end{tabular}")
         summary_file.close()

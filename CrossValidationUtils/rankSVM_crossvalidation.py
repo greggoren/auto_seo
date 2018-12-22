@@ -72,6 +72,23 @@ def upload_models(models_dir):
 #         return results
 
 
+def get_average_score_increase(seo_scores, ranked_lists_file):
+    lists={}
+    stats={}
+    with open(ranked_lists_file) as file:
+        for line in file:
+            query = line.split()[0]
+            run_name = line.split()[2]
+            if query not in lists:
+                lists[query]=[]
+            if len(lists[query])>=5:
+                continue
+            lists[query].append(seo_scores[run_name])
+    stats[1] = np.mean([np.mean(lists[q][:1]) for q in lists])
+    stats[2] = np.mean([np.mean(lists[q][:2]) for q in lists])
+    stats[5] = np.mean([np.mean(lists[q]) for q in lists])
+    return stats
+
 def recover_model(model):
     indexes_covered = []
     weights = []
@@ -101,7 +118,7 @@ def recover_model(model):
 #     return score_file
 
 
-def cross_validation(features_file,qrels_file,summary_file,method,metrics,append_file = ""):
+def cross_validation(features_file,qrels_file,summary_file,method,metrics,append_file = "",seo_scores=False):
     preprocess = p.preprocess()
     X, y, queries = preprocess.retrieve_data_from_file(features_file, True)
     number_of_queries = len(set(queries))
@@ -151,9 +168,13 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
         trec_file = evaluator.create_trec_eval_file(test_set, queries, results, "", method, fold_number)
 
         fold_number += 1
-    evaluator.order_trec_file(trec_file)
+    final_trec_file = evaluator.order_trec_file(trec_file)
     run_bash_command("rm " + trec_file)
-    evaluator.run_trec_eval_on_test(qrels_file,summary_file,method)
+    if seo_scores:
+        increase_rank_stats = get_average_score_increase(seo_scores,final_trec_file)
+    else:
+        increase_rank_stats=False
+    evaluator.run_trec_eval_on_test(qrels_file,summary_file,method,None,increase_rank_stats)
 
 if __name__ == "__main__":
     features_file = sys.argv[1]

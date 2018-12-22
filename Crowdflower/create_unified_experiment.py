@@ -9,6 +9,7 @@ from CrossValidationUtils.rankSVM_crossvalidation import cross_validation
 from CrossValidationUtils.random_baseline import run_random
 from Crowdflower.ban_non_coherent_docs import get_scores,sort_files_by_date,retrieve_initial_documents,ban_non_coherent_docs,get_dataset_stas,get_banned_queries
 from pathlib import Path
+import numpy as np
 
 def read_seo_score(labels):
     scores = {}
@@ -173,7 +174,13 @@ def get_histogram(dataset):
         if bucket not in hist:
             hist[bucket]=0
         hist[bucket]+=1
+    total_examples = sum([hist[b] for b in hist])
+    for bucket in hist:
+        hist[bucket]=round(hist[bucket]/total_examples,3)
     return hist
+
+
+
 
 def write_histogram_for_weighted_scores(hist_scores,filename,beta):
 
