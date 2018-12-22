@@ -7,8 +7,6 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" afterPath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="222" column="50" selection-start-line="222" selection-start-column="50" selection-end-line="222" selection-end-column="50" />
+            <state relative-caret-position="86">
+              <caret line="217" column="4" selection-start-line="217" selection-start-column="4" selection-end-line="217" selection-end-column="4" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -114,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="evaluator.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="evaluator.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
-              <caret line="132" column="139" selection-start-line="132" selection-start-column="139" selection-end-line="132" selection-end-column="139" />
+            <state relative-caret-position="336">
+              <caret line="120" column="66" selection-start-line="120" selection-start-column="66" selection-end-line="120" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -254,9 +252,9 @@
         <option value="$PROJECT_DIR$/SentenceRanking/sentence_features_experiment.py" />
         <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
-        <option value="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" />
         <option value="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
+        <option value="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" />
       </list>
     </option>
   </component>
@@ -714,13 +712,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00638" summary="renaming">
-      <created>1545226945152</created>
-      <option name="number" value="00638" />
-      <option name="presentableId" value="LOCAL-00638" />
-      <option name="project" value="LOCAL" />
-      <updated>1545226945154</updated>
-    </task>
     <task id="LOCAL-00639" summary="renaming">
       <created>1545228194869</created>
       <option name="number" value="00639" />
@@ -1057,7 +1048,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545486481267</updated>
     </task>
-    <option name="localTasksCounter" value="687" />
+    <task id="LOCAL-00687" summary="renaming">
+      <created>1545487101149</created>
+      <option name="number" value="00687" />
+      <option name="presentableId" value="LOCAL-00687" />
+      <option name="project" value="LOCAL" />
+      <updated>1545487101149</updated>
+    </task>
+    <option name="localTasksCounter" value="688" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1595,14 +1593,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="132" column="139" selection-start-line="132" selection-start-column="139" selection-end-line="132" selection-end-column="139" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/random_baseline.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="726">
@@ -1615,11 +1605,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="222" column="50" selection-start-line="222" selection-start-column="50" selection-end-line="222" selection-end-column="50" />
+        <state relative-caret-position="86">
+          <caret line="217" column="4" selection-start-line="217" selection-start-column="4" selection-end-line="217" selection-end-column="4" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="120" column="66" selection-start-line="120" selection-start-column="66" selection-end-line="120" selection-end-column="66" />
+          <folding />
         </state>
       </provider>
     </entry>

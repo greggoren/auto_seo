@@ -118,7 +118,7 @@ class eval:
         if not increase_stats:
             cols = "c|"*len(self.metrics)
         else:
-            cols = "c|" * (len(self.metrics)+len(increase_stats))
+            cols = "c|" * (len(self.metrics)+len(increase_stats)+2)
         cols = "|"+cols
         summary_file.write("\\begin{tabular}{"+cols+"}\n")
         if not increase_stats:
