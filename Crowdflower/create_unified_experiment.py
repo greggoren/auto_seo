@@ -40,14 +40,16 @@ def modify_seo_score_by_demotion(seo_scores, coherency_scores):
     return new_scores
 
 
-def create_harmonic_mean_score(seo_scores,coherency_scores):
+def create_harmonic_mean_score(seo_scores,coherency_scores,beta):
     new_scores = {}
     for id in seo_scores:
         current_score = seo_scores[id]
         coherency_score = coherency_scores[id]
         new_coherency_score = coherency_score*(4/5)
+        numerator = (1+beta**2)*new_coherency_score*current_score
+        denominator = (beta**2)*new_coherency_score+current_score
         if new_coherency_score!=0 or current_score!=0:
-            harmonic_mean = (2*new_coherency_score*current_score)/(new_coherency_score+current_score)
+            harmonic_mean = numerator/denominator #(2*new_coherency_score*current_score)/(new_coherency_score+current_score)
         else:
             harmonic_mean = 0
         new_scores[id]=harmonic_mean
@@ -276,15 +278,23 @@ if __name__=="__main__":
     cross_validation(new_features_with_demotion_file, new_qrels_with_demotion_file, "summary_labels_demotion.tex", "svm_rank",
                      ["map", "ndcg", "P.2", "P.5"], "")
     run_random(new_features_with_demotion_file,new_qrels_with_demotion_file,"demotion")
-    new_features_with_harmonic_file = "all_seo_features_harmonic"
-    new_qrels_with_harmonic_file = "seo_harmonic_qrels"
-    harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results)
-    rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
-                    coherency_features, new_qrels_with_harmonic_file,max_min_stats)
-    cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic.tex",
-                     "svm_rank",
-                     ["map", "ndcg", "P.2", "P.5"], "")
-    run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic")
+    betas = [i/10 for i in range(0,21)]
+    for beta in betas:
+        new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
+        new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
+        harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results,beta)
+        rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
+                        coherency_features, new_qrels_with_harmonic_file,max_min_stats)
+        cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic_"+str(beta)+".tex",
+                         "svm_rank",
+                         ["map", "ndcg", "P.2", "P.5"], "")
+        run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic")
+        write_weighted_results("summary_labels_harmonic_"+str(beta)+".tex", "summary_labels_harmonic.tex", beta,
+                               "RankSVM")
+        write_weighted_results("summary_randomharmonic_" + str(beta) + ".tex", "summary_labels_harmonic.tex", beta,
+                               "RandomBaseline")
+        harmonic_hist = get_histogram(harmonic_mean_scores)
+        write_histogram_for_weighted_scores(harmonic_hist, "harmonic_histogram.tex", beta)
     betas = [i/10 for i in range(0,11)]
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
@@ -303,4 +313,3 @@ if __name__=="__main__":
     print("examples=",len(aggregated_results))
     print("histogram_coherency",get_histogram(aggregated_results))
     print("histogram_demotion",get_histogram(modified_scores))
-    print("histogram_harmonic",get_histogram(harmonic_mean_scores))
