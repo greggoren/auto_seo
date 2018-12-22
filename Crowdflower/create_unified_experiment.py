@@ -284,52 +284,52 @@ if __name__=="__main__":
     cross_validation(new_features_with_demotion_file, new_qrels_with_demotion_file, "summary_labels_demotion.tex", "svm_rank",
                      ["map", "ndcg", "P.2", "P.5"], "",seo_scores)
     run_random(new_features_with_demotion_file,new_qrels_with_demotion_file,"demotion",seo_scores)
-    betas = [0,0.5,1,2]
-    flag =False
-    for beta in betas:
-        new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
-        new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
-        harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results,beta)
-        rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
-                        coherency_features, new_qrels_with_harmonic_file,max_min_stats)
-        cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic_"+str(beta)+".tex",
-                         "svm_rank",
-                         ["map", "ndcg", "P.2", "P.5"], "",seo_scores)
-        run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic_"+str(beta),seo_scores)
-        write_weighted_results("summary_labels_harmonic_"+str(beta)+".tex", "summary_labels_harmonic.tex", beta,
-                               "RankSVM",flag)
-        flag=True
-        last = False
-        if beta==betas[-1]:
-            last=True
-        write_weighted_results("summary_randomharmonic_" + str(beta) + ".tex", "summary_labels_harmonic.tex", beta,
-                               "RandomBaseline",flag,last)
-        harmonic_hist = get_histogram(harmonic_mean_scores)
-        write_histogram_for_weighted_scores(harmonic_hist, "harmonic_histogram.tex", beta,last)
-    flag=False
-    betas = [i/10 for i in range(0,11)]
-    for beta in betas:
-        new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
-        new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
-        weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
-        rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
-                        coherency_features, new_qrels_with_weighted_file,max_min_stats)
-        final_trec_file=cross_validation(new_features_with_demotion_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "",seo_scores)
-        if int(beta)==0:
-            increase = get_average_score_increase(seo_scores,final_trec_file,True)
-            run_bash_command("cp "+final_trec_file+" trec_debug")
-            run_bash_command("cp features_svm_rank_1 features_debug")
-        run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta),seo_scores)
-
-        write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RankSVM",flag)
-        flag = True
-        last = False
-        if beta == betas[-1]:
-            last = True
-        write_weighted_results("summary_randomweighted_"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RandomBaseline",flag,last)
-        weighted_hist = get_histogram(weighted_mean_scores)
-        write_histogram_for_weighted_scores(weighted_hist, "weighted_histogram.tex", beta,last)
-    print("queries=",len(get_dataset_stas(aggregated_results)))
-    print("examples=",len(aggregated_results))
-    print("histogram_coherency",get_histogram(aggregated_results))
-    print("histogram_demotion",get_histogram(modified_scores))
+    # betas = [0,0.5,1,2]
+    # flag =False
+    # for beta in betas:
+    #     new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
+    #     new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
+    #     harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results,beta)
+    #     rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
+    #                     coherency_features, new_qrels_with_harmonic_file,max_min_stats)
+    #     cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic_"+str(beta)+".tex",
+    #                      "svm_rank",
+    #                      ["map", "ndcg", "P.2", "P.5"], "",seo_scores)
+    #     run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic_"+str(beta),seo_scores)
+    #     write_weighted_results("summary_labels_harmonic_"+str(beta)+".tex", "summary_labels_harmonic.tex", beta,
+    #                            "RankSVM",flag)
+    #     flag=True
+    #     last = False
+    #     if beta==betas[-1]:
+    #         last=True
+    #     write_weighted_results("summary_randomharmonic_" + str(beta) + ".tex", "summary_labels_harmonic.tex", beta,
+    #                            "RandomBaseline",flag,last)
+    #     harmonic_hist = get_histogram(harmonic_mean_scores)
+    #     write_histogram_for_weighted_scores(harmonic_hist, "harmonic_histogram.tex", beta,last)
+    # flag=False
+    # betas = [i/10 for i in range(0,11)]
+    # for beta in betas:
+    #     new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
+    #     new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
+    #     weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
+    #     rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
+    #                     coherency_features, new_qrels_with_weighted_file,max_min_stats)
+    #     final_trec_file=cross_validation(new_features_with_demotion_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "",seo_scores)
+    #     if int(beta)==0:
+    #         increase = get_average_score_increase(seo_scores,final_trec_file,True)
+    #         run_bash_command("cp "+final_trec_file+" trec_debug")
+    #         run_bash_command("cp features_svm_rank_1 features_debug")
+    #     run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta),seo_scores)
+    #
+    #     write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RankSVM",flag)
+    #     flag = True
+    #     last = False
+    #     if beta == betas[-1]:
+    #         last = True
+    #     write_weighted_results("summary_randomweighted_"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RandomBaseline",flag,last)
+    #     weighted_hist = get_histogram(weighted_mean_scores)
+    #     write_histogram_for_weighted_scores(weighted_hist, "weighted_histogram.tex", beta,last)
+    # print("queries=",len(get_dataset_stas(aggregated_results)))
+    # print("examples=",len(aggregated_results))
+    # print("histogram_coherency",get_histogram(aggregated_results))
+    # print("histogram_demotion",get_histogram(modified_scores))
