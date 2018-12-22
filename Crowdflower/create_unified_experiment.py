@@ -288,7 +288,7 @@ if __name__=="__main__":
         cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic_"+str(beta)+".tex",
                          "svm_rank",
                          ["map", "ndcg", "P.2", "P.5"], "")
-        run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic")
+        run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic_"+str(beta))
         write_weighted_results("summary_labels_harmonic_"+str(beta)+".tex", "summary_labels_harmonic.tex", beta,
                                "RankSVM")
         write_weighted_results("summary_randomharmonic_" + str(beta) + ".tex", "summary_labels_harmonic.tex", beta,
