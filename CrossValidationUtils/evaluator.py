@@ -130,7 +130,7 @@ class eval:
         if not increase_stats:
             next_line = " & ".join([s[1] for s in score_data]) + "\n"
         else:
-            next_line = " & ".join([s[1] for s in score_data]) +" & "+" & ".join([str(round(increase_stats[j]),4) for j in [1,2,5]])+ + "\\\\ \n"
+            next_line = " & ".join([s[1] for s in score_data]) +" & "+" & ".join([str(round(increase_stats[j],4)) for j in [1,2,5]])+ + "\\\\ \n"
         summary_file.write(next_line)
         summary_file.write("\\end{tabular}")
         summary_file.close()
