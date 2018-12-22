@@ -318,6 +318,7 @@ if __name__=="__main__":
         if int(beta)==0:
             increase = get_average_score_increase(seo_scores,final_trec_file,True)
             run_bash_command("cp "+final_trec_file+" trec_debug")
+            run_bash_command("cp features_svm_rank_1 features_debug")
         run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta),seo_scores)
 
         write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RankSVM",flag)
