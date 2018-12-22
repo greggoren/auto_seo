@@ -112,7 +112,7 @@ class preprocess:
         validation_set = set()
         working_set=sorted(list(working_set))
         for index in working_set:
-            if len(validation_queries.add(queries[index]))<number_of_queries_in_set:
+            if len(validation_queries)<number_of_queries_in_set:
                 validation_queries.add(queries[index])
             query = queries[index]
             if query in validation_queries:
