@@ -99,7 +99,7 @@ class preprocess:
         with open(train_file, 'w') as feature_file:
             for i, doc in enumerate(X):
                 features = " ".join([str(a + 1) + ":" + str(b) for a, b in enumerate(doc)])
-                line = str(int(y[i])) + " qid:" + str(queries[i]).zfill(3) + " " + features + "\n"
+                line = str(float(y[i])) + " qid:" + str(queries[i]).zfill(3) + " " + features + "\n"
                 feature_file.write(line)
         return train_file
 
@@ -110,12 +110,13 @@ class preprocess:
         working_set = train_indices - already_been_in_validation_indices
 
         validation_set = set()
+        working_set=sorted(list(working_set))
         for index in working_set:
-
-            if len(validation_queries) >= number_of_queries_in_set:
-                break
-            validation_queries.add(queries[index])
-            validation_set.add(index)
+            if len(validation_queries.add(queries[index]))<number_of_queries_in_set:
+                validation_queries.add(queries[index])
+            query = queries[index]
+            if query in validation_queries:
+                validation_set.add(index)
         already_been_in_validation_indices = already_been_in_validation_indices.union(validation_set)
         train_set = train_indices - validation_set
         return already_been_in_validation_indices, list(validation_set), list(train_set)

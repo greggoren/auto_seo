@@ -121,6 +121,9 @@ def recover_model(model):
 #     score_file = run_svm(C, model_file, test_file, fold_number)
 #     return score_file
 
+def read_qrels(qrels):
+    result ={}
+
 
 def cross_validation(features_file,qrels_file,summary_file,method,metrics,append_file = "",seo_scores=False):
     preprocess = p.preprocess()
@@ -149,9 +152,9 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
         train_file = preprocess.create_train_file(X[train_set], y[train_set], queries[train_set], fold_number,method)
         validation_file = preprocess.create_train_file(X[validation_set], y[validation_set], queries[validation_set], fold_number,method,True)
         test_file = preprocess.create_train_file_cv(X[test_set], y[test_set], queries[test_set], fold_number,method,True)
-        if append_file:
-            print("appending train features")
-            run_bash_command("cat " + append_file + " >> " + train_file)
+        # if append_file:
+        #     print("appending train features")
+        #     run_bash_command("cat " + append_file + " >> " + train_file)
         for C in C_array:
 
             model_file = svm.learn_svm_rank_model(train_file, fold_number,C)
@@ -179,6 +182,9 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
     else:
         increase_rank_stats=False
     evaluator.run_trec_eval_on_test(qrels_file,summary_file,method,None,increase_rank_stats)
+    del X
+    del y
+    del queries
     return final_trec_file
 
 if __name__ == "__main__":
