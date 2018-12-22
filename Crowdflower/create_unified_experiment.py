@@ -283,7 +283,7 @@ if __name__=="__main__":
     new_qrels_with_harmonic_file = "seo_harmonic_qrels"
     harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results)
     rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
-                    coherency_features, new_qrels_with_harmonic_file)
+                    coherency_features, new_qrels_with_harmonic_file,max_min_stats)
     cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic.tex",
                      "svm_rank",
                      ["map", "ndcg", "P.2", "P.5"], "")
@@ -294,7 +294,7 @@ if __name__=="__main__":
         new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
         weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
         rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
-                        coherency_features, new_qrels_with_weighted_file)
+                        coherency_features, new_qrels_with_weighted_file,max_min_stats)
         cross_validation(new_features_with_demotion_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "")
         run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta))
         weighted_hist = get_histogram(weighted_mean_scores)
