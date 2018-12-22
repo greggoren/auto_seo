@@ -7,7 +7,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/preprocess_clueweb.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/preprocess_clueweb.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" afterPath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,11 +55,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="329" column="19" selection-start-line="329" selection-start-column="19" selection-end-line="329" selection-end-column="19" />
+            <state relative-caret-position="658">
+              <caret line="316" column="72" selection-start-line="316" selection-start-column="72" selection-end-line="316" selection-end-column="72" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -92,8 +92,8 @@
       <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="666">
-              <caret line="186" column="15" selection-start-line="186" selection-start-column="15" selection-end-line="186" selection-end-column="15" />
+            <state relative-caret-position="94">
+              <caret line="127" column="34" selection-start-line="127" selection-start-column="21" selection-end-line="127" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -109,7 +109,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preprocess_clueweb.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="preprocess_clueweb.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/preprocess_clueweb.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="636">
@@ -204,8 +204,8 @@
         <option value="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/svm_handler.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
-        <option value="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/preprocess_clueweb.py" />
+        <option value="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
       </list>
     </option>
   </component>
@@ -663,20 +663,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00652" summary="renaming">
-      <created>1545329842684</created>
-      <option name="number" value="00652" />
-      <option name="presentableId" value="LOCAL-00652" />
-      <option name="project" value="LOCAL" />
-      <updated>1545329842684</updated>
-    </task>
-    <task id="LOCAL-00653" summary="renaming">
-      <created>1545330408889</created>
-      <option name="number" value="00653" />
-      <option name="presentableId" value="LOCAL-00653" />
-      <option name="project" value="LOCAL" />
-      <updated>1545330408889</updated>
-    </task>
     <task id="LOCAL-00654" summary="renaming">
       <created>1545330817437</created>
       <option name="number" value="00654" />
@@ -1006,7 +992,21 @@
       <option name="project" value="LOCAL" />
       <updated>1545505006066</updated>
     </task>
-    <option name="localTasksCounter" value="701" />
+    <task id="LOCAL-00701" summary="renaming">
+      <created>1545505226744</created>
+      <option name="number" value="00701" />
+      <option name="presentableId" value="LOCAL-00701" />
+      <option name="project" value="LOCAL" />
+      <updated>1545505226747</updated>
+    </task>
+    <task id="LOCAL-00702" summary="renaming">
+      <created>1545505600533</created>
+      <option name="number" value="00702" />
+      <option name="presentableId" value="LOCAL-00702" />
+      <option name="project" value="LOCAL" />
+      <updated>1545505600533</updated>
+    </task>
+    <option name="localTasksCounter" value="703" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1548,29 +1548,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/preprocess_clueweb.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="636">
+          <caret line="114" column="37" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="666">
-          <caret line="186" column="15" selection-start-line="186" selection-start-column="15" selection-end-line="186" selection-end-column="15" />
+        <state relative-caret-position="94">
+          <caret line="127" column="34" selection-start-line="127" selection-start-column="21" selection-end-line="127" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="329" column="19" selection-start-line="329" selection-start-column="19" selection-end-line="329" selection-end-column="19" />
+        <state relative-caret-position="658">
+          <caret line="316" column="72" selection-start-line="316" selection-start-column="72" selection-end-line="316" selection-end-column="72" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/preprocess_clueweb.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="636">
-          <caret line="114" column="37" selection-start-line="114" selection-start-column="37" selection-end-line="114" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
