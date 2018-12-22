@@ -217,11 +217,10 @@ def write_weighted_results(weighted_results_file,filename,beta,method,flag=False
         for j,line in enumerate(file_w):
             if not flag:
                 if j==0:
-                    f.write("\\hline\n")
                     f.write(line)
                     f.write("\\hline\n")
                 if j==1:
-                    f.write(line.upper())
+                    f.write("METHOD & $\beta$ & "+line.upper())
                     f.write("\\hline\n")
                 if j==2:
                     f.write(method+" & "+str(beta)+" & "+line)
