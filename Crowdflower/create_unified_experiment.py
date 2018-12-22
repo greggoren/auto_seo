@@ -182,7 +182,7 @@ def get_histogram(dataset):
 
 
 
-def write_histogram_for_weighted_scores(hist_scores,filename,beta):
+def write_histogram_for_weighted_scores(hist_scores,filename,beta,last=False):
 
     file = Path(filename)
     if not file.is_file():
@@ -199,14 +199,14 @@ def write_histogram_for_weighted_scores(hist_scores,filename,beta):
     for i in range(6):
         add = " & "
         if i==5:
-            add =" \n"
+            add ="\\\\ \n"
         if i in hist_scores:
             line+=str(hist_scores[i])+add
         else:
             line += "0"+add
     f.write(line)
     f.write("\\hline\n")
-    if beta>0.9:
+    if last:
         f.write("\\end{tabular}\n")
     f.close()
 

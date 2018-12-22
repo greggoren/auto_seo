@@ -84,6 +84,7 @@ def get_average_score_increase(seo_scores, ranked_lists_file):
             if len(lists[query])>=5:
                 continue
             lists[query].append(seo_scores[run_name])
+    print(lists)
     stats[1] = np.mean([np.mean(lists[q][:1]) for q in lists])
     stats[2] = np.mean([np.mean(lists[q][:2]) for q in lists])
     stats[5] = np.mean([np.mean(lists[q]) for q in lists])
