@@ -124,7 +124,7 @@ class eval:
         if not increase_stats:
             next_line = " & ".join([s[0] for s in score_data])+"\\\\ \n"
         else:
-            next_line = " & ".join([s[0] for s in score_data])+" & "+" & ".join(["1","2","5"])+"\n"
+            next_line = " & ".join([s[0] for s in score_data])+" & "+" & ".join(["Top1","Top2","Top5"])+"\n"
 
         summary_file.write(next_line)
         if not increase_stats:
