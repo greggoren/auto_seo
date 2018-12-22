@@ -79,7 +79,7 @@ def save_max_mix_stats(stats,row,query):
             stats[query][feature]["min"] = row[feature]
     return stats
 
-def create_coherency_features(stats=[]):
+def create_coherency_features():
     rows={}
     max_min_stats={}
     model = WordToVec().load_model()
@@ -103,8 +103,6 @@ def create_coherency_features(stats=[]):
             for i,ref_sentence in enumerate(ref_sentences):
                 row = {}
                 run_name = sentence+"_"+str(i+1)
-                # if run_name not in stats:
-                #     continue
                 window = []
                 if i == 0:
                     window.append(get_sentence_vector(ref_sentences[1],model))
@@ -117,10 +115,9 @@ def create_coherency_features(stats=[]):
                     window.append(get_sentence_vector(ref_sentences[i - 1], model))
                     window.append(get_sentence_vector(ref_sentences[i+1],model))
                 ref_vector = get_sentence_vector(ref_sentence,model)
-                similarity_to_ref_sentence = cosine_similarity(ref_vector,sentence_vec)
                 query = run_name.split("-")[2]
                 row["similarity_to_prev"]=cosine_similarity(sentence_vec,window[0])
-                row["similarity_to_ref_sentence"] = similarity_to_ref_sentence
+                row["similarity_to_ref_sentence"] = cosine_similarity(ref_vector,sentence_vec)
                 row["similarity_to_pred"] = cosine_similarity(sentence_vec,window[1])
                 row["similarity_to_prev_ref"] = cosine_similarity(ref_vector,window[0])
                 row["similarity_to_pred_ref"] = cosine_similarity(ref_vector,window[1])
@@ -143,7 +140,7 @@ def rewrite_fetures(new_scores, coherency_features_set, old_features_file, new_f
         for line in file:
             qid = line.split()[1]
             query = qid.split(":")[1]
-            features = line.split()[2:-3]
+            features = line.split()[2:-2]
             number_of_features = len(features)
             id = line.split(" # ")[1].rstrip()
             if id not in new_scores:
