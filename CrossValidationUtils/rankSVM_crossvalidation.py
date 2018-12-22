@@ -72,7 +72,7 @@ def upload_models(models_dir):
 #         return results
 
 
-def get_average_score_increase(seo_scores, ranked_lists_file):
+def get_average_score_increase(seo_scores, ranked_lists_file,write=False):
     lists={}
     stats={}
     with open(ranked_lists_file) as file:
@@ -84,11 +84,13 @@ def get_average_score_increase(seo_scores, ranked_lists_file):
             if len(lists[query])>=5:
                 continue
             lists[query].append(seo_scores[run_name])
-    print(lists)
+    if write:
+        f = open("weighted_dubug","w")
+        f.write(str(lists))
+        f.close()
     stats[1] = np.mean([np.mean(lists[q][:1]) for q in lists])
     stats[2] = np.mean([np.mean(lists[q][:2]) for q in lists])
     stats[5] = np.mean([np.mean(lists[q]) for q in lists])
-    print(stats)
     return stats
 
 def recover_model(model):
@@ -177,6 +179,7 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
     else:
         increase_rank_stats=False
     evaluator.run_trec_eval_on_test(qrels_file,summary_file,method,None,increase_rank_stats)
+    return final_trec_file
 
 if __name__ == "__main__":
     features_file = sys.argv[1]
