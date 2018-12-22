@@ -64,9 +64,24 @@ def create_weighted_mean_score(seo_scores,coherency_scores,beta):
     return new_scores
 
 
+def save_max_mix_stats(stats,row,query):
+    features = list(row.keys())
+    if query not in stats:
+        stats[query]={}
+    for feature in features:
+        if feature not in stats[query]:
+            stats[query][feature]={}
+            stats[query][feature]["max"]  = row[feature]
+            stats[query][feature]["min"] = row[feature]
+        if row[feature]>stats[query][feature]["max"]:
+            stats[query][feature]["max"] = row[feature]
+        if row[feature]<stats[query][feature]["min"]:
+            stats[query][feature]["min"] = row[feature]
+    return stats
 
 def create_coherency_features(stats=[]):
     rows={}
+    max_min_stats={}
     model = WordToVec().load_model()
     ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
     reference_docs = {q: ranked_lists[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists}
@@ -109,11 +124,19 @@ def create_coherency_features(stats=[]):
                 row["similarity_to_pred"] = cosine_similarity(sentence_vec,window[1])
                 row["similarity_to_prev_ref"] = cosine_similarity(ref_vector,window[0])
                 row["similarity_to_pred_ref"] = cosine_similarity(ref_vector,window[1])
+                max_min_stats=save_max_mix_stats(max_min_stats,row,query)
                 rows[run_name]=row
-    return rows
+    return rows,max_min_stats
 
 
-def rewrite_fetures(new_scores, coherency_features_set, old_features_file, new_features_filename, coherency_features_names,qrels_name):
+def normalize_feature(feature_value,max_min_stats,query,feature):
+    if max_min_stats[query][feature]["max"]==max_min_stats[query][feature]["min"]:
+        return 0
+    denominator =max_min_stats[query][feature]["max"]-max_min_stats[query][feature]["min"]
+    value = (feature_value-max_min_stats[query][feature]["min"])/denominator
+    return value
+
+def rewrite_fetures(new_scores, coherency_features_set, old_features_file, new_features_filename, coherency_features_names,qrels_name,max_min_stats):
     f = open(new_features_filename,"w")
     qrels = open(qrels_name,"w")
     with open(old_features_file) as file:
@@ -125,7 +148,7 @@ def rewrite_fetures(new_scores, coherency_features_set, old_features_file, new_f
             id = line.split(" # ")[1].rstrip()
             if id not in new_scores:
                 continue
-            coherency_features = [str(i)+":"+str(coherency_features_set[id][feature]) for i,feature in enumerate(coherency_features_names,start=number_of_features+1)]
+            coherency_features = [str(i)+":"+str(normalize_feature(coherency_features_set[id][feature],max_min_stats,query,feature)) for i,feature in enumerate(coherency_features_names,start=number_of_features+1)]
             new_line = str(new_scores[id]) + " " + qid + " " + " ".join(features) + " " + " ".join(coherency_features) + " # " + id + "\n"
             f.write(new_line)
             qrels.write(query+" 0 "+id+" "+str(new_scores[id])+"\n")
@@ -249,10 +272,10 @@ if __name__=="__main__":
     seo_scores = ban_non_coherent_docs(banned_queries,tmp_seo_scores)
     modified_scores= modify_seo_score_by_demotion(seo_scores,aggregated_results)
     seo_features_file = "new_sentence_features"
-    coherency_features_set = create_coherency_features()
+    coherency_features_set,max_min_stats = create_coherency_features()
     new_features_with_demotion_file = "all_seo_features_demotion"
     new_qrels_with_demotion_file = "seo_demotion_qrels"
-    rewrite_fetures(modified_scores,coherency_features_set,seo_features_file,new_features_with_demotion_file,coherency_features,new_qrels_with_demotion_file)
+    rewrite_fetures(modified_scores,coherency_features_set,seo_features_file,new_features_with_demotion_file,coherency_features,new_qrels_with_demotion_file,max_min_stats)
     cross_validation(new_features_with_demotion_file, new_qrels_with_demotion_file, "summary_labels_demotion.tex", "svm_rank",
                      ["map", "ndcg", "P.2", "P.5"], "")
     run_random(new_features_with_demotion_file,new_qrels_with_demotion_file,"demotion")
