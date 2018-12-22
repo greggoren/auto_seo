@@ -48,7 +48,7 @@ def create_harmonic_mean_score(seo_scores,coherency_scores,beta):
         new_coherency_score = coherency_score*(4/5)
         numerator = (1+beta**2)*new_coherency_score*current_score
         denominator = (beta**2)*new_coherency_score+current_score
-        if new_coherency_score!=0 or current_score!=0:
+        if denominator!=0:
             harmonic_mean = numerator/denominator #(2*new_coherency_score*current_score)/(new_coherency_score+current_score)
         else:
             harmonic_mean = 0
