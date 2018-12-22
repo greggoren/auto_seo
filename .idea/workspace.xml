@@ -7,7 +7,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" afterPath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,7 +55,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="244">
@@ -79,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="evaluator.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="evaluator.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="842">
-              <caret line="134" column="44" selection-start-line="134" selection-start-column="44" selection-end-line="134" selection-end-column="44" />
+            <state relative-caret-position="222">
+              <caret line="75" column="39" selection-start-line="75" selection-start-column="39" selection-end-line="75" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -203,9 +203,9 @@
         <option value="$PROJECT_DIR$/CrossValidationUtils/svm_handler.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/preprocess_clueweb.py" />
-        <option value="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" />
         <option value="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
+        <option value="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" />
       </list>
     </option>
   </component>
@@ -663,13 +663,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00659" summary="renaming">
-      <created>1545351758845</created>
-      <option name="number" value="00659" />
-      <option name="presentableId" value="LOCAL-00659" />
-      <option name="project" value="LOCAL" />
-      <updated>1545351758846</updated>
-    </task>
     <task id="LOCAL-00660" summary="renaming">
       <created>1545352445603</created>
       <option name="number" value="00660" />
@@ -1006,7 +999,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545507797248</updated>
     </task>
-    <option name="localTasksCounter" value="708" />
+    <task id="LOCAL-00708" summary="renaming">
+      <created>1545509040159</created>
+      <option name="number" value="00708" />
+      <option name="presentableId" value="LOCAL-00708" />
+      <option name="project" value="LOCAL" />
+      <updated>1545509040159</updated>
+    </task>
+    <option name="localTasksCounter" value="709" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1020,7 +1020,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19739583" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1556,14 +1556,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="842">
-          <caret line="134" column="44" selection-start-line="134" selection-start-column="44" selection-end-line="134" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -1571,6 +1563,14 @@
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="75" column="39" selection-start-line="75" selection-start-column="39" selection-end-line="75" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
