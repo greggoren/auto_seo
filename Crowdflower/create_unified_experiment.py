@@ -317,7 +317,7 @@ if __name__=="__main__":
         final_trec_file=cross_validation(new_features_with_demotion_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "",seo_scores)
         if int(beta)==0:
             increase = get_average_score_increase(seo_scores,final_trec_file,True)
-            run_random("cp "+final_trec_file+" trec_debug")
+            run_bash_command("cp "+final_trec_file+" trec_debug")
         run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta),seo_scores)
 
         write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RankSVM",flag)
