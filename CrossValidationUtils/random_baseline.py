@@ -4,7 +4,7 @@ import numpy as np
 from utils import run_command,run_bash_command
 from CrossValidationUtils.rankSVM_crossvalidation import get_average_score_increase
 def run_random(features_file, qrels, name, seo_scores=False):
-    seed(9004)
+    seed(9001)
     score_data = {}
     averaged_rank_increase_stats = {}
     for i in range(10):
