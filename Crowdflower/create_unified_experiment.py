@@ -283,7 +283,7 @@ if __name__=="__main__":
     new_qrels_with_demotion_file = "seo_demotion_qrels"
     rewrite_fetures(modified_scores,coherency_features_set,seo_features_file,new_features_with_demotion_file,coherency_features,new_qrels_with_demotion_file,max_min_stats)
     cross_validation(new_features_with_demotion_file, new_qrels_with_demotion_file, "summary_labels_demotion.tex", "svm_rank",
-                     ["map", "ndcg", "P.2", "P.5"], "")
+                     ["map", "ndcg", "P.2", "P.5"], "",seo_scores)
     run_random(new_features_with_demotion_file,new_qrels_with_demotion_file,"demotion")
     betas = [i/10 for i in range(0,21)]
     for beta in betas:
@@ -294,7 +294,7 @@ if __name__=="__main__":
                         coherency_features, new_qrels_with_harmonic_file,max_min_stats)
         cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic_"+str(beta)+".tex",
                          "svm_rank",
-                         ["map", "ndcg", "P.2", "P.5"], "")
+                         ["map", "ndcg", "P.2", "P.5"], "",seo_scores)
         run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic_"+str(beta))
         write_weighted_results("summary_labels_harmonic_"+str(beta)+".tex", "summary_labels_harmonic.tex", beta,
                                "RankSVM")
@@ -309,7 +309,7 @@ if __name__=="__main__":
         weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
         rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file,max_min_stats)
-        cross_validation(new_features_with_demotion_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "")
+        cross_validation(new_features_with_demotion_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "",seo_scores)
         run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta))
         weighted_hist = get_histogram(weighted_mean_scores)
         write_histogram_for_weighted_scores(weighted_hist,"weighted_histogram.tex",beta)
