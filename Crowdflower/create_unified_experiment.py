@@ -82,13 +82,13 @@ def save_max_mix_stats(stats,row,query):
             stats[query][feature]["min"] = row[feature]
     return stats
 
-def create_coherency_features():
+def create_coherency_features(ref_index=-1,top_docs_index=3):
     rows={}
     max_min_stats={}
     model = WordToVec().load_model()
     ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
-    reference_docs = {q: ranked_lists[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists}
-    winner_docs = {q: ranked_lists[q][:3] for q in ranked_lists}
+    reference_docs = {q: ranked_lists[q][ref_index].replace("EPOCH", "ROUND") for q in ranked_lists}
+    winner_docs = {q: ranked_lists[q][:top_docs_index] for q in ranked_lists}
     a_doc_texts = load_file(params.trec_text_file)
     doc_texts = {}
     for doc in a_doc_texts:
