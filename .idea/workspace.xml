@@ -6,12 +6,17 @@
     </list>
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Crowdflower/check_effect_on_seo_with_different_ranks.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SentenceRanking/rank_2/sentence_features_experiment.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SentenceRanking/rank_3/sentence_features_experiment.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SentenceRanking/rank_4/sentence_features_experiment.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SentenceRanking/test/__init__.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SentenceRanking/test/extract_setences_and_rerank4.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SentenceRanking/test/sentence_features_experiment.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" afterPath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Experiments/experiment_data_processor.py" afterPath="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_2/extract_setences_and_rerank2.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_2/extract_setences_and_rerank2.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_2/sentence_features_experiment.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_2/sentence_features_experiment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_3/extract_setences_and_rerank3.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_3/extract_setences_and_rerank3.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_3/sentence_features_experiment.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_3/sentence_features_experiment.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_4/extract_setences_and_rerank4.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_4/extract_setences_and_rerank4.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_4/sentence_features_experiment.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_4/sentence_features_experiment.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,55 +64,95 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="evaluator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
+      <file leaf-file-name="extract_setences_and_rerank4.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_4/extract_setences_and_rerank4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="105" column="38" selection-start-line="105" selection-start-column="38" selection-end-line="105" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lambdaMART_model_chooser.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/lambdaMART_model_chooser.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="704">
-              <caret line="46" column="162" selection-start-line="46" selection-start-column="162" selection-end-line="46" selection-end-column="162" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="213" column="4" selection-start-line="213" selection-start-column="4" selection-end-line="213" selection-end-column="4" />
+            <state relative-caret-position="614">
+              <caret line="68" column="146" selection-start-line="68" selection-start-column="146" selection-end-line="68" selection-end-column="146" />
               <folding>
-                <element signature="e#0#67#0" expanded="true" />
+                <element signature="e#0#65#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="check_effect_on_seo_with_different_ranks.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Crowdflower/check_effect_on_seo_with_different_ranks.py">
+      <file leaf-file-name="extract_setences_and_rerank3.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_3/extract_setences_and_rerank3.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="482">
-              <caret line="193" column="21" selection-start-line="193" selection-start-column="21" selection-end-line="193" selection-end-column="21" />
+            <state relative-caret-position="614">
+              <caret line="68" column="147" selection-start-line="68" selection-start-column="147" selection-end-line="68" selection-end-column="147" />
               <folding>
-                <element signature="e#0#67#0" expanded="true" />
+                <element signature="e#0#65#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="sentence_features_experiment.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SentenceRanking/sentence_features_experiment.py">
+        <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_4/sentence_features_experiment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="240" column="13" selection-start-line="240" selection-start-column="13" selection-end-line="240" selection-end-column="13" />
+            <state relative-caret-position="702">
+              <caret line="250" column="77" selection-start-line="250" selection-start-column="77" selection-end-line="250" selection-end-column="77" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="experiment_data_processor.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Experiments/experiment_data_processor.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="12" column="140" selection-start-line="12" selection-start-column="140" selection-end-line="12" selection-end-column="140" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sentence_parse.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SentenceRanking/sentence_parse.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="40" column="78" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="78" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="model_handler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Experiments/model_handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="params.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/params.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="extract_setences_and_rerank2.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_2/extract_setences_and_rerank2.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="416">
+              <caret line="68" column="147" selection-start-line="68" selection-start-column="147" selection-end-line="68" selection-end-column="147" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sentence_features_experiment.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/SentenceRanking/test/sentence_features_experiment.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1122">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -115,51 +160,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sentence_features_experiment.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_4/sentence_features_experiment.py">
+      <file leaf-file-name="extract_setences_and_rerank4.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SentenceRanking/test/extract_setences_and_rerank4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1406">
-              <caret line="155" column="101" selection-start-line="155" selection-start-column="101" selection-end-line="155" selection-end-column="101" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="extract_setences_and_rerank4.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_4/extract_setences_and_rerank4.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-44">
-              <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sentence_features_experiment.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_3/sentence_features_experiment.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="834">
-              <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sentence_features_experiment.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_2/sentence_features_experiment.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="728">
-              <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="svm_handler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/svm_handler.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="62" column="93" selection-start-line="62" selection-start-column="93" selection-end-line="62" selection-end-column="93" />
+            <state relative-caret-position="22">
+              <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -201,8 +206,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/NeuralNetRanking/create_cross_validation.py" />
-        <option value="$PROJECT_DIR$/NeuralNetRanking/scraper.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/loss.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/create_crossvalidation_setup.py" />
         <option value="$PROJECT_DIR$/NeuralNetRanking/preprocess.py" />
@@ -241,17 +244,19 @@
         <option value="$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank3.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/rank_3.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py" />
-        <option value="$PROJECT_DIR$/SentenceRanking/rank_2/extract_setences_and_rerank2.py" />
-        <option value="$PROJECT_DIR$/SentenceRanking/rank_3/extract_setences_and_rerank3.py" />
-        <option value="$PROJECT_DIR$/SentenceRanking/rank_4/extract_setences_and_rerank4.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
         <option value="$PROJECT_DIR$/Crowdflower/create_models_per_label_strategy.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_model_chooser.py" />
         <option value="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
         <option value="$PROJECT_DIR$/Crowdflower/check_effect_on_seo_with_different_ranks.py" />
+        <option value="$PROJECT_DIR$/SentenceRanking/rank_3/sentence_features_experiment.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/rank_4/sentence_features_experiment.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/rank_2/sentence_features_experiment.py" />
-        <option value="$PROJECT_DIR$/SentenceRanking/rank_3/sentence_features_experiment.py" />
+        <option value="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
+        <option value="$PROJECT_DIR$/SentenceRanking/rank_4/extract_setences_and_rerank4.py" />
+        <option value="$PROJECT_DIR$/SentenceRanking/rank_3/extract_setences_and_rerank3.py" />
+        <option value="$PROJECT_DIR$/SentenceRanking/rank_2/extract_setences_and_rerank2.py" />
+        <option value="$PROJECT_DIR$/SentenceRanking/test/extract_setences_and_rerank4.py" />
       </list>
     </option>
   </component>
@@ -338,6 +343,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SentenceRanking" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="rank_4" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -399,11 +422,11 @@
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\request" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\test" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\rank_2" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\rank_3" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\rank_4" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking" />
-      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\Crowdflower\Mturk" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -749,20 +772,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00665" summary="renaming">
-      <created>1545355054903</created>
-      <option name="number" value="00665" />
-      <option name="presentableId" value="LOCAL-00665" />
-      <option name="project" value="LOCAL" />
-      <updated>1545355054904</updated>
-    </task>
-    <task id="LOCAL-00666" summary="renaming">
-      <created>1545355268759</created>
-      <option name="number" value="00666" />
-      <option name="presentableId" value="LOCAL-00666" />
-      <option name="project" value="LOCAL" />
-      <updated>1545355268759</updated>
-    </task>
     <task id="LOCAL-00667" summary="renaming">
       <created>1545355332321</created>
       <option name="number" value="00667" />
@@ -1092,7 +1101,21 @@
       <option name="project" value="LOCAL" />
       <updated>1545575523952</updated>
     </task>
-    <option name="localTasksCounter" value="714" />
+    <task id="LOCAL-00714" summary="renaming">
+      <created>1545592489912</created>
+      <option name="number" value="00714" />
+      <option name="presentableId" value="LOCAL-00714" />
+      <option name="project" value="LOCAL" />
+      <updated>1545592489912</updated>
+    </task>
+    <task id="LOCAL-00715" summary="renaming">
+      <created>1545593202712</created>
+      <option name="number" value="00715" />
+      <option name="presentableId" value="LOCAL-00715" />
+      <option name="project" value="LOCAL" />
+      <updated>1545593202712</updated>
+    </task>
+    <option name="localTasksCounter" value="716" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1106,7 +1129,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21979167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1286,41 +1309,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Anaconda3/Lib/encodings/cp1255.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crowdflower/comparison.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crowdflower/sentence.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crowdflower/new_sentence.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/NeuralNetRanking/feed_forward_net.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="30" column="46" selection-start-line="30" selection-start-column="46" selection-end-line="30" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/NeuralNetRanking/preprocess.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1100">
@@ -1419,16 +1407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1078">
-          <caret line="53" column="20" selection-start-line="53" selection-start-column="20" selection-end-line="53" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#34#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/create_past_winners_text_file.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1505,14 +1483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/params.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="262">
@@ -1579,29 +1549,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_2/extract_setences_and_rerank2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1340">
-          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/lambdaMART_model_chooser.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
           <caret line="46" column="162" selection-start-line="46" selection-start-column="162" selection-end-line="46" selection-end-column="162" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_3/extract_setences_and_rerank3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="30" column="41" selection-start-line="30" selection-start-column="41" selection-end-line="30" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1631,10 +1583,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_2/sentence_features_experiment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="242" column="11" selection-start-line="242" selection-start-column="11" selection-end-line="242" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_3/sentence_features_experiment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="235" column="55" selection-start-line="235" selection-start-column="55" selection-end-line="235" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/sentence_features_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="240" column="13" selection-start-line="240" selection-start-column="13" selection-end-line="240" selection-end-column="13" />
+        <state relative-caret-position="460">
+          <caret line="239" column="16" selection-start-line="239" selection-start-column="16" selection-end-line="239" selection-end-column="16" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
@@ -1651,34 +1619,98 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Preprocess/preprocess.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="402">
+          <caret line="185" column="30" selection-start-line="185" selection-start-column="19" selection-end-line="185" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/params.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/sentence_parse.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="40" column="78" selection-start-line="40" selection-start-column="78" selection-end-line="40" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experiments/model_handler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Experiments/experiment_data_processor.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="12" column="140" selection-start-line="12" selection-start-column="140" selection-end-line="12" selection-end-column="140" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_4/extract_setences_and_rerank4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="31" column="39" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_2/sentence_features_experiment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_3/sentence_features_experiment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="834">
-          <caret line="252" column="0" selection-start-line="252" selection-start-column="0" selection-end-line="252" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="614">
+          <caret line="68" column="146" selection-start-line="68" selection-start-column="146" selection-end-line="68" selection-end-column="146" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_4/sentence_features_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1406">
-          <caret line="155" column="101" selection-start-line="155" selection-start-column="101" selection-end-line="155" selection-end-column="101" />
+        <state relative-caret-position="702">
+          <caret line="250" column="77" selection-start-line="250" selection-start-column="77" selection-end-line="250" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_3/extract_setences_and_rerank3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="614">
+          <caret line="68" column="147" selection-start-line="68" selection-start-column="147" selection-end-line="68" selection-end-column="147" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/rank_2/extract_setences_and_rerank2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="68" column="147" selection-start-line="68" selection-start-column="147" selection-end-line="68" selection-end-column="147" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/test/sentence_features_experiment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1122">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/test/extract_setences_and_rerank4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
           <folding />
         </state>
       </provider>

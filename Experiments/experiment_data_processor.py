@@ -4,13 +4,13 @@ from utils import run_bash_command
 import sys
 import time
 
-def create_features_file(features_dir,index_path,queries_file,new_features_file,run_name=""):
+def create_features_file(features_dir,index_path,queries_file,new_features_file,add_remove_file,run_name=""):
     run_bash_command("rm -r "+features_dir)
     if not os.path.exists(features_dir):
         os.makedirs(features_dir)
 
     # command= params.ltr_features_script+" "+ queries_file + ' -stream=doc -index=' + index_path + ' -repository='+ index_path +' -useWorkingSet=true -workingSetFile='+ params.working_set_file+run_name + ' -workingSetFormat=trec'
-    command = " java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp /home/greg/auto_seo/scripts/indri.jar LTRFeaturesCreator"
+    command = " java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp /home/greg/auto_seo/scripts/indri.jar LTRFeaturesCreator "+add_remove_file
     print(command)
     out = run_bash_command(command)
     print(out)

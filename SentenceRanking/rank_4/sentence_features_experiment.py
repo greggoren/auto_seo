@@ -231,7 +231,7 @@ def add_labeles(label_file_path,old_features,new_features_path):
 
 if __name__=="__main__":
     qrels =sys.argv[1]
-    sentences_file = "/home/greg/auto_seo/scripts/sentences_add_remove_4"
+    sentences_file = "/home/greg/auto_seo/scripts/senetces_add_remove_4"
     top_docs_file= "/home/greg/auto_seo/scripts/topDocs"
     doc_ids_file = "/home/greg/auto_seo/scripts/docIDs"
     past_winners_file ="/home/greg/auto_seo/scripts/past_winners_file"
