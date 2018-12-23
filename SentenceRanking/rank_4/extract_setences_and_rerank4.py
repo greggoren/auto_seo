@@ -28,7 +28,7 @@ def avoid_docs_for_working_set(reference_doc,reference_docs):
 
 if __name__=="__main__":
     ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
-    reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists}
+    reference_docs = {q:ranked_lists[q][3].replace("EPOCH","ROUND") for q in ranked_lists}
     winner_docs = {q:ranked_lists[q][:3] for q in ranked_lists}
     a_doc_texts = load_file(params.trec_text_file)
     doc_texts={}
@@ -37,8 +37,8 @@ if __name__=="__main__":
             doc_texts[doc]=a_doc_texts[doc]
     sentence_map=map_set_of_sentences(doc_texts,winner_docs)
     summaries = {}
-    labels_file=open("labels", 'w')
-    sentence_data_file = open("sentences_add_remove", "w")
+    labels_file=open("labels_4", 'w')
+    sentence_data_file = open("sentences_add_remove_4", "w")
     index=1
     for query in sentence_map:
         print("in query",index, "out of",len(sentence_map))
@@ -58,14 +58,14 @@ if __name__=="__main__":
                     continue
                 modified_doc=reference_doc+"\n"+new_sentence
                 summaries[reference_doc]=modified_doc
-                add = open("/home/greg/auto_seo/scripts/add_remove",'w',encoding="utf8")
+                add = open("/home/greg/auto_seo/scripts/add_remove_4",'w',encoding="utf8")
                 add.write(reference_doc+"@@@"+new_sentence.rstrip()+"@@@"+reference_sentence.rstrip()+"\n")
                 sentence_data_file.write(run_name + "@@@" + new_sentence.rstrip() + "@@@" + reference_sentence.rstrip() + "\n")
                 add.close()
                 time.sleep(1)
                 trec_text_file = create_trectext(doc_texts, summaries, "",[])
-                features_dir = "Features"
-                feature_file = "features_"+run_name
+                features_dir = "Features_4"
+                feature_file = "features_4_"+run_name
                 create_features_file(features_dir, params.path_to_index, params.queries_xml,feature_file,"")
                 index_doc_name = create_index_to_doc_name_dict(feature_file)
                 scores_file = run_model(feature_file)
