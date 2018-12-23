@@ -22,7 +22,7 @@ def choose_model(features_file,qrels_file,label_method,beta=""):
     evaluator.empty_validation_files("svm_rank")
     trecs = []
     for train, test in folds:
-        model_handler.set_queries_to_folds(queries, test, fold_number)
+        # model_handler.set_queries_to_folds(queries, test, fold_number)
         train_file = preprocess.create_train_file(X[train], y[train], queries[train], fold_number, "svm_rank")
         test_file = preprocess.create_train_file(X[test], y[test], queries[test], fold_number, "svm_rank", True)
         for c_value in C:
