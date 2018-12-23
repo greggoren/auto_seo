@@ -71,9 +71,9 @@ if __name__=="__main__":
                 scores_file = run_model(feature_file)
                 results = retrieve_scores(index_doc_name, scores_file)
                 lists=create_lists(results)
-                addition = abs(lists[query].index(reference_doc) - len(lists[query]))
+                addition = max(3-lists[query].index(reference_doc),0)
                 query = sentence.split("-")[2]
-                labels_file.write(query + " 1 " + run_name + " " + str(addition - 1)+" seo" + "\n")
+                labels_file.write(query + " 1 " + run_name + " " + str(addition)+" seo" + "\n")
                 r_index+=1
         index+=1
     labels_file.close()
