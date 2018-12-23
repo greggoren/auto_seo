@@ -59,7 +59,7 @@ if __name__=="__main__":
                     continue
                 modified_doc=reference_doc+"\n"+new_sentence
                 summaries[reference_doc]=modified_doc
-                add = open("/home/greg/auto_seo/scripts/add_remove_4",'w',encoding="utf8")
+                add = open("/home/greg/auto_seo/scripts/add_remove_4_test",'w',encoding="utf8")
                 add.write(reference_doc+"@@@"+new_sentence.rstrip()+"@@@"+reference_sentence.rstrip()+"\n")
                 sentence_data_file.write(run_name + "@@@" + new_sentence.rstrip() + "@@@" + reference_sentence.rstrip() + "\n")
                 add.close()

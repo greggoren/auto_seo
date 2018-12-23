@@ -5,18 +5,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data/topics.full.xml" afterPath="$PROJECT_DIR$/data/topics.full.xml" />
     </list>
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
-    <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="renaming">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SentenceRanking/test/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SentenceRanking/test/extract_setences_and_rerank4.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/SentenceRanking/test/sentence_features_experiment.py" />
+    <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="    renaming">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Experiments/experiment_data_processor.py" afterPath="$PROJECT_DIR$/Experiments/experiment_data_processor.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_2/extract_setences_and_rerank2.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_2/extract_setences_and_rerank2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_2/sentence_features_experiment.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_2/sentence_features_experiment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_3/extract_setences_and_rerank3.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_3/extract_setences_and_rerank3.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_3/sentence_features_experiment.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_3/sentence_features_experiment.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_4/extract_setences_and_rerank4.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_4/extract_setences_and_rerank4.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/rank_4/sentence_features_experiment.py" afterPath="$PROJECT_DIR$/SentenceRanking/rank_4/sentence_features_experiment.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -163,8 +153,8 @@
       <file leaf-file-name="extract_setences_and_rerank4.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/test/extract_setences_and_rerank4.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+            <state relative-caret-position="394">
+              <caret line="61" column="73" selection-start-line="61" selection-start-column="73" selection-end-line="61" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -772,20 +762,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00667" summary="renaming">
-      <created>1545355332321</created>
-      <option name="number" value="00667" />
-      <option name="presentableId" value="LOCAL-00667" />
-      <option name="project" value="LOCAL" />
-      <updated>1545355332321</updated>
-    </task>
-    <task id="LOCAL-00668" summary="renaming">
-      <created>1545371771489</created>
-      <option name="number" value="00668" />
-      <option name="presentableId" value="LOCAL-00668" />
-      <option name="project" value="LOCAL" />
-      <updated>1545371771490</updated>
-    </task>
     <task id="LOCAL-00669" summary="renaming">
       <created>1545372166040</created>
       <option name="number" value="00669" />
@@ -1115,7 +1091,21 @@
       <option name="project" value="LOCAL" />
       <updated>1545593202712</updated>
     </task>
-    <option name="localTasksCounter" value="716" />
+    <task id="LOCAL-00716" summary="renaming">
+      <created>1545599864123</created>
+      <option name="number" value="00716" />
+      <option name="presentableId" value="LOCAL-00716" />
+      <option name="project" value="LOCAL" />
+      <updated>1545599864124</updated>
+    </task>
+    <task id="LOCAL-00717" summary="    renaming">
+      <created>1545603375980</created>
+      <option name="number" value="00717" />
+      <option name="presentableId" value="LOCAL-00717" />
+      <option name="project" value="LOCAL" />
+      <updated>1545603375981</updated>
+    </task>
+    <option name="localTasksCounter" value="718" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1204,7 +1194,8 @@
     <MESSAGE value="New changelist" />
     <MESSAGE value="experiments platform in process" />
     <MESSAGE value="renaming" />
-    <option name="LAST_COMMIT_MESSAGE" value="renaming" />
+    <MESSAGE value="    renaming" />
+    <option name="LAST_COMMIT_MESSAGE" value="    renaming" />
     <option name="PRESELECT_EXISTING_CHANGELIST" value="false" />
   </component>
   <component name="XDebuggerManager">
@@ -1709,8 +1700,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/test/extract_setences_and_rerank4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="40" column="58" selection-start-line="40" selection-start-column="58" selection-end-line="40" selection-end-column="58" />
+        <state relative-caret-position="394">
+          <caret line="61" column="73" selection-start-line="61" selection-start-column="73" selection-end-line="61" selection-end-column="73" />
           <folding />
         </state>
       </provider>
