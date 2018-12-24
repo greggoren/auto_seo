@@ -153,7 +153,7 @@ def create_features(senteces_file,top_docs_file,doc_ids_file,past_winners_file,m
     past_winner_centroids,_=get_vectors(past_winners_vectors,True)
     with open(senteces_file) as s_file:
         for line in s_file:
-            comb,sentence_in,sentence_out = line.split("@@@")[0],line.split("@@@")[1],line.split("@@@")[2]
+            comb,sentence_in,sentence_out = line.split("!@@@!")[0],line.split("!@@@!")[1],line.split("!@@@!")[2]
             query = comb.split("-")[2]
             centroid = centroids[query]
             past_winner_centroid = past_winner_centroids[query]
@@ -231,7 +231,7 @@ def add_labeles(label_file_path,old_features,new_features_path):
 
 if __name__=="__main__":
     qrels =sys.argv[1]
-    sentences_file = "/home/greg/auto_seo/scripts/senetces_add_remove_4"
+    sentences_file = "senetces_add_remove_2"
     top_docs_file= "/home/greg/auto_seo/scripts/topDocs"
     doc_ids_file = "/home/greg/auto_seo/scripts/docIDs"
     past_winners_file ="/home/greg/auto_seo/scripts/past_winners_file"
@@ -248,5 +248,5 @@ if __name__=="__main__":
     run_bash_command(command)
     command = "mv features "+features_path
     run_bash_command(command)
-    new_features = add_labeles(qrels,features_path,"new_sentence_features_4")
+    new_features = add_labeles(qrels,features_path,"new_sentence_features_2")
     # cross_validation(new_features,qrels,"summary_all_features.tex","svm_rank",["map","ndcg","P.2","P.5"],"")
