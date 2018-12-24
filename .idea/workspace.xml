@@ -123,8 +123,8 @@
       <file leaf-file-name="check_effect_on_seo_with_different_ranks.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crowdflower/check_effect_on_seo_with_different_ranks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+            <state relative-caret-position="292">
+              <caret line="187" column="27" selection-start-line="187" selection-start-column="27" selection-end-line="187" selection-end-column="27" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -692,20 +692,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00680" summary="renaming">
-      <created>1545479869172</created>
-      <option name="number" value="00680" />
-      <option name="presentableId" value="LOCAL-00680" />
-      <option name="project" value="LOCAL" />
-      <updated>1545479869172</updated>
-    </task>
-    <task id="LOCAL-00681" summary="renaming">
-      <created>1545482801104</created>
-      <option name="number" value="00681" />
-      <option name="presentableId" value="LOCAL-00681" />
-      <option name="project" value="LOCAL" />
-      <updated>1545482801104</updated>
-    </task>
     <task id="LOCAL-00682" summary="renaming">
       <created>1545484102811</created>
       <option name="number" value="00682" />
@@ -1035,7 +1021,21 @@
       <option name="project" value="LOCAL" />
       <updated>1545641326923</updated>
     </task>
-    <option name="localTasksCounter" value="729" />
+    <task id="LOCAL-00729" summary="    renaming">
+      <created>1545642105206</created>
+      <option name="number" value="00729" />
+      <option name="presentableId" value="LOCAL-00729" />
+      <option name="project" value="LOCAL" />
+      <updated>1545642105207</updated>
+    </task>
+    <task id="LOCAL-00730" summary="    renaming">
+      <created>1545642488244</created>
+      <option name="number" value="00730" />
+      <option name="presentableId" value="LOCAL-00730" />
+      <option name="project" value="LOCAL" />
+      <updated>1545642488245</updated>
+    </task>
+    <option name="localTasksCounter" value="731" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1628,8 +1628,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/check_effect_on_seo_with_different_ranks.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="124" column="42" selection-start-line="124" selection-start-column="42" selection-end-line="124" selection-end-column="42" />
+        <state relative-caret-position="292">
+          <caret line="187" column="27" selection-start-line="187" selection-start-column="27" selection-end-line="187" selection-end-column="27" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
