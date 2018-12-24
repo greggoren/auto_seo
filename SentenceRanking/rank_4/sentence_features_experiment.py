@@ -245,7 +245,7 @@ def create_working_set(qrels):
 if __name__=="__main__":
     qrels =sys.argv[1]
     working_set = create_working_set(qrels)
-    sentences_file = "senetces_add_remove_4"
+    sentences_file = "sentences_add_remove_4"
     top_docs_file= "/home/greg/auto_seo/scripts/topDocs"
     doc_ids_file = "/home/greg/auto_seo/scripts/docIDs"
     past_winners_file ="/home/greg/auto_seo/scripts/past_winners_file"
