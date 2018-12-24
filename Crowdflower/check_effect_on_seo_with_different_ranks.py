@@ -185,7 +185,7 @@ if __name__=="__main__":
         rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file,
                         new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file, max_min_stats)
-        method = "harmonic_" + str(beta)
+        method = "weighted" + str(beta)
         run_chosen_model_for_stats(chosen_models, method, original_qrels_file_2, feature_file_rank_2, doc_name_index_2,
                                    seo_score_2, new_features_with_weighted_file, "2")
         # run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
