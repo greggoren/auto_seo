@@ -125,8 +125,11 @@ if __name__=="__main__":
     original_qrels_file_3= "labels_3"
     original_qrels_file_4= "labels_4"
 
+    print("creating features rank 2")
     feature_file_rank_2, doc_name_index_2, seo_score_2 = create_features_for_different_ranks(original_features_file_2, 1, 1,original_qrels_file_2,coherency_features)
+    print("creating features rank 3")
     feature_file_rank_3, doc_name_index_3, seo_score_3 = create_features_for_different_ranks(original_features_file_3, 2, 2,original_qrels_file_3,coherency_features)
+    print("creating features rank 4")
     feature_file_rank_4, doc_name_index_4, seo_score_4 = create_features_for_different_ranks(original_features_file_4, 3, 3,original_qrels_file_4,coherency_features)
     method = "demotion"
     chosen_models_file_name = "chosen_models_demotion"
