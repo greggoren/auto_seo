@@ -229,10 +229,10 @@ if __name__=="__main__":
 
         if beta == betas[-1]:
             last = True
-        write_weighted_results(summary_file_2, "summary_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag,
+        write_weighted_results(summary_file_2, "summary_corr_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag,
                                last)
-        write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag,
+        write_weighted_results(summary_file_3, "summary_corr_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag,
                                last)
-        write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag,
+        write_weighted_results(summary_file_4, "summary_corr_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag,
                                last)
         flag = True
