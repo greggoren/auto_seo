@@ -49,12 +49,20 @@ def write_corr_table(vecs_gain,vecs_sim,table_name,index):
     f = open(table_name,"w")
     f.write("\\begin{tabular}{|c|c|c|}\n")
     f.write("\\hline\n")
-    f.write("Initial rank & Pearson & Spearman\n")
+    f.write("Initial rank & Pearson & Spearman \\\\ \n")
     f.write("\\hline\n")
     vec_sim= vecs_sim[str(index)]
-    p_corr = round(pearsonr(vec_sim,vecs_gain),3)
-    s_corr = round(spearmanr(vec_sim,vecs_gain),3)
-    f.write(str(p_corr)+" & "+str(s_corr)+"\n")
+    p_corr = round(pearsonr(vec_sim,vecs_gain)[0],3)
+    if pearsonr(vec_sim,vecs_gain)[1]<=0.05:
+        p_corr=str(p_corr)+"^*"
+    else:
+        p_corr=str(p_corr)
+    s_corr = round(spearmanr(vec_sim,vecs_gain)[0],3)
+    if spearmanr(vec_sim,vecs_gain)[0] <= 0.05:
+        s_corr = str(s_corr) + "^*"
+    else:
+        s_corr = str(s_corr)
+    f.write("$"+p_corr+"$ & $"+s_corr+"$ \\\\ \n")
     f.write("\\hline\n")
     f.write("\\end{tabular}\n")
 

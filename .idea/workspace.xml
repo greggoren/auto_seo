@@ -114,8 +114,8 @@
       <file leaf-file-name="create_correlations.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_correlations.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="662">
-              <caret line="235" column="61" selection-start-line="235" selection-start-column="61" selection-end-line="235" selection-end-column="61" />
+            <state relative-caret-position="442">
+              <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -663,13 +663,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00690" summary="renaming">
-      <created>1545489998583</created>
-      <option name="number" value="00690" />
-      <option name="presentableId" value="LOCAL-00690" />
-      <option name="project" value="LOCAL" />
-      <updated>1545489998583</updated>
-    </task>
     <task id="LOCAL-00691" summary="renaming">
       <created>1545491176127</created>
       <option name="number" value="00691" />
@@ -1006,7 +999,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545682374543</updated>
     </task>
-    <option name="localTasksCounter" value="739" />
+    <task id="LOCAL-00739" summary="    renaming">
+      <created>1545682582475</created>
+      <option name="number" value="00739" />
+      <option name="presentableId" value="LOCAL-00739" />
+      <option name="project" value="LOCAL" />
+      <updated>1545682582475</updated>
+    </task>
+    <option name="localTasksCounter" value="740" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1603,8 +1603,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_correlations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="662">
-          <caret line="235" column="61" selection-start-line="235" selection-start-column="61" selection-end-line="235" selection-end-column="61" />
+        <state relative-caret-position="442">
+          <caret line="63" column="9" selection-start-line="63" selection-start-column="9" selection-end-line="63" selection-end-column="9" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
