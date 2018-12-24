@@ -168,9 +168,9 @@ if __name__=="__main__":
 
         # summary_file_4=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
         #                            seo_score_4, new_features_with_harmonic_file, "4")
-        write_weighted_results(summary_file_2, "summary_" + method + "_2.tex", beta, "RankSVM", flag, last)
-        # write_weighted_results(summary_file_3, "summary_" + method + "_3.tex", beta, "RankSVM", flag, last)
-        # write_weighted_results(summary_file_4, "summary_" + method + "_4.tex", beta, "RankSVM", flag, last)
+        write_weighted_results(summary_file_2, "summary_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag, last)
+        # write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
+        # write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
         flag=False
 
     betas = [i / 10 for i in range(0, 11)]
@@ -195,9 +195,9 @@ if __name__=="__main__":
 
         if beta==betas[-1]:
             last=True
-        write_weighted_results(summary_file_2, "summary_" + method + "_2.tex", beta, "RankSVM", flag, last)
-        # write_weighted_results(summary_file_3, "summary_" + method + "_3.tex", beta, "RankSVM", flag, last)
-        # write_weighted_results(summary_file_4, "summary_" + method + "_4.tex", beta, "RankSVM", flag, last)
+        write_weighted_results(summary_file_2, "summary_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag, last)
+        # write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
+        # write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
         flag = False
     print("Histograms:")
     print("2",get_histogram(seo_score_2))
