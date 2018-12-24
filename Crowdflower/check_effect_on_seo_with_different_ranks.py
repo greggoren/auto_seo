@@ -118,18 +118,18 @@ if __name__=="__main__":
     rewrite_fetures(modified_scores, coherency_features_set, seo_features_file, new_features_with_demotion_file,
                     coherency_features, new_qrels_with_demotion_file, max_min_stats)
 
-    original_features_file_2 = ""
-    original_features_file_3 = ""
-    original_features_file_4 = ""
-    original_qrels_file_2 = ""
-    original_qrels_file_3= ""
-    original_qrels_file_4= ""
+    original_features_file_2 = "new_sentence_features_2"
+    original_features_file_3 = "new_sentence_features_3"
+    original_features_file_4 = "new_sentence_features_4"
+    original_qrels_file_2 = "labels_2"
+    original_qrels_file_3= "labels_3"
+    original_qrels_file_4= "labels_4"
 
     feature_file_rank_2, doc_name_index_2, seo_score_2 = create_features_for_different_ranks(original_features_file_2, 1, 1,original_qrels_file_2,coherency_features)
     feature_file_rank_3, doc_name_index_3, seo_score_3 = create_features_for_different_ranks(original_features_file_3, 2, 2,original_qrels_file_3,coherency_features)
     feature_file_rank_4, doc_name_index_4, seo_score_4 = create_features_for_different_ranks(original_features_file_4, 3, 3,original_qrels_file_4,coherency_features)
     method = "demotion"
-    chosen_models_file_name = ""
+    chosen_models_file_name = "chosen_models_demotion"
     chosen_models = read_chosen_model_file(chosen_models_file_name)
     run_chosen_model_for_stats(chosen_models,method,original_qrels_file_2,feature_file_rank_2,doc_name_index_2,seo_score_2,new_features_with_demotion_file,"2")
     run_chosen_model_for_stats(chosen_models,method,original_qrels_file_3,feature_file_rank_3,doc_name_index_3,seo_score_3,new_features_with_demotion_file,"3")
@@ -142,7 +142,7 @@ if __name__=="__main__":
 
 
     betas=[0,0.5,1,2]
-    chosen_models_file_name = ""
+    chosen_models_file_name = "chosen_models_harmonic"
     flag = True
     last = False
     chosen_models = read_chosen_model_file(chosen_models_file_name)
@@ -171,7 +171,7 @@ if __name__=="__main__":
         flag=False
 
     betas = [i / 10 for i in range(0, 11)]
-    chosen_models_file_name = ""
+    chosen_models_file_name = "chosen_models_weighted"
     chosen_models = read_chosen_model_file(chosen_models_file_name)
     flag=True
     last=False
