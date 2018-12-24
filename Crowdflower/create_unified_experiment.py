@@ -100,6 +100,8 @@ def create_coherency_features(ref_index=-1,top_docs_index=3):
 
         text = doc_texts[ref_doc]
         ref_sentences = retrieve_sentences(text)
+        if len(ref_sentence)<2:
+            continue
         for sentence in sentence_map[query]:
 
             sentence_vec = get_sentence_vector(sentence_map[query][sentence],model=model)
