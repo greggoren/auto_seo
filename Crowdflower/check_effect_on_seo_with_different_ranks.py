@@ -126,20 +126,20 @@ if __name__=="__main__":
 
     print("creating features rank 2")
     feature_file_rank_2, doc_name_index_2, seo_score_2 = create_features_for_different_ranks(original_features_file_2, 1, 1,original_qrels_file_2,coherency_features)
-    # print("creating features rank 3")
-    # feature_file_rank_3, doc_name_index_3, seo_score_3 = create_features_for_different_ranks(original_features_file_3, 2, 2,original_qrels_file_3,coherency_features)
-    # print("creating features rank 4")
-    # feature_file_rank_4, doc_name_index_4, seo_score_4 = create_features_for_different_ranks(original_features_file_4, 3, 3,original_qrels_file_4,coherency_features)
+    print("creating features rank 3")
+    feature_file_rank_3, doc_name_index_3, seo_score_3 = create_features_for_different_ranks(original_features_file_3, 2, 2,original_qrels_file_3,coherency_features)
+    print("creating features rank 4")
+    feature_file_rank_4, doc_name_index_4, seo_score_4 = create_features_for_different_ranks(original_features_file_4, 3, 3,original_qrels_file_4,coherency_features)
     method = "demotion"
     chosen_models_file_name = "chosen_models_demotion"
     chosen_models = read_chosen_model_file(chosen_models_file_name)
     print(chosen_models)
     run_chosen_model_for_stats(chosen_models,method,original_qrels_file_2,feature_file_rank_2,doc_name_index_2,seo_score_2,new_features_with_demotion_file,"2")
-    # run_chosen_model_for_stats(chosen_models,method,original_qrels_file_3,feature_file_rank_3,doc_name_index_3,seo_score_3,new_features_with_demotion_file,"3")
-    # run_chosen_model_for_stats(chosen_models,method,original_qrels_file_4,feature_file_rank_4,doc_name_index_4,seo_score_4,new_features_with_demotion_file,"4")
+    run_chosen_model_for_stats(chosen_models,method,original_qrels_file_3,feature_file_rank_3,doc_name_index_3,seo_score_3,new_features_with_demotion_file,"3")
+    run_chosen_model_for_stats(chosen_models,method,original_qrels_file_4,feature_file_rank_4,doc_name_index_4,seo_score_4,new_features_with_demotion_file,"4")
     run_random(original_features_file_2,original_qrels_file_2,"2",seo_score_2)
-    # run_random(original_features_file_3,original_qrels_file_3,"3",seo_score_3)
-    # run_random(original_features_file_4,original_qrels_file_2,"4",seo_score_4)
+    run_random(original_features_file_3,original_qrels_file_3,"3",seo_score_3)
+    run_random(original_features_file_4,original_qrels_file_2,"4",seo_score_4)
 
 
 
@@ -162,15 +162,15 @@ if __name__=="__main__":
         summary_file_2=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_2, feature_file_rank_2, doc_name_index_2,
                                    seo_score_2, new_features_with_harmonic_file, "2")
 
-        # summary_file_3=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
-        #                            seo_score_3, new_features_with_harmonic_file, "3")
+        summary_file_3=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
+                                   seo_score_3, new_features_with_harmonic_file, "3")
 
 
-        # summary_file_4=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
-        #                            seo_score_4, new_features_with_harmonic_file, "4")
+        summary_file_4=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
+                                   seo_score_4, new_features_with_harmonic_file, "4")
         write_weighted_results(summary_file_2, "summary_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag, last)
-        # write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
-        # write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
+        write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
+        write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
         flag=True
 
     betas = [i / 10 for i in range(0, 11)]
@@ -188,21 +188,21 @@ if __name__=="__main__":
         method = "weighted_" + str(beta)
         summary_file_2=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_2, feature_file_rank_2, doc_name_index_2,
                                    seo_score_2, new_features_with_weighted_file, "2")
-        #summary_file_3= run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
-        #                            seo_score_3, new_features_with_weighted_file, "3")
-        #summary_file_4 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
-        #                            seo_score_4, new_features_with_weighted_file, "4")
+        summary_file_3= run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
+                                   seo_score_3, new_features_with_weighted_file, "3")
+        summary_file_4 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
+                                   seo_score_4, new_features_with_weighted_file, "4")
 
         if beta==betas[-1]:
             last=True
         write_weighted_results(summary_file_2, "summary_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag, last)
-        # write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
-        # write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
+        write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
+        write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
         flag = True
     print("Histograms:")
     print("2",get_histogram(seo_score_2))
-    # print("3",get_histogram(seo_score_3))
-    # print("4",get_histogram(seo_score_4))
+    print("3",get_histogram(seo_score_3))
+    print("4",get_histogram(seo_score_4))
 
 
 
