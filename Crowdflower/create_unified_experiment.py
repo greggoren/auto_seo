@@ -148,7 +148,7 @@ def rewrite_fetures(new_scores, coherency_features_set, old_features_file, new_f
             features = line.split()[2:-2]
             number_of_features = len(features)
             id = line.split(" # ")[1].rstrip()
-            if id not in new_scores:
+            if id not in new_scores or id not in coherency_features_set:
                 continue
             coherency_features = [str(i)+":"+str(normalize_feature(coherency_features_set[id][feature],max_min_stats,query,feature)) for i,feature in enumerate(coherency_features_names,start=number_of_features+1)]
             new_line = str(new_scores[id]) + " " + qid + " " + " ".join(features) + " " + " ".join(coherency_features) + " # " + id + "\n"
