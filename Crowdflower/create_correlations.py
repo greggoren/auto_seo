@@ -47,9 +47,9 @@ def read_similarity_file(file):
 
 def write_corr_table(vecs_gain,vecs_sim,table_name,index):
     f = open(table_name,"w")
-    f.write("\\begin{tabular}{|c|c|c|}\n")
+    f.write("\\begin{tabular}{|c|c|}\n")
     f.write("\\hline\n")
-    f.write("Initial rank & Pearson & Spearman \\\\ \n")
+    f.write(" Pearson Correlation \\\\ \n")
     f.write("\\hline\n")
     vec_sim= vecs_sim[str(index)]
     p_corr = round(pearsonr(vec_sim,vecs_gain)[0],3)
@@ -57,12 +57,13 @@ def write_corr_table(vecs_gain,vecs_sim,table_name,index):
         p_corr=str(p_corr)+"^*"
     else:
         p_corr=str(p_corr)
-    s_corr = round(spearmanr(vec_sim,vecs_gain)[0],3)
-    if spearmanr(vec_sim,vecs_gain)[0] <= 0.05:
-        s_corr = str(s_corr) + "^*"
-    else:
-        s_corr = str(s_corr)
-    f.write("$"+p_corr+"$ & $"+s_corr+"$ \\\\ \n")
+    # s_corr = round(spearmanr(vec_sim,vecs_gain)[0],3)
+    # if spearmanr(vec_sim,vecs_gain)[1] <= 0.05:
+    #     s_corr = str(s_corr) + "^*"
+    # else:
+    #     s_corr = str(s_corr)
+    # f.write("$"+p_corr+"$ & $"+s_corr+"$ \\\\ \n")
+    f.write("$"+p_corr+"$ \\\\ \n")
     f.write("\\hline\n")
     f.write("\\end{tabular}\n")
 
@@ -156,16 +157,16 @@ if __name__=="__main__":
                                                                                              1, 1,
                                                                                              original_qrels_file_2,
                                                                                              coherency_features)
-    print("creating features rank 3")
-    feature_file_rank_3, doc_name_index_3, seo_score_3 = create_features_for_different_ranks(original_features_file_3,
-                                                                                             2, 2,
-                                                                                             original_qrels_file_3,
-                                                                                             coherency_features)
-    print("creating features rank 4")
-    feature_file_rank_4, doc_name_index_4, seo_score_4 = create_features_for_different_ranks(original_features_file_4,
-                                                                                             3, 3,
-                                                                                             original_qrels_file_4,
-                                                                                             coherency_features)
+    # print("creating features rank 3")
+    # feature_file_rank_3, doc_name_index_3, seo_score_3 = create_features_for_different_ranks(original_features_file_3,
+    #                                                                                          2, 2,
+    #                                                                                          original_qrels_file_3,
+    #                                                                                          coherency_features)
+    # print("creating features rank 4")
+    # feature_file_rank_4, doc_name_index_4, seo_score_4 = create_features_for_different_ranks(original_features_file_4,
+    #                                                                                          3, 3,
+    #                                                                                          original_qrels_file_4,
+    #                                                                                          coherency_features)
 
     method = "demotion"
     chosen_models_file_name = "chosen_models_demotion"
@@ -173,10 +174,10 @@ if __name__=="__main__":
     print(chosen_models)
     run_chosen_model_for_stats(chosen_models, method, original_qrels_file_2, feature_file_rank_2, doc_name_index_2,
                                seo_score_2, new_features_with_demotion_file, "2")
-    run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
-                               seo_score_3, new_features_with_demotion_file, "3")
-    run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
-                               seo_score_4, new_features_with_demotion_file, "4")
+    # run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
+    #                            seo_score_3, new_features_with_demotion_file, "3")
+    # run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
+    #                            seo_score_4, new_features_with_demotion_file, "4")
 
     betas = [0, 0.5, 1, 2]
     chosen_models_file_name = "chosen_models_harmonic"
@@ -197,19 +198,19 @@ if __name__=="__main__":
                                                     doc_name_index_2,
                                                     seo_score_2, new_features_with_harmonic_file, "2")
 
-        summary_file_3 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3,
-                                                    doc_name_index_3,
-                                                    seo_score_3, new_features_with_harmonic_file, "3")
-
-        summary_file_4 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4,
-                                                    doc_name_index_4,
-                                                    seo_score_4, new_features_with_harmonic_file, "4")
+        # summary_file_3 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3,
+        #                                             doc_name_index_3,
+        #                                             seo_score_3, new_features_with_harmonic_file, "3")
+        #
+        # summary_file_4 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4,
+        #                                             doc_name_index_4,
+        #                                             seo_score_4, new_features_with_harmonic_file, "4")
         write_weighted_results(summary_file_2, "summary_corr" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag,
                                last)
-        write_weighted_results(summary_file_3, "summary_corr" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag,
-                               last)
-        write_weighted_results(summary_file_4, "summary_corr" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag,
-                               last)
+        # write_weighted_results(summary_file_3, "summary_corr" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag,
+        #                        last)
+        # write_weighted_results(summary_file_4, "summary_corr" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag,
+        #                        last)
         flag = True
 
     betas = [i / 10 for i in range(0, 11)]
@@ -228,19 +229,19 @@ if __name__=="__main__":
         summary_file_2 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_2, feature_file_rank_2,
                                                     doc_name_index_2,
                                                     seo_score_2, new_features_with_weighted_file, "2")
-        summary_file_3 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3,
-                                                    doc_name_index_3,
-                                                    seo_score_3, new_features_with_weighted_file, "3")
-        summary_file_4 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4,
-                                                    doc_name_index_4,
-                                                    seo_score_4, new_features_with_weighted_file, "4")
+        # summary_file_3 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3,
+        #                                             doc_name_index_3,
+        #                                             seo_score_3, new_features_with_weighted_file, "3")
+        # summary_file_4 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4,
+        #                                             doc_name_index_4,
+        #                                             seo_score_4, new_features_with_weighted_file, "4")
 
         if beta == betas[-1]:
             last = True
         write_weighted_results(summary_file_2, "summary_corr_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag,
                                last)
-        write_weighted_results(summary_file_3, "summary_corr_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag,
-                               last)
-        write_weighted_results(summary_file_4, "summary_corr_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag,
-                               last)
+        # write_weighted_results(summary_file_3, "summary_corr_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag,
+        #                        last)
+        # write_weighted_results(summary_file_4, "summary_corr_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag,
+        #                        last)
         flag = True
