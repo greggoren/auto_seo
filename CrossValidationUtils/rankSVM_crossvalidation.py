@@ -72,6 +72,23 @@ def upload_models(models_dir):
 #         return results
 
 
+def get_average_query_rank_promotion(seo_scores, ranked_lists_file):
+    lists = {}
+    stats = {}
+    with open(ranked_lists_file) as file:
+        for line in file:
+            query = line.split()[0]
+            run_name = line.split()[2]
+            if query not in lists:
+                lists[query] = []
+            if len(lists[query]) >= 5:
+                continue
+            lists[query].append(seo_scores[run_name])
+    stats[1]={q:np.mean(lists[q][:1]) for q in lists}
+    stats[2]={q:np.mean(lists[q][:2]) for q in lists}
+    stats[5]={q:np.mean(lists[q]) for q in lists}
+    return stats
+
 def get_average_score_increase(seo_scores, ranked_lists_file,write=False):
     lists={}
     stats={}
