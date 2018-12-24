@@ -146,7 +146,7 @@ if __name__=="__main__":
 
     betas=[0,0.5,1,2]
     chosen_models_file_name = "chosen_models_harmonic"
-    flag = True
+    flag = False
     last = False
     chosen_models = read_chosen_model_file(chosen_models_file_name)
     for beta in betas:
@@ -171,12 +171,12 @@ if __name__=="__main__":
         write_weighted_results(summary_file_2, "summary_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag, last)
         # write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
         # write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
-        flag=False
+        flag=True
 
     betas = [i / 10 for i in range(0, 11)]
     chosen_models_file_name = "chosen_models_weighted"
     chosen_models = read_chosen_model_file(chosen_models_file_name)
-    flag=True
+    flag=False
     last=False
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_" + str(beta)
@@ -198,7 +198,7 @@ if __name__=="__main__":
         write_weighted_results(summary_file_2, "summary_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag, last)
         # write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
         # write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
-        flag = False
+        flag = True
     print("Histograms:")
     print("2",get_histogram(seo_score_2))
     # print("3",get_histogram(seo_score_3))
