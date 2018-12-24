@@ -120,9 +120,9 @@ if __name__=="__main__":
     original_features_file_2 = "new_sentence_features_2"
     original_features_file_3 = "new_sentence_features_3"
     original_features_file_4 = "new_sentence_features_4"
-    original_qrels_file_2 = "labels_2"
-    original_qrels_file_3= "labels_3"
-    original_qrels_file_4= "labels_4"
+    original_qrels_file_2 = "labels_2_qrels"
+    original_qrels_file_3= "labels_3_qrels"
+    original_qrels_file_4= "labels_4_qrels"
 
     print("creating features rank 2")
     feature_file_rank_2, doc_name_index_2, seo_score_2 = create_features_for_different_ranks(original_features_file_2, 1, 1,original_qrels_file_2,coherency_features)
