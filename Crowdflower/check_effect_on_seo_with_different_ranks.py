@@ -186,11 +186,11 @@ if __name__=="__main__":
                         new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file, max_min_stats)
         method = "weighted_" + str(beta)
-        run_chosen_model_for_stats(chosen_models, method, original_qrels_file_2, feature_file_rank_2, doc_name_index_2,
+        summary_file_2=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_2, feature_file_rank_2, doc_name_index_2,
                                    seo_score_2, new_features_with_weighted_file, "2")
-        # run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
+        #summary_file_3= run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
         #                            seo_score_3, new_features_with_weighted_file, "3")
-        # run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
+        #summary_file_4 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
         #                            seo_score_4, new_features_with_weighted_file, "4")
 
         if beta==betas[-1]:
