@@ -223,7 +223,21 @@ def add_labeles(label_file_path,old_features,new_features_path):
         new_features.close()
         return new_features_path
 
-
+def create_working_set(qrels):
+    index_group={}
+    filename = "working_set"
+    f = open(filename,'w')
+    with open(qrels) as file:
+        for line in file:
+            qid = line.split()[0]
+            doc = line.split()[2]
+            if qid not in index_group:
+                index_group[qid]=1
+            index = index_group[qid]
+            f.write(qid+" Q0 "+doc+" "+str(index)+" "+str(-index)+" seo\n")
+            index_group[qid]+=1
+    f.close()
+    return filename
 
 
 
@@ -231,6 +245,7 @@ def add_labeles(label_file_path,old_features,new_features_path):
 
 if __name__=="__main__":
     qrels =sys.argv[1]
+    working_set = create_working_set(qrels)
     sentences_file = "senetces_add_remove_3"
     top_docs_file= "/home/greg/auto_seo/scripts/topDocs"
     doc_ids_file = "/home/greg/auto_seo/scripts/docIDs"
@@ -244,7 +259,7 @@ if __name__=="__main__":
     run_bash_command(command)
     command ="mv doc*_* vectorFeatures"
     run_bash_command(command)
-    command = "perl "+params.sentence_feature_creator+" vectorFeatures "+params.sentence_working_set
+    command = "perl "+params.sentence_feature_creator+" vectorFeatures "+working_set
     run_bash_command(command)
     command = "mv features "+features_path
     run_bash_command(command)
