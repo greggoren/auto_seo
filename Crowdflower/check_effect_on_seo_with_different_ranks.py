@@ -124,85 +124,85 @@ if __name__=="__main__":
     original_qrels_file_3= "labels_3_qrels"
     original_qrels_file_4= "labels_4_qrels"
 
-    # print("creating features rank 2")
-    # feature_file_rank_2, doc_name_index_2, seo_score_2 = create_features_for_different_ranks(original_features_file_2, 1, 1,original_qrels_file_2,coherency_features)
-    # print("creating features rank 3")
-    # feature_file_rank_3, doc_name_index_3, seo_score_3 = create_features_for_different_ranks(original_features_file_3, 2, 2,original_qrels_file_3,coherency_features)
+    print("creating features rank 2")
+    feature_file_rank_2, doc_name_index_2, seo_score_2 = create_features_for_different_ranks(original_features_file_2, 1, 1,original_qrels_file_2,coherency_features)
+    print("creating features rank 3")
+    feature_file_rank_3, doc_name_index_3, seo_score_3 = create_features_for_different_ranks(original_features_file_3, 2, 2,original_qrels_file_3,coherency_features)
     print("creating features rank 4")
     feature_file_rank_4, doc_name_index_4, seo_score_4 = create_features_for_different_ranks(original_features_file_4, 3, 3,original_qrels_file_4,coherency_features)
     method = "demotion"
     chosen_models_file_name = "chosen_models_demotion"
     chosen_models = read_chosen_model_file(chosen_models_file_name)
     print(chosen_models)
-    # run_chosen_model_for_stats(chosen_models,method,original_qrels_file_2,feature_file_rank_2,doc_name_index_2,seo_score_2,new_features_with_demotion_file,"2")
-    # run_chosen_model_for_stats(chosen_models,method,original_qrels_file_3,feature_file_rank_3,doc_name_index_3,seo_score_3,new_features_with_demotion_file,"3")
-    # run_chosen_model_for_stats(chosen_models,method,original_qrels_file_4,feature_file_rank_4,doc_name_index_4,seo_score_4,new_features_with_demotion_file,"4")
-    # run_random(original_features_file_2,original_qrels_file_2,"2",seo_score_2)
-    # run_random(original_features_file_3,original_qrels_file_3,"3",seo_score_3)
+    run_chosen_model_for_stats(chosen_models,method,original_qrels_file_2,feature_file_rank_2,doc_name_index_2,seo_score_2,new_features_with_demotion_file,"2")
+    run_chosen_model_for_stats(chosen_models,method,original_qrels_file_3,feature_file_rank_3,doc_name_index_3,seo_score_3,new_features_with_demotion_file,"3")
+    run_chosen_model_for_stats(chosen_models,method,original_qrels_file_4,feature_file_rank_4,doc_name_index_4,seo_score_4,new_features_with_demotion_file,"4")
+    run_random(original_features_file_2,original_qrels_file_2,"2",seo_score_2)
+    run_random(original_features_file_3,original_qrels_file_3,"3",seo_score_3)
     run_random(original_features_file_4,original_qrels_file_4,"4",seo_score_4)
 
 
 
 
-    # betas=[0,0.5,1,2]
-    # chosen_models_file_name = "chosen_models_harmonic"
-    # flag = False
-    # last = False
-    # chosen_models = read_chosen_model_file(chosen_models_file_name)
-    # for beta in betas:
-    #     new_features_with_harmonic_file = "all_seo_features_harmonic_" + str(beta)
-    #     new_qrels_with_harmonic_file = "seo_harmonic_qrels_" + str(beta)
-    #     harmonic_mean_scores = create_harmonic_mean_score(seo_scores, aggregated_results, beta)
-    #     rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file,
-    #                     new_features_with_harmonic_file,
-    #                     coherency_features, new_qrels_with_harmonic_file, max_min_stats)
-    #     method = "harmonic_"+str(beta)
-    #     if beta==betas[-1]:
-    #         last=True
-    #     summary_file_2=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_2, feature_file_rank_2, doc_name_index_2,
-    #                                seo_score_2, new_features_with_harmonic_file, "2")
-    #
-    #     summary_file_3=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
-    #                                seo_score_3, new_features_with_harmonic_file, "3")
-    #
-    #
-    #     summary_file_4=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
-    #                                seo_score_4, new_features_with_harmonic_file, "4")
-    #     write_weighted_results(summary_file_2, "summary_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag, last)
-    #     write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
-    #     write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
-    #     flag=True
-    #
-    # betas = [i / 10 for i in range(0, 11)]
-    # chosen_models_file_name = "chosen_models_weighted"
-    # chosen_models = read_chosen_model_file(chosen_models_file_name)
-    # flag=False
-    # last=False
-    # for beta in betas:
-    #     new_features_with_weighted_file = "all_seo_features_weighted_" + str(beta)
-    #     new_qrels_with_weighted_file = "seo_weighted_qrels_" + str(beta)
-    #     weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results, beta)
-    #     rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file,
-    #                     new_features_with_weighted_file,
-    #                     coherency_features, new_qrels_with_weighted_file, max_min_stats)
-    #     method = "weighted_" + str(beta)
-    #     summary_file_2=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_2, feature_file_rank_2, doc_name_index_2,
-    #                                seo_score_2, new_features_with_weighted_file, "2")
-    #     summary_file_3= run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
-    #                                seo_score_3, new_features_with_weighted_file, "3")
-    #     summary_file_4 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
-    #                                seo_score_4, new_features_with_weighted_file, "4")
-    #
-    #     if beta==betas[-1]:
-    #         last=True
-    #     write_weighted_results(summary_file_2, "summary_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag, last)
-    #     write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
-    #     write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
-    #     flag = True
-    # print("Histograms:")
-    # print("2",get_histogram(seo_score_2))
-    # print("3",get_histogram(seo_score_3))
-    # print("4",get_histogram(seo_score_4))
+    betas=[0,0.5,1,2]
+    chosen_models_file_name = "chosen_models_harmonic"
+    flag = False
+    last = False
+    chosen_models = read_chosen_model_file(chosen_models_file_name)
+    for beta in betas:
+        new_features_with_harmonic_file = "all_seo_features_harmonic_" + str(beta)
+        new_qrels_with_harmonic_file = "seo_harmonic_qrels_" + str(beta)
+        harmonic_mean_scores = create_harmonic_mean_score(seo_scores, aggregated_results, beta)
+        rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file,
+                        new_features_with_harmonic_file,
+                        coherency_features, new_qrels_with_harmonic_file, max_min_stats)
+        method = "harmonic_"+str(beta)
+        if beta==betas[-1]:
+            last=True
+        summary_file_2=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_2, feature_file_rank_2, doc_name_index_2,
+                                   seo_score_2, new_features_with_harmonic_file, "2")
+
+        summary_file_3=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
+                                   seo_score_3, new_features_with_harmonic_file, "3")
+
+
+        summary_file_4=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
+                                   seo_score_4, new_features_with_harmonic_file, "4")
+        write_weighted_results(summary_file_2, "summary_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag, last)
+        write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
+        write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
+        flag=True
+
+    betas = [i / 10 for i in range(0, 11)]
+    chosen_models_file_name = "chosen_models_weighted"
+    chosen_models = read_chosen_model_file(chosen_models_file_name)
+    flag=False
+    last=False
+    for beta in betas:
+        new_features_with_weighted_file = "all_seo_features_weighted_" + str(beta)
+        new_qrels_with_weighted_file = "seo_weighted_qrels_" + str(beta)
+        weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results, beta)
+        rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file,
+                        new_features_with_weighted_file,
+                        coherency_features, new_qrels_with_weighted_file, max_min_stats)
+        method = "weighted_" + str(beta)
+        summary_file_2=run_chosen_model_for_stats(chosen_models, method, original_qrels_file_2, feature_file_rank_2, doc_name_index_2,
+                                   seo_score_2, new_features_with_weighted_file, "2")
+        summary_file_3= run_chosen_model_for_stats(chosen_models, method, original_qrels_file_3, feature_file_rank_3, doc_name_index_3,
+                                   seo_score_3, new_features_with_weighted_file, "3")
+        summary_file_4 = run_chosen_model_for_stats(chosen_models, method, original_qrels_file_4, feature_file_rank_4, doc_name_index_4,
+                                   seo_score_4, new_features_with_weighted_file, "4")
+
+        if beta==betas[-1]:
+            last=True
+        write_weighted_results(summary_file_2, "summary_" + method.split("_")[0] + "_2.tex", beta, "RankSVM", flag, last)
+        write_weighted_results(summary_file_3, "summary_" + method.split("_")[0] + "_3.tex", beta, "RankSVM", flag, last)
+        write_weighted_results(summary_file_4, "summary_" + method.split("_")[0] + "_4.tex", beta, "RankSVM", flag, last)
+        flag = True
+    print("Histograms:")
+    print("2",get_histogram(seo_score_2))
+    print("3",get_histogram(seo_score_3))
+    print("4",get_histogram(seo_score_4))
 
 
 
