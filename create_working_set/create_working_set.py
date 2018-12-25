@@ -1,6 +1,6 @@
 def create_set(filename):
     working_set={}
-    f = open("workin_set_spam_filtered","w")
+    f = open("working_set_spam_filtered","w")
     with open(filename) as file:
         for line in file:
             doc = line.split(" # ")[1].rstrip()

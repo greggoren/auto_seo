@@ -11,7 +11,7 @@ class model_handler_LambdaMart:
         self.home_path = "/home/greg/"
         self.code_base_path = self.home_path+"auto_seo/"
         self.java_path = self.home_path+"jdk1.8.0_181/bin/java"
-        self.jar_path = self.home_path+"SEO_CODE/model_running/RankLib1.jar"
+        self.jar_path = self.home_path+"SEO_CODE/model_running/RankLib.jar"
         self.model_base_path=self.code_base_path+"/CrossValidationUtils/lm_models/"
         self.query_to_fold_index={}
         self.chosen_model_per_fold ={}

@@ -6,7 +6,8 @@ def add_labeles(label_file_path,old_features,new_features_path):
     with open(old_features) as features:
         for line in features:
             splited = line.split()
-            label = labels.get(splited[-1].rstrip(),"0")
+            label = max(int(labels.get(splited[-1].rstrip(),"0")),0)
+            label= str(label)
             new_line = label+" "+" ".join(splited[1:])
             new_features.write(new_line+"\n")
         new_features.close()
