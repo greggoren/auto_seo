@@ -53,8 +53,10 @@ if __name__=="__main__":
         print("working on ",trec_file)
         score = evaluator.run_trec_eval(trec_file,qrels_file)
         scores[trec_file]=score
-
+    f = open("summary_of_model_choosing_competition","w")
     sorted_files = sorted(list(scores.keys()),key=lambda x:scores[x],reverse=True)
     for file in sorted_files:
         print(file,scores[file])
+        f.write(file+" "+str(scores[file])+"\n")
+    f.close()
 
