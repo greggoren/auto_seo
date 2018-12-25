@@ -6,10 +6,7 @@
     </list>
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="    renaming">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/create_working_set/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/create_working_set/create_working_set.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_correlations.py" afterPath="$PROJECT_DIR$/Crowdflower/create_correlations.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -128,8 +125,8 @@
       <file leaf-file-name="create_working_set.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/create_working_set/create_working_set.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <state relative-caret-position="308">
+              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -675,20 +672,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00693" summary="renaming">
-      <created>1545493312380</created>
-      <option name="number" value="00693" />
-      <option name="presentableId" value="LOCAL-00693" />
-      <option name="project" value="LOCAL" />
-      <updated>1545493312380</updated>
-    </task>
-    <task id="LOCAL-00694" summary="renaming">
-      <created>1545495258601</created>
-      <option name="number" value="00694" />
-      <option name="presentableId" value="LOCAL-00694" />
-      <option name="project" value="LOCAL" />
-      <updated>1545495258601</updated>
-    </task>
     <task id="LOCAL-00695" summary="renaming">
       <created>1545495727840</created>
       <option name="number" value="00695" />
@@ -1018,7 +1001,21 @@
       <option name="project" value="LOCAL" />
       <updated>1545685193723</updated>
     </task>
-    <option name="localTasksCounter" value="742" />
+    <task id="LOCAL-00742" summary="    renaming">
+      <created>1545759176897</created>
+      <option name="number" value="00742" />
+      <option name="presentableId" value="LOCAL-00742" />
+      <option name="project" value="LOCAL" />
+      <updated>1545759176900</updated>
+    </task>
+    <task id="LOCAL-00743" summary="    renaming">
+      <created>1545759735210</created>
+      <option name="number" value="00743" />
+      <option name="presentableId" value="LOCAL-00743" />
+      <option name="project" value="LOCAL" />
+      <updated>1545759735210</updated>
+    </task>
+    <option name="localTasksCounter" value="744" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1618,8 +1615,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/create_working_set/create_working_set.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="308">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding />
         </state>
       </provider>

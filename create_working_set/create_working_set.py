@@ -12,3 +12,5 @@ def create_set(filename):
             working_set[query]+=1
     f.close()
 
+create_set("features")
+
