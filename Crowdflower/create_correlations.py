@@ -48,9 +48,7 @@ def read_similarity_file(file):
 def write_corr_table(vecs_gain,vecs_sim,table_name,index):
     f = open(table_name,"w")
     f.write("\\begin{tabular}{|c|c|}\n")
-    f.write("\\hline\n")
     f.write(" Pearson Correlation \\\\ \n")
-    f.write("\\hline\n")
     vec_sim= vecs_sim[str(index)]
     p_corr = round(pearsonr(vec_sim,vecs_gain)[0],3)
     if pearsonr(vec_sim,vecs_gain)[1]<=0.05:
@@ -64,7 +62,6 @@ def write_corr_table(vecs_gain,vecs_sim,table_name,index):
     #     s_corr = str(s_corr)
     # f.write("$"+p_corr+"$ & $"+s_corr+"$ \\\\ \n")
     f.write("$"+p_corr+"$ \\\\ \n")
-    f.write("\\hline\n")
     f.write("\\end{tabular}\n")
 
 def create_correlation_for_different_ranks(similarities,average_gain,table_name,index):
