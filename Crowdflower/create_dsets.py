@@ -32,8 +32,8 @@ def convert_text_to_sentence_task(text):
 
 ranked_lists = retrieve_ranked_lists("trec_file")
 query_data=get_queries_data("topics.full.xml")
-reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists}
-winner_docs = {q:ranked_lists[q][:3] for q in ranked_lists}
+reference_docs = {q:ranked_lists[q][1].replace("EPOCH","ROUND") for q in ranked_lists}
+winner_docs = {q:ranked_lists[q][:1] for q in ranked_lists}
 a_doc_texts = load_file("documents.trectext")
 doc_texts={}
 for doc in a_doc_texts:
@@ -48,8 +48,8 @@ for query in sentence_map:
     reference = reference_docs[query]
     text = doc_texts[reference][1:]
     sentences =[s.replace("\"","") for s in retrieve_sentences(text)]
-    if len(sentences)<11:
-        continue
+    # if len(sentences)<11:
+    #     continue
     for sentence in sentence_map[query]:
 
         sentence_text = sentence_map[query][sentence].replace("\"","")
@@ -123,7 +123,7 @@ with open("quality.csv","w",encoding="utf8",newline='') as f:
 
 
 sentence_task_headers=fieldnames = ["ID","text","query","description","check_one_gold","check_one_gold_reason","_golden"]
-with open("sentence11.csv","w",encoding="utf8",newline='') as f:
+with open("sentence.csv","w",encoding="utf8",newline='') as f:
     writer = csv.DictWriter(f, fieldnames=sentence_task_headers)
     writer.writeheader()
     for t in sentence_data:

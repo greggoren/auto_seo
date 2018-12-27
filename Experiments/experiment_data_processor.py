@@ -91,14 +91,11 @@ def create_trectext_original(document_text, summaries, run_name="", avoid=[], wr
     return trec_text_file
 
 
-
-def create_trectext(document_text, summaries, run_name="", avoid=[], write_doc=""):
-    trec_text_file = params.new_trec_text_file+run_name
-    f= open(params.new_trec_text_file+run_name,"w",encoding="utf-8")
+def create_trectext(document_text, summaries,trec_text_name,working_set_name):
+    f= open(trec_text_name,"w",encoding="utf-8")
     query_to_docs = {}
     for document in document_text:
-        if document in avoid:
-            continue
+
         if document in summaries:
             text = summaries[document]
         else:
@@ -107,25 +104,81 @@ def create_trectext(document_text, summaries, run_name="", avoid=[], write_doc="
         if not query_to_docs.get(query,False):
             query_to_docs[query]=[]
         query_to_docs[query].append(document)
-        if write_doc==document or write_doc=="":
-            f.write('<DOC>\n')
-            f.write('<DOCNO>' + document + '</DOCNO>\n')
-            f.write('<TEXT>\n')
-            f.write(text.rstrip())
-            f.write('\n</TEXT>\n')
-            f.write('</DOC>\n')
+
+        f.write('<DOC>\n')
+        f.write('<DOCNO>' + document + '</DOCNO>\n')
+        f.write('<TEXT>\n')
+        f.write(text.rstrip())
+        f.write('\n</TEXT>\n')
+        f.write('</DOC>\n')
     f.close()
-    workingSetFilename = params.working_set_file+run_name
-    f = open(workingSetFilename, 'w')
+    f = open(working_set_name, 'w')
     for query, docnos in query_to_docs.items():
         i = 1
         for docid in docnos:
-            if docid not in avoid:
-                f.write(query.zfill(3) + ' Q0 ' + docid + ' ' + str(i) + ' -' + str(i) + ' indri\n')
-                i += 1
+            f.write(query.zfill(3) + ' Q0 ' + docid + ' ' + str(i) + ' -' + str(i) + ' indri\n')
+            i += 1
 
     f.close()
-    return trec_text_file
+    return trec_text_name
+
+def create_working_sets_by_round(doc_text,working_set_base_file_name):
+    doc_index_per_round ={}
+    working_sets = []
+    for doc in doc_text:
+        doc_round = doc.split("-")[1]
+        query = doc.split("-")[2]
+
+        if doc_round not in doc_index_per_round:
+            doc_index_per_round[doc_round]={}
+        if query not in doc_index_per_round[doc_round]:
+            doc_index_per_round[doc_round][query]=[]
+        doc_index_per_round[doc_round][query].append(doc)
+    for doc_round in doc_index_per_round:
+        filename = working_set_base_file_name+"_"+doc_round
+        working_sets.append(filename)
+        f = open(filename,"w")
+        for query in doc_index_per_round[doc_round]:
+            for i,doc in enumerate(doc_index_per_round[doc_round][query],start=1):
+                f.write(query.zfill(3)+ ' Q0 ' + doc + ' ' + str(i) + ' -' + str(i) + ' indri\n')
+        f.close()
+    return working_sets
+
+
+# def create_trectext(document_text, summaries, run_name="", avoid=[], write_doc=""):
+#     trec_text_file = params.new_trec_text_file+run_name
+#     f= open(params.new_trec_text_file+run_name,"w",encoding="utf-8")
+#     query_to_docs = {}
+#     for document in document_text:
+#         if document in avoid:
+#             continue
+#         if document in summaries:
+#             text = summaries[document]
+#         else:
+#             text = document_text[document]
+#         query = document.split("-")[2]
+#         if not query_to_docs.get(query,False):
+#             query_to_docs[query]=[]
+#         query_to_docs[query].append(document)
+#         if write_doc==document or write_doc=="":
+#             f.write('<DOC>\n')
+#             f.write('<DOCNO>' + document + '</DOCNO>\n')
+#             f.write('<TEXT>\n')
+#             f.write(text.rstrip())
+#             f.write('\n</TEXT>\n')
+#             f.write('</DOC>\n')
+#     f.close()
+#     workingSetFilename = params.working_set_file+run_name
+#     f = open(workingSetFilename, 'w')
+#     for query, docnos in query_to_docs.items():
+#         i = 1
+#         for docid in docnos:
+#             if docid not in avoid:
+#                 f.write(query.zfill(3) + ' Q0 ' + docid + ' ' + str(i) + ' -' + str(i) + ' indri\n')
+#                 i += 1
+#
+#     f.close()
+#     return trec_text_file
 
 def create_index(trec_text_file,run_name=""):
     """
@@ -137,11 +190,9 @@ def create_index(trec_text_file,run_name=""):
     corpus_class = 'trectext'
     memory = '1G'
     index = path_to_folder+"/index/new_index"+run_name
-    # if not os.path.exists(path_to_folder+"/index/"):
-    #     os.makedirs(path_to_folder+"/index/")
     stemmer =  'krovetz'
     os.popen('mkdir -p ' + path_to_folder)
-    if not os.path.exists(path_to_folder+"/index/"):
+    if not os.path.isdir(path_to_folder+"/index/"):
         os.makedirs(path_to_folder+"/index/")
     command = indri_build_index + ' -corpus.path=' + corpus_path + ' -corpus.class=' + corpus_class + ' -index=' + index + ' -memory=' + memory + ' -stemmer.name=' + stemmer
     print(command)
@@ -167,6 +218,19 @@ def add_docs_to_index(index,run_name=""):
     out=run_bash_command(command)
     print(out)
     return index
+
+
+def merge_indexes_for_experiments(index1, index2, merged_index):
+    if os.path.isdir(merged_index):
+        print("merged index exists, deleting the index")
+        run_bash_command("rm -r "+merged_index)
+        print("deletion of old merged index is done")
+    command = '/home/greg/indri_test/bin/dumpindex ' + merged_index + ' merge ' + index1 + ' ' + index2
+    print("merging command:",command)
+    sys.stdout.flush()
+    out=run_bash_command(command)
+    print("merging out command:",out)
+    return merged_index
 
 
 
