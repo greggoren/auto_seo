@@ -27,10 +27,10 @@ def convert_text_to_sentence_task(text):
     sentences = retrieve_sentences(text)
     new_text =""
     for j in range(len(sentences)):
-        new_text+=str(j+1)+") "+sentences[j].replace("\n","")+"\r\n\r\n\r\n\r\n"
+        new_text+=str(j+1)+") "+sentences[j].replace(u"\u009D","").replace("\n","")+" <br><br>\n"
     return new_text
 
-ranked_lists = retrieve_ranked_lists("trec_file")
+ranked_lists = retrieve_ranked_lists("ranked_lists/trec_file04")
 query_data=get_queries_data("topics.full.xml")
 reference_docs = {q:ranked_lists[q][1].replace("EPOCH","ROUND") for q in ranked_lists}
 winner_docs = {q:ranked_lists[q][:1] for q in ranked_lists}
@@ -46,17 +46,15 @@ sentence_data={}
 
 for query in sentence_map:
     reference = reference_docs[query]
-    text = doc_texts[reference][1:]
+    text = doc_texts[reference][1:].replace(u"\u009D","")
     sentences =[s.replace("\"","") for s in retrieve_sentences(text)]
-    # if len(sentences)<11:
-    #     continue
     for sentence in sentence_map[query]:
 
         sentence_text = sentence_map[query][sentence].replace("\"","")
         for j in range(len(sentences)):
             row = {}
             sentence_row={}
-            copied_text = deepcopy(text)
+            copied_text = deepcopy(text).replace(u"\u009D","")
 
             if j+1!=len(sentences):
                 insert = sentence_text.replace("\n","")
@@ -104,7 +102,7 @@ for query in sentence_map:
 
 
 fieldnames = ["ID","document1",	"document2","query","description","check_one_gold","check_one_gold_reason","_golden"]
-with open("comparison.csv","w",encoding="utf8",newline='') as f:
+with open("comparison_04_2.csv","w",encoding="utf-8",newline='') as f:
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()
     for t in rows:
@@ -113,17 +111,17 @@ with open("comparison.csv","w",encoding="utf8",newline='') as f:
 quality_headers = ["ID","query","check_one_gold","check_one_gold_reason","_golden"]
 quality_data = convert_to_quality_ds(rows,quality_headers)
 
-quality_headers.insert(1,"document")
-with open("quality.csv","w",encoding="utf8",newline='') as f:
-    writer = csv.DictWriter(f, fieldnames=quality_headers)
-    writer.writeheader()
-    for t in quality_data:
-        row = quality_data[t]
-        writer.writerow(row)
+# quality_headers.insert(1,"document")
+# with open("quality.csv","w",encoding="utf8",newline='') as f:
+#     writer = csv.DictWriter(f, fieldnames=quality_headers)
+#     writer.writeheader()
+#     for t in quality_data:
+#         row = quality_data[t]
+#         writer.writerow(row)
 
 
 sentence_task_headers=fieldnames = ["ID","text","query","description","check_one_gold","check_one_gold_reason","_golden"]
-with open("sentence.csv","w",encoding="utf8",newline='') as f:
+with open("sentence_04_2.csv","w",encoding="utf-8",newline='') as f:
     writer = csv.DictWriter(f, fieldnames=sentence_task_headers)
     writer.writeheader()
     for t in sentence_data:

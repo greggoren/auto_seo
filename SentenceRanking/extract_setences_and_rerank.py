@@ -25,11 +25,16 @@ def avoid_docs_for_working_set(reference_doc,reference_docs):
     diffenrece = set(reference_docs).difference(set([reference_doc]))
     return diffenrece
 
+def determine_indexes(doc,ranked_list):
+    return min(ranked_list.index(doc),3)
 
 if __name__=="__main__":
+    new_ranked_list ="trec_file04"
     ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
+    ranked_lists_new = retrieve_ranked_lists(new_ranked_list)
     reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists}
-    winner_docs = {q:ranked_lists[q][:3] for q in ranked_lists}
+
+    winner_docs = {q:ranked_lists[q][:determine_indexes(reference_docs[q],new_ranked_list)] for q in ranked_lists}
     a_doc_texts = load_file(params.trec_text_file)
     doc_texts={}
     for doc in a_doc_texts:
@@ -71,9 +76,9 @@ if __name__=="__main__":
                 scores_file = run_model(feature_file)
                 results = retrieve_scores(index_doc_name, scores_file)
                 lists=create_lists(results)
-                addition = abs(lists[query].index(reference_doc) - len(lists[query]))
+                addition = abs(lists[query].index(reference_doc))
                 query = sentence.split("-")[2]
-                labels_file.write(query + " 1 " + run_name + " " + str(addition - 1)+" seo" + "\n")
+                labels_file.write(query + " 1 " + run_name + " " + str(addition)+" seo" + "\n")
                 r_index+=1
         index+=1
     labels_file.close()
