@@ -42,7 +42,7 @@ if __name__=="__main__":
             doc_texts[doc]=a_doc_texts[doc]
     sentence_map=map_set_of_sentences(doc_texts,winner_docs)
     summaries = {}
-    labels_file=open("labels", 'w')
+    labels_file=open("labels_new", 'w')
     sentence_data_file = open("sentences_add_remove", "w")
     index=1
     for query in sentence_map:
@@ -71,14 +71,14 @@ if __name__=="__main__":
                 trec_text_file = create_trectext(doc_texts, summaries, "",[])
                 features_dir = "Features"
                 feature_file = "features_"+run_name
-                create_features_file(features_dir, params.path_to_index, params.queries_xml,feature_file,"")
+                create_features_file(features_dir, params.path_to_index, params.queries_xml,feature_file,"/home/greg/auto_seo/scripts/add_remove","")
                 index_doc_name = create_index_to_doc_name_dict(feature_file)
                 scores_file = run_model(feature_file)
                 results = retrieve_scores(index_doc_name, scores_file)
                 lists=create_lists(results)
                 addition = abs(lists[query].index(reference_doc))
                 query = sentence.split("-")[2]
-                labels_file.write(query + " 1 " + run_name + " " + str(addition)+" seo" + "\n")
+                labels_file.write(query + " 1 " + run_name + " " + str(addition) + "\n")
                 r_index+=1
         index+=1
     labels_file.close()
