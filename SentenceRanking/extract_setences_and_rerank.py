@@ -1,7 +1,6 @@
 from Preprocess.preprocess import retrieve_ranked_lists,load_file
 from Experiments.experiment_data_processor import create_trectext_original
 from Experiments.experiment_data_processor import create_features_file
-from Experiments.model_handler import run_model
 from Experiments.model_handler import retrieve_scores
 from Experiments.model_handler import create_index_to_doc_name_dict
 from SentenceRanking.sentence_parse import map_sentences, map_set_of_sentences
@@ -10,8 +9,22 @@ from Preprocess.preprocess import retrieve_sentences
 import params
 import sys
 import time
-import pickle
+import os
+from utils import run_bash_command
 
+def run_model(test_file,run_name=""):
+    java_path = "/home/greg/jdk1.8.0_181/bin/java"
+    jar_path = "/home/greg/SEO_CODE/model_running/RankLib.jar"
+    score_file = "scores_winners/scores_of_seo_run"+run_name
+    if not os.path.exists("scores_winners/"):
+        os.makedirs("scores_winners/")
+    features = test_file
+    model_path = "/home/greg/auto_seo/CrossValidationUtils/model_bot_group"
+    run_bash_command('touch ' + score_file)
+    command = java_path + " -jar " + jar_path + " -load " + model_path + " -rank " + features + " -score " + score_file
+    out = run_bash_command(command)
+    print(out)
+    return score_file
 
 def retrieve_query_names():
     query_mapper = {}
