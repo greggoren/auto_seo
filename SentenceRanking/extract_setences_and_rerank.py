@@ -1,5 +1,5 @@
 from Preprocess.preprocess import retrieve_ranked_lists,load_file
-from Experiments.experiment_data_processor import create_trectext
+from Experiments.experiment_data_processor import create_trectext_original
 from Experiments.experiment_data_processor import create_features_file
 from Experiments.model_handler import run_model
 from Experiments.model_handler import retrieve_scores
@@ -68,7 +68,7 @@ if __name__=="__main__":
                 sentence_data_file.write(run_name + "@@@" + new_sentence.rstrip() + "@@@" + reference_sentence.rstrip() + "\n")
                 add.close()
                 time.sleep(1)
-                trec_text_file = create_trectext(doc_texts, summaries, "",[])
+                trec_text_file = create_trectext_original(doc_texts, summaries, "",[])
                 features_dir = "Features"
                 feature_file = "features_"+run_name
                 create_features_file(features_dir, params.path_to_index, params.queries_xml,feature_file,"/home/greg/auto_seo/scripts/add_remove","")
