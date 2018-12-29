@@ -47,7 +47,7 @@ if __name__=="__main__":
     ranked_lists_new = retrieve_ranked_lists(new_ranked_list)
     reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists}
 
-    winner_docs = {q:ranked_lists[q][:determine_indexes(reference_docs[q],ranked_lists_new[q])] for q in ranked_lists}
+    winner_docs = {q:ranked_lists_new[q][:determine_indexes(reference_docs[q],ranked_lists_new[q])] for q in ranked_lists_new}
     a_doc_texts = load_file(params.trec_text_file)
     doc_texts={}
     for doc in a_doc_texts:
