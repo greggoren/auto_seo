@@ -239,8 +239,8 @@ def write_weighted_results(weighted_results_file,filename,beta,method,flag=False
 
 
 if __name__=="__main__":
-    ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
-    reference_docs = {q: ranked_lists[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists}
+    ranked_lists_old = retrieve_ranked_lists(params.ranked_lists_file)
+    reference_docs = {q: ranked_lists_old[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists_old}
     dir = "nimo_annotations"
     sorted_files = sort_files_by_date(dir)
 
@@ -250,23 +250,28 @@ if __name__=="__main__":
         needed_file = sorted_files[k]
         scores = get_scores(scores,dir + "/" + needed_file,original_docs)
     banned_queries = get_banned_queries(scores,reference_docs)
+
     ident_filename_fe = "figure-eight/ident_current.csv"
     ident_filename_mturk = "Mturk/Manipulated_Document_Identification.csv"
+    ident_filename_mturk_addition = "Mturk/Manipulated_Document_Identification_add.csv"
     ident_fe = mturk_ds_creator.read_ds_fe(ident_filename_fe, True)
     ident_mturk = mturk_ds_creator.read_ds_mturk(ident_filename_mturk, True)
-
+    ident_mturk_addition = mturk_ds_creator.read_ds_mturk(ident_filename_mturk_addition, True)
+    ident_mturk = mturk_ds_creator.update_dict(ident_mturk, ident_mturk_addition)
     ident_results = mturk_ds_creator.combine_results(ident_fe, ident_mturk)
-    # final_ident_results = ban_non_coherent_docs(scores,ident_results)
+
     sentence_filename_fe = "figure-eight/sentence_current.csv"
     sentence_filename_mturk = "Mturk/Sentence_Identification.csv"
+    sentence_filename_mturk_addition = "Mturk/Sentence_Identification_add.csv"
     sentence_filename_mturk_new = "Mturk/Sentence_Identification11.csv"
     sentence_fe = mturk_ds_creator.read_ds_fe(sentence_filename_fe)
     sentence_mturk = mturk_ds_creator.read_ds_mturk(sentence_filename_mturk)
+    sentence_mturk_addtion = mturk_ds_creator.read_ds_mturk(sentence_filename_mturk_addition)
     sentence_mturk_new = mturk_ds_creator.read_ds_mturk(sentence_filename_mturk_new)
     sentence_mturk = mturk_ds_creator.update_dict(sentence_mturk, sentence_mturk_new)
-
+    sentence_mturk = mturk_ds_creator.update_dict(sentence_mturk, sentence_mturk_addtion)
     sentence_results = mturk_ds_creator.combine_results(sentence_fe, sentence_mturk)
-    # final_sentence_results = ban_non_coherent_docs(scores,sentence_results)
+
     sentence_tags = mturk_ds_creator.get_tags(sentence_results)
     ident_tags = mturk_ds_creator.get_tags(ident_results)
     tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)

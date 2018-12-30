@@ -4,7 +4,7 @@ from SentenceRanking.sentence_parse import  map_set_of_sentences
 import csv
 from copy import deepcopy
 from random import uniform
-
+import params
 
 # def convert_sentences_to_sentence_task(sentences):
 #     new_text =""
@@ -30,10 +30,10 @@ def convert_text_to_sentence_task(text):
         new_text+=str(j+1)+") "+sentences[j].replace(u"\u009D","").replace("\n","")+" <br><br>\n"
     return new_text
 
-ranked_lists = retrieve_ranked_lists("ranked_lists/trec_file04")
+ranked_lists = retrieve_ranked_lists("ranked_lists/trec_file04_old")
 query_data=get_queries_data("topics.full.xml")
-reference_docs = {q:ranked_lists[q][1].replace("EPOCH","ROUND") for q in ranked_lists}
-winner_docs = {q:ranked_lists[q][:1] for q in ranked_lists}
+reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists}
+winner_docs = {q:ranked_lists[q][3:-1] for q in ranked_lists}
 a_doc_texts = load_file("documents.trectext")
 doc_texts={}
 for doc in a_doc_texts:
@@ -102,7 +102,7 @@ for query in sentence_map:
 
 
 fieldnames = ["ID","document1",	"document2","query","description","check_one_gold","check_one_gold_reason","_golden"]
-with open("comparison_04_2.csv","w",encoding="utf-8",newline='') as f:
+with open("comparison_04_rerun.csv","w",encoding="utf-8",newline='') as f:
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     writer.writeheader()
     for t in rows:
@@ -121,7 +121,7 @@ quality_data = convert_to_quality_ds(rows,quality_headers)
 
 
 sentence_task_headers=fieldnames = ["ID","text","query","description","check_one_gold","check_one_gold_reason","_golden"]
-with open("sentence_04_2.csv","w",encoding="utf-8",newline='') as f:
+with open("sentence_04_rerun.csv","w",encoding="utf-8",newline='') as f:
     writer = csv.DictWriter(f, fieldnames=sentence_task_headers)
     writer.writeheader()
     for t in sentence_data:
