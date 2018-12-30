@@ -215,7 +215,10 @@ def write_histogram_for_weighted_scores(hist_scores,filename,beta,last=False):
 
 def write_weighted_results(weighted_results_file,filename,beta,method,flag=False,last=False):
     with open(weighted_results_file) as file_w:
-        f = open(filename, "a")
+        if not flag:
+            f = open(filename, "w")
+        else:
+            f = open(filename, "a")
         for j,line in enumerate(file_w):
             if not flag:
                 if j==0:
