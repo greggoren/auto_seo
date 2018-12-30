@@ -87,7 +87,7 @@ class preprocess:
         with open(train_file, 'w') as feature_file:
             for i, doc in enumerate(X):
                 features = " ".join([str(a + 1) + ":" + str(b) for a, b in enumerate(doc)])
-                line = str(int(y[i])) + " qid:" + str(queries[i]).zfill(3) + " " + features + "\n"
+                line = str(float(y[i])) + " qid:" + str(queries[i]).zfill(3) + " " + features + "\n"
                 feature_file.write(line)
         return train_file
 
@@ -99,7 +99,7 @@ class preprocess:
         with open(train_file, 'w') as feature_file:
             for i, doc in enumerate(X):
                 features = " ".join([str(a + 1) + ":" + str(b) for a, b in enumerate(doc)])
-                line = str(int(y[i])) + " qid:" + str(queries[i]).zfill(3) + " " + features + "\n"
+                line = str(float(y[i])) + " qid:" + str(queries[i]).zfill(3) + " " + features + "\n"
                 feature_file.write(line)
         return train_file
 
