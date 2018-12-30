@@ -279,7 +279,7 @@ if __name__=="__main__":
 
     coherency_features = ["similarity_to_prev", "similarity_to_ref_sentence", "similarity_to_pred",
                           "similarity_to_prev_ref", "similarity_to_pred_ref"]
-    seo_scores_file = "labels_final1"
+    seo_scores_file = "labels_new_final"
     tmp_seo_scores = read_seo_score(seo_scores_file)
     seo_scores = ban_non_coherent_docs(banned_queries,tmp_seo_scores)
     modified_scores= modify_seo_score_by_demotion(seo_scores,aggregated_results)
