@@ -184,11 +184,11 @@ def get_histogram(dataset):
 
 
 
-def write_histogram_for_weighted_scores(hist_scores,filename,beta,last=False):
+def write_histogram_for_weighted_scores(hist_scores,filename,beta,flag=False,last=False):
 
     file = Path(filename)
-    if not file.is_file():
-        f = open(filename, "a")
+    if not flag:
+        f = open(filename, "w")
         cols = "c|"*6
         cols = "|"+cols
         f.write("\\begin{tabular}{"+cols+"} \n")
@@ -200,7 +200,7 @@ def write_histogram_for_weighted_scores(hist_scores,filename,beta,last=False):
     line = str(beta)+" & "
     for i in range(5):
         add = " & "
-        if i==5:
+        if i==4:
             add ="\\\\ \n"
         if i in hist_scores:
             line+=str(hist_scores[i])+add
@@ -296,6 +296,7 @@ if __name__=="__main__":
     run_random(new_features_with_demotion_file,new_qrels_with_demotion_file,"demotion",seo_scores)
     betas = [0,0.5,1,2]
     flag =False
+    flag1 =False
     for beta in betas:
         new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
         new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
@@ -308,15 +309,18 @@ if __name__=="__main__":
         run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic_"+str(beta),seo_scores)
         write_weighted_results("summary_labels_harmonic_"+str(beta)+".tex", "summary_labels_harmonic.tex", beta,
                                "RankSVM",flag)
-        flag=True
+
         last = False
         if beta==betas[-1]:
             last=True
+        flag = True
         write_weighted_results("summary_randomharmonic_" + str(beta) + ".tex", "summary_labels_harmonic.tex", beta,
                                "RandomBaseline",flag,last)
         harmonic_hist = get_histogram(harmonic_mean_scores)
-        write_histogram_for_weighted_scores(harmonic_hist, "harmonic_histogram.tex", beta,last)
+        write_histogram_for_weighted_scores(harmonic_hist, "harmonic_histogram.tex", beta,flag1,last)
+        flag1=True
     flag=False
+    flag1=False
     betas = [i/10 for i in range(0,11)]
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
@@ -338,7 +342,8 @@ if __name__=="__main__":
             last = True
         write_weighted_results("summary_randomweighted_"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RandomBaseline",flag,last)
         weighted_hist = get_histogram(weighted_mean_scores)
-        write_histogram_for_weighted_scores(weighted_hist, "weighted_histogram.tex", beta,last)
+        write_histogram_for_weighted_scores(weighted_hist, "weighted_histogram.tex", beta,flag1,last)
+        flag1=True
     print("queries=",len(get_dataset_stas(aggregated_results)))
     print("examples=",len(aggregated_results))
     print("histogram_coherency",get_histogram(aggregated_results))
