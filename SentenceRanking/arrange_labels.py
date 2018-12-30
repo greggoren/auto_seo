@@ -37,7 +37,8 @@ with open("labels_new_final","w") as labels:
     for query in new_indexes:
         for doc in new_indexes[query]:
             new_index = new_indexes[query][doc]
-            old_index = ranked_lists_new[query].index(doc)
+            ref_doc = reference_docs[query]
+            old_index = ranked_lists_new[query].index(ref_doc)
             new_label = str(define_new_label(new_index,old_index,len(ranked_lists_new[query])))
             labels.write(query+" 1 "+doc+" "+new_label+"\n")
 
