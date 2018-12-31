@@ -9,6 +9,7 @@ from CrossValidationUtils.rankSVM_crossvalidation import cross_validation
 from CrossValidationUtils.random_baseline import run_random
 from Crowdflower.ban_non_coherent_docs import get_scores,sort_files_by_date,retrieve_initial_documents,ban_non_coherent_docs,get_dataset_stas,get_banned_queries
 from pathlib import Path
+import numpy as np
 
 def read_seo_score(labels):
     scores = {}
@@ -183,8 +184,71 @@ def get_histogram(dataset):
         hist[bucket]=round(hist[bucket]/total_examples,3)
     return hist
 
+def get_average_score_increase_for_initial_rank(seo_scores, ranked_lists_file,initial_ranks):
+
+    lists={}
+    initial_ranks_stats ={}
+    seen=[]
+    with open(ranked_lists_file) as file:
+        for line in file:
+            query = line.split()[0]
+            run_name = line.split()[2]
+            key = initial_ranks[query]
+            if query not in lists:
+                lists[query]=[]
+            if len(lists[query])>=5:
+                if query in seen:
+                    continue
+                if key not in initial_ranks_stats:
+                    initial_ranks_stats[key]={}
+                    initial_ranks_stats[key][1]=[]
+                    initial_ranks_stats[key][2]=[]
+                    initial_ranks_stats[key][5]=[]
+                initial_ranks_stats[key][1].append(np.mean(lists[query][:1]))
+                initial_ranks_stats[key][2].append(np.mean(lists[query][:2]))
+                initial_ranks_stats[key][5].append(np.mean(lists[query]))
+                seen.append(query)
+            lists[query].append(seo_scores[run_name])
+
+    for key in initial_ranks_stats:
+        for top in initial_ranks_stats[key]:
+
+            initial_ranks_stats[key][top]=np.mean(initial_ranks_stats[key][top])
+    for query in lists:
+        key = initial_ranks[query]
+        if "ge" not in initial_ranks_stats[key]:
+            initial_ranks_stats[key]["ge"]=[]
+            initial_ranks_stats[key]["eq"]=[]
+            initial_ranks_stats[key]["le"]=[]
+        if lists[query][0]>lists[query][1]:
+            initial_ranks_stats[key]["ge"].append(1)
+            initial_ranks_stats[key]["eq"].append(0)
+            initial_ranks_stats[key]["le"].append(0)
+        elif lists[query][0]==lists[query][1]:
+            initial_ranks_stats[key]["ge"].append(0)
+            initial_ranks_stats[key]["eq"].append(1)
+            initial_ranks_stats[key]["le"].append(0)
+        else:
+            initial_ranks_stats[key]["ge"].append(0)
+            initial_ranks_stats[key]["eq"].append(0)
+            initial_ranks_stats[key]["le"].append(1)
+    for key in initial_ranks_stats:
+        for stat in ["ge","le","eq"]:
+            initial_ranks_stats[key][stat]=np.mean(initial_ranks_stats[key][stat])
+    return initial_ranks_stats
 
 
+def write_rank_promotion_stats_per_initial_rank(stats,method):
+    f = open("summary_rank_promotion_"+method+".tex","w")
+    f.write("\\begin{tabular}{|c|c|c|c|c|c|c|c|}\n")
+    f.write("\\hline\n")
+    f.write("$\\beta$ & Initial Rank & TOP1 & TOP2 & TOP5 & $>$ & $=$ & $<$ \\\\ \n")
+    for beta in stats:
+        ranks = sorted(list(stats[beta].keys()))
+        for rank in ranks:
+            line = beta+" & "+str(rank)+" & "+" & ".join([str(stats[beta][rank][i]) for i in [1,2,5,"ge","eq","le"]])+" \\\\ \n"
+            f.write(line)
+    f.close()
 
 def write_histogram_for_weighted_scores(hist_scores,filename,beta,flag=False,last=False):
 
@@ -245,7 +309,10 @@ def write_weighted_results(weighted_results_file,filename,beta,method,flag=False
 
 if __name__=="__main__":
     ranked_lists_old = retrieve_ranked_lists(params.ranked_lists_file)
+    ranked_lists_new = retrieve_ranked_lists("ranked_lists/trec_file04")
+
     reference_docs = {q: ranked_lists_old[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists_old}
+    initial_ranks = {q:ranked_lists_new.index(reference_docs[q])+1 for q in reference_docs}
     dir = "nimo_annotations"
     sorted_files = sort_files_by_date(dir)
 
@@ -293,9 +360,15 @@ if __name__=="__main__":
     new_features_with_demotion_file = "all_seo_features_demotion"
     new_qrels_with_demotion_file = "seo_demotion_qrels"
     rewrite_fetures(modified_scores,coherency_features_set,seo_features_file,new_features_with_demotion_file,coherency_features,new_qrels_with_demotion_file,max_min_stats)
-    cross_validation(new_features_with_demotion_file, new_qrels_with_demotion_file, "summary_labels_demotion.tex", "svm_rank",
+    final_trec_file=cross_validation(new_features_with_demotion_file, new_qrels_with_demotion_file, "summary_labels_demotion.tex", "svm_rank",
                      ["map", "ndcg", "P.2", "P.5"], "",seo_scores)
     run_random(new_features_with_demotion_file,new_qrels_with_demotion_file,"demotion",seo_scores)
+    initial_ranks_stats_demotion = get_average_score_increase_for_initial_rank(seo_scores,final_trec_file,initial_ranks)
+    stats_demotion = {"-":initial_ranks_stats_demotion}
+    write_rank_promotion_stats_per_initial_rank(stats_demotion,"demotion")
+
+
+    stats_harmonic={}
     betas = [0,0.5,1,2]
     # betas = [0,]
     flag =False
@@ -307,9 +380,10 @@ if __name__=="__main__":
         harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results,beta)
         rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
                         coherency_features, new_qrels_with_harmonic_file,max_min_stats)
-        cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic_"+str(beta)+".tex",
+        final_trec_file=cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic_"+str(beta)+".tex",
                          "svm_rank",
                          ["map", "ndcg", "P.2", "P.5"], "",seo_scores)
+        stats_harmonic[str(beta)]=get_average_score_increase_for_initial_rank(seo_scores,final_trec_file,initial_ranks)
         run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic_"+str(beta),seo_scores)
         write_weighted_results("summary_labels_harmonic_"+str(beta)+".tex", "summary_labels_harmonic.tex", beta,
                                "RankSVM",flag)
@@ -323,8 +397,12 @@ if __name__=="__main__":
         harmonic_hist = get_histogram(harmonic_mean_scores)
         write_histogram_for_weighted_scores(harmonic_hist, "harmonic_histogram.tex", beta,flag1,last)
         flag1=True
+
+    write_rank_promotion_stats_per_initial_rank(stats_harmonic,"harmonic")
+
     flag=False
     flag1=False
+    stats_weighted = {}
     betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
     # betas = [0,]
     for beta in betas:
@@ -335,6 +413,7 @@ if __name__=="__main__":
         rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file,max_min_stats)
         final_trec_file=cross_validation(new_features_with_weighted_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "",seo_scores)
+        stats_weighted[str(beta)]=get_average_score_increase_for_initial_rank(seo_scores,final_trec_file,initial_ranks)
         run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta),seo_scores)
 
         write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RankSVM",flag)
@@ -346,6 +425,7 @@ if __name__=="__main__":
         weighted_hist = get_histogram(weighted_mean_scores)
         write_histogram_for_weighted_scores(weighted_hist, "weighted_histogram.tex", beta,flag1,last)
         flag1=True
+    write_rank_promotion_stats_per_initial_rank(stats_weighted,"weighted")
     print("queries=",len(get_dataset_stas(aggregated_results)))
     print("examples=",len(aggregated_results))
     print("histogram_coherency",get_histogram(aggregated_results))

@@ -20,7 +20,7 @@ def run_random(features_file, qrels, name, seo_scores=False):
             if query not in data:
                 data[query] = []
             data[query].append(sentence)
-
+        
         for query in data:
             shuffle(data[query])
             index = 1
