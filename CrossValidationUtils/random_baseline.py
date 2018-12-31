@@ -62,12 +62,12 @@ def run_random(features_file, qrels, name, seo_scores=False):
     if not seo_scores:
         next_line = " & ".join([s for s in ["map", "ndcg", "P.2", "P.5"]]) + "\\\\ \n"
     else:
-        next_line = " & ".join([s for s in ["map", "ndcg", "P.2", "P.5"]])+" & " +" & ".join(["Top1","Top2","Top5"])+ "\\\\ \n"
+        next_line = " & ".join([s for s in ["map", "ndcg", "P.2", "P.5"]])+" & " +" & ".join(["Top1","Top2","Top5","$\\GE$","$\\EQ$","$\\LE$"])+ "\\\\ \n"
     summary_file.write(next_line)
     if not seo_scores:
         next_line = " & ".join([str(round(np.mean(score_data[s]),4)) for s in ["map", "ndcg", "P.2", "P.5"]]) + "\n"
     else:
-        next_line = " & ".join([str(round(np.mean(score_data[s]), 4)) for s in ["map", "ndcg", "P.2", "P.5"]])+" & "+" & ".join([str(averaged_rank_increase_stats[j]) for j in [1,2,5]]) + "\\\\ \n"
+        next_line = " & ".join([str(round(np.mean(score_data[s]), 4)) for s in ["map", "ndcg", "P.2", "P.5"]])+" & "+" & ".join([str(averaged_rank_increase_stats[j]) for j in [1,2,5,"ge","eq","le"]]) + "\\\\ \n"
     summary_file.write(next_line)
     summary_file.write("\\end{tabular}")
     summary_file.close()
