@@ -246,7 +246,7 @@ def write_rank_promotion_stats_per_initial_rank(stats,method):
     for beta in stats:
         ranks = sorted(list(stats[beta].keys()))
         for rank in ranks:
-            line = beta+" & "+str(rank)+" & "+" & ".join([str(stats[beta][rank][i]) for i in [1,2,5,"ge","eq","le"]])+" \\\\ \n"
+            line = beta+" & "+str(rank)+" & "+" & ".join([str(round(stats[beta][rank][i],3)) for i in [1,2,5,"ge","eq","le"]])+" \\\\ \n"
             f.write(line)
     f.close()
 
