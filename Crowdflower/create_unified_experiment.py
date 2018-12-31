@@ -46,9 +46,9 @@ def create_harmonic_mean_score(seo_scores,coherency_scores,beta):
         current_score = seo_scores[id]
         coherency_score = coherency_scores[id]
         new_coherency_score = coherency_score*(4.0/5)
-        if beta==0:
-            new_scores[id]= new_coherency_score
-            continue
+        # if beta==0:
+        #     new_scores[id]= new_coherency_score
+        #     continue
         numerator = (1+beta**2)*new_coherency_score*current_score
         denominator = (beta**2)*new_coherency_score+current_score
         if denominator!=0:
@@ -296,8 +296,8 @@ if __name__=="__main__":
     cross_validation(new_features_with_demotion_file, new_qrels_with_demotion_file, "summary_labels_demotion.tex", "svm_rank",
                      ["map", "ndcg", "P.2", "P.5"], "",seo_scores)
     run_random(new_features_with_demotion_file,new_qrels_with_demotion_file,"demotion",seo_scores)
-    # betas = [0,0.5,1,2]
-    betas = [0,]
+    betas = [0,0.5,1,2]
+    # betas = [0,]
     flag =False
     flag1 =False
     for beta in betas:
@@ -325,8 +325,8 @@ if __name__=="__main__":
         flag1=True
     flag=False
     flag1=False
-    # betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
-    betas = [0,]
+    betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+    # betas = [0,]
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
         new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
