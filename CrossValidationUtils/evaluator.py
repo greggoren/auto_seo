@@ -118,19 +118,19 @@ class eval:
         if not increase_stats:
             cols = "c|"*len(self.metrics)
         else:
-            cols = "c|" * (len(self.metrics)+len(increase_stats)+2)
+            cols = "c|" * (len(self.metrics)+len(increase_stats)+3)
         cols = "|"+cols
         summary_file.write("\\begin{tabular}{"+cols+"}\n")
         if not increase_stats:
             next_line = " & ".join([s[0] for s in score_data])+"\\\\ \n"
         else:
-            next_line = " & ".join([s[0] for s in score_data])+" & "+" & ".join(["Top1","Top2","Top5"])+"\n"
+            next_line = " & ".join([s[0] for s in score_data])+" & "+" & ".join(["Top1","Top2","Top5","Ratio"])+"\n"
 
         summary_file.write(next_line)
         if not increase_stats:
             next_line = " & ".join([s[1] for s in score_data]) + "\n"
         else:
-            next_line = " & ".join([s[1] for s in score_data]) +" & "+" & ".join([str(round(increase_stats[j],4)) for j in [1,2,5]])+"\\\\ \n"
+            next_line = " & ".join([s[1] for s in score_data]) +" & "+" & ".join([str(round(increase_stats[j],4)) for j in [1,2,5,"ratio"]])+"\\\\ \n"
         summary_file.write(next_line)
         summary_file.write("\\end{tabular}")
         summary_file.close()
