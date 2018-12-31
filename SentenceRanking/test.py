@@ -1,6 +1,6 @@
 beta =0
 new_coherency_score = 4
-current_score = 2
+current_score = 0
 
 
 numerator = (1+beta**2)*new_coherency_score*current_score
