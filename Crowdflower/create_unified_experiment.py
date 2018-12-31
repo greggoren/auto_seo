@@ -300,6 +300,7 @@ if __name__=="__main__":
     for beta in betas:
         new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
         new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
+        harmonic_mean_scores={}
         harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results,beta)
         rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
                         coherency_features, new_qrels_with_harmonic_file,max_min_stats)
@@ -326,6 +327,7 @@ if __name__=="__main__":
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
         new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
+        weighted_mean_scores={}
         weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
         rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file,max_min_stats)
