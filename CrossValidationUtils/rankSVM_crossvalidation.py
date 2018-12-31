@@ -108,7 +108,9 @@ def get_average_score_increase(seo_scores, ranked_lists_file,write=False):
     stats[1] = np.mean([np.mean(lists[q][:1]) for q in lists])
     stats[2] = np.mean([np.mean(lists[q][:2]) for q in lists])
     stats[5] = np.mean([np.mean(lists[q]) for q in lists])
-    stats["ratio"]=sum([1 for q in lists if lists[q][0]>=lists[q][1]])/len(lists)
+    stats["ge"]=sum([1 for q in lists if lists[q][0]>lists[q][1]])/len(lists)
+    stats["eq"]=sum([1 for q in lists if lists[q][0]==lists[q][1]])/len(lists)
+    stats["le"]=sum([1 for q in lists if lists[q][0]<lists[q][1]])/len(lists)
     return stats
 
 def recover_model(model):

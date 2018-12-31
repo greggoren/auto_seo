@@ -118,13 +118,13 @@ class eval:
         if not increase_stats:
             cols = "c|"*len(self.metrics)
         else:
-            cols = "c|" * (len(self.metrics)+len(increase_stats)+3)
+            cols = "c|" * (len(self.metrics)+len(increase_stats)+2)
         cols = "|"+cols
         summary_file.write("\\begin{tabular}{"+cols+"}\n")
         if not increase_stats:
             next_line = " & ".join([s[0] for s in score_data])+"\\\\ \n"
         else:
-            next_line = " & ".join([s[0] for s in score_data])+" & "+" & ".join(["Top1","Top2","Top5","Ratio"])+"\n"
+            next_line = " & ".join([s[0] for s in score_data])+" & "+" & ".join(["Top1","Top2","Top5","$\\ge$","$\eq$","$\\le$"])+"\n"
 
         summary_file.write(next_line)
         if not increase_stats:
