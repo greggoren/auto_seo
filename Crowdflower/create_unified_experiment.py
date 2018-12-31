@@ -243,11 +243,14 @@ def write_rank_promotion_stats_per_initial_rank(stats,method):
     f.write("\\begin{tabular}{|c|c|c|c|c|c|c|c|}\n")
     f.write("\\hline\n")
     f.write("$\\beta$ & Initial Rank & TOP1 & TOP2 & TOP5 & $>$ & $=$ & $<$ \\\\ \n")
+    f.write("\\hline\n")
     for beta in stats:
         ranks = sorted(list(stats[beta].keys()))
         for rank in ranks:
             line = beta+" & "+str(rank)+" & "+" & ".join([str(round(stats[beta][rank][i],3)) for i in [1,2,5,"ge","eq","le"]])+" \\\\ \n"
             f.write(line)
+            f.write("\\hline\n")
+    f.write("\\end{tabular}\n")
     f.close()
 
 def write_histogram_for_weighted_scores(hist_scores,filename,beta,flag=False,last=False):
