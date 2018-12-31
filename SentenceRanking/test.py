@@ -1,5 +1,10 @@
-from scipy.stats import kendalltau
+beta =0
+new_coherency_score = 4
+current_score = 2
 
-a = ["bn","b2","bs","bs2","bs1"]
-b = ["b2","bn","bs","bs2","bs1"]
-print(kendalltau(a,b)[0])
+
+numerator = (1+beta**2)*new_coherency_score*current_score
+denominator = (beta**2)*new_coherency_score+current_score
+
+print(numerator/denominator)
+print(current_score*beta+new_coherency_score*(1-beta))

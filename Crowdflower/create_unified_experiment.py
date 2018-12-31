@@ -9,8 +9,7 @@ from CrossValidationUtils.rankSVM_crossvalidation import cross_validation
 from CrossValidationUtils.random_baseline import run_random
 from Crowdflower.ban_non_coherent_docs import get_scores,sort_files_by_date,retrieve_initial_documents,ban_non_coherent_docs,get_dataset_stas,get_banned_queries
 from pathlib import Path
-from CrossValidationUtils.rankSVM_crossvalidation import get_average_score_increase
-from utils import run_bash_command
+
 def read_seo_score(labels):
     scores = {}
     with open(labels) as labels_file:
@@ -46,7 +45,7 @@ def create_harmonic_mean_score(seo_scores,coherency_scores,beta):
     for id in seo_scores:
         current_score = seo_scores[id]
         coherency_score = coherency_scores[id]
-        new_coherency_score = coherency_score*(4/5)
+        new_coherency_score = coherency_score*(4.0/5)
         numerator = (1+beta**2)*new_coherency_score*current_score
         denominator = (beta**2)*new_coherency_score+current_score
         if denominator!=0:
@@ -61,7 +60,7 @@ def create_weighted_mean_score(seo_scores,coherency_scores,beta):
     for id in seo_scores:
         current_score = seo_scores[id]
         coherency_score = coherency_scores[id]
-        new_coherency_score = coherency_score * (4 / 5)
+        new_coherency_score = coherency_score * (4.0 / 5)
         new_score = current_score*beta+new_coherency_score*(1-beta)
         new_scores[id]=new_score
     return new_scores
@@ -321,7 +320,7 @@ if __name__=="__main__":
         flag1=True
     flag=False
     flag1=False
-    betas = [i/10 for i in range(0,11)]
+    betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
         new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
@@ -329,10 +328,6 @@ if __name__=="__main__":
         rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file,max_min_stats)
         final_trec_file=cross_validation(new_features_with_weighted_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "",seo_scores)
-        if beta==betas[5]:
-            increase = get_average_score_increase(seo_scores,final_trec_file,True)
-            run_bash_command("cp "+final_trec_file+" trec_debug")
-            run_bash_command("cp features_svm_rank_1 features_debug")
         run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta),seo_scores)
 
         write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RankSVM",flag)
@@ -348,3 +343,5 @@ if __name__=="__main__":
     print("examples=",len(aggregated_results))
     print("histogram_coherency",get_histogram(aggregated_results))
     print("histogram_demotion",get_histogram(modified_scores))
+    print("histogram_scores_lables",get_histogram(seo_scores))
+
