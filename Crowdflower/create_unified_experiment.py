@@ -312,7 +312,7 @@ if __name__=="__main__":
     ranked_lists_new = retrieve_ranked_lists("ranked_lists/trec_file04")
 
     reference_docs = {q: ranked_lists_old[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists_old}
-    initial_ranks = {q:ranked_lists_new.index(reference_docs[q])+1 for q in reference_docs}
+    initial_ranks = {q:ranked_lists_new[q].index(reference_docs[q])+1 for q in reference_docs}
     dir = "nimo_annotations"
     sorted_files = sort_files_by_date(dir)
 
@@ -365,7 +365,7 @@ if __name__=="__main__":
     run_random(new_features_with_demotion_file,new_qrels_with_demotion_file,"demotion",seo_scores)
     initial_ranks_stats_demotion = get_average_score_increase_for_initial_rank(seo_scores,final_trec_file,initial_ranks)
     stats_demotion = {"-":initial_ranks_stats_demotion}
-    write_rank_promotion_stats_per_initial_rank(stats_demotion,"demotion")
+
 
 
     stats_harmonic={}
@@ -398,7 +398,6 @@ if __name__=="__main__":
         write_histogram_for_weighted_scores(harmonic_hist, "harmonic_histogram.tex", beta,flag1,last)
         flag1=True
 
-    write_rank_promotion_stats_per_initial_rank(stats_harmonic,"harmonic")
 
     flag=False
     flag1=False
@@ -425,6 +424,8 @@ if __name__=="__main__":
         weighted_hist = get_histogram(weighted_mean_scores)
         write_histogram_for_weighted_scores(weighted_hist, "weighted_histogram.tex", beta,flag1,last)
         flag1=True
+    write_rank_promotion_stats_per_initial_rank(stats_demotion, "demotion")
+    write_rank_promotion_stats_per_initial_rank(stats_harmonic,"harmonic")
     write_rank_promotion_stats_per_initial_rank(stats_weighted,"weighted")
     print("queries=",len(get_dataset_stas(aggregated_results)))
     print("examples=",len(aggregated_results))
