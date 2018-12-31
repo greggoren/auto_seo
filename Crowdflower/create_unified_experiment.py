@@ -293,7 +293,8 @@ if __name__=="__main__":
     cross_validation(new_features_with_demotion_file, new_qrels_with_demotion_file, "summary_labels_demotion.tex", "svm_rank",
                      ["map", "ndcg", "P.2", "P.5"], "",seo_scores)
     run_random(new_features_with_demotion_file,new_qrels_with_demotion_file,"demotion",seo_scores)
-    betas = [0,0.5,1,2]
+    # betas = [0,0.5,1,2]
+    betas = [0,]
     flag =False
     flag1 =False
     for beta in betas:
@@ -320,7 +321,8 @@ if __name__=="__main__":
         flag1=True
     flag=False
     flag1=False
-    betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+    # betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+    betas = [0,]
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
         new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
