@@ -40,7 +40,7 @@ def get_true_labels(new_indexes,lists,reference_docs):
         for query in new_indexes[beta]:
             r_doc = reference_docs[query]
             old_index = lists[query].index(r_doc)
-            result[beta][query]= determine_indexes(new_indexes[beta][query],old_index,len(lists[query]))
+            result[beta][query]= define_new_label(new_indexes[beta][query],old_index,len(lists[query]))
     return result
 
 def write_table(method,results):
