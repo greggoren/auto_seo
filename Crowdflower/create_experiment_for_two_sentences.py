@@ -384,6 +384,8 @@ if __name__=="__main__":
     label_file = "labels_demotion"
     f = open(label_file,"w")
     for query in reference_docs:
+        if query in banned_queries:
+            continue
         reference_doc = reference_docs[query]
         write_add_remove_file(add_remove_file,best_sentences,query,sentences,reference_doc)
         run_reranking(reference_doc,query,f,add_remove_file)
@@ -406,6 +408,8 @@ if __name__=="__main__":
         best_sentences = pick_best_sentences(final_trec_file)
 
         for query in reference_docs:
+            if query in banned_queries:
+                continue
             reference_doc = reference_docs[query]
             write_add_remove_file(add_remove_file, best_sentences, query, sentences, reference_doc)
             run_reranking(reference_doc, query, f, add_remove_file,str(beta))
@@ -425,6 +429,8 @@ if __name__=="__main__":
         final_trec_file=cross_validation(new_features_with_weighted_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "",seo_scores)
         best_sentences = pick_best_sentences(final_trec_file)
         for query in reference_docs:
+            if query in banned_queries:
+                continue
             reference_doc = reference_docs[query]
             write_add_remove_file(add_remove_file, best_sentences, query, sentences, reference_doc)
             run_reranking(reference_doc, query, f, add_remove_file, str(beta))
