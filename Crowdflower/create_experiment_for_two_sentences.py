@@ -147,6 +147,13 @@ def normalize_feature(feature_value,max_min_stats,query,feature):
     value = (feature_value-max_min_stats[query][feature]["min"])/denominator
     return value
 
+
+def create_ws():
+    lists_file = params.ranked_lists_file
+    run_bash_command("cp "+lists_file+" /home/greg/auto_seo/scripts/workigSet")
+
+
+
 def rewrite_fetures(new_scores, coherency_features_set, old_features_file, new_features_filename, coherency_features_names,qrels_name,max_min_stats):
     f = open(new_features_filename,"w")
     qrels = open(qrels_name,"w")
@@ -318,6 +325,7 @@ def run_reranking(reference_doc,query,labels_file,add_remove_file,beta="-"):
 
 
 if __name__=="__main__":
+    create_ws()
     ranked_lists_old = retrieve_ranked_lists(params.ranked_lists_file)
     ranked_lists_new = retrieve_ranked_lists("ranked_lists/trec_file04")
     sentences = read_sentences("/home/greg/auto_seo/SentenceRanking/sentences_add_remove")
