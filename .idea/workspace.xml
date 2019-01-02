@@ -106,8 +106,8 @@
       <file leaf-file-name="create_experiment_for_two_sentences.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="109">
-              <caret line="327" column="15" selection-start-line="327" selection-start-column="15" selection-end-line="327" selection-end-column="15" />
+            <state relative-caret-position="264">
+              <caret line="159" column="41" selection-start-line="159" selection-start-column="41" selection-end-line="159" selection-end-column="41" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -703,13 +703,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00742" summary="    renaming">
-      <created>1545759176897</created>
-      <option name="number" value="00742" />
-      <option name="presentableId" value="LOCAL-00742" />
-      <option name="project" value="LOCAL" />
-      <updated>1545759176900</updated>
-    </task>
     <task id="LOCAL-00743" summary="    renaming">
       <created>1545759735210</created>
       <option name="number" value="00743" />
@@ -1046,7 +1039,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546445150729</updated>
     </task>
-    <option name="localTasksCounter" value="791" />
+    <task id="LOCAL-00791" summary="os201">
+      <created>1546446066582</created>
+      <option name="number" value="00791" />
+      <option name="presentableId" value="LOCAL-00791" />
+      <option name="project" value="LOCAL" />
+      <updated>1546446066582</updated>
+    </task>
+    <option name="localTasksCounter" value="792" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1637,8 +1637,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="327" column="15" selection-start-line="327" selection-start-column="15" selection-end-line="327" selection-end-column="15" />
+        <state relative-caret-position="264">
+          <caret line="159" column="41" selection-start-line="159" selection-start-column="41" selection-end-line="159" selection-end-column="41" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>

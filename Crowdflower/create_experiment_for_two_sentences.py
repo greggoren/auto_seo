@@ -150,7 +150,7 @@ def normalize_feature(feature_value,max_min_stats,query,feature):
 
 def create_ws():
     lists_file = params.ranked_lists_file
-    run_bash_command("cp "+lists_file+" /home/greg/auto_seo/scripts/workigSet")
+    run_bash_command("cp "+lists_file+" /home/greg/auto_seo/scripts/workingSet")
 
 
 
