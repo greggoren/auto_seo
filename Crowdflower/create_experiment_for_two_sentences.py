@@ -280,7 +280,7 @@ def pick_best_sentences(score_file):
     return stats
 
 def write_add_remove_file(file,combs,query,sentences,reference_doc):
-    f = open(file)
+    f = open(file,"w")
     combs_of_query = combs[query]
     new_sentence_in = sentences[combs_of_query[0]][0]+" "+sentences[combs_of_query[1]][0]
     new_sentence_out = sentences[combs_of_query[0]][1]+" "+sentences[combs_of_query[1]][1]
