@@ -320,7 +320,7 @@ def run_reranking(reference_doc,query,labels_file,add_remove_file,beta="-"):
 if __name__=="__main__":
     ranked_lists_old = retrieve_ranked_lists(params.ranked_lists_file)
     ranked_lists_new = retrieve_ranked_lists("ranked_lists/trec_file04")
-    sentences = read_sentences("/home/greg/SentenceRanking/sentences_add_remove")
+    sentences = read_sentences("/home/greg/auto_seo/SentenceRanking/sentences_add_remove")
     reference_docs = {q: ranked_lists_old[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists_old}
     initial_ranks = {q:ranked_lists_new[q].index(reference_docs[q])+1 for q in reference_docs}
     dir = "nimo_annotations"
