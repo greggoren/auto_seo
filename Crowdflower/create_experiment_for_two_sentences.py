@@ -248,10 +248,10 @@ def read_sentences(filename):
     stats={}
     with open(filename) as file:
         for line in file:
-            comb = line.split("!@@@!")[0]
+            comb = line.split("@@@")[0]
             stats[comb]=[]
-            sentence_in = line.split("!@@@!")[1]
-            sentence_out = line.split("!@@@!")[2].rstrip()
+            sentence_in = line.split("@@@")[1]
+            sentence_out = line.split("@@@")[2].rstrip()
             stats[comb].append(sentence_in)
             stats[comb].append(sentence_out)
     return stats
