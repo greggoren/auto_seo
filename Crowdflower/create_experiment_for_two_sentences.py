@@ -10,6 +10,7 @@ from Crowdflower.ban_non_coherent_docs import get_scores,sort_files_by_date,retr
 import numpy as np
 from utils import run_bash_command
 from Experiments.experiment_data_processor import create_trectext_original
+from Crowdflower.utils import *
 from Experiments.experiment_data_processor import create_features_file
 from Experiments.model_handler import retrieve_scores
 from Experiments.model_handler import create_index_to_doc_name_dict
@@ -90,54 +91,6 @@ def save_max_mix_stats(stats,row,query):
         if row[feature]<stats[query][feature]["min"]:
             stats[query][feature]["min"] = row[feature]
     return stats
-
-def create_coherency_features(ref_index=-1,top_docs_index=3):
-    rows={}
-    max_min_stats={}
-    model = WordToVec().load_model()
-    ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
-    reference_docs = {q: ranked_lists[q][ref_index].replace("EPOCH", "ROUND") for q in ranked_lists}
-    winner_docs = {q: ranked_lists[q][:top_docs_index] for q in ranked_lists}
-    a_doc_texts = load_file(params.trec_text_file)
-    doc_texts = {}
-    for doc in a_doc_texts:
-        if doc.__contains__("ROUND-04"):
-            doc_texts[doc] = a_doc_texts[doc]
-    sentence_map = map_set_of_sentences(doc_texts, winner_docs)
-    for query in sentence_map:
-        ref_doc = reference_docs[query]
-
-        text = doc_texts[ref_doc]
-        ref_sentences = retrieve_sentences(text)
-        if len(ref_sentences)<2:
-            continue
-        for sentence in sentence_map[query]:
-
-            sentence_vec = get_sentence_vector(sentence_map[query][sentence],model=model)
-            for i,ref_sentence in enumerate(ref_sentences):
-                row = {}
-                run_name = sentence+"_"+str(i+1)
-                window = []
-                if i == 0:
-                    window.append(get_sentence_vector(ref_sentences[1],model))
-                    window.append(get_sentence_vector(ref_sentences[1],model))
-
-                elif i+1 == len(ref_sentences):
-                    window.append(get_sentence_vector(ref_sentences[i-1],model))
-                    window.append(get_sentence_vector(ref_sentences[i-1],model))
-                else:
-                    window.append(get_sentence_vector(ref_sentences[i - 1], model))
-                    window.append(get_sentence_vector(ref_sentences[i+1],model))
-                ref_vector = get_sentence_vector(ref_sentence,model)
-                query = run_name.split("-")[2]
-                row["similarity_to_prev"]=cosine_similarity(sentence_vec,window[0])
-                row["similarity_to_ref_sentence"] = cosine_similarity(ref_vector,sentence_vec)
-                row["similarity_to_pred"] = cosine_similarity(sentence_vec,window[1])
-                row["similarity_to_prev_ref"] = cosine_similarity(ref_vector,window[0])
-                row["similarity_to_pred_ref"] = cosine_similarity(ref_vector,window[1])
-                max_min_stats=save_max_mix_stats(max_min_stats,row,query)
-                rows[run_name]=row
-    return rows,max_min_stats
 
 
 def normalize_feature(feature_value,max_min_stats,query,feature):
@@ -264,27 +217,27 @@ def read_sentences(filename):
     return stats
 
 
-def pick_best_sentences(score_file):
-    stats={}
-    with open(score_file) as scores:
-        for line in scores:
-            query = line.split()[0]
-            comb = line.split()[2]
-            if query not in stats:
-                stats[query]=[]
-            if len(stats[query])<2:
-                replacement_index = comb.split("_")[-1]
-                prefix = "_".join(comb.split("_")[:-1])
-                flag = True
-                for existing_comb in stats[query]:
-                    e_replacement_index = existing_comb.split("_")[-1]
-                    e_prefix ="_".join(existing_comb.split("_")[:-1])
-
-                    if e_replacement_index==replacement_index or e_prefix==prefix:
-                        flag=False
-                if flag:
-                    stats[query].append(comb)
-    return stats
+# def pick_best_sentences(score_file):
+#     stats={}
+#     with open(score_file) as scores:
+#         for line in scores:
+#             query = line.split()[0]
+#             comb = line.split()[2]
+#             if query not in stats:
+#                 stats[query]=[]
+#             if len(stats[query])<2:
+#                 replacement_index = comb.split("_")[-1]
+#                 prefix = "_".join(comb.split("_")[:-1])
+#                 flag = True
+#                 for existing_comb in stats[query]:
+#                     e_replacement_index = existing_comb.split("_")[-1]
+#                     e_prefix ="_".join(existing_comb.split("_")[:-1])
+#
+#                     if e_replacement_index==replacement_index or e_prefix==prefix:
+#                         flag=False
+#                 if flag:
+#                     stats[query].append(comb)
+#     return stats
 
 def write_add_remove_file(file,combs,query,sentences,reference_doc):
     f = open(file,"w")
@@ -323,14 +276,46 @@ def run_reranking(reference_doc,query,labels_file,add_remove_file,beta="-"):
     labels_file.write(query + " 1 " +beta+ " " + str(addition) + "\n")
 
 
+def run_bots_and_rerank(method, doc_texts, new_features_file,reference_docs,seo_features_file,dummy_scores,labels_file,beta="-"):
+    chosen_models_file_name = "chosen_models_"+method
+    chosen_models = read_chosen_model_file(chosen_models_file_name)
+    doc_name_index = create_index_to_doc_name_dict(new_features_file)
+    final_trec_file = run_chosen_model_for_stats(chosen_models, method, new_features_file, doc_name_index,
+                                                 new_features_file)
+    best_sentences = pick_best_sentences(final_trec_file)
+
+    for query in reference_docs:
+        doc = reference_docs[query]
+        chosen_comb = best_sentences[query]
+        doc_texts = save_modified_file(doc_texts, best_sentences, chosen_comb, doc)
+    new_coherence_features_set, max_min_stats = create_coherency_features(ref_index=-1,
+                                                                          ranked_lists_new="ranked_lists/trec_file04",
+                                                                          doc_text_modified=doc_texts)
+    rewrite_fetures(dummy_scores, new_coherence_features_set, seo_features_file, new_features_file+"_exp",
+                    coherency_features, "dummy_q", max_min_stats)
+    final_trec_file = run_chosen_model_for_stats(chosen_models, method, new_features_file+"_exp", doc_name_index,
+                                                 new_features_file)
+
+    new_best_sentences = pick_best_sentences(final_trec_file, best_sentences)
+
+
+    for query in reference_docs:
+
+        if query in banned_queries:
+            continue
+        reference_doc = reference_docs[query]
+        write_add_remove_file(add_remove_file, new_best_sentences, query, sentences, reference_doc)
+        run_reranking(reference_doc, query, f, add_remove_file,beta)
+
+
 
 if __name__=="__main__":
-    create_ws()
     ranked_lists_old = retrieve_ranked_lists(params.ranked_lists_file)
     ranked_lists_new = retrieve_ranked_lists("ranked_lists/trec_file04")
     sentences = read_sentences("/home/greg/auto_seo/SentenceRanking/sentences_add_remove")
     reference_docs = {q: ranked_lists_old[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists_old}
     initial_ranks = {q:ranked_lists_new[q].index(reference_docs[q])+1 for q in reference_docs}
+    doc_texts = load_file(params.trec_text_file)
     dir = "nimo_annotations"
     sorted_files = sort_files_by_date(dir)
     add_remove_file = "/home/greg/auto_seo/scripts/add_remove"
@@ -365,7 +350,7 @@ if __name__=="__main__":
     ident_tags = mturk_ds_creator.get_tags(ident_results)
     tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
     aggregated_results = ban_non_coherent_docs(banned_queries,tmp_aggregated_results)
-
+    dummy_scores = {run_name:"0" for run_name in sentences}
     coherency_features = ["similarity_to_prev", "similarity_to_ref_sentence", "similarity_to_pred",
                           "similarity_to_prev_ref", "similarity_to_pred_ref"]
     seo_scores_file = "labels_new_final"
@@ -373,23 +358,15 @@ if __name__=="__main__":
     seo_scores = ban_non_coherent_docs(banned_queries,tmp_seo_scores)
     modified_scores= modify_seo_score_by_demotion(seo_scores,aggregated_results)
     seo_features_file = "new_sentence_features"
-    coherency_features_set,max_min_stats = create_coherency_features()
+    coherency_features_set,max_min_stats = create_coherency_features(ranked_list_new_file="ranked_lists/trec_file04")
     new_features_with_demotion_file = "all_seo_features_demotion"
     new_qrels_with_demotion_file = "seo_demotion_qrels"
     rewrite_fetures(modified_scores,coherency_features_set,seo_features_file,new_features_with_demotion_file,coherency_features,new_qrels_with_demotion_file,max_min_stats)
-    final_trec_file=cross_validation(new_features_with_demotion_file, new_qrels_with_demotion_file, "summary_labels_demotion.tex", "svm_rank",
-                     ["map", "ndcg", "P.2", "P.5"], "",seo_scores)
-
-    best_sentences = pick_best_sentences(final_trec_file)
-    label_file = "labels_demotion"
-    f = open(label_file,"w")
-    for query in reference_docs:
-        if query in banned_queries:
-            continue
-        reference_doc = reference_docs[query]
-        write_add_remove_file(add_remove_file,best_sentences,query,sentences,reference_doc)
-        run_reranking(reference_doc,query,f,add_remove_file)
+    labels_file = "labels_demotion"
+    f=open(labels_file,"w")
+    run_bots_and_rerank("demotion",doc_texts,new_features_with_demotion_file,reference_docs,seo_features_file,dummy_scores,f)
     f.close()
+
 
 
     stats_harmonic={}
@@ -403,16 +380,8 @@ if __name__=="__main__":
         harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results,beta)
         rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
                         coherency_features, new_qrels_with_harmonic_file,max_min_stats)
-        final_trec_file=cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic_"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "",seo_scores)
-
-        best_sentences = pick_best_sentences(final_trec_file)
-
-        for query in reference_docs:
-            if query in banned_queries:
-                continue
-            reference_doc = reference_docs[query]
-            write_add_remove_file(add_remove_file, best_sentences, query, sentences, reference_doc)
-            run_reranking(reference_doc, query, f, add_remove_file,str(beta))
+        run_bots_and_rerank("harmonic", doc_texts, new_features_with_harmonic_file, reference_docs, seo_features_file,
+                            dummy_scores, f,str(beta))
     f.close()
 
     stats_weighted = {}
@@ -426,12 +395,6 @@ if __name__=="__main__":
         weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
         rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file,max_min_stats)
-        final_trec_file=cross_validation(new_features_with_weighted_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg", "P.2", "P.5"], "",seo_scores)
-        best_sentences = pick_best_sentences(final_trec_file)
-        for query in reference_docs:
-            if query in banned_queries:
-                continue
-            reference_doc = reference_docs[query]
-            write_add_remove_file(add_remove_file, best_sentences, query, sentences, reference_doc)
-            run_reranking(reference_doc, query, f, add_remove_file, str(beta))
+        run_bots_and_rerank("weighted", doc_texts, new_features_with_weighted_file, reference_docs, seo_features_file,
+                            dummy_scores, f, str(beta))
     f.close()

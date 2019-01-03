@@ -4,11 +4,13 @@ from Preprocess.preprocess import retrieve_ranked_lists,load_file,retrieve_sente
 from Crowdflower import create_full_ds_per_task as mturk_ds_creator
 import params
 import sys
-from Crowdflower.create_unified_experiment import read_seo_score,modify_seo_score_by_demotion,create_coherency_features,rewrite_fetures,create_harmonic_mean_score,create_weighted_mean_score
+from Crowdflower.create_unified_experiment import read_seo_score,modify_seo_score_by_demotion,rewrite_fetures,create_harmonic_mean_score,create_weighted_mean_score
+from Crowdflower.utils import create_coherency_features
 
 if __name__=="__main__":
 
     ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
+    ranked_lists_new = retrieve_ranked_lists("ranked_lists/trec_file04")
     reference_docs = {q: ranked_lists[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists}
     dir = "nimo_annotations"
     sorted_files = sort_files_by_date(dir)
@@ -43,7 +45,7 @@ if __name__=="__main__":
     seo_scores = ban_non_coherent_docs(banned_queries, tmp_seo_scores)
     modified_scores = modify_seo_score_by_demotion(seo_scores, aggregated_results)
     seo_features_file = "new_sentence_features"
-    coherency_features_set, max_min_stats = create_coherency_features()
+    coherency_features_set, max_min_stats = create_coherency_features(ranked_list_new_file='ranked_lists/trec_file04')
     new_features_with_demotion_file = "all_seo_features_demotion"
     new_qrels_with_demotion_file = "seo_demotion_qrels"
     rewrite_fetures(modified_scores, coherency_features_set, seo_features_file, new_features_with_demotion_file,
