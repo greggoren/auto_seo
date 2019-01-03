@@ -9,8 +9,8 @@
     </list>
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/Crowdflower/utils.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/utils.py" afterPath="$PROJECT_DIR$/Crowdflower/utils.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,14 +83,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Crowdflower/utils.py">
+      <file leaf-file-name="seo_utils.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Crowdflower/seo_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="22">
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -707,13 +705,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00748" summary="    renaming">
-      <created>1545776735584</created>
-      <option name="number" value="00748" />
-      <option name="presentableId" value="LOCAL-00748" />
-      <option name="project" value="LOCAL" />
-      <updated>1545776735584</updated>
-    </task>
     <task id="LOCAL-00749" summary="    renaming">
       <created>1545778084782</created>
       <option name="number" value="00749" />
@@ -1050,7 +1041,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546517712394</updated>
     </task>
-    <option name="localTasksCounter" value="797" />
+    <task id="LOCAL-00797" summary="os201">
+      <created>1546517945968</created>
+      <option name="number" value="00797" />
+      <option name="presentableId" value="LOCAL-00797" />
+      <option name="project" value="LOCAL" />
+      <updated>1546517945968</updated>
+    </task>
+    <option name="localTasksCounter" value="798" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1064,7 +1062,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21145834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1652,13 +1650,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crowdflower/utils.py">
+    <entry file="file://$PROJECT_DIR$/Crowdflower/seo_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="22">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
