@@ -375,7 +375,7 @@ if __name__=="__main__":
     rewrite_fetures(modified_scores,coherency_features_set,seo_features_file,new_features_with_demotion_file,coherency_features,new_qrels_with_demotion_file,max_min_stats)
     labels_file = "labels_demotion"
     f=open(labels_file,"w")
-    run_bots_and_rerank("demotion",doc_texts,new_features_with_demotion_file,new_qrels_with_demotion_file,sentences,reference_docs,seo_features_file,modified_scores,f)
+    run_bots_and_rerank("demotion",doc_texts.copy(),new_features_with_demotion_file,new_qrels_with_demotion_file,sentences,reference_docs,seo_features_file,modified_scores,f)
     f.close()
 
 
@@ -391,7 +391,7 @@ if __name__=="__main__":
         harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results,beta)
         rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
                         coherency_features, new_qrels_with_harmonic_file,max_min_stats)
-        run_bots_and_rerank("harmonic", doc_texts, new_features_with_harmonic_file,new_qrels_with_harmonic_file,sentences ,reference_docs, seo_features_file,
+        run_bots_and_rerank("harmonic", doc_texts.copy(), new_features_with_harmonic_file,new_qrels_with_harmonic_file,sentences ,reference_docs, seo_features_file,
                             harmonic_mean_scores, f,str(beta))
     f.close()
 
@@ -406,6 +406,6 @@ if __name__=="__main__":
         weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
         rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file,max_min_stats)
-        run_bots_and_rerank("weighted", doc_texts, new_features_with_weighted_file, new_qrels_with_weighted_file,sentences,reference_docs, seo_features_file,
+        run_bots_and_rerank("weighted", doc_texts.copy(), new_features_with_weighted_file, new_qrels_with_weighted_file,sentences,reference_docs, seo_features_file,
                             weighted_mean_scores, f, str(beta))
     f.close()

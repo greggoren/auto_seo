@@ -55,7 +55,7 @@ def pick_best_sentences(score_file,base_sentences={}):
                 stats[query]=[]
             if not stats[query]:
                 stats[query].append(comb)
-            elif base_sentences and len(stats[query])<2:
+            elif len(base_sentences)!=0 and len(stats[query])<2:
                 replacement_index = comb.split("_")[-1]
                 prefix = "_".join(comb.split("_")[:-1])
                 flag = True
