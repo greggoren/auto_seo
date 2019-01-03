@@ -1,22 +1,10 @@
-from  utils import cosine_similarity
-from Crowdflower import create_full_ds_per_task as mturk_ds_creator
 from utils import cosine_similarity
 from SentenceRanking.sentence_features_experiment import get_sentence_vector
 from Preprocess.preprocess import retrieve_ranked_lists,load_file,retrieve_sentences
 from SentenceRanking.sentence_parse import  map_set_of_sentences
 import params
 from w2v.train_word2vec import WordToVec
-from CrossValidationUtils.rankSVM_crossvalidation import cross_validation
-from Crowdflower.ban_non_coherent_docs import get_scores,sort_files_by_date,retrieve_initial_documents,ban_non_coherent_docs,get_dataset_stas,get_banned_queries
-import numpy as np
-from utils import run_bash_command
-from Experiments.experiment_data_processor import create_trectext_original
-from Experiments.experiment_data_processor import create_features_file
 from Experiments.model_handler import retrieve_scores
-from Experiments.model_handler import create_index_to_doc_name_dict
-from SentenceRanking.sentence_parse import create_lists
-import os
-from CrossValidationUtils.rankSVM_model_chooser import choose_model
 from CrossValidationUtils.svm_handler import svm_handler
 
 
