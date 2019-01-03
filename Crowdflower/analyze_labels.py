@@ -16,7 +16,19 @@ def read_labels(filename):
 
     return result
 
+def read_labels_demotion(filename):
+    result ={}
+    with open(filename) as file:
+        for line in file:
+            query = line.split()[0]
+            beta = "-"
+            if beta not in result:
+                result[beta]={}
 
+            index = line.split(" ")[2]
+            result[beta][query] = int(index.rstrip())
+
+    return result
 
 
 
@@ -60,7 +72,7 @@ ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
 ranked_lists_new = retrieve_ranked_lists(new_ranked_list)
 reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists}
 
-indexes = read_labels("labels_demotion")
+indexes = read_labels_demotion("labels_demotion")
 labels = get_true_labels(indexes,ranked_lists_new,reference_docs)
 write_table("demotion",labels)
 
