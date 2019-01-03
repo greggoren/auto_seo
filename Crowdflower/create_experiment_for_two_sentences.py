@@ -10,7 +10,7 @@ from Crowdflower.ban_non_coherent_docs import get_scores,sort_files_by_date,retr
 import numpy as np
 from utils import run_bash_command
 from Experiments.experiment_data_processor import create_trectext_original
-from Crowdflower.utils import *
+from Crowdflower.seo_utils import *
 from Experiments.experiment_data_processor import create_features_file
 from Experiments.model_handler import retrieve_scores
 from Experiments.model_handler import create_index_to_doc_name_dict

@@ -5,7 +5,7 @@ from Crowdflower import create_full_ds_per_task as mturk_ds_creator
 import params
 import sys
 from Crowdflower.create_unified_experiment import read_seo_score,modify_seo_score_by_demotion,rewrite_fetures,create_harmonic_mean_score,create_weighted_mean_score
-from Crowdflower.utils import create_coherency_features
+from Crowdflower.seo_utils import create_coherency_features
 
 if __name__=="__main__":
 
