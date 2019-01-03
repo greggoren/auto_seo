@@ -288,6 +288,8 @@ def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,sent
     best_sentences = pick_best_sentences(final_trec_file)
 
     for query in reference_docs:
+        if query in banned_queries:
+            continue
         doc = reference_docs[query]
         chosen_comb = best_sentences[query]
         doc_texts = save_modified_file(doc_texts,sentences, chosen_comb, doc)
