@@ -279,7 +279,7 @@ def run_reranking(reference_doc,query,labels_file,add_remove_file,beta="-"):
 def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,sentences,reference_docs,seo_features_file,dummy_scores,labels_file,beta="-"):
     chosen_models_file_name = "chosen_models_"+method
     chosen_models = read_chosen_model_file(chosen_models_file_name)
-    doc_name_index = create_index_to_doc_name_dict(new_features_file)
+
     # final_trec_file = run_chosen_model_for_stats(chosen_models, method, new_features_file, doc_name_index,
     #                                              new_features_file)
     final_trec_file=cross_validation(new_features_file, new_qrels_file, "summary_labels_"+method+".tex",
@@ -298,8 +298,10 @@ def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,sent
                                                                           doc_text_modified=doc_texts)
     rewrite_fetures(dummy_scores, new_coherence_features_set, seo_features_file, new_features_file+"_exp",
                     coherency_features, "dummy_q", max_min_stats)
+    doc_name_index = create_index_to_doc_name_dict(new_features_file+"_exp")
     final_trec_file = run_chosen_model_for_stats(chosen_models, method, new_features_file+"_exp", doc_name_index,
                                                  new_features_file)
+
 
     new_best_sentences = pick_best_sentences(final_trec_file, best_sentences)
 
@@ -320,7 +322,11 @@ if __name__=="__main__":
     sentences = read_sentences("/home/greg/auto_seo/SentenceRanking/sentences_add_remove")
     reference_docs = {q: ranked_lists_old[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists_old}
     initial_ranks = {q:ranked_lists_new[q].index(reference_docs[q])+1 for q in reference_docs}
-    doc_texts = load_file(params.trec_text_file)
+    a_doc_texts = load_file(params.trec_text_file)
+    doc_texts = {}
+    for doc in a_doc_texts:
+        if doc.__contains__("ROUND-04"):
+            doc_texts[doc] = a_doc_texts[doc]
     dir = "nimo_annotations"
     sorted_files = sort_files_by_date(dir)
     add_remove_file = "/home/greg/auto_seo/scripts/add_remove"
@@ -355,7 +361,7 @@ if __name__=="__main__":
     ident_tags = mturk_ds_creator.get_tags(ident_results)
     tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
     aggregated_results = ban_non_coherent_docs(banned_queries,tmp_aggregated_results)
-    dummy_scores = {run_name:"0" for run_name in sentences}
+    # dummy_scores = {run_name:"0" for run_name in sentences}
     coherency_features = ["similarity_to_prev", "similarity_to_ref_sentence", "similarity_to_pred",
                           "similarity_to_prev_ref", "similarity_to_pred_ref"]
     seo_scores_file = "labels_new_final"
@@ -363,13 +369,13 @@ if __name__=="__main__":
     seo_scores = ban_non_coherent_docs(banned_queries,tmp_seo_scores)
     modified_scores= modify_seo_score_by_demotion(seo_scores,aggregated_results)
     seo_features_file = "new_sentence_features"
-    coherency_features_set,max_min_stats = create_coherency_features(ranked_list_new_file="ranked_lists/trec_file04")
+    coherency_features_set,max_min_stats = create_coherency_features(ranked_list_new_file="ranked_lists/trec_file04",ref_index=-1,doc_text_modified=doc_texts)
     new_features_with_demotion_file = "all_seo_features_demotion"
     new_qrels_with_demotion_file = "seo_demotion_qrels"
     rewrite_fetures(modified_scores,coherency_features_set,seo_features_file,new_features_with_demotion_file,coherency_features,new_qrels_with_demotion_file,max_min_stats)
     labels_file = "labels_demotion"
     f=open(labels_file,"w")
-    run_bots_and_rerank("demotion",doc_texts,new_features_with_demotion_file,new_qrels_with_demotion_file,sentences,reference_docs,seo_features_file,dummy_scores,f)
+    run_bots_and_rerank("demotion",doc_texts,new_features_with_demotion_file,new_qrels_with_demotion_file,sentences,reference_docs,seo_features_file,modified_scores,f)
     f.close()
 
 
@@ -386,7 +392,7 @@ if __name__=="__main__":
         rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
                         coherency_features, new_qrels_with_harmonic_file,max_min_stats)
         run_bots_and_rerank("harmonic", doc_texts, new_features_with_harmonic_file,new_qrels_with_harmonic_file,sentences ,reference_docs, seo_features_file,
-                            dummy_scores, f,str(beta))
+                            harmonic_mean_scores, f,str(beta))
     f.close()
 
     stats_weighted = {}
@@ -401,5 +407,5 @@ if __name__=="__main__":
         rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file,max_min_stats)
         run_bots_and_rerank("weighted", doc_texts, new_features_with_weighted_file, new_qrels_with_weighted_file,sentences,reference_docs, seo_features_file,
-                            dummy_scores, f, str(beta))
+                            weighted_mean_scores, f, str(beta))
     f.close()
