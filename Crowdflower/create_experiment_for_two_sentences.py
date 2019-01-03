@@ -276,12 +276,15 @@ def run_reranking(reference_doc,query,labels_file,add_remove_file,beta="-"):
     labels_file.write(query + " 1 " +beta+ " " + str(addition) + "\n")
 
 
-def run_bots_and_rerank(method, doc_texts, new_features_file,reference_docs,seo_features_file,dummy_scores,labels_file,beta="-"):
+def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,reference_docs,seo_features_file,dummy_scores,labels_file,beta="-"):
     chosen_models_file_name = "chosen_models_"+method
     chosen_models = read_chosen_model_file(chosen_models_file_name)
     doc_name_index = create_index_to_doc_name_dict(new_features_file)
-    final_trec_file = run_chosen_model_for_stats(chosen_models, method, new_features_file, doc_name_index,
-                                                 new_features_file)
+    # final_trec_file = run_chosen_model_for_stats(chosen_models, method, new_features_file, doc_name_index,
+    #                                              new_features_file)
+    final_trec_file=cross_validation(new_features_file, new_qrels_file, "summary_labels_"+method+".tex",
+                     "svm_rank",
+                     ["map", "ndcg", "P.2", "P.5"], "")
     best_sentences = pick_best_sentences(final_trec_file)
 
     for query in reference_docs:
@@ -364,7 +367,7 @@ if __name__=="__main__":
     rewrite_fetures(modified_scores,coherency_features_set,seo_features_file,new_features_with_demotion_file,coherency_features,new_qrels_with_demotion_file,max_min_stats)
     labels_file = "labels_demotion"
     f=open(labels_file,"w")
-    run_bots_and_rerank("demotion",doc_texts,new_features_with_demotion_file,reference_docs,seo_features_file,dummy_scores,f)
+    run_bots_and_rerank("demotion",doc_texts,new_features_with_demotion_file,new_qrels_with_demotion_file,reference_docs,seo_features_file,dummy_scores,f)
     f.close()
 
 
@@ -380,7 +383,7 @@ if __name__=="__main__":
         harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results,beta)
         rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
                         coherency_features, new_qrels_with_harmonic_file,max_min_stats)
-        run_bots_and_rerank("harmonic", doc_texts, new_features_with_harmonic_file, reference_docs, seo_features_file,
+        run_bots_and_rerank("harmonic", doc_texts, new_features_with_harmonic_file,new_qrels_with_harmonic_file ,reference_docs, seo_features_file,
                             dummy_scores, f,str(beta))
     f.close()
 
@@ -395,6 +398,6 @@ if __name__=="__main__":
         weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
         rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
                         coherency_features, new_qrels_with_weighted_file,max_min_stats)
-        run_bots_and_rerank("weighted", doc_texts, new_features_with_weighted_file, reference_docs, seo_features_file,
+        run_bots_and_rerank("weighted", doc_texts, new_features_with_weighted_file, new_qrels_with_weighted_file,reference_docs, seo_features_file,
                             dummy_scores, f, str(beta))
     f.close()

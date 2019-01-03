@@ -7,7 +7,7 @@ import params
 from w2v.train_word2vec import WordToVec
 from Experiments.model_handler import retrieve_scores
 from CrossValidationUtils.svm_handler import svm_handler
-
+from CrossValidationUtils.evaluator import eval
 
 
 def save_max_mix_stats(stats,row,query):
