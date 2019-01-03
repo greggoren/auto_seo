@@ -305,7 +305,7 @@ def run_bots_and_rerank(method, doc_texts, new_features_file,reference_docs,seo_
             continue
         reference_doc = reference_docs[query]
         write_add_remove_file(add_remove_file, new_best_sentences, query, sentences, reference_doc)
-        run_reranking(reference_doc, query, f, add_remove_file,beta)
+        run_reranking(reference_doc, query, labels_file, add_remove_file,beta)
 
 
 
