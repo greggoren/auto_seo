@@ -25,7 +25,7 @@ def read_labels_demotion(filename):
             if beta not in result:
                 result[beta]={}
 
-            index = line.split(" ")[2]
+            index = line.split()[2]
             result[beta][query] = int(index.rstrip())
 
     return result
