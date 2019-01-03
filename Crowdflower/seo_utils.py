@@ -109,8 +109,12 @@ def read_chosen_model_file(filename):
             result[method]=C
     return result
 
-def run_chosen_model_for_stats(chosen_models, method,  feature_file, doc_name_index, base_features_file):
-    chosen_model_parameter = chosen_models[method]
+def run_chosen_model_for_stats(chosen_models, method,  feature_file, doc_name_index, base_features_file,beta):
+    key = method
+    if beta:
+        key+="_"+beta
+
+    chosen_model_parameter = chosen_models[key]
     svm = svm_handler()
     model_file = svm.learn_svm_rank_model(base_features_file, method, chosen_model_parameter)
     evaluator = eval(["map", "ndcg", "P.2", "P.5"])

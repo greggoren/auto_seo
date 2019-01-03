@@ -306,7 +306,7 @@ def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,sent
                     coherency_features, "dummy_q", max_min_stats)
     doc_name_index = create_index_to_doc_name_dict(new_features_file+"_exp")
     final_trec_file = run_chosen_model_for_stats(chosen_models, method, new_features_file+"_exp", doc_name_index,
-                                                 new_features_file)
+                                                 new_features_file,str(beta))
 
 
     new_best_sentences = pick_best_sentences(final_trec_file, best_sentences)
@@ -381,7 +381,7 @@ if __name__=="__main__":
     rewrite_fetures(modified_scores,coherency_features_set,seo_features_file,new_features_with_demotion_file,coherency_features,new_qrels_with_demotion_file,max_min_stats)
     labels_file = "labels_demotion"
     f=open(labels_file,"w")
-    run_bots_and_rerank("demotion",doc_texts.copy(),new_features_with_demotion_file,new_qrels_with_demotion_file,sentences,reference_docs,seo_features_file,modified_scores,f)
+    run_bots_and_rerank("demotion",doc_texts.copy(),new_features_with_demotion_file,new_qrels_with_demotion_file,sentences,reference_docs,seo_features_file,modified_scores,f,"")
     f.close()
 
 
