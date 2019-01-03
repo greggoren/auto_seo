@@ -276,7 +276,7 @@ def run_reranking(reference_doc,query,labels_file,add_remove_file,beta="-"):
     labels_file.write(query + " 1 " +beta+ " " + str(addition) + "\n")
 
 
-def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,reference_docs,seo_features_file,dummy_scores,labels_file,beta="-"):
+def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,sentences,reference_docs,seo_features_file,dummy_scores,labels_file,beta="-"):
     chosen_models_file_name = "chosen_models_"+method
     chosen_models = read_chosen_model_file(chosen_models_file_name)
     doc_name_index = create_index_to_doc_name_dict(new_features_file)
@@ -290,7 +290,7 @@ def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,refe
     for query in reference_docs:
         doc = reference_docs[query]
         chosen_comb = best_sentences[query]
-        doc_texts = save_modified_file(doc_texts, best_sentences, chosen_comb, doc)
+        doc_texts = save_modified_file(doc_texts,sentences, chosen_comb, doc)
     new_coherence_features_set, max_min_stats = create_coherency_features(ref_index=-1,
                                                                           ranked_lists_new="ranked_lists/trec_file04",
                                                                           doc_text_modified=doc_texts)
