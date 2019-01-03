@@ -290,9 +290,15 @@ def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,sent
     for query in reference_docs:
         if query in banned_queries:
             continue
+
         doc = reference_docs[query]
+        if query=="180":
+            print(doc_texts[doc],flush=True)
         chosen_comb = best_sentences[query]
         doc_texts = save_modified_file(doc_texts,sentences, chosen_comb, doc)
+        if query=="180":
+            print(doc_texts[doc],flush=True)
+
     new_coherence_features_set, max_min_stats = create_coherency_features(ref_index=-1,
                                                                           ranked_list_new_file="ranked_lists/trec_file04",
                                                                           doc_text_modified=doc_texts)
