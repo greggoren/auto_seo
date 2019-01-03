@@ -288,7 +288,7 @@ def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,sent
     best_sentences = pick_best_sentences(final_trec_file)
 
     for query in reference_docs:
-        if query in banned_queries:
+        if query in banned_queries or query not in best_sentences:
             continue
 
         doc = reference_docs[query]
@@ -314,7 +314,7 @@ def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,sent
     print(new_best_sentences,flush=True)
     for query in reference_docs:
 
-        if query in banned_queries:
+        if query in banned_queries or query not in best_sentences:
             continue
         reference_doc = reference_docs[query]
         write_add_remove_file(add_remove_file, new_best_sentences, query, sentences, reference_doc)
