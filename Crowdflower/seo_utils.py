@@ -146,7 +146,7 @@ def create_coherency_features(ref_index=-1,ranked_list_new_file="",doc_text_modi
 
         text = doc_texts[ref_doc]
         ref_sentences = retrieve_sentences(text)
-        if len(ref_sentences)<2:
+        if len(ref_sentences)<=2:
             continue
         for sentence in sentence_map[query]:
 

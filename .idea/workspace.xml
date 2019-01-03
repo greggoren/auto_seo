@@ -10,7 +10,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py" afterPath="$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/seo_utils.py" afterPath="$PROJECT_DIR$/Crowdflower/seo_utils.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -71,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_experiment_for_two_sentences.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create_experiment_for_two_sentences.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="299" column="44" selection-start-line="299" selection-start-column="44" selection-end-line="299" selection-end-column="44" />
+            <state relative-caret-position="589">
+              <caret line="301" column="55" selection-start-line="301" selection-start-column="55" selection-end-line="301" selection-end-column="55" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -83,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="seo_utils.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="seo_utils.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crowdflower/seo_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
+            <state relative-caret-position="701">
+              <caret line="147" column="45" selection-start-line="147" selection-start-column="45" selection-end-line="147" selection-end-column="45" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -254,8 +254,8 @@
         <option value="$PROJECT_DIR$/Crowdflower/utils.py" />
         <option value="$PROJECT_DIR$/Crowdflower/create_models_per_label_strategy.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/svm_handler.py" />
-        <option value="$PROJECT_DIR$/Crowdflower/seo_utils.py" />
         <option value="$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py" />
+        <option value="$PROJECT_DIR$/Crowdflower/seo_utils.py" />
       </list>
     </option>
   </component>
@@ -675,13 +675,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00762" summary="    renaming">
-      <created>1545990136080</created>
-      <option name="number" value="00762" />
-      <option name="presentableId" value="LOCAL-00762" />
-      <option name="project" value="LOCAL" />
-      <updated>1545990136080</updated>
-    </task>
     <task id="LOCAL-00763" summary="os201">
       <created>1546015813823</created>
       <option name="number" value="00763" />
@@ -1018,7 +1011,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546528746520</updated>
     </task>
-    <option name="localTasksCounter" value="811" />
+    <task id="LOCAL-00811" summary="os201">
+      <created>1546530109028</created>
+      <option name="number" value="00811" />
+      <option name="presentableId" value="LOCAL-00811" />
+      <option name="project" value="LOCAL" />
+      <updated>1546530109028</updated>
+    </task>
+    <option name="localTasksCounter" value="812" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1588,22 +1588,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crowdflower/seo_utils.py">
+    <entry file="file://$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="36" column="57" selection-start-line="36" selection-start-column="57" selection-end-line="36" selection-end-column="57" />
+        <state relative-caret-position="589">
+          <caret line="301" column="55" selection-start-line="301" selection-start-column="55" selection-end-line="301" selection-end-column="55" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py">
+    <entry file="file://$PROJECT_DIR$/Crowdflower/seo_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="299" column="44" selection-start-line="299" selection-start-column="44" selection-end-line="299" selection-end-column="44" />
+        <state relative-caret-position="701">
+          <caret line="147" column="45" selection-start-line="147" selection-start-column="45" selection-end-line="147" selection-end-column="45" />
           <folding>
-            <element signature="e#0#67#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
