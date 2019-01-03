@@ -74,8 +74,8 @@
       <file leaf-file-name="create_experiment_for_two_sentences.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="291" column="20" selection-start-line="291" selection-start-column="20" selection-end-line="291" selection-end-column="20" />
+            <state relative-caret-position="748">
+              <caret line="296" column="94" selection-start-line="296" selection-start-column="94" selection-end-line="296" selection-end-column="94" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -87,7 +87,7 @@
         <entry file="file://$PROJECT_DIR$/Crowdflower/seo_utils.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="292">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+              <caret line="125" column="63" selection-start-line="125" selection-start-column="43" selection-end-line="125" selection-end-column="63" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -705,13 +705,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00757" summary="    renaming">
-      <created>1545988623073</created>
-      <option name="number" value="00757" />
-      <option name="presentableId" value="LOCAL-00757" />
-      <option name="project" value="LOCAL" />
-      <updated>1545988623073</updated>
-    </task>
     <task id="LOCAL-00758" summary="    renaming">
       <created>1545988871849</created>
       <option name="number" value="00758" />
@@ -1048,7 +1041,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546524171254</updated>
     </task>
-    <option name="localTasksCounter" value="806" />
+    <task id="LOCAL-00806" summary="os201">
+      <created>1546524602626</created>
+      <option name="number" value="00806" />
+      <option name="presentableId" value="LOCAL-00806" />
+      <option name="project" value="LOCAL" />
+      <updated>1546524602626</updated>
+    </task>
+    <option name="localTasksCounter" value="807" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1643,7 +1643,7 @@
     <entry file="file://$PROJECT_DIR$/Crowdflower/seo_utils.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="292">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+          <caret line="125" column="63" selection-start-line="125" selection-start-column="43" selection-end-line="125" selection-end-column="63" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -1652,8 +1652,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="291" column="20" selection-start-line="291" selection-start-column="20" selection-end-line="291" selection-end-column="20" />
+        <state relative-caret-position="748">
+          <caret line="296" column="94" selection-start-line="296" selection-start-column="94" selection-end-line="296" selection-end-column="94" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>

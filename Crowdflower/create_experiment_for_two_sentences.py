@@ -294,7 +294,7 @@ def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,sent
         chosen_comb = best_sentences[query]
         doc_texts = save_modified_file(doc_texts,sentences, chosen_comb, doc)
     new_coherence_features_set, max_min_stats = create_coherency_features(ref_index=-1,
-                                                                          ranked_lists_new="ranked_lists/trec_file04",
+                                                                          ranked_list_new_file="ranked_lists/trec_file04",
                                                                           doc_text_modified=doc_texts)
     rewrite_fetures(dummy_scores, new_coherence_features_set, seo_features_file, new_features_file+"_exp",
                     coherency_features, "dummy_q", max_min_stats)
