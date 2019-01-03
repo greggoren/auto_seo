@@ -41,7 +41,7 @@ class svm_handler:
         predictions_file = predictions_folder+os.path.basename(model_file)
         command = "./svm_rank_classify "+test_file +" "+model_file+" "+  predictions_file
         out = run_bash_command(command)
-        print(out)
+        # print(out)
         return predictions_file
 
 
@@ -74,7 +74,7 @@ class svm_handler:
         model_file = models_folder + "model_"+str(C)+".txt"
         command = "./svm_rank_learn -c "+str(C)+" "+ train_file + " " + model_file
         out = run_bash_command(command)
-        print(out)
+        # print(out)
         return model_file
 
     def retrieve_scores(self,test_indices, score_file):

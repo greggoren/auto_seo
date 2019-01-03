@@ -305,7 +305,7 @@ def run_bots_and_rerank(method, doc_texts, new_features_file,new_qrels_file,sent
 
     new_best_sentences = pick_best_sentences(final_trec_file, best_sentences)
 
-
+    print(new_best_sentences,flush=True)
     for query in reference_docs:
 
         if query in banned_queries:
