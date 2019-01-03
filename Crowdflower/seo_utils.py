@@ -31,7 +31,7 @@ def determine_indexes(doc,ranked_list):
 
 def save_modified_file(doc_texts, combinations,chosen_comb, ref_doc):
     old_text = doc_texts[ref_doc]
-    comb = combinations[chosen_comb]
+    comb = combinations[chosen_comb[0]]
     sentence_in = comb[0]
     sentence_out = comb[1].rstrip()
     new_text = old_text.replace(sentence_out,sentence_in)

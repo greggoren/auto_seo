@@ -10,7 +10,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py" afterPath="$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/seo_utils.py" afterPath="$PROJECT_DIR$/Crowdflower/seo_utils.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +62,8 @@
       <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
+            <state relative-caret-position="286">
+              <caret line="366" column="66" selection-start-line="365" selection-start-column="20" selection-end-line="366" selection-end-column="66" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -71,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_experiment_for_two_sentences.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create_experiment_for_two_sentences.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="307" column="78" selection-start-line="307" selection-start-column="78" selection-end-line="307" selection-end-column="78" />
+            <state relative-caret-position="374">
+              <caret line="287" column="35" selection-start-line="287" selection-start-column="35" selection-end-line="287" selection-end-column="35" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -83,11 +83,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="seo_utils.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="seo_utils.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crowdflower/seo_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="35" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+            <state relative-caret-position="526">
+              <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="evaluator.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -118,7 +130,7 @@
       <file leaf-file-name="create_models_per_label_strategy.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_models_per_label_strategy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="438">
               <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
@@ -145,18 +157,6 @@
             <state relative-caret-position="550">
               <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="extract_setences_and_rerank.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SentenceRanking/extract_setences_and_rerank.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="41" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#65#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -197,7 +197,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/CrossValidationUtils/model_chooser.py" />
         <option value="$PROJECT_DIR$/Experiments/stats.py" />
         <option value="$PROJECT_DIR$/../../influence_experiment/documents.trectext" />
         <option value="$PROJECT_DIR$/Crowdflower/sentence.csv" />
@@ -248,6 +247,7 @@
         <option value="$PROJECT_DIR$/Crowdflower/utils.py" />
         <option value="$PROJECT_DIR$/Crowdflower/create_models_per_label_strategy.py" />
         <option value="$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py" />
+        <option value="$PROJECT_DIR$/Crowdflower/seo_utils.py" />
       </list>
     </option>
   </component>
@@ -705,20 +705,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00752" summary="    renaming">
-      <created>1545921909679</created>
-      <option name="number" value="00752" />
-      <option name="presentableId" value="LOCAL-00752" />
-      <option name="project" value="LOCAL" />
-      <updated>1545921909679</updated>
-    </task>
-    <task id="LOCAL-00753" summary="    renaming">
-      <created>1545922869946</created>
-      <option name="number" value="00753" />
-      <option name="presentableId" value="LOCAL-00753" />
-      <option name="project" value="LOCAL" />
-      <updated>1545922869946</updated>
-    </task>
     <task id="LOCAL-00754" summary="    renaming">
       <created>1545979537321</created>
       <option name="number" value="00754" />
@@ -1048,7 +1034,21 @@
       <option name="project" value="LOCAL" />
       <updated>1546518909612</updated>
     </task>
-    <option name="localTasksCounter" value="801" />
+    <task id="LOCAL-00801" summary="os201">
+      <created>1546519315387</created>
+      <option name="number" value="00801" />
+      <option name="presentableId" value="LOCAL-00801" />
+      <option name="project" value="LOCAL" />
+      <updated>1546519315387</updated>
+    </task>
+    <task id="LOCAL-00802" summary="os201">
+      <created>1546523044276</created>
+      <option name="number" value="00802" />
+      <option name="presentableId" value="LOCAL-00802" />
+      <option name="project" value="LOCAL" />
+      <updated>1546523044276</updated>
+    </task>
+    <option name="localTasksCounter" value="803" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1062,7 +1062,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21145834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1476,14 +1476,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="132" column="143" selection-start-line="132" selection-start-column="143" selection-end-line="132" selection-end-column="143" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/create_past_winners_text_file.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -1504,14 +1496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="7" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1826">
-          <caret line="91" column="4" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="4" />
           <folding />
         </state>
       </provider>
@@ -1610,24 +1594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crowdflower/seo_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="35" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="93" column="4" selection-start-line="93" selection-start-column="4" selection-end-line="93" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/run_ranker.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
@@ -1638,9 +1604,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/evaluator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="366" column="66" selection-start-line="365" selection-start-column="20" selection-end-line="366" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-812">
+          <caret line="147" column="4" selection-start-line="147" selection-start-column="4" selection-end-line="147" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_models_per_label_strategy.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
+        <state relative-caret-position="438">
           <caret line="51" column="23" selection-start-line="51" selection-start-column="23" selection-end-line="51" selection-end-column="23" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
@@ -1650,10 +1642,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_experiment_for_two_sentences.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="307" column="78" selection-start-line="307" selection-start-column="78" selection-end-line="307" selection-end-column="78" />
+        <state relative-caret-position="374">
+          <caret line="287" column="35" selection-start-line="287" selection-start-column="35" selection-end-line="287" selection-end-column="35" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Crowdflower/seo_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
