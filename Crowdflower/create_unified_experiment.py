@@ -431,6 +431,8 @@ if __name__=="__main__":
     # write_rank_promotion_stats_per_initial_rank(stats_weighted,"weighted")
     print("queries=",len(get_dataset_stas(aggregated_results)))
     print("examples=",len(aggregated_results))
+    print("coh_examples=",len(coherency_features_set))
+    print("seo_examples=",len(seo_scores))
     print("histogram_coherency",get_histogram(aggregated_results))
     print("histogram_demotion",get_histogram(modified_scores))
     print("histogram_scores_lables",get_histogram(seo_scores))
