@@ -9,12 +9,8 @@
     </list>
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/analyze_labels.py" afterPath="$PROJECT_DIR$/Crowdflower/analyze_labels.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" afterPath="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -87,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create_unified_experiment.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
+            <state relative-caret-position="-302">
+              <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -99,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="random_baseline.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="random_baseline.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/random_baseline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
+            <state relative-caret-position="594">
+              <caret line="64" column="62" selection-start-line="64" selection-start-column="62" selection-end-line="64" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -266,8 +262,8 @@
         <option value="$PROJECT_DIR$/Crowdflower/analyze_labels.py" />
         <option value="$PROJECT_DIR$/CompetitionBot.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py" />
-        <option value="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" />
         <option value="$PROJECT_DIR$/Crowdflower/create_unified_experiment.py" />
+        <option value="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" />
       </list>
     </option>
   </component>
@@ -739,13 +735,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00768" summary="os201">
-      <created>1546170369326</created>
-      <option name="number" value="00768" />
-      <option name="presentableId" value="LOCAL-00768" />
-      <option name="project" value="LOCAL" />
-      <updated>1546170369326</updated>
-    </task>
     <task id="LOCAL-00769" summary="os201">
       <created>1546172608421</created>
       <option name="number" value="00769" />
@@ -1082,7 +1071,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546537614797</updated>
     </task>
-    <option name="localTasksCounter" value="817" />
+    <task id="LOCAL-00817" summary="os201">
+      <created>1546612397973</created>
+      <option name="number" value="00817" />
+      <option name="presentableId" value="LOCAL-00817" />
+      <option name="project" value="LOCAL" />
+      <updated>1546612397974</updated>
+    </task>
+    <option name="localTasksCounter" value="818" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1667,21 +1663,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/random_baseline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="38" column="41" selection-start-line="38" selection-start-column="41" selection-end-line="38" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Crowdflower/create_unified_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="53" column="28" selection-start-line="53" selection-start-column="28" selection-end-line="53" selection-end-column="28" />
+        <state relative-caret-position="-302">
+          <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/random_baseline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="64" column="62" selection-start-line="64" selection-start-column="62" selection-end-line="64" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
