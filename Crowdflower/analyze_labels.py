@@ -25,7 +25,7 @@ def read_labels_demotion(filename):
             if beta not in result:
                 result[beta]={}
 
-            index = line.split()[2]
+            index = line.split()[3]
             result[beta][query] = int(index.rstrip())
 
     return result
@@ -57,7 +57,7 @@ def get_true_labels(new_indexes,lists,reference_docs):
 
 def write_table(method,results):
     f = open("summary_two_sentences_"+method+".tex","w")
-    f.write("\\begin{tabular}{|c|c|\n")
+    f.write("\\begin{tabular}{|c|c|}\n")
     f.write("\\hline\n")
     f.write("$\\beta$ & Average Addition \\\\ \n")
     f.write("\\hline\n")

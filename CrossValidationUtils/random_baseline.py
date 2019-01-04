@@ -36,7 +36,7 @@ def run_random(features_file, qrels, name, seo_scores=False):
             for key in tmp_rank_increase_score:
                 averaged_rank_increase_stats[key].append(tmp_rank_increase_score[key])
 
-        for metric in ["map", "ndcg", "P.2", "P.5"]:
+        for metric in ["map", "ndcg_cut.5", "P.2", "P.5"]:
             command = "./trec_eval -m " + metric + " " + qrels + " random_scores" + name
             for output_line in run_command(command):
                 print(metric, output_line)
@@ -60,9 +60,9 @@ def run_random(features_file, qrels, name, seo_scores=False):
     cols = "|" + cols
     summary_file.write("\\begin{tabular}{" + cols + "}\n")
     if not seo_scores:
-        next_line = " & ".join([s for s in ["map", "ndcg", "P.2", "P.5"]]) + "\\\\ \n"
+        next_line = " & ".join([s for s in ["map", "ndcg.5", "P.2", "P.5"]]) + "\\\\ \n"
     else:
-        next_line = " & ".join([s for s in ["map", "ndcg", "P.2", "P.5"]])+" & " +" & ".join(["Top1","Top2","Top5","$\\GE$","$\\EQ$","$\\LE$"])+ "\\\\ \n"
+        next_line = " & ".join([s for s in ["map", "ndcg.5", "P.2", "P.5"]])+" & " +" & ".join(["Top1","Top2","Top5","$\\GE$","$\\EQ$","$\\LE$"])+ "\\\\ \n"
     summary_file.write(next_line)
     if not seo_scores:
         next_line = " & ".join([str(round(np.mean(score_data[s]),4)) for s in ["map", "ndcg", "P.2", "P.5"]]) + "\n"
