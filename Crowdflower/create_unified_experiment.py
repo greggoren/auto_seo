@@ -47,11 +47,10 @@ def create_harmonic_mean_score(seo_scores,coherency_scores,beta):
     for id in seo_scores:
         epsilon = 0.0001
         current_score = seo_scores[id]
-        coherency_score = coherency_scores[id]
-        new_coherency_score = coherency_score*(4.0/5)
+        coherency_score = coherency_scores[id]+epsilon
+        new_coherency_score = coherency_score*(4.0/5)+epsilon
         numerator = (1+beta**2)*new_coherency_score*current_score
         denominator = (beta**2)*new_coherency_score+current_score
-        denominator+=epsilon
         if denominator!=0:
             harmonic_mean = float(numerator)/denominator #(2*new_coherency_score*current_score)/(new_coherency_score+current_score)
         else:
@@ -427,9 +426,9 @@ if __name__=="__main__":
         weighted_hist = get_histogram(weighted_mean_scores)
         write_histogram_for_weighted_scores(weighted_hist, "weighted_histogram.tex", beta,flag1,last)
         flag1=True
-    write_rank_promotion_stats_per_initial_rank(stats_demotion, "demotion")
-    write_rank_promotion_stats_per_initial_rank(stats_harmonic,"harmonic")
-    write_rank_promotion_stats_per_initial_rank(stats_weighted,"weighted")
+    # write_rank_promotion_stats_per_initial_rank(stats_demotion, "demotion")
+    # write_rank_promotion_stats_per_initial_rank(stats_harmonic,"harmonic")
+    # write_rank_promotion_stats_per_initial_rank(stats_weighted,"weighted")
     print("queries=",len(get_dataset_stas(aggregated_results)))
     print("examples=",len(aggregated_results))
     print("histogram_coherency",get_histogram(aggregated_results))
