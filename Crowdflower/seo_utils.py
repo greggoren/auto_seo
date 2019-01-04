@@ -136,6 +136,7 @@ def create_coherency_features(ref_index=-1,ranked_list_new_file="",doc_text_modi
     reference_docs = {q: ranked_lists[q][ref_index].replace("EPOCH", "ROUND") for q in ranked_lists}
     winner_docs = {q: ranked_lists_new[q][:determine_indexes(reference_docs[q],ranked_lists_new[q])] for q in ranked_lists_new}
     file_to_load = params.trec_text_file
+    fucked = []
     if doc_text_modified:
         a_doc_texts = doc_text_modified
     else:
@@ -151,7 +152,7 @@ def create_coherency_features(ref_index=-1,ranked_list_new_file="",doc_text_modi
         text = doc_texts[ref_doc]
         ref_sentences = retrieve_sentences(text)
         if len(ref_sentences)<=2:
-            continue
+            fucked.append(len(text)*len(sentence_map[query]))
         for sentence in sentence_map[query]:
 
             sentence_vec = get_sentence_vector(sentence_map[query][sentence],model=model)
@@ -178,4 +179,5 @@ def create_coherency_features(ref_index=-1,ranked_list_new_file="",doc_text_modi
                 row["similarity_to_pred_ref"] = cosine_similarity(ref_vector,window[1])
                 max_min_stats=save_max_mix_stats(max_min_stats,row,query)
                 rows[run_name]=row
+    print("missed ",sum(fucked),"examples")
     return rows,max_min_stats
