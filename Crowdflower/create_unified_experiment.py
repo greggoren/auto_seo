@@ -47,10 +47,11 @@ def create_harmonic_mean_score(seo_scores,coherency_scores,beta):
     for id in seo_scores:
         epsilon = 0.0001
         current_score = seo_scores[id]
-        coherency_score = coherency_scores[id]+epsilon
-        new_coherency_score = coherency_score*(4.0/5)+epsilon
+        coherency_score = coherency_scores[id]
+        new_coherency_score = coherency_score*(4.0/5)
         numerator = (1+beta**2)*new_coherency_score*current_score
         denominator = (beta**2)*new_coherency_score+current_score
+        denominator+=epsilon
         if denominator!=0:
             harmonic_mean = float(numerator)/denominator #(2*new_coherency_score*current_score)/(new_coherency_score+current_score)
         else:
