@@ -13,6 +13,8 @@ def create_former_winners_file(current_time):
     start_iter_index = 5
     needed_iterations = sorted_iterations[start_iter_index:]
     past_winners_dir = "past_winners/"+current_time+"/"
+    if not os.path.exists(past_winners_dir):
+        os.makedirs(past_winners_dir)
     past_winners_filename = past_winners_dir+"past_winners_text_"+current_time
     f = open(past_winners_filename,"w")
     for iteration in needed_iterations:
