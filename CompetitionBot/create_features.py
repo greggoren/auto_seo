@@ -122,7 +122,7 @@ def init_top_doc_vectors(top_docs,doc_ids,model):
     top_docs_vectors={}
     for query in top_docs:
         docs = top_docs[query]
-        command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp /home/greg/auto_seo/scripts/indri.jar DocStems ~/mergedindex \""+" ".join([doc_ids[d.rstrip()].strip() for d in docs])+"\""
+        command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp indri.jar DocStems /home/greg/ASR18/Collections/mergedindex \""+" ".join([doc_ids[d.rstrip()].strip() for d in docs])+"\""
         print(command)
         print(run_bash_command(command))
         top_docs_vectors[query]=[]
