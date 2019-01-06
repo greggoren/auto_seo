@@ -43,3 +43,7 @@ def assign_three_bots():
         method_counts[bot_method][relative_place]+=1
         relative_places[query]+=1
     print(method_counts)
+
+
+assign_single_bot("harmonic")
+assign_three_bots()
