@@ -329,7 +329,7 @@ def replace_sentences_and_save_doc(ref_doc,query,sentence_in,sentence_out):
 
 def get_sentences_for_replacement(comb,sentences_index,ref_doc,query):
     ref_doc_sentences = sentences_index[query][ref_doc]
-    top_doc = comb.split("_")[0]
+    top_doc = "_".join(comb.split("_")[:-2])
     top_doc_sentence_index = int(comb.split("_")[4])-1
     replacement_index = int(comb.split("_")[5])-1
     sentence_in  = sentences_index[query][top_doc][top_doc_sentence_index]
