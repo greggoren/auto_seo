@@ -19,7 +19,7 @@ def assign_single_bot(single_bot_method):
         doc["bot_method"]=single_bot_method
         print(doc["username"],doc["position"],doc["waterloo"])
         seen.append(query)
-        # db.documents.save(doc)
+        db.documents.save(doc)
 
 
 def pick_startegy(relative_place,method_counts):
@@ -40,11 +40,11 @@ def assign_three_bots():
         relative_place = relative_places[query]
         bot_method=pick_startegy(relative_place,method_counts)
         doc["bot_method"] = bot_method
-        # db.documents.save(doc)
+        db.documents.save(doc)
         method_counts[bot_method][relative_place]+=1
         relative_places[query]+=1
     print(method_counts)
 
 
-assign_single_bot("harmonic")
+assign_single_bot("weighted")
 assign_three_bots()
