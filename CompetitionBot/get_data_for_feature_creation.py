@@ -48,7 +48,7 @@ def create_sentence_file(top_docs_file, ref_doc, query,current_time):
     with open(top_docs_file) as file:
         for line in file:
             query_id = line.split("\t")[0]
-            top_doc = line.split("\t")[1].split("-")[1]
+            top_doc = line.split("\t")[1].split("-")[1].rstrip()
             top_doc_text = next(db.documents.find({"query_id":query_id,"username":top_doc}))["posted_document"]
             top_doc_sentences = retrieve_sentences(top_doc_text)
             sentences_index[query][top_doc]=top_doc_sentences
