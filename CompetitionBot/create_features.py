@@ -183,8 +183,8 @@ def write_files(values,query,comb):
         f.close()
 
 
-def create_tfidf_features_and_features_file(sentence_working_set,features_file,features_dir,index_path,sentence_file,top_doc_files,query):
-    command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp indri.jar Main "+index_path+" "+sentence_file+" "+top_doc_files+" "+sentence_working_set+" "+query
+def create_tfidf_features_and_features_file(sentence_working_set,features_file,features_dir,index_path,sentence_file,top_doc_files,query,past_winners_file):
+    command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp indri.jar Main "+index_path+" "+sentence_file+" "+top_doc_files+" "+past_winners_file+" "+query
     print(run_bash_command(command))
     command = "mv doc*_* "+features_dir
     run_bash_command(command)
@@ -368,7 +368,7 @@ def create_features_for_doc_and_run_model(reference_docs,current_time,past_winne
                 os.makedirs(features_dir)
             if not os.path.exists(final_features_dir):
                 os.makedirs(final_features_dir)
-            create_tfidf_features_and_features_file(working_set_file,features_file,features_dir,index_path,sentence_file_name,top_docs_file,query)
+            create_tfidf_features_and_features_file(working_set_file,features_file,features_dir,index_path,sentence_file_name,top_docs_file,query,past_winners_file)
             print("created tf-idf features")
             model_file = model_index[method_index[query+"-"+doc]]
             doc_name_index = create_index_to_doc_name_dict(features_file)
