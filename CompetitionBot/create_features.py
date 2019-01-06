@@ -257,18 +257,20 @@ def get_reference_documents():
 def create_coherency_features(sentences_index,ref_doc,query,model):
     ref_doc_sentences = sentences_index[query][ref_doc]
     for top_doc in sentences_index[query]:
+        if top_doc==ref_doc:
+            continue
         top_doc_sentences = sentences_index[query][top_doc]
         for i,top_doc_sentence in enumerate(top_doc_sentences,start=1):
             sentence_vec = get_sentence_vector(top_doc_sentence,model)
-            for j,ref_sentence in enumerate(ref_doc_sentences,start=1):
+            for j,ref_sentence in enumerate(ref_doc_sentences):
                 row={}
-                comb = top_doc+"_"+str(i)+"_"+str(j)
+                comb = top_doc+"_"+str(i)+"_"+str(j+1)
                 window = []
                 if j == 0:
                     window.append(get_sentence_vector(ref_doc_sentences[1], model))
                     window.append(get_sentence_vector(ref_doc_sentences[1], model))
 
-                elif j + 1 == len(ref_doc_sentences):
+                elif j+1 == len(ref_doc_sentences):
                     window.append(get_sentence_vector(ref_doc_sentences[j - 1], model))
                     window.append(get_sentence_vector(ref_doc_sentences[j - 1], model))
                 else:
