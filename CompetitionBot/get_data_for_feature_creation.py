@@ -60,7 +60,17 @@ def create_sentence_file(top_docs_file, ref_doc, query,current_time):
     return sentence_filename,sentences_index
 
 
-
+def get_label_strategies():
+    result = {}
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    documents= db.documents.find({})
+    for doc in documents:
+        if "bot_method" not in doc:
+            continue
+        key = doc["query_id"+"-"+doc["username"]]
+        result[key] = doc["bot_method"]
+    return result
 
 
 def create_sentence_working_set(ref_doc,current_time,sentence_file,query):
@@ -83,7 +93,10 @@ def create_top_docs_per_ref_doc(current_time,ref_doc,query):
     ref_doc_data = db.documents.find({"username":ref_doc,"query_id":query})
     ref_position = next(ref_doc_data)["position"]
     top_docs = db.documents.find({"query_id":query,"position":{"$lt":ref_position}})
-    top_docs_filename = ref_doc+"_top_docs_"+current_time
+    top_docs_dir = "top_docs/"+current_time+"/"
+    if not os.path.exists(top_docs_dir):
+        os.makedirs(top_docs_dir)
+    top_docs_filename = top_docs_dir+ref_doc+"_"+query+"_top_docs_"+current_time
     f = open(top_docs_filename,"w")
     for doc in top_docs:
         username = doc["username"]

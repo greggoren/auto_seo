@@ -11,6 +11,7 @@
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/create_features.py" afterPath="$PROJECT_DIR$/CompetitionBot/create_features.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py" afterPath="$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,11 +60,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="get_data_for_feature_creation.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="get_data_for_feature_creation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="79" column="16" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
+            <state relative-caret-position="504">
+              <caret line="98" column="37" selection-start-line="98" selection-start-column="37" selection-end-line="98" selection-end-column="37" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -71,13 +72,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_features.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create_features.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/create_features.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="275" column="73" selection-start-line="275" selection-start-column="73" selection-end-line="275" selection-end-column="73" />
+            <state relative-caret-position="266">
+              <caret line="347" column="42" selection-start-line="347" selection-start-column="42" selection-end-line="347" selection-end-column="42" />
               <folding>
-                <element signature="e#0#160#0" expanded="true" />
+                <element signature="e#0#181#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -202,8 +203,8 @@
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_model_chooser.py" />
         <option value="$PROJECT_DIR$/Crowdflower/create_models_per_label_strategy.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/assign_bots.py" />
-        <option value="$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/create_features.py" />
+        <option value="$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py" />
       </list>
     </option>
   </component>
@@ -661,20 +662,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00801" summary="os201">
-      <created>1546519315387</created>
-      <option name="number" value="00801" />
-      <option name="presentableId" value="LOCAL-00801" />
-      <option name="project" value="LOCAL" />
-      <updated>1546519315387</updated>
-    </task>
-    <task id="LOCAL-00802" summary="os201">
-      <created>1546523044276</created>
-      <option name="number" value="00802" />
-      <option name="presentableId" value="LOCAL-00802" />
-      <option name="project" value="LOCAL" />
-      <updated>1546523044276</updated>
-    </task>
     <task id="LOCAL-00803" summary="os201">
       <created>1546523654020</created>
       <option name="number" value="00803" />
@@ -1004,7 +991,21 @@
       <option name="project" value="LOCAL" />
       <updated>1546800425109</updated>
     </task>
-    <option name="localTasksCounter" value="850" />
+    <task id="LOCAL-00850" summary="os201">
+      <created>1546801524036</created>
+      <option name="number" value="00850" />
+      <option name="presentableId" value="LOCAL-00850" />
+      <option name="project" value="LOCAL" />
+      <updated>1546801524036</updated>
+    </task>
+    <task id="LOCAL-00851" summary="os201">
+      <created>1546802574994</created>
+      <option name="number" value="00851" />
+      <option name="presentableId" value="LOCAL-00851" />
+      <option name="project" value="LOCAL" />
+      <updated>1546802574994</updated>
+    </task>
+    <option name="localTasksCounter" value="852" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1623,22 +1624,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py">
+    <entry file="file://$PROJECT_DIR$/CompetitionBot/create_features.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="79" column="16" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="16" />
+        <state relative-caret-position="266">
+          <caret line="347" column="42" selection-start-line="347" selection-start-column="42" selection-end-line="347" selection-end-column="42" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#181#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CompetitionBot/create_features.py">
+    <entry file="file://$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="275" column="73" selection-start-line="275" selection-start-column="73" selection-end-line="275" selection-end-column="73" />
+        <state relative-caret-position="504">
+          <caret line="98" column="37" selection-start-line="98" selection-start-column="37" selection-end-line="98" selection-end-column="37" />
           <folding>
-            <element signature="e#0#160#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -1,4 +1,4 @@
-from CompetitionBot.get_data_for_feature_creation import create_top_docs_per_ref_doc,create_former_winners_file,create_sentence_file,create_sentence_working_set
+from CompetitionBot.get_data_for_feature_creation import create_top_docs_per_ref_doc,create_former_winners_file,create_sentence_file,create_sentence_working_set,get_label_strategies
 from pymongo import MongoClient
 import numpy as np
 from krovetzstemmer import Stemmer
@@ -333,7 +333,11 @@ def get_sentences_for_replacement(comb,sentences_index,ref_doc,query):
     sentence_out = ref_doc_sentences[replacement_index]
     return sentence_in,sentence_out
 
-def create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids_file,model_index,index_path):
+
+
+
+
+def create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids_file,model_index,index_path,method_index):
     print("loading w2v model")
     model = load_model()
     print("loading done")
@@ -361,8 +365,7 @@ def create_features_for_doc_and_run_model(reference_docs,current_time,past_winne
                 os.makedirs(final_features_dir)
             create_tfidf_features_and_features_file(working_set_file,features_file,features_dir,index_path,sentence_file_name,top_docs_file,query)
             print("created tf-idf features")
-            model_file = model_index[query+"_"+doc]
-
+            model_file = model_index[method_index[query+"-"+doc]]
             doc_name_index = create_index_to_doc_name_dict(features_file)
             print("created doc name index")
             trec_file = run_svm_model(features_file,model_file,doc_name_index,query,doc,current_time)
@@ -379,4 +382,5 @@ if __name__=="__main__":
     past_winners_file = create_former_winners_file(current_time)
     print(past_winners_file)
     index_path = "/home/greg/ASR18/Collections/mergedindex"
-    create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids,model_index,index_path)
+    method_index = get_label_strategies()
+    create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids,model_index,index_path,method_index)
