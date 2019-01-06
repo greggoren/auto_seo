@@ -184,8 +184,8 @@ def write_files(values,query,comb):
         f.close()
 
 
-def create_tfidf_features_and_features_file(sentence_working_set,features_file,features_dir):
-    command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp /home/greg/auto_seo/scripts/indri.jar Main"
+def create_tfidf_features_and_features_file(sentence_working_set,features_file,features_dir,index_path,sentence_file,top_doc_files,query):
+    command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp indri.jar Main "+index_path+" "+sentence_file+" "+top_doc_files+" "+sentence_working_set+" "+query
     print(run_bash_command(command))
     command = "mv doc*_* "+features_dir
     run_bash_command(command)
@@ -330,7 +330,7 @@ def get_sentences_for_replacement(comb,sentences_index,ref_doc,query):
     sentence_out = ref_doc_sentences[replacement_index]
     return sentence_in,sentence_out
 
-def create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids_file,model_index):
+def create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids_file,model_index,index_path):
     model = load_model()
     for query in reference_docs:
         for doc in reference_docs[query]:
@@ -346,7 +346,7 @@ def create_features_for_doc_and_run_model(reference_docs,current_time,past_winne
                 os.makedirs(features_dir)
             if not os.path.exists(final_features_dir):
                 os.makedirs(final_features_dir)
-            create_tfidf_features_and_features_file(working_set_file,features_file,features_dir)
+            create_tfidf_features_and_features_file(working_set_file,features_file,features_dir,index_path,sentence_file_name,top_docs_file,query)
             model_file = model_index[query+"_"+doc]
             doc_name_index = create_index_to_doc_name_dict(features_file)
             trec_file = run_svm_model(features_file,model_file,doc_name_index,query,doc,current_time)
@@ -357,7 +357,6 @@ def create_features_for_doc_and_run_model(reference_docs,current_time,past_winne
 if __name__=="__main__":
     current_time = str(datetime.datetime.now()).replace(":", "-").replace(" ", "-").replace(".", "-")
     doc_ids = "docIDs"
-
 
     model_index= create_bot_models_index()
     reference_docs = get_reference_documents()
