@@ -25,7 +25,7 @@ def create_former_winners_file(current_time):
                 continue
             text = document["text"]
             sentences = retrieve_sentences(text)
-            f.write(query + "@@@" + " ".join([a.replace("\n", "").replace("\r"," ") for a in sentences]) + "\n")
+            f.write(query + "@@@" + " ".join([a.replace("\n", " ").replace("\r"," ") for a in sentences]) + "\n")
     f.close()
     return past_winners_filename
 
@@ -55,7 +55,7 @@ def create_sentence_file(top_docs_file, ref_doc, query,current_time):
             for i,top_doc_sentence in enumerate(top_doc_sentences,start=1):
                 for j,ref_sentence in enumerate(ref_sentences,start=1):
                     comb_name = top_doc+"_"+str(i)+"_"+str(j)
-                    f.write(comb_name+"@@@"+top_doc_sentence.rstrip()+"@@@"+ref_sentence.rstrip()+"\n")
+                    f.write(comb_name+"@@@"+top_doc_sentence.replace("\n","").replace("\r","").rstrip()+"@@@"+ref_sentence.replace("\n","").replace("\r","").rstrip()+"\n")
     f.close()
     return sentence_filename,sentences_index
 

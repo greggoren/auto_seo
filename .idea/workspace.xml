@@ -62,8 +62,8 @@
       <file leaf-file-name="get_data_for_feature_creation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="108" column="21" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
+            <state relative-caret-position="594">
+              <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -74,8 +74,8 @@
       <file leaf-file-name="create_features.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/create_features.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="298" column="32" selection-start-line="298" selection-start-column="32" selection-end-line="298" selection-end-column="32" />
+            <state relative-caret-position="3322">
+              <caret line="151" column="56" selection-start-line="151" selection-start-column="56" selection-end-line="151" selection-end-column="56" />
               <folding>
                 <element signature="e#0#181#0" expanded="true" />
               </folding>
@@ -671,20 +671,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00808" summary="os201">
-      <created>1546526950897</created>
-      <option name="number" value="00808" />
-      <option name="presentableId" value="LOCAL-00808" />
-      <option name="project" value="LOCAL" />
-      <updated>1546526950898</updated>
-    </task>
-    <task id="LOCAL-00809" summary="os201">
-      <created>1546528043442</created>
-      <option name="number" value="00809" />
-      <option name="presentableId" value="LOCAL-00809" />
-      <option name="project" value="LOCAL" />
-      <updated>1546528043442</updated>
-    </task>
     <task id="LOCAL-00810" summary="os201">
       <created>1546528746520</created>
       <option name="number" value="00810" />
@@ -1014,7 +1000,21 @@
       <option name="project" value="LOCAL" />
       <updated>1546804889552</updated>
     </task>
-    <option name="localTasksCounter" value="857" />
+    <task id="LOCAL-00857" summary="os201">
+      <created>1546805648769</created>
+      <option name="number" value="00857" />
+      <option name="presentableId" value="LOCAL-00857" />
+      <option name="project" value="LOCAL" />
+      <updated>1546805648769</updated>
+    </task>
+    <task id="LOCAL-00858" summary="os201">
+      <created>1546805946706</created>
+      <option name="number" value="00858" />
+      <option name="presentableId" value="LOCAL-00858" />
+      <option name="project" value="LOCAL" />
+      <updated>1546805946706</updated>
+    </task>
+    <option name="localTasksCounter" value="859" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1635,8 +1635,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/create_features.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="298" column="32" selection-start-line="298" selection-start-column="32" selection-end-line="298" selection-end-column="32" />
+        <state relative-caret-position="3322">
+          <caret line="151" column="56" selection-start-line="151" selection-start-column="56" selection-end-line="151" selection-end-column="56" />
           <folding>
             <element signature="e#0#181#0" expanded="true" />
           </folding>
@@ -1645,8 +1645,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="108" column="21" selection-start-line="108" selection-start-column="21" selection-end-line="108" selection-end-column="21" />
+        <state relative-caret-position="594">
+          <caret line="27" column="64" selection-start-line="27" selection-start-column="64" selection-end-line="27" selection-end-column="64" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
