@@ -344,7 +344,7 @@ def create_features_for_doc_and_run_model(reference_docs,current_time,past_winne
             print("sentence_file is created")
             working_set_file =create_sentence_working_set(doc,current_time,sentence_file_name,query)
             print("sentence working-set is created")
-            create_w2v_features(sentence_file_name,top_docs_file,doc_ids_file,past_winners_file,model,query)
+            create_w2v_features(sentence_file_name , top_docs_file,doc_ids_file,past_winners_file,model,query)
             print("created seo w2v features")
             create_coherency_features(sentences_index,doc,query,model)
             print("created coherency features")
@@ -374,5 +374,6 @@ if __name__=="__main__":
     model_index= create_bot_models_index()
     reference_docs = get_reference_documents()
     past_winners_file = create_former_winners_file(current_time)
+    print(past_winners_file)
     index_path = "/home/greg/ASR18/Collections/mergedindex"
     create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids,model_index,index_path)
