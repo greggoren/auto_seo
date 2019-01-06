@@ -25,7 +25,7 @@ def create_former_winners_file(current_time):
                 continue
             text = document["text"]
             sentences = retrieve_sentences(text)
-            f.write(query + "@@@" + " ".join([a.replace("\n", "") for a in sentences]) + "\n")
+            f.write(query + "@@@" + " ".join([a.replace("\n", "").replace("\r"," ") for a in sentences]) + "\n")
     f.close()
     return past_winners_filename
 
