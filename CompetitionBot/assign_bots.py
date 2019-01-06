@@ -13,6 +13,7 @@ def assign_single_bot(single_bot_method):
     seen=[]
     for doc in documents:
         query = doc["query_id"]
+        print(query,doc["position"])
         if query in seen:
             continue
         doc["bot_method"]=single_bot_method
