@@ -352,7 +352,7 @@ def create_features_for_doc_and_run_model(reference_docs,current_time,past_winne
             trec_file = run_svm_model(features_file,model_file,doc_name_index,query,doc,current_time)
             best_comb = pick_best_sentence_pair(trec_file)
             sentence_in,sentence_out = get_sentences_for_replacement(best_comb,sentences_index,doc,query)
-            replace_sentences_and_save_doc(doc,query,sentence_in,sentence_out)
+            # replace_sentences_and_save_doc(doc,query,sentence_in,sentence_out)
 
 if __name__=="__main__":
     current_time = str(datetime.datetime.now()).replace(":", "-").replace(" ", "-").replace(".", "-")
