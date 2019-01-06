@@ -209,6 +209,7 @@ def read_past_winners_file(winners_file):
     stemmer = Stemmer()
     with open(winners_file) as file:
         for line in file:
+            print(line)
             query = line.split("@@@")[0]
             text = line.split("@@@")[1]
             if query not in winners_data:
