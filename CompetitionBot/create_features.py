@@ -297,7 +297,7 @@ def create_trec_eval_file(doc_name_index, results, prefix, current_time):
 
 def retrieve_scores(score_file):
     with open(score_file) as scores:
-        results = {i: float(score.split()[2].rstrip()) for i, score in enumerate(scores)}
+        results = {i: float(score.split()[0].rstrip()) for i, score in enumerate(scores)}
         return results
 
 
