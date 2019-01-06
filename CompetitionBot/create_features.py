@@ -331,15 +331,25 @@ def get_sentences_for_replacement(comb,sentences_index,ref_doc,query):
     return sentence_in,sentence_out
 
 def create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids_file,model_index,index_path):
+    print("loading w2v model")
     model = load_model()
+    print("loading done")
     for query in reference_docs:
+        print("working on",query)
         for doc in reference_docs[query]:
+            print("working on",doc)
             top_docs_file = create_top_docs_per_ref_doc(current_time,doc,query)
-            sentence_file_name,sentences_index = create_sentence_file(top_docs_file,doc,query)
+            print("top_doc_file is created")
+            sentence_file_name,sentences_index = create_sentence_file(top_docs_file,doc,query,current_time)
+            print("sentence_file is created")
             working_set_file =create_sentence_working_set(doc,current_time,sentence_file_name,query)
+            print("sentence working-set is created")
             create_w2v_features(sentence_file_name,top_docs_file,doc_ids_file,past_winners_file,model,query)
+            print("created seo w2v features")
             create_coherency_features(sentences_index,doc,query,model)
+            print("created coherency features")
             final_features_dir = "sentence_feature_files/"+current_time+"/"
+
             features_file = final_features_dir+query+"_"+doc+"_"+current_time
             features_dir = "sentence_feature_values/"+current_time+"/"+query+"_"+doc+"/"
             if not os.path.exists(features_dir):
@@ -347,13 +357,17 @@ def create_features_for_doc_and_run_model(reference_docs,current_time,past_winne
             if not os.path.exists(final_features_dir):
                 os.makedirs(final_features_dir)
             create_tfidf_features_and_features_file(working_set_file,features_file,features_dir,index_path,sentence_file_name,top_docs_file,query)
+            print("created tf-idf features")
             model_file = model_index[query+"_"+doc]
+
             doc_name_index = create_index_to_doc_name_dict(features_file)
+            print("created doc name index")
             trec_file = run_svm_model(features_file,model_file,doc_name_index,query,doc,current_time)
+            print("ran seo model")
             best_comb = pick_best_sentence_pair(trec_file)
             sentence_in,sentence_out = get_sentences_for_replacement(best_comb,sentences_index,doc,query)
             # replace_sentences_and_save_doc(doc,query,sentence_in,sentence_out)
-
+            #print("replaced sentences")
 if __name__=="__main__":
     current_time = str(datetime.datetime.now()).replace(":", "-").replace(" ", "-").replace(".", "-")
     doc_ids = "docIDs"
