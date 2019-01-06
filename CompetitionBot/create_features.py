@@ -361,4 +361,4 @@ if __name__=="__main__":
     reference_docs = get_reference_documents()
     past_winners_file = create_former_winners_file(current_time)
     index_path = "/home/greg/ASR18/Collections/mergedindex"
-    create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids,model_index)
+    create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids,model_index,index_path)
