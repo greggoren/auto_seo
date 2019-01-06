@@ -41,7 +41,6 @@ class svm_handler:
         predictions_file = predictions_folder+os.path.basename(model_file)
         command = "./svm_rank_classify "+test_file +" "+model_file+" "+  predictions_file
         out = run_bash_command(command)
-        # print(out)
         return predictions_file
 
 

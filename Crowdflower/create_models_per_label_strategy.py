@@ -51,7 +51,7 @@ if __name__=="__main__":
     rewrite_fetures(modified_scores, coherency_features_set, seo_features_file, new_features_with_demotion_file,
                     coherency_features, new_qrels_with_demotion_file, max_min_stats)
     choose_model(new_features_with_demotion_file,new_features_with_demotion_file,"demotion")
-    betas=[0,0.5,1,2]
+    betas=[2,]
     for beta in betas:
         new_features_with_harmonic_file = "all_seo_features_harmonic_" + str(beta)
         new_qrels_with_harmonic_file = "seo_harmonic_qrels_" + str(beta)
@@ -61,7 +61,7 @@ if __name__=="__main__":
                         coherency_features, new_qrels_with_harmonic_file, max_min_stats)
         choose_model(new_features_with_harmonic_file,new_qrels_with_harmonic_file,"harmonic",str(beta))
 
-    betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+    betas = [0.8,]
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_" + str(beta)
         new_qrels_with_weighted_file = "seo_weighted_qrels_" + str(beta)

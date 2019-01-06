@@ -45,7 +45,7 @@ def choose_model(features_file,qrels_file,label_method,beta=""):
     sorted_models = sorted(list(scores.keys()), key=lambda x: scores[x], reverse=True)
     for file in sorted_models:
         print(file, scores[file])
-    f = open("chosen_models_" + label_method, "a")
+    f = open("chosen_models_" + label_method, "w")
     add=""
     if beta:
        add= "_" + beta
@@ -53,7 +53,10 @@ def choose_model(features_file,qrels_file,label_method,beta=""):
     f.close()
 
 
-#
+
+
+
+
 if __name__=="__main__":
     features_file = sys.argv[1]
     print("features file=", features_file)
