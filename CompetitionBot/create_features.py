@@ -282,7 +282,7 @@ def create_coherency_features(sentences_index,ref_doc,query,model):
                 row["docSimilarityToPredRef"] = cosine_similarity(ref_vector, window[1])
                 write_files(row,query,comb)
 
-def create_trec_eval_file(doc_name_index, results, prefix, current_time):
+def create_trec_eval_file(doc_name_index, results, prefix, current_time,query):
     trec_dir = "sentence_scores_dir/"+current_time+"/"
     if not os.path.exists(trec_dir):
         os.makedirs(trec_dir)
@@ -290,7 +290,6 @@ def create_trec_eval_file(doc_name_index, results, prefix, current_time):
     trec_file_access = open(trec_file, 'w')
     for index in results:
         doc_name = doc_name_index[index]
-        query = doc_name.split("-")[2]
         trec_file_access.write(query + " Q0 " + doc_name + " " + str(0) + " " + str(results[index]) + " seo\n")
     trec_file_access.close()
     return trec_file
@@ -306,7 +305,7 @@ def run_svm_model(feature_file, model_file,doc_name_index,query,ref_doc,current_
     evaluator = eval(["map", "ndcg", "P.2", "P.5"])
     scores_file = svm.run_svm_rank_model(feature_file, model_file, query+"_"+ref_doc)
     results = retrieve_scores(scores_file)
-    trec_file = create_trec_eval_file(doc_name_index, results, query+"_"+ref_doc,current_time)
+    trec_file = create_trec_eval_file(doc_name_index, results, query+"_"+ref_doc,current_time,query)
     final_trec_file = evaluator.order_trec_file(trec_file)
     return final_trec_file
 
