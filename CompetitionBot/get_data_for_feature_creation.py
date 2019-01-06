@@ -12,7 +12,8 @@ def create_former_winners_file(current_time):
     sorted_iterations = sorted(iterations)
     start_iter_index = 5
     needed_iterations = sorted_iterations[start_iter_index:]
-    past_winners_filename = "past_winners_text_"+current_time
+    past_winners_dir = "past_winners/"+current_time+"/"
+    past_winners_filename = past_winners_dir+"past_winners_text_"+current_time
     f = open(past_winners_filename,"w")
     for iteration in needed_iterations:
         documents = db.archive.find({"iteration":iteration,"position":1}).sort("query_id",1)
@@ -24,7 +25,7 @@ def create_former_winners_file(current_time):
             sentences = retrieve_sentences(text)
             f.write(query + "@@@" + " ".join([a.replace("\n", "") for a in sentences]) + "\n")
     f.close()
-
+    return past_winners_filename
 
 
 
