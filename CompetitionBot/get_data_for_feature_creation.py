@@ -68,7 +68,7 @@ def get_label_strategies():
     for doc in documents:
         if "bot_method" not in doc:
             continue
-        key = doc["query_id"+"-"+doc["username"]]
+        key = doc["query_id"]+"-"+doc["username"]
         result[key] = doc["bot_method"]
     return result
 
