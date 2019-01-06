@@ -16,7 +16,7 @@ def assign_single_bot(single_bot_method):
         if query in seen:
             continue
         doc["bot_method"]=single_bot_method
-        print(doc["username"],doc["position"])
+        print(doc["username"],doc["position"],doc["waterloo"])
         seen.append(query)
         # db.documents.save(doc)
 
