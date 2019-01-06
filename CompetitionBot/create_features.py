@@ -178,7 +178,7 @@ def create_bot_models_index():
 
 def write_files(values,query,comb):
     for feature in values:
-        f = open(feature+"_"+query,'a')
+        f = open(feature+"_"+query.split("_")[0],'a')
         f.write(comb+" "+str(values[feature])+"\n")
         f.close()
 
