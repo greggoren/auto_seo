@@ -30,7 +30,7 @@ def assign_three_bots():
     db = client.asr16
     strategies = ["demotion","harmonic","weighted"]
     method_counts = {i:{1:0,2:0,3:0} for i in strategies}
-    documents = db.documents.find({"query_id": {"$regex":"/_0"}, "username": {"$regex":"dummy_doc/"}}).sort([["query_id",ASCENDING],["position",ASCENDING]])
+    documents = db.documents.find({"query_id": {"$regex":".*_0"}, "username": {"$regex":"dummy_doc.*"}}).sort([["query_id",ASCENDING],["position",ASCENDING]])
     relative_places = {}
     for doc in documents:
         query = doc["query_id"]
