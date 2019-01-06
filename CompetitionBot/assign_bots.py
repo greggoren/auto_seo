@@ -13,7 +13,7 @@ def assign_single_bot(single_bot_method):
     seen=[]
     for doc in documents:
         query = doc["query_id"]
-        print(query,doc["position"])
+        # print(query,doc["position"])
         if query in seen or doc["waterloo"]<60:
             continue
         doc["bot_method"]=single_bot_method
