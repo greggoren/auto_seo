@@ -82,7 +82,7 @@ def create_sentence_working_set(ref_doc,current_time,sentence_file,query):
         with open(sentence_file) as file:
             for i,line in enumerate(file,start=1):
                 comb = line.split("@@@")[0]
-                working_set_file.write(query+" Q0 "+comb+" "+str(i)+" "+str(-i)+" seo\n")
+                working_set_file.write(query.split("_")[0]+" Q0 "+comb+" "+str(i)+" "+str(-i)+" seo\n")
     return working_set_filename
 
 
