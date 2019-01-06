@@ -350,7 +350,9 @@ def create_features_for_doc_and_run_model(reference_docs,current_time,past_winne
         print("working on",query)
         for doc in reference_docs[query]:
             print("working on",doc)
-            top_docs_file = create_top_docs_per_ref_doc(current_time,doc,query)
+            top_docs_file,first = create_top_docs_per_ref_doc(current_time,doc,query)
+            if first:
+                continue
             print("top_doc_file is created")
             sentence_file_name,sentences_index = create_sentence_file(top_docs_file,doc,query,current_time)
             print("sentence_file is created")

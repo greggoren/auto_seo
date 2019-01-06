@@ -92,8 +92,12 @@ def create_top_docs_per_ref_doc(current_time,ref_doc,query):
     db = client.asr16
     ref_doc_data = db.documents.find({"username":ref_doc,"query_id":query})
     ref_position = next(ref_doc_data)["position"]
+    first = False
+    if ref_position==1:
+        first=True
     top_docs = db.documents.find({"query_id":query,"position":{"$lt":ref_position}})
     top_docs_dir = "top_docs/"+current_time+"/"
+
     if not os.path.exists(top_docs_dir):
         os.makedirs(top_docs_dir)
     top_docs_filename = top_docs_dir+ref_doc+"_"+query+"_top_docs_"+current_time
@@ -104,7 +108,7 @@ def create_top_docs_per_ref_doc(current_time,ref_doc,query):
         working_name = q+"-"+username
         f.write(q+"\t"+working_name+"\n")
     f.close()
-    return top_docs_filename
+    return top_docs_filename,first
 
 
 
