@@ -327,7 +327,7 @@ def replace_sentences_and_save_doc(ref_doc,query,sentence_in,sentence_out):
     new_text = text.replace(sentence_out,sentence_in)
     print(new_text)
     doc["current_document"]=new_text
-    # db.documents.save(doc)
+    db.documents.save(doc)
 
 def get_sentences_for_replacement(comb,sentences_index,ref_doc,query):
     ref_doc_sentences = sentences_index[query][ref_doc]
