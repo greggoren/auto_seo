@@ -7,7 +7,6 @@ from utils import run_bash_command
 import math
 import os
 import params
-from Experiments.model_handler import retrieve_scores
 from Experiments.model_handler import create_index_to_doc_name_dict
 from CrossValidationUtils.svm_handler import svm_handler
 from CrossValidationUtils.evaluator import eval
@@ -296,6 +295,12 @@ def create_trec_eval_file(doc_name_index, results, prefix, current_time):
         trec_file_access.write(query + " Q0 " + doc_name + " " + str(0) + " " + str(results[index]) + " seo\n")
     trec_file_access.close()
     return trec_file
+
+def retrieve_scores(score_file):
+    with open(score_file) as scores:
+        results = {i: float(score.split()[2].rstrip()) for i, score in enumerate(scores)}
+        return results
+
 
 def run_svm_model(feature_file, model_file,doc_name_index,query,ref_doc,current_time):
     svm = svm_handler()
