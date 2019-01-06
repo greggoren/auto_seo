@@ -9,7 +9,7 @@ ASR_MONGO_PORT = 27017
 def assign_single_bot(single_bot_method):
     client = MongoClient(ASR_MONGO_HOST,ASR_MONGO_PORT)
     db = client.asr16
-    documents = db.documents.find({"query_id":{"$regex":"/_2"},"position":{"$ne":1},"username":{"$regex":"dummy_doc/"}}).sort([["query_id",ASCENDING],["position",ASCENDING]])
+    documents = db.documents.find({"query_id":{"$regex":".*_2"},"position":{"$ne":1},"username":{"$regex":"dummy_doc.*"}}).sort([["query_id",ASCENDING],["position",ASCENDING]])
     seen=[]
     for doc in documents:
         query = doc["query_id"]
