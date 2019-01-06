@@ -269,11 +269,11 @@ def create_coherency_features(sentences_index,ref_doc,query,model):
                     window.append(get_sentence_vector(ref_doc_sentences[1], model))
 
                 elif j + 1 == len(ref_doc_sentences):
-                    window.append(get_sentence_vector(ref_doc_sentences[i - 1], model))
-                    window.append(get_sentence_vector(ref_doc_sentences[i - 1], model))
+                    window.append(get_sentence_vector(ref_doc_sentences[j - 1], model))
+                    window.append(get_sentence_vector(ref_doc_sentences[j - 1], model))
                 else:
-                    window.append(get_sentence_vector(ref_doc_sentences[i - 1], model))
-                    window.append(get_sentence_vector(ref_doc_sentences[i + 1], model))
+                    window.append(get_sentence_vector(ref_doc_sentences[j - 1], model))
+                    window.append(get_sentence_vector(ref_doc_sentences[j + 1], model))
                 ref_vector = get_sentence_vector(ref_sentence, model)
                 row["docSimilarityToPrev"] = cosine_similarity(sentence_vec, window[0])
                 row["docSimilarityToRefSentence"] = cosine_similarity(ref_vector, sentence_vec)
