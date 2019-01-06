@@ -323,9 +323,11 @@ def replace_sentences_and_save_doc(ref_doc,query,sentence_in,sentence_out):
     db = client.asr16
     doc = next(db.documents.find({"query_id":query,"username":ref_doc}))
     text = doc["posted_document"]
+    print(text)
     new_text = text.replace(sentence_out,sentence_in)
+    print(new_text)
     doc["current_document"]=new_text
-    db.documents.save(doc)
+    # db.documents.save(doc)
 
 def get_sentences_for_replacement(comb,sentences_index,ref_doc,query):
     ref_doc_sentences = sentences_index[query][ref_doc]
@@ -377,8 +379,8 @@ def create_features_for_doc_and_run_model(reference_docs,current_time,past_winne
             print("ran seo model")
             best_comb = pick_best_sentence_pair(trec_file)
             sentence_in,sentence_out = get_sentences_for_replacement(best_comb,sentences_index,doc,query)
-            # replace_sentences_and_save_doc(doc,query,sentence_in,sentence_out)
-            #print("replaced sentences")
+            replace_sentences_and_save_doc(doc,query,sentence_in,sentence_out)
+            print("replaced sentences")
 if __name__=="__main__":
     current_time = str(datetime.datetime.now()).replace(":", "-").replace(" ", "-").replace(".", "-")
     doc_ids = "docIDs"
