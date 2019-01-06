@@ -11,6 +11,8 @@ from Experiments.model_handler import retrieve_scores
 from Experiments.model_handler import create_index_to_doc_name_dict
 from CrossValidationUtils.svm_handler import svm_handler
 from CrossValidationUtils.evaluator import eval
+import datetime
+
 
 ASR_MONGO_HOST = "asr2.iem.technion.ac.il"
 ASR_MONGO_PORT = 27017
@@ -116,6 +118,7 @@ def init_doc_ids(doc_ids_file):
 
 
 
+
 def init_top_doc_vectors(top_docs,doc_ids,model):
     top_docs_vectors={}
     for query in top_docs:
@@ -168,6 +171,10 @@ def create_w2v_features(senteces_file,top_docs_file,doc_ids_file,past_winners_fi
 
 
 
+
+def create_bot_models_index():
+    model_index = {"harmonic":"models/harmonic_model_0.1","demotion":"models/demotion_model_0.1","weighted":"models/weighted_model_0.01"}
+    return model_index
 
 
 def write_files(values,query,comb):
@@ -346,3 +353,15 @@ def create_features_for_doc_and_run_model(reference_docs,current_time,past_winne
             best_comb = pick_best_sentence_pair(trec_file)
             sentence_in,sentence_out = get_sentences_for_replacement(best_comb,sentences_index,doc,query)
             replace_sentences_and_save_doc(doc,query,sentence_in,sentence_out)
+
+if __name__=="__main__":
+    current_time = str(datetime.datetime.now()).replace(":", "-").replace(" ", "-").replace(".", "-")
+    doc_ids = "docIDs"
+
+
+    model_index= create_bot_models_index()
+    reference_docs = get_reference_documents()
+    past_winners_file = create_former_winners_file(current_time)
+
+
+    create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids,model_index)
