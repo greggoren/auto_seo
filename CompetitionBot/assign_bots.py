@@ -9,12 +9,14 @@ ASR_MONGO_PORT = 27017
 def assign_single_bot(single_bot_method):
     client = MongoClient(ASR_MONGO_HOST,ASR_MONGO_PORT)
     db = client.asr16
-    documents = db.documents.find({"query_id":{"$regex":".*_2"},"position":{"$ne":1},"username":{"$regex":"dummy_doc.*"}}).sort([["query_id",ASCENDING],["position",ASCENDING]])
+    # documents = db.documents.find({"query_id":{"$regex":".*_2"},"position":{"$ne":1},"username":{"$regex":"dummy_doc.*"}}).sort([["query_id",ASCENDING],["position",ASCENDING]])
+    documents = db.documents.find({"query_id":"180_2","position":{"$ne":1},"username":{"$regex":"dummy_doc.*"}}).sort([["query_id",ASCENDING],["position",ASCENDING]])
     seen=[]
     for doc in documents:
         query = doc["query_id"]
         # print(query,doc["position"])
-        if query in seen or doc["waterloo"]<60:
+        # if query in seen or doc["waterloo"]<60:
+        if query in seen:
             continue
         doc["bot_method"]=single_bot_method
         print(doc["username"],doc["position"],doc["waterloo"])
@@ -47,4 +49,4 @@ def assign_three_bots():
 
 
 assign_single_bot("weighted")
-assign_three_bots()
+# assign_three_bots()
