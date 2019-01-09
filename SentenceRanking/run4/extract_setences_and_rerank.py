@@ -58,8 +58,8 @@ if __name__=="__main__":
             doc_texts[doc]=a_doc_texts[doc]
     sentence_map=map_set_of_sentences(doc_texts,winner_docs)
     summaries = {}
-    labels_file=open("labels_new", 'w')
-    addition_to_file_names = round+"_"+str(reference_index)
+    addition_to_file_names = round + "_" + str(reference_index)
+    labels_file=open("labels_new_"+addition_to_file_names, 'w')
     sentence_data_file = open("sentences_add_remove_"+addition_to_file_names, "w")
     index=1
     for query in sentence_map:
