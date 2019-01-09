@@ -25,12 +25,12 @@ if __name__=="__main__":
     a_doc_texts = load_file(params.trec_text_file)
     doc_texts={}
     for doc in a_doc_texts:
-        if doc.__contains__("ROUND-04"):
+        if doc.__contains__("ROUND-04") or doc.__contains__("ROUND-06"):
             doc_texts[doc]=a_doc_texts[doc]
-    trec_text_file = create_trectext(doc_texts, [], "",[])
+    trec_text_file = create_trectext(doc_texts, [],"trec_text_round_4_6","ws4_6")
 
-    # added_index = create_index(trec_text_file)
-    # merged_index = merge_indices(added_index,"","/home/greg/baseindex")
+    added_index = create_index(trec_text_file,"4_6")
+    merged_index = merge_indices(added_index,"","/home/greg/mergedindex")
 
 
 

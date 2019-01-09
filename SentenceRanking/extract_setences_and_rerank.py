@@ -42,21 +42,25 @@ def determine_indexes(doc,ranked_list):
     return min(ranked_list.index(doc),3)
 
 if __name__=="__main__":
-    new_ranked_list ="trec_file04"
-    ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
+    # new_ranked_list ="trec_file04"
+    round = sys.argv[1].zfill(2)
+    new_ranked_list ="trec_file"+round
+    reference_index = int(sys.argv[2])
+    # ranked_lists = retrieve_ranked_lists(params.ranked_lists_file)
     ranked_lists_new = retrieve_ranked_lists(new_ranked_list)
-    reference_docs = {q:ranked_lists[q][-1].replace("EPOCH","ROUND") for q in ranked_lists}
+    reference_docs = {q:ranked_lists_new[q][reference_index].replace("EPOCH","ROUND") for q in ranked_lists_new}
 
     winner_docs = {q:ranked_lists_new[q][:determine_indexes(reference_docs[q],ranked_lists_new[q])] for q in ranked_lists_new}
     a_doc_texts = load_file(params.trec_text_file)
     doc_texts={}
     for doc in a_doc_texts:
-        if doc.__contains__("ROUND-04"):
+        if doc.__contains__("ROUND-"+round):
             doc_texts[doc]=a_doc_texts[doc]
     sentence_map=map_set_of_sentences(doc_texts,winner_docs)
     summaries = {}
     labels_file=open("labels_new", 'w')
-    sentence_data_file = open("sentences_add_remove", "w")
+    addition_to_file_names = round+"_"+str(reference_index)
+    sentence_data_file = open("sentences_add_remove_"+addition_to_file_names, "w")
     index=1
     for query in sentence_map:
         print("in query",index, "out of",len(sentence_map))
@@ -76,7 +80,7 @@ if __name__=="__main__":
                     continue
                 modified_doc=reference_doc+"\n"+new_sentence
                 summaries[reference_doc]=modified_doc
-                add = open("/home/greg/auto_seo/scripts/add_remove",'w',encoding="utf8")
+                add = open("/home/greg/auto_seo/scripts/add_remove_"+addition_to_file_names,'w',encoding="utf8")
                 add.write(reference_doc+"@@@"+new_sentence.rstrip()+"@@@"+reference_sentence.rstrip()+"\n")
                 sentence_data_file.write(run_name + "@@@" + new_sentence.rstrip() + "@@@" + reference_sentence.rstrip() + "\n")
                 add.close()
@@ -84,7 +88,7 @@ if __name__=="__main__":
                 trec_text_file = create_trectext_original(doc_texts, summaries, "",[])
                 features_dir = "Features"
                 feature_file = "features_"+run_name
-                create_features_file(features_dir, params.path_to_index, params.queries_xml,feature_file,"/home/greg/auto_seo/scripts/add_remove","")
+                create_features_file(features_dir, params.path_to_index, params.queries_xml,feature_file,"/home/greg/auto_seo/scripts/add_remove_"+addition_to_file_names,"")
                 index_doc_name = create_index_to_doc_name_dict(feature_file)
                 scores_file = run_model(feature_file)
                 results = retrieve_scores(index_doc_name, scores_file)
