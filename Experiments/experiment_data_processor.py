@@ -23,9 +23,9 @@ def create_features_file(features_dir,index_path,queries_file,new_features_file,
     print(command)
     out=run_bash_command(command)
     print(out)
-    command = "mv features "+new_features_file
-    print(command)
-    out = run_bash_command(command)
+    # command = "mv features "+new_features_file
+    # print(command)
+    # out = run_bash_command(command)
     print(out)
 
 
