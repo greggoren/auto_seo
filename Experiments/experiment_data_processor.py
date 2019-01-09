@@ -4,13 +4,13 @@ from utils import run_bash_command
 import sys
 import time
 
-def create_features_file(features_dir,index_path,queries_file,new_features_file,add_remove_file,run_name=""):
+def create_features_file(features_dir,index_path,queries_file,new_features_file,add_remove_file,run_name,working_set):
     run_bash_command("rm -r "+features_dir)
     if not os.path.exists(features_dir):
         os.makedirs(features_dir)
 
     # command= params.ltr_features_script+" "+ queries_file + ' -stream=doc -index=' + index_path + ' -repository='+ index_path +' -useWorkingSet=true -workingSetFile='+ params.working_set_file+run_name + ' -workingSetFormat=trec'
-    command = " java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp /home/greg/auto_seo/scripts/indri.jar LTRFeaturesCreator "+add_remove_file
+    command = " java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp /home/greg/auto_seo/scripts/indri.jar LTRFeaturesCreator "+add_remove_file+" "+working_set
     print(command)
     out = run_bash_command(command)
     print(out)
@@ -19,7 +19,7 @@ def create_features_file(features_dir,index_path,queries_file,new_features_file,
     # out = run_bash_command(command)
     # print(out)
     run_bash_command("mv doc*_* "+features_dir)
-    command = "perl "+params.features_generator_script_path+" "+features_dir+" "+params.working_set_file+run_name
+    command = "perl "+params.features_generator_script_path+" "+features_dir+" "+working_set+" "+run_name
     print(command)
     out=run_bash_command(command)
     print(out)

@@ -86,9 +86,9 @@ if __name__=="__main__":
                 add.close()
                 time.sleep(1)
                 trec_text_file = create_trectext_original(doc_texts, summaries, "",[])
-                features_dir = "Features"
-                feature_file = "features_"+run_name
-                create_features_file(features_dir, params.path_to_index, params.queries_xml,feature_file,"/home/greg/auto_seo/scripts/add_remove_"+addition_to_file_names,"")
+                features_dir = "Features"+addition_to_file_names
+                feature_file = "features_"+run_name+"_"+addition_to_file_names
+                create_features_file(features_dir, params.path_to_index, params.queries_xml,feature_file,"/home/greg/auto_seo/scripts/add_remove_"+addition_to_file_names,addition_to_file_names,new_ranked_list)
                 index_doc_name = create_index_to_doc_name_dict(feature_file)
                 scores_file = run_model(feature_file)
                 results = retrieve_scores(index_doc_name, scores_file)
