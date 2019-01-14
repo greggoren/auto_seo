@@ -38,13 +38,12 @@ def retrieve_initial_documents():
             if att.tag == "DOCNO":
                 name=att.text
             else:
-                if name.__contains__("ROUND-04-"):
+                if name.__contains__("ROUND-04-") or name.__contains__("ROUND-06-"):
                     text = str(att.text).rstrip().replace("\n","").replace(" ","").replace('&','and').replace("'","").lower()
                     initial_query_docs[text]=name
     return initial_query_docs
 
-def get_scores(scores,filename,reverse):
-    # scores = {}
+def get_scores(scores,filename,reverse,index):
     with open(filename,encoding="utf-8") as file:
         reader = csv.DictReader(file)
         seen=[]
@@ -55,9 +54,9 @@ def get_scores(scores,filename,reverse):
                 id = doc.split("-")[3]
                 query = doc.split("-")[2]
                 key = query+"_"+id
-                current_key = "ROUND-04-"+query+"-"+id
+                current_key = "ROUND-"+str(index).zfill(2)+"-"+query+"-"+id
                 if key not in seen:
-                    scores[doc]=0
+                    scores[current_key]=0
                     seen.append(key)
 
                 if "this_document_is" in row:

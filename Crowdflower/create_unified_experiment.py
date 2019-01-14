@@ -255,7 +255,6 @@ def write_rank_promotion_stats_per_initial_rank(stats,method):
 
 def write_histogram_for_weighted_scores(hist_scores,filename,beta,flag=False,last=False):
 
-    file = Path(filename)
     if not flag:
         f = open(filename, "w")
         cols = "c|"*6

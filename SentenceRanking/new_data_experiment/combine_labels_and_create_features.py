@@ -10,6 +10,7 @@ from utils import run_bash_command,cosine_similarity
 from krovetzstemmer import Stemmer
 import params
 import math
+from Crowdflower.create_unified_experiment import write_histogram_for_weighted_scores
 
 def get_centroid(doc_vectors,decay=False):
     sum_of_vecs = np.zeros(300)
@@ -65,7 +66,7 @@ def read_seo_score(labels):
     with open(labels) as labels_file:
         for line in labels_file:
             query = line.split()[0]
-            key = query[2:]
+            key = query[:2]
             if key not in scores:
                 scores[key]={}
             id = line.split()[2]
@@ -156,20 +157,19 @@ def normalize_feature(feature_value,max_min_stats,query,feature):
     value = (feature_value-max_min_stats[query][feature]["min"])/denominator
     return value
 
-def rewrite_fetures(new_scores, coherency_features_set, old_features_file, new_features_filename, coherency_features_names,qrels_name,max_min_stats):
+def rewrite_fetures(new_scores, old_features_file, new_features_filename,qrels_name):
     f = open(new_features_filename,"w")
     qrels = open(qrels_name,"w")
     with open(old_features_file) as file:
         for line in file:
             qid = line.split()[1]
             query = qid.split(":")[1]
+            key=query[2:]
             features = line.split()[2:-2]
-            number_of_features = len(features)
             id = line.split(" # ")[1].rstrip()
-            if id not in new_scores or id not in coherency_features_set:
+            if id not in new_scores[key]:
                 continue
-            coherency_features = [str(i)+":"+str(normalize_feature(coherency_features_set[id][feature],max_min_stats,query,feature)) for i,feature in enumerate(coherency_features_names,start=number_of_features+1)]
-            new_line = str(new_scores[id]) + " " + qid + " " + " ".join(features) + " " + " ".join(coherency_features) + " # " + id + "\n"
+            new_line=str(new_scores[key][id])+" qid:"+query+" "+" ".join(features)+" # "+id
             f.write(new_line)
             qrels.write(query+" 0 "+id+" "+str(new_scores[id])+"\n")
     f.close()
@@ -196,7 +196,7 @@ def get_document_vector(doc,model):
 
 def write_files(values,query,comb):
     for feature in values:
-        f = open(feature+"_"+query.split("_")[0],'a')
+        f = open(feature+"_"+query,'a')
         f.write(comb+" "+str(values[feature])+"\n")
         f.close()
 
@@ -245,12 +245,12 @@ def create_coherency_features(sentences_index,ref_doc,input_query,model,key):
                 comb = top_doc+"_"+str(i)+"_"+str(j+1)
                 window = []
                 if j == 0:
-                    if j+1 == len(ref_doc_sentences):
-                        window.append(get_sentence_vector(ref_doc_sentences[0], model))
-                        window.append(get_sentence_vector(ref_doc_sentences[0], model))
-                    else:
-                        window.append(get_sentence_vector(ref_doc_sentences[1], model))
-                        window.append(get_sentence_vector(ref_doc_sentences[1], model))
+                    # if j+1 == len(ref_doc_sentences):
+                    #     window.append(get_sentence_vector(ref_doc_sentences[0], model))
+                    #     window.append(get_sentence_vector(ref_doc_sentences[0], model))
+                    # else:
+                    window.append(get_sentence_vector(ref_doc_sentences[1], model))
+                    window.append(get_sentence_vector(ref_doc_sentences[1], model))
 
                 elif j+1 == len(ref_doc_sentences):
                     window.append(get_sentence_vector(ref_doc_sentences[j - 1], model))
@@ -406,6 +406,29 @@ def create_top_docs_per_ref_doc(top_docs,key,ref_doc,query):
     f.close()
     return top_docs_file
 
+def get_histogram(dataset):
+    hist ={}
+    for key in dataset:
+        for id in dataset[key]:
+            if dataset[key][id]<1:
+                bucket =0
+            elif dataset[key][id]<2:
+                bucket =1
+            elif dataset[key][id]<3:
+                bucket =2
+            elif dataset[key][id]<4:
+                bucket =3
+            elif dataset[key][id]<5:
+                bucket=4
+            else:
+                bucket=5
+            if bucket not in hist:
+                hist[bucket]=0
+            hist[bucket]+=1
+    total_examples = sum([hist[b] for b in hist])
+    for bucket in hist:
+        hist[bucket]=round(hist[bucket]/total_examples,3)
+    return hist
 
 def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_path,top_docs,doc_text):
     print("loading w2v model")
@@ -465,11 +488,11 @@ if __name__=="__main__":
             doc_texts[doc] = tmp_doc_texts[doc]
     original_docs = retrieve_initial_documents()
     scores={}
-    for k in range(4):
+    for k in range(6):
         needed_file = sorted_files[k]
-        scores = get_scores(scores,dir + "/" + needed_file,original_docs)
-    # banned_queries = get_banned_queries(scores,reference_docs)
-    # banned_queries = []
+        scores = get_scores(scores,dir + "/" + needed_file,original_docs,k+1)
+    banned_queries = get_banned_queries(scores,reference_docs)
+    banned_queries = []
     rounds = ["4","6"]
     ranks = ["2","5"]
     past_winners_file_4 ="past_winners_file_new_data04"
@@ -477,60 +500,72 @@ if __name__=="__main__":
     past_winners_file_index={"65":past_winners_file_6,"62":past_winners_file_6,"45":past_winners_file_4,"42":past_winners_file_4}
     doc_ids_file="docIDs"
     index_path="/home/greg/mergedindex"
-    create_features(reference_docs,past_winners_file_index,doc_ids_file,index_path,top_docs,doc_texts)
+    base_features_file=create_features(reference_docs,past_winners_file_index,doc_ids_file,index_path,top_docs,doc_texts)
 
-    # all_aggregated_results={}
-    # for r in rounds:
-    #     for rank in ranks:
-    #
-    #         ident_filename_mturk = "Mturk/Manipulated_Document_Identification_"+r+"_"+rank+".csv"
-    #         sentence_filename_mturk = "Mturk/Sentence_Identification_"+r+"_"+rank+".csv"
-    #         ident_results = mturk_ds_creator.read_ds_mturk(ident_filename_mturk, True)
-    #         sentence_results = mturk_ds_creator.read_ds_mturk(sentence_filename_mturk)
-    #         sentence_tags = mturk_ds_creator.get_tags(sentence_results)
-    #         ident_tags = mturk_ds_creator.get_tags(ident_results)
-    #         tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
-    #         aggregated_results = ban_non_coherent_docs(banned_queries,tmp_aggregated_results)
-    #         key = r+rank
-    #         all_aggregated_results[key]=aggregated_results
-    #
-    # coherency_features = ["similarity_to_prev", "similarity_to_ref_sentence", "similarity_to_pred",
-    #                       "similarity_to_prev_ref", "similarity_to_pred_ref"]
-    # seo_scores_file = "labels_new_final"
-    # tmp_seo_scores = read_seo_score(seo_scores_file)
-    # seo_scores = ban_non_coherent_docs(banned_queries,tmp_seo_scores)
-    # modified_scores= modify_seo_score_by_demotion(seo_scores,all_aggregated_results)
-    #
-    # seo_features_file = "new_sentence_features"
-    # new_features_with_demotion_file = "all_seo_features_demotion"
-    # new_qrels_with_demotion_file = "seo_demotion_qrels"
+    all_aggregated_results={}
+    for r in rounds:
+        for rank in ranks:
 
+            ident_filename_mturk = "Mturk/Manipulated_Document_Identification_"+r+"_"+rank+".csv"
+            sentence_filename_mturk = "Mturk/Sentence_Identification_"+r+"_"+rank+".csv"
+            ident_results = mturk_ds_creator.read_ds_mturk(ident_filename_mturk, True)
+            sentence_results = mturk_ds_creator.read_ds_mturk(sentence_filename_mturk)
+            sentence_tags = mturk_ds_creator.get_tags(sentence_results)
+            ident_tags = mturk_ds_creator.get_tags(ident_results)
+            tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
+            aggregated_results = ban_non_coherent_docs(banned_queries,tmp_aggregated_results)
+            key = r+rank
+            all_aggregated_results[key]=aggregated_results
+    #
+    seo_scores_file = "labels_new_final_new_data"
+    tmp_seo_scores = read_seo_score(seo_scores_file)
+    seo_scores = ban_non_coherent_docs(banned_queries,tmp_seo_scores)
+    modified_scores= modify_seo_score_by_demotion(seo_scores,all_aggregated_results)
+    new_features_with_demotion_file = "all_seo_features_demotion"
+    new_qrels_with_demotion_file = "seo_demotion_qrels"
 
+    rewrite_fetures(modified_scores)
 
-    # stats_harmonic={}
-    # betas = [0,0.5,1,2]
-    # flag =False
-    # flag1 =False
-    # for beta in betas:
-    #     new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
-    #     new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
-    #     harmonic_mean_scores={}
-    #     harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results,beta)
-    #     rewrite_fetures(harmonic_mean_scores, coherency_features_set, seo_features_file, new_features_with_harmonic_file,
-    #                     coherency_features, new_qrels_with_harmonic_file,max_min_stats)
-    #
-    #
-    #
-    # flag=False
-    # flag1=False
-    # stats_weighted = {}
-    # betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
-    # for beta in betas:
-    #     new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
-    #     new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
-    #     weighted_mean_scores={}
-    #     weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
-    #     rewrite_fetures(weighted_mean_scores, coherency_features_set, seo_features_file, new_features_with_weighted_file,
-    #                     coherency_features, new_qrels_with_weighted_file,max_min_stats)
+    stats_harmonic={}
+    betas = [0,0.5,1,2]
+    flag =False
+    flag1 =False
+    for beta in betas:
+        new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
+        new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
+        harmonic_mean_scores={}
+        harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results,beta)
+        rewrite_fetures(harmonic_mean_scores, base_features_file, new_features_with_harmonic_file,new_qrels_with_harmonic_file)
+        harmonic_hist = get_histogram(harmonic_mean_scores)
+        last = False
+        if beta == betas[-1]:
+            last = True
+        flag = True
+        write_histogram_for_weighted_scores(harmonic_hist, "harmonic_histogram.tex", beta, flag1, last)
+        flag1 = True
 
 
+    flag=False
+    flag1=False
+    stats_weighted = {}
+    betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+    for beta in betas:
+        new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
+        new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
+        weighted_mean_scores={}
+        weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
+        rewrite_fetures(weighted_mean_scores,base_features_file, new_features_with_weighted_file,new_qrels_with_weighted_file)
+        last = False
+        if beta == betas[-1]:
+            last = True
+        flag = True
+        weighted_hist = get_histogram(weighted_mean_scores)
+        write_histogram_for_weighted_scores(weighted_hist, "weighted_histogram.tex", beta, flag1, last)
+        flag1 = True
+
+    print("queries=", len(get_dataset_stas(aggregated_results)))
+    print("examples=", len(aggregated_results))
+    print("seo_examples=", len(seo_scores))
+    print("histogram_coherency", get_histogram(aggregated_results))
+    print("histogram_demotion", get_histogram(modified_scores))
+    print("histogram_scores_lables", get_histogram(seo_scores))
