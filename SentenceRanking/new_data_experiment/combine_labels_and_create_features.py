@@ -357,7 +357,7 @@ def create_sentence_file(top_docs_file, ref_doc, query,key,doc_texts):
     f = open(sentence_filename,"w")
     with open(top_docs_file) as file:
         for line in file:
-            top_doc = line.split("\t")[1]
+            top_doc = line.split("\t")[1].rstrip()
             top_doc_text = doc_texts[top_doc]
             top_doc_sentences = retrieve_sentences(top_doc_text)
             sentences_index[query+key][top_doc]=top_doc_sentences
