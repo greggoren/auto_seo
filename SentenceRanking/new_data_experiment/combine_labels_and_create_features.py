@@ -430,14 +430,14 @@ def create_features(reference_docs,past_winners_file,doc_ids_file,index_path,top
 
 
 if __name__=="__main__":
-    ranked_lists_new = retrieve_ranked_lists("ranked_lists/trec_file04")
+    ranked_lists_new = retrieve_ranked_lists("trec_file04")
     reference_docs={}
     top_docs={}
     reference_docs["45"] = {q: ranked_lists_new[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists_new}
     top_docs["45"]={q: ranked_lists_new[q][:3].replace("EPOCH", "ROUND") for q in ranked_lists_new}
     reference_docs["42"] = {q: ranked_lists_new[q][1].replace("EPOCH", "ROUND") for q in ranked_lists_new}
     top_docs["42"] = {q: ranked_lists_new[q][:1].replace("EPOCH", "ROUND") for q in ranked_lists_new}
-    ranked_lists_new = retrieve_ranked_lists("ranked_lists/trec_file06")
+    ranked_lists_new = retrieve_ranked_lists("trec_file06")
     reference_docs["65"] = {q: ranked_lists_new[q][-1].replace("EPOCH", "ROUND") for q in ranked_lists_new}
     top_docs["65"] = {q: ranked_lists_new[q][:3].replace("EPOCH", "ROUND") for q in ranked_lists_new}
     reference_docs["62"] = {q: ranked_lists_new[q][1].replace("EPOCH", "ROUND") for q in ranked_lists_new}
