@@ -52,8 +52,8 @@ def get_scores(scores,filename,reverse,index):
                 doc = reverse[text]
                 id = doc.split("-")[3]
                 query = doc.split("-")[2]
-                current_key1 = "ROUND-04"+query+"-"+id
-                current_key2 = "ROUND-06"+query+"-"+id
+                current_key1 = "ROUND-04-"+query+"-"+id
+                current_key2 = "ROUND-06-"+query+"-"+id
                 if index<=4:
                     scores[current_key1]=0
                     scores[current_key2]=0
