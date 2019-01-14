@@ -46,19 +46,15 @@ def retrieve_initial_documents():
 def get_scores(scores,filename,reverse,index):
     with open(filename,encoding="utf-8") as file:
         reader = csv.DictReader(file)
-        seen=[]
         for row in reader:
             text = row["post_content"].rstrip().replace("\n","").replace(" ","").replace('&','and').replace("'","").lower()
             if text in reverse:
                 doc = reverse[text]
                 id = doc.split("-")[3]
                 query = doc.split("-")[2]
-                key = query+"_"+id
                 current_key = "ROUND-"+str(index).zfill(2)+"-"+query+"-"+id
-                if key not in seen:
+                if current_key not in scores:
                     scores[current_key]=0
-                    seen.append(key)
-
                 if "this_document_is" in row:
                     if row["this_document_is"].lower()=="valid":
                         scores[current_key]+=1
