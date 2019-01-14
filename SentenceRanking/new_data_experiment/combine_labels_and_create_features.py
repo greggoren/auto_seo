@@ -201,16 +201,21 @@ def write_files(values,query,comb):
         f.close()
 
 
-def create_tfidf_features_and_features_file(sentence_working_set,features_file,features_dir,index_path,sentence_file,top_doc_files,input_query,past_winners_file,key):
+def create_tfidf_features_and_features_file(features_dir,index_path,sentence_file,top_doc_files,input_query,past_winners_file,key):
     query = input_query+key
     command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp indri.jar Main "+index_path+" "+sentence_file+" "+top_doc_files+" "+past_winners_file+" "+query
     print(run_bash_command(command))
     command = "mv doc*_* "+features_dir
     run_bash_command(command)
-    command = "perl " + params.sentence_feature_creator + " "+features_dir+" " + sentence_working_set
+
+
+
+def create_features_from_dir(features_dir,features_file,sentence_working_set):
+    command = "perl " + params.sentence_feature_creator + " " + features_dir + " " + sentence_working_set
     run_bash_command(command)
     command = "mv features " + features_file
     run_bash_command(command)
+
 
 def feature_values(centroid,s_in,s_out,past_winner_centroid):
     result={}
@@ -402,6 +407,15 @@ def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_pa
     print("loading w2v model")
     model = load_model()
     print("loading done")
+    final_features_dir = "sentence_feature_files/"
+    features_file = final_features_dir + "new_data_sentence_features"
+    features_dir = "sentence_feature_values/"
+    if not os.path.exists(features_dir):
+        os.makedirs(features_dir)
+    if not os.path.exists(final_features_dir):
+        os.makedirs(final_features_dir)
+    total_working_set_file = "total_working_set_file"
+    run_bash_command("touch "+total_working_set_file)
     for key in reference_docs:
         past_winners_file=past_winners_file_index[key]
         for query in reference_docs[key]:
@@ -413,22 +427,16 @@ def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_pa
             sentence_file_name,sentences_index = create_sentence_file(top_docs_file,doc,query,key,doc_text)
             print("sentence_file is created")
             working_set_file =create_sentence_working_set(doc,sentence_file_name,query,key)
+            run_bash_command("cat "+working_set_file+" >> "+total_working_set_file)
             print("sentence working-set is created")
             create_w2v_features(sentence_file_name , top_docs_file,doc_ids_file,past_winners_file,model,query,key)
             print("created seo w2v features")
             create_coherency_features(sentences_index,doc,query,model,key)
             print("created coherency features")
-            final_features_dir = "sentence_feature_files/"
-
-            features_file = final_features_dir+query+key+"_"+doc
-            features_dir = "sentence_feature_values/"
-            if not os.path.exists(features_dir):
-                os.makedirs(features_dir)
-            if not os.path.exists(final_features_dir):
-                os.makedirs(final_features_dir)
             create_tfidf_features_and_features_file(working_set_file,features_file,features_dir,index_path,sentence_file_name,top_docs_file,query,past_winners_file,key)
             print("created tf-idf features")
-
+    print("creating all features")
+    create_features_from_dir(features_dir,features_file,total_working_set_file)
 
 if __name__=="__main__":
     ranked_lists_new = retrieve_ranked_lists("trec_file04")
