@@ -62,7 +62,7 @@ def run_random(features_file, qrels, name, seo_scores=False):
     if not seo_scores:
         next_line = " & ".join([s for s in ["map", "ndcg.5", "P.2", "P.5"]]) + "\\\\ \n"
     else:
-        next_line = " & ".join([s for s in ["map", "ndcg.5", "P.2", "P.5"]])+" & " +" & ".join(["Top1","Top2","Top5","$\\GE$","$\\EQ$","$\\LE$"])+ "\\\\ \n"
+        next_line = " & ".join([s for s in ["map", "ndcg.5", "P.2", "P.5"]])+" & " +" & ".join(["Top1","Top2","Top5","$>$","$=$","$<$"])+ "\\\\ \n"
     summary_file.write(next_line)
     if not seo_scores:
         next_line = " & ".join([str(round(np.mean(score_data[s]),4)) for s in ["map", "ndcg_cut.5", "P.2", "P.5"]]) + "\n"

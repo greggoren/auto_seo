@@ -66,7 +66,7 @@ def read_seo_score(labels):
     with open(labels) as labels_file:
         for line in labels_file:
             query = line.split()[0]
-            key = query[:2]
+            key = query[3:]
             if key not in scores:
                 scores[key]={}
             id = line.split()[2]
@@ -164,7 +164,7 @@ def rewrite_fetures(new_scores, old_features_file, new_features_filename,qrels_n
         for line in file:
             qid = line.split()[1]
             query = qid.split(":")[1]
-            key=query[2:]
+            key=query[3:]
             features = line.split()[2:-2]
             id = line.split(" # ")[1].rstrip()
             if id not in new_scores[key]:
@@ -493,7 +493,6 @@ if __name__=="__main__":
         scores = get_scores(scores,dir + "/" + needed_file,original_docs,k+1)
         print(scores)
     banned_queries = get_banned_queries(scores,reference_docs)
-    banned_queries = []
     rounds = ["4","6"]
     ranks = ["2","5"]
     past_winners_file_4 ="past_winners_file_new_data04"
