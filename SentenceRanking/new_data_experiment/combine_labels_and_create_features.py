@@ -491,6 +491,7 @@ if __name__=="__main__":
     for k in range(6):
         needed_file = sorted_files[k]
         scores = get_scores(scores,dir + "/" + needed_file,original_docs,k+1)
+        print(scores)
     banned_queries = get_banned_queries(scores,reference_docs)
     banned_queries = []
     rounds = ["4","6"]
