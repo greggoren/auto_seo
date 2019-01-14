@@ -53,6 +53,7 @@ def get_scores(scores,filename,reverse,index):
                 id = doc.split("-")[3]
                 query = doc.split("-")[2]
                 current_key = "ROUND-"+str(index).zfill(2)+"-"+query+"-"+id
+                print(current_key)
                 if current_key not in scores:
                     scores[current_key]=0
                 if "this_document_is" in row:
