@@ -414,7 +414,7 @@ def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_pa
             print("sentence_file is created")
             working_set_file =create_sentence_working_set(doc,sentence_file_name,query,key)
             print("sentence working-set is created")
-            create_w2v_features(sentence_file_name , top_docs_file,doc_ids_file,past_winners_file,model,query)
+            create_w2v_features(sentence_file_name , top_docs_file,doc_ids_file,past_winners_file,model,query,key)
             print("created seo w2v features")
             create_coherency_features(sentences_index,doc,query,model,key)
             print("created coherency features")
