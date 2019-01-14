@@ -10,7 +10,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/create_past_winners_text_file.py" afterPath="$PROJECT_DIR$/SentenceRanking/create_past_winners_text_file.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" afterPath="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="combine_labels_and_create_features.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="combine_labels_and_create_features.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="461" column="54" selection-start-line="461" selection-start-column="26" selection-end-line="461" selection-end-column="54" />
+            <state relative-caret-position="262">
+              <caret line="445" column="17" selection-start-line="445" selection-start-column="17" selection-end-line="445" selection-end-column="17" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -106,7 +106,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="create_past_winners_text_file.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="create_past_winners_text_file.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/create_past_winners_text_file.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="834">
@@ -255,8 +255,8 @@
         <option value="$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py" />
         <option value="$PROJECT_DIR$/Crowdflower/ban_non_coherent_docs.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/combine_labels_and_create_features.py" />
-        <option value="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/create_past_winners_text_file.py" />
+        <option value="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" />
       </list>
     </option>
   </component>
@@ -746,13 +746,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00835" summary="os201">
-      <created>1546789807188</created>
-      <option name="number" value="00835" />
-      <option name="presentableId" value="LOCAL-00835" />
-      <option name="project" value="LOCAL" />
-      <updated>1546789807191</updated>
-    </task>
     <task id="LOCAL-00836" summary="os201">
       <created>1546789976255</created>
       <option name="number" value="00836" />
@@ -1089,7 +1082,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547480452206</updated>
     </task>
-    <option name="localTasksCounter" value="884" />
+    <task id="LOCAL-00884" summary="os201">
+      <created>1547481639445</created>
+      <option name="number" value="00884" />
+      <option name="presentableId" value="LOCAL-00884" />
+      <option name="project" value="LOCAL" />
+      <updated>1547481639446</updated>
+    </task>
+    <option name="localTasksCounter" value="885" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1652,21 +1652,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="461" column="54" selection-start-line="461" selection-start-column="26" selection-end-line="461" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#67#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/create_past_winners_text_file.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="834">
           <caret line="40" column="8" selection-start-line="40" selection-start-column="8" selection-end-line="40" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="445" column="17" selection-start-line="445" selection-start-column="17" selection-end-line="445" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#67#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
