@@ -433,7 +433,7 @@ def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_pa
             print("created seo w2v features")
             create_coherency_features(sentences_index,doc,query,model,key)
             print("created coherency features")
-            create_tfidf_features_and_features_file(index_path,sentence_file_name,top_docs_file,query,past_winners_file,key)
+            create_tfidf_features_and_features_file(features_dir,index_path,sentence_file_name,top_docs_file,query,past_winners_file,key)
             print("created tf-idf features")
     print("creating all features")
     create_features_from_dir(features_dir,features_file,total_working_set_file)
