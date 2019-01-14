@@ -50,7 +50,7 @@ def get_queries_data(filename):
 
 def retrieve_sentences(doc):
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
-    sentences = tokenizer.tokenize(doc)
+    sentences = tokenizer.tokenize(doc.strip())
     return sentences
 
 def get_Dinit_for_query(query):
