@@ -33,7 +33,7 @@ if __name__=="__main__":
     current_round =sys.argv[1]
     ref_index = sys.argv[2]
     addition = current_round.zfill(2)+"_"+ref_index
-    new_ranked_list ="trec_file"+current_round
+    new_ranked_list ="trec_file"+current_round.zfill(2)
     ranked_lists_new = retrieve_ranked_lists(new_ranked_list)
     reference_docs = {q:ranked_lists_new[q][int(ref_index)].replace("EPOCH","ROUND") for q in ranked_lists_new}
     new_indexes = read_labels("labels_new_"+addition)
