@@ -455,8 +455,8 @@ if __name__=="__main__":
     for k in range(4):
         needed_file = sorted_files[k]
         scores = get_scores(scores,dir + "/" + needed_file,original_docs)
-    banned_queries = get_banned_queries(scores,reference_docs)
-    banned_queries = []
+    # banned_queries = get_banned_queries(scores,reference_docs)
+    # banned_queries = []
     rounds = ["4","6"]
     ranks = ["2","5"]
     past_winners_file_4 ="past_winners_file_new_data04"
