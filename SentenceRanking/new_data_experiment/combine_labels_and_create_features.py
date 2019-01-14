@@ -245,8 +245,12 @@ def create_coherency_features(sentences_index,ref_doc,input_query,model,key):
                 comb = top_doc+"_"+str(i)+"_"+str(j+1)
                 window = []
                 if j == 0:
-                    window.append(get_sentence_vector(ref_doc_sentences[1], model))
-                    window.append(get_sentence_vector(ref_doc_sentences[1], model))
+                    if j+1 == len(ref_doc_sentences):
+                        window.append(get_sentence_vector(ref_doc_sentences[0], model))
+                        window.append(get_sentence_vector(ref_doc_sentences[0], model))
+                    else:
+                        window.append(get_sentence_vector(ref_doc_sentences[1], model))
+                        window.append(get_sentence_vector(ref_doc_sentences[1], model))
 
                 elif j+1 == len(ref_doc_sentences):
                     window.append(get_sentence_vector(ref_doc_sentences[j - 1], model))
@@ -437,6 +441,7 @@ def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_pa
             print("created tf-idf features")
     print("creating all features")
     create_features_from_dir(features_dir,features_file,total_working_set_file)
+    return features_file
 
 if __name__=="__main__":
     ranked_lists_new = retrieve_ranked_lists("trec_file04")
