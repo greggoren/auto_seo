@@ -463,6 +463,7 @@ if __name__=="__main__":
     index_path="/home/greg/mergedindex"
     create_features(reference_docs,past_winners_file,doc_ids_file,index_path,top_docs,doc_texts)
 
+
     # all_aggregated_results={}
     # for r in rounds:
     #     for rank in ranks:
