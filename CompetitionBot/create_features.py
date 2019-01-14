@@ -156,7 +156,7 @@ def create_w2v_features(senteces_file,top_docs_file,doc_ids_file,past_winners_fi
     past_winners_vectors = init_past_winners_vectors(past_winners_data,model)
     top_doc_vectors = init_top_doc_vectors(top_docs,doc_ids,model)
     centroids,winners = get_vectors(top_doc_vectors)
-    combine_winners(winners,past_winners_vectors)
+    # combine_winners(winners,past_winners_vectors)
     past_winner_centroids,_=get_vectors(past_winners_vectors,True)
     with open(senteces_file) as s_file:
         for line in s_file:
