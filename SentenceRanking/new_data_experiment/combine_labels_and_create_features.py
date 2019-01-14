@@ -398,11 +398,12 @@ def create_top_docs_per_ref_doc(top_docs,key,ref_doc,query):
     return top_docs_file
 
 
-def create_features(reference_docs,past_winners_file,doc_ids_file,index_path,top_docs,doc_text):
+def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_path,top_docs,doc_text):
     print("loading w2v model")
     model = load_model()
     print("loading done")
     for key in reference_docs:
+        past_winners_file=past_winners_file_index[key]
         for query in reference_docs[key]:
             print("working on",query)
             doc = reference_docs[key][query]
@@ -458,11 +459,12 @@ if __name__=="__main__":
     banned_queries = []
     rounds = ["4","6"]
     ranks = ["2","5"]
-    past_winners_file ="past_winners_file_new_data"
+    past_winners_file_4 ="past_winners_file_new_data04"
+    past_winners_file_6 ="past_winners_file_new_data06"
+    past_winners_file_index={"65":past_winners_file_6,"62":past_winners_file_6,"45":past_winners_file_4,"42":past_winners_file_4}
     doc_ids_file="docIDs"
     index_path="/home/greg/mergedindex"
-    create_features(reference_docs,past_winners_file,doc_ids_file,index_path,top_docs,doc_texts)
-
+    create_features(reference_docs,past_winners_file_index,doc_ids_file,index_path,top_docs,doc_texts)
 
     # all_aggregated_results={}
     # for r in rounds:
