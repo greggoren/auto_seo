@@ -170,7 +170,7 @@ def rewrite_fetures(new_scores, old_features_file, new_features_filename,qrels_n
             if id not in new_scores[key]:
                 continue
             new_line=str(new_scores[key][id])+" qid:"+query+" "+" ".join(features)+" # "+id
-            f.write(new_line)
+            f.write(new_line+"\n")
             qrels.write(query+" 0 "+id+" "+str(new_scores[key][id])+"\n")
     f.close()
     qrels.close()
