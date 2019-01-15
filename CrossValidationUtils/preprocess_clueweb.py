@@ -90,7 +90,7 @@ class preprocess:
                 line = str(float(y[i])) + " qid:" + str(queries[i]).zfill(5) + " " + features + "\n"
                 feature_file.write(line)
         return train_file
-
+    #TODO: change back to .zfill(3)
     def create_train_file_cv(self, X, y, queries, fold, method,test=False):
         add = ""
         if test:

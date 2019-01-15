@@ -144,13 +144,14 @@ class eval:
                 self.doc_name_index[index]=doc_name
                 index+=1
 
-    def set_qid_for_trec(self,query):
+    def set_qid_for_trec(self,query):#TODO:change back to without zfill()
         if query < 10:
             qid = "00" + str(query)
         elif query < 100:
             qid = "0" + str(query)
         else:
             qid = str(query)
+        qid = qid.zfill(5)
         return qid
 
     def create_qrels_file(self,X,y,queries):
