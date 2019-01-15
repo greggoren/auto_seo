@@ -515,10 +515,11 @@ if __name__=="__main__":
             sentence_tags = mturk_ds_creator.get_tags(sentence_results)
             ident_tags = mturk_ds_creator.get_tags(ident_results)
             tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
-            aggregated_results = ban_non_coherent_docs(banned_queries,tmp_aggregated_results)
+            # aggregated_results = ban_non_coherent_docs(banned_queries,tmp_aggregated_results)
             key = r+rank
-            all_aggregated_results[key]=aggregated_results
+            all_aggregated_results[key]=tmp_aggregated_results
     #
+    all_aggregated_results = ban_non_coherent_docs(banned_queries,all_aggregated_results)
     seo_scores_file = "labels_new_final_all_data"
     tmp_seo_scores = read_seo_score(seo_scores_file)
     seo_scores = ban_non_coherent_docs(banned_queries,tmp_seo_scores)
