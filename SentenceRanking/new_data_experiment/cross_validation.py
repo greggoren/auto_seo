@@ -17,7 +17,7 @@ def read_seo_score(labels):
     with open(labels) as labels_file:
         for line in labels_file:
             query = line.split()[0]
-            key = query[:2]
+            key = query[3:]
             if key not in scores:
                 scores[key]={}
             id = line.split()[2]
