@@ -105,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="484">
-              <caret line="202" column="13" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
+              <caret line="202" column="31" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -737,13 +737,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00874" summary="os201">
-      <created>1546822282972</created>
-      <option name="number" value="00874" />
-      <option name="presentableId" value="LOCAL-00874" />
-      <option name="project" value="LOCAL" />
-      <updated>1546822282974</updated>
-    </task>
     <task id="LOCAL-00875" summary="os201">
       <created>1547044223256</created>
       <option name="number" value="00875" />
@@ -1080,7 +1073,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547548293739</updated>
     </task>
-    <option name="localTasksCounter" value="923" />
+    <task id="LOCAL-00923" summary="os201">
+      <created>1547548520110</created>
+      <option name="number" value="00923" />
+      <option name="presentableId" value="LOCAL-00923" />
+      <option name="project" value="LOCAL" />
+      <updated>1547548520110</updated>
+    </task>
+    <option name="localTasksCounter" value="924" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1644,7 +1644,7 @@
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
-          <caret line="202" column="13" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
+          <caret line="202" column="31" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
           <folding />
         </state>
       </provider>
