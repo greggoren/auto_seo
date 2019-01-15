@@ -452,6 +452,8 @@ def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_pa
             print("top_doc_file is created")
             top_docs_file = create_top_docs_per_ref_doc(top_docs,key,doc,query)
             sentence_file_name,sentences_index = create_sentence_file(top_docs_file,doc,query,key,doc_text)
+            if len(sentences_index[query+key][doc])<2:
+                continue
             print("sentence_file is created")
             working_set_file =create_sentence_working_set(doc,sentence_file_name,query,key)
             run_bash_command("cat "+working_set_file+" >> "+total_working_set_file)
