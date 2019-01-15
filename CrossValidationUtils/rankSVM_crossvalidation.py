@@ -95,12 +95,13 @@ def get_average_score_increase(seo_scores, ranked_lists_file,write=False):
     with open(ranked_lists_file) as file:
         for line in file:
             query = line.split()[0]
+            key = query[3:]
             run_name = line.split()[2]
             if query not in lists:
                 lists[query]=[]
             if len(lists[query])>=5:
                 continue
-            lists[query].append(seo_scores[run_name])
+            lists[query].append(seo_scores[key][run_name])
     if write:
         f = open("weighted_dubug","w")
         f.write(str(lists))
