@@ -10,6 +10,8 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" afterPath="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py" afterPath="$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +64,8 @@
       <file leaf-file-name="combine_labels_and_create_features.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="525" column="31" selection-start-line="525" selection-start-column="31" selection-end-line="525" selection-end-column="31" />
+            <state relative-caret-position="397">
+              <caret line="524" column="19" selection-start-line="524" selection-start-column="19" selection-end-line="524" selection-end-column="19" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -91,17 +93,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ban_non_coherent_docs.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ban_non_coherent_docs.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Crowdflower/ban_non_coherent_docs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
+            <state relative-caret-position="205">
+              <caret line="96" column="51" selection-start-line="96" selection-start-column="51" selection-end-line="96" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cross_validation.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cross_validation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="484">
@@ -246,8 +248,8 @@
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/preprocess_clueweb.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" />
-        <option value="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py" />
+        <option value="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" />
       </list>
     </option>
   </component>
@@ -737,13 +739,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00875" summary="os201">
-      <created>1547044223256</created>
-      <option name="number" value="00875" />
-      <option name="presentableId" value="LOCAL-00875" />
-      <option name="project" value="LOCAL" />
-      <updated>1547044223256</updated>
-    </task>
     <task id="LOCAL-00876" summary="os201">
       <created>1547045543762</created>
       <option name="number" value="00876" />
@@ -1080,7 +1075,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547548520110</updated>
     </task>
-    <option name="localTasksCounter" value="924" />
+    <task id="LOCAL-00924" summary="os201">
+      <created>1547548932230</created>
+      <option name="number" value="00924" />
+      <option name="presentableId" value="LOCAL-00924" />
+      <option name="project" value="LOCAL" />
+      <updated>1547548932230</updated>
+    </task>
+    <option name="localTasksCounter" value="925" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1575,14 +1577,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Crowdflower/ban_non_coherent_docs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="92" column="4" selection-start-line="92" selection-start-column="4" selection-end-line="92" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -1631,20 +1625,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="202" column="31" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="525" column="31" selection-start-line="525" selection-start-column="31" selection-end-line="525" selection-end-column="31" />
+        <state relative-caret-position="397">
+          <caret line="524" column="19" selection-start-line="524" selection-start-column="19" selection-end-line="524" selection-end-column="19" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
+    <entry file="file://$PROJECT_DIR$/Crowdflower/ban_non_coherent_docs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="202" column="31" selection-start-line="202" selection-start-column="31" selection-end-line="202" selection-end-column="31" />
+        <state relative-caret-position="205">
+          <caret line="96" column="51" selection-start-line="96" selection-start-column="51" selection-end-line="96" selection-end-column="51" />
           <folding />
         </state>
       </provider>
