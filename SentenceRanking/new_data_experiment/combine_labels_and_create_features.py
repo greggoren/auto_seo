@@ -556,7 +556,7 @@ if __name__=="__main__":
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
         new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
         weighted_mean_scores={}
-        weighted_mean_scores = create_weighted_mean_score(seo_scores, aggregated_results,beta)
+        weighted_mean_scores = create_weighted_mean_score(seo_scores, all_aggregated_results,beta)
         rewrite_fetures(weighted_mean_scores,base_features_file, new_features_with_weighted_file,new_qrels_with_weighted_file)
         last = False
         if beta == betas[-1]:
@@ -566,9 +566,9 @@ if __name__=="__main__":
         write_histogram_for_weighted_scores(weighted_hist, "weighted_histogram.tex", beta, flag1, last)
         flag1 = True
 
-    print("queries=", len(get_dataset_stas(aggregated_results)))
-    print("examples=", len(aggregated_results))
+    # print("queries=", len(get_dataset_stas(all_aggregated_results)))
+    # print("examples=", len(aggregated_results))
     print("seo_examples=", len(seo_scores))
-    print("histogram_coherency", get_histogram(aggregated_results))
+    print("histogram_coherency", get_histogram(all_aggregated_results))
     print("histogram_demotion", get_histogram(modified_scores))
     print("histogram_scores_lables", get_histogram(seo_scores))

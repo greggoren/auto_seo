@@ -63,8 +63,8 @@
       <file leaf-file-name="combine_labels_and_create_features.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="529" column="115" selection-start-line="529" selection-start-column="115" selection-end-line="529" selection-end-column="115" />
+            <state relative-caret-position="401">
+              <caret line="571" column="69" selection-start-line="571" selection-start-column="69" selection-end-line="571" selection-end-column="69" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -740,20 +740,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00863" summary="os201">
-      <created>1546808416777</created>
-      <option name="number" value="00863" />
-      <option name="presentableId" value="LOCAL-00863" />
-      <option name="project" value="LOCAL" />
-      <updated>1546808416777</updated>
-    </task>
-    <task id="LOCAL-00864" summary="os201">
-      <created>1546808676643</created>
-      <option name="number" value="00864" />
-      <option name="presentableId" value="LOCAL-00864" />
-      <option name="project" value="LOCAL" />
-      <updated>1546808676643</updated>
-    </task>
     <task id="LOCAL-00865" summary="os201">
       <created>1546808870737</created>
       <option name="number" value="00865" />
@@ -1083,7 +1069,21 @@
       <option name="project" value="LOCAL" />
       <updated>1547542029344</updated>
     </task>
-    <option name="localTasksCounter" value="912" />
+    <task id="LOCAL-00912" summary="os201">
+      <created>1547542176385</created>
+      <option name="number" value="00912" />
+      <option name="presentableId" value="LOCAL-00912" />
+      <option name="project" value="LOCAL" />
+      <updated>1547542176385</updated>
+    </task>
+    <task id="LOCAL-00913" summary="os201">
+      <created>1547543208320</created>
+      <option name="number" value="00913" />
+      <option name="presentableId" value="LOCAL-00913" />
+      <option name="project" value="LOCAL" />
+      <updated>1547543208320</updated>
+    </task>
+    <option name="localTasksCounter" value="914" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1642,8 +1642,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="529" column="115" selection-start-line="529" selection-start-column="115" selection-end-line="529" selection-end-column="115" />
+        <state relative-caret-position="401">
+          <caret line="571" column="69" selection-start-line="571" selection-start-column="69" selection-end-line="571" selection-end-column="69" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>
