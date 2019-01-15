@@ -523,7 +523,6 @@ if __name__=="__main__":
     seo_scores_file = "labels_new_final_all_data"
     tmp_seo_scores = read_seo_score(seo_scores_file)
     seo_scores = ban_non_coherent_docs(banned_queries,tmp_seo_scores)
-    seo_scores = tmp_seo_scores
 
     modified_scores= modify_seo_score_by_demotion(seo_scores,all_aggregated_results)
     new_features_with_demotion_file = "all_seo_features_demotion"
