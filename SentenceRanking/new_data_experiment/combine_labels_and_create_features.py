@@ -502,8 +502,8 @@ if __name__=="__main__":
     past_winners_file_index={"65":past_winners_file_6,"62":past_winners_file_6,"45":past_winners_file_4,"42":past_winners_file_4}
     doc_ids_file="docIDs"
     index_path="/home/greg/mergedindex"
-    base_features_file=create_features(reference_docs,past_winners_file_index,doc_ids_file,index_path,top_docs,doc_texts)
-
+    # base_features_file=create_features(reference_docs,past_winners_file_index,doc_ids_file,index_path,top_docs,doc_texts)
+    base_features_file = "sentence_feature_files/new_data_sentence_features"
     all_aggregated_results={}
     for r in rounds:
         for rank in ranks:
