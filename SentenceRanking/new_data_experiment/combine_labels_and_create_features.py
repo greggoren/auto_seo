@@ -527,7 +527,7 @@ if __name__=="__main__":
     new_features_with_demotion_file = "all_seo_features_demotion"
     new_qrels_with_demotion_file = "seo_demotion_qrels"
 
-    rewrite_fetures(modified_scores)
+    rewrite_fetures(modified_scores,base_features_file,new_features_with_demotion_file,new_qrels_with_demotion_file)
 
     stats_harmonic={}
     betas = [0,0.5,1,2]
@@ -537,7 +537,7 @@ if __name__=="__main__":
         new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
         new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
         harmonic_mean_scores={}
-        harmonic_mean_scores = create_harmonic_mean_score(seo_scores,aggregated_results,beta)
+        harmonic_mean_scores = create_harmonic_mean_score(seo_scores,all_aggregated_results,beta)
         rewrite_fetures(harmonic_mean_scores, base_features_file, new_features_with_harmonic_file,new_qrels_with_harmonic_file)
         harmonic_hist = get_histogram(harmonic_mean_scores)
         last = False
