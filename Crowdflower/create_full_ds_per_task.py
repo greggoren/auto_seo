@@ -75,6 +75,13 @@ def get_tags(results):
                 stats[id].append(1)
     return stats
 
+def convert_tags_to_label(dataset):
+    result = {}
+    for id in dataset:
+        result[id] = min(5,sum(dataset[id]))
+    return result
+
+
 def aggregate_results(sentence,identification):
     aggregation = {}
     for id in sentence:
