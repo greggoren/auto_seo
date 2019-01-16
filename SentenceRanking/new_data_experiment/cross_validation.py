@@ -211,7 +211,7 @@ if __name__=="__main__":
 
 
     stats_harmonic={}
-    betas = [0,0.5,1,2]
+    betas = [0, 0.5, 1, 2, 1000, 100000, 1000000000]
     # betas = [0,]
     flag =False
     flag1 =False
