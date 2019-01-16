@@ -517,7 +517,8 @@ if __name__=="__main__":
             tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
             key = r+rank
             # all_aggregated_results[key]=tmp_aggregated_results
-            all_aggregated_results[key]=mturk_ds_creator.convert_tags_to_label(ident_tags)
+            # all_aggregated_results[key]=mturk_ds_creator.convert_tags_to_label(ident_tags)
+            all_aggregated_results[key]=mturk_ds_creator.convert_tags_to_label(sentence_tags)
     #
     all_aggregated_results = ban_non_coherent_docs(banned_queries,all_aggregated_results)
     seo_scores_file = "labels_new_final_all_data"
