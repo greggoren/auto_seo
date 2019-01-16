@@ -515,9 +515,9 @@ if __name__=="__main__":
             sentence_tags = mturk_ds_creator.get_tags(sentence_results)
             ident_tags = mturk_ds_creator.get_tags(ident_results)
             tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
-            # aggregated_results = ban_non_coherent_docs(banned_queries,tmp_aggregated_results)
             key = r+rank
-            all_aggregated_results[key]=tmp_aggregated_results
+            # all_aggregated_results[key]=tmp_aggregated_results
+            all_aggregated_results[key]=ident_tags
     #
     all_aggregated_results = ban_non_coherent_docs(banned_queries,all_aggregated_results)
     seo_scores_file = "labels_new_final_all_data"
@@ -531,7 +531,7 @@ if __name__=="__main__":
     rewrite_fetures(modified_scores,base_features_file,new_features_with_demotion_file,new_qrels_with_demotion_file)
 
     stats_harmonic={}
-    betas = [0,0.5,1,2]
+    betas = [0,0.5,1,2,1000,100000,1000000000]
     flag =False
     flag1 =False
     for beta in betas:

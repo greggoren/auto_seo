@@ -94,7 +94,7 @@ def get_banned_queries(scores,reference_docs):
     banned = []
     for key in reference_docs:
         for query in reference_docs[key]:
-            if scores[reference_docs[key][query]]<2:
+            if scores[reference_docs[key][query]]<3:
                 banned.append(query+key)
     return banned
 
