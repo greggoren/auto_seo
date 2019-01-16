@@ -77,11 +77,17 @@ def read_seo_score(labels):
 
 def get_level(score):
     demotion_level = 0
-    if score >=0 and score <2:
+    if score >=0 and score <1:
         demotion_level=2
-    elif score >=2 and score <4:
+    elif score >=1 and score <2:
         demotion_level=1
     return demotion_level
+    # demotion_level = 0
+    # if score >= 0 and score < 2:
+    #     demotion_level = 2
+    # elif score >= 2 and score < 4:
+    #     demotion_level = 1
+    # return demotion_level
 
 
 def modify_seo_score_by_demotion(seo_scores, coherency_scores):
@@ -103,9 +109,11 @@ def create_harmonic_mean_score(seo_scores,coherency_scores,beta):
         new_scores[key]={}
         for id in seo_scores[key]:
             epsilon = 0.0001
-            current_score = seo_scores[key][id]
+            # current_score = seo_scores[key][id]
+            current_score = seo_scores[key][id]*(3.0/5)
             coherency_score = coherency_scores[key][id]
-            new_coherency_score = coherency_score*(4.0/5)
+            # new_coherency_score = coherency_score*(4.0/5)
+            new_coherency_score = coherency_score
             numerator = (1+beta**2)*new_coherency_score*current_score
             denominator = (beta**2)*new_coherency_score+current_score
             denominator+=epsilon
@@ -118,9 +126,11 @@ def create_weighted_mean_score(seo_scores,coherency_scores,beta):
     for key in seo_scores:
         new_scores[key] = {}
         for id in seo_scores[key]:
-            current_score = seo_scores[key][id]
+            # current_score = seo_scores[key][id]
+            current_score = seo_scores[key][id]*(3.0/5)
             coherency_score = coherency_scores[key][id]
-            new_coherency_score = coherency_score * (4.0 / 5)
+            # new_coherency_score = coherency_score * (4.0 / 5)
+            new_coherency_score = coherency_score
             new_score = current_score*beta+new_coherency_score*(1-beta)
             new_scores[key][id]=new_score
     return new_scores
@@ -516,8 +526,8 @@ if __name__=="__main__":
             ident_tags = mturk_ds_creator.get_tags(ident_results)
             tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
             key = r+rank
-            # all_aggregated_results[key]=tmp_aggregated_results
-            all_aggregated_results[key]=mturk_ds_creator.convert_tags_to_label(ident_tags)
+            all_aggregated_results[key]=tmp_aggregated_results
+            # all_aggregated_results[key]=mturk_ds_creator.convert_tags_to_label(ident_tags)
             # all_aggregated_results[key]=mturk_ds_creator.convert_tags_to_label(sentence_tags)
     #
     all_aggregated_results = ban_non_coherent_docs(banned_queries,all_aggregated_results)
