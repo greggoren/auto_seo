@@ -45,7 +45,7 @@ def assign_three_bots():
         if query not in relative_places:
             relative_places[query]=1
         relative_place = relative_places[query]
-        bot_method=pick_startegy(relative_place,method_counts,query_counts)
+        bot_method=pick_startegy(relative_place,method_counts,query_counts[query])
         query_counts[query][bot_method]+=1
         doc["bot_method"] = bot_method
         print(query,doc["username"],doc["position"],bot_method)
