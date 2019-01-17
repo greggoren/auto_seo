@@ -27,7 +27,7 @@ def assign_single_bot(single_bot_method):
 def pick_startegy(relative_place,method_counts,query_counts):
 
     # sorted_strategies = sorted(list(method_counts.keys()),key=lambda x:method_counts[x][relative_place])
-    sorted_strategies = sorted(list(method_counts.keys()),key=lambda x:(method_counts[x][relative_place],sum(method_counts[x][r] for r in method_counts[x]),query_counts[x]))
+    sorted_strategies = sorted(list(method_counts.keys()),key=lambda x:(method_counts[x][relative_place],query_counts[x],sum([method_counts[x][r] for r in method_counts[x]])))
     return sorted_strategies[0]
 
 def assign_three_bots():
