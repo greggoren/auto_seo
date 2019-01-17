@@ -10,7 +10,6 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/assign_bots.py" afterPath="$PROJECT_DIR$/CompetitionBot/assign_bots.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -95,8 +94,8 @@
       <file leaf-file-name="assign_bots.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/assign_bots.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="522">
-              <caret line="47" column="74" selection-start-line="47" selection-start-column="74" selection-end-line="47" selection-end-column="74" />
+            <state relative-caret-position="258">
+              <caret line="29" column="170" selection-start-line="29" selection-start-column="170" selection-end-line="29" selection-end-column="170" />
               <folding />
             </state>
           </provider>
@@ -708,13 +707,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00893" summary="os201">
-      <created>1547486135929</created>
-      <option name="number" value="00893" />
-      <option name="presentableId" value="LOCAL-00893" />
-      <option name="project" value="LOCAL" />
-      <updated>1547486135933</updated>
-    </task>
     <task id="LOCAL-00894" summary="os201">
       <created>1547486760741</created>
       <option name="number" value="00894" />
@@ -1051,7 +1043,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547713459779</updated>
     </task>
-    <option name="localTasksCounter" value="942" />
+    <task id="LOCAL-00942" summary="os201">
+      <created>1547714068904</created>
+      <option name="number" value="00942" />
+      <option name="presentableId" value="LOCAL-00942" />
+      <option name="project" value="LOCAL" />
+      <updated>1547714068904</updated>
+    </task>
+    <option name="localTasksCounter" value="943" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1064,7 +1063,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23333333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1620,8 +1619,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/assign_bots.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="47" column="74" selection-start-line="47" selection-start-column="74" selection-end-line="47" selection-end-column="74" />
+        <state relative-caret-position="258">
+          <caret line="29" column="170" selection-start-line="29" selection-start-column="170" selection-end-line="29" selection-end-column="170" />
           <folding />
         </state>
       </provider>
