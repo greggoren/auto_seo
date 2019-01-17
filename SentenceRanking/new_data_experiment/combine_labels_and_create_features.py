@@ -527,9 +527,6 @@ if __name__=="__main__":
             tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
             key = r+rank
             all_aggregated_results[key]=tmp_aggregated_results
-            # all_aggregated_results[key]=mturk_ds_creator.convert_tags_to_label(ident_tags)
-            # all_aggregated_results[key]=mturk_ds_creator.convert_tags_to_label(sentence_tags)
-    #
     all_aggregated_results = ban_non_coherent_docs(banned_queries,all_aggregated_results)
     seo_scores_file = "labels_new_final_all_data"
     tmp_seo_scores = read_seo_score(seo_scores_file)
@@ -542,7 +539,8 @@ if __name__=="__main__":
     rewrite_fetures(modified_scores,base_features_file,new_features_with_demotion_file,new_qrels_with_demotion_file)
 
     stats_harmonic={}
-    betas = [0,0.5,1,2,1000,100000,1000000000]
+    # betas = [0,0.5,1,2,1000,100000,1000000000]
+    betas = [1,]
     flag =False
     flag1 =False
     for beta in betas:
@@ -563,7 +561,8 @@ if __name__=="__main__":
     flag=False
     flag1=False
     stats_weighted = {}
-    betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+    betas = [0.5,]
+    # betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
         new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)

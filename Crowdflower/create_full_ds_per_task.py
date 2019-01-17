@@ -85,8 +85,8 @@ def convert_tags_to_label(dataset):
 def aggregate_results(sentence,identification):
     aggregation = {}
     for id in sentence:
-        sentence_rank = min(5,max(sum(sentence[id])-2,0))
-        ident_rank = min(5,max(sum(identification[id])-2,0))
+        sentence_rank = min(5,sum(sentence[id]))
+        ident_rank = min(5,sum(identification[id]))
         unified_rank = (sentence_rank+ident_rank)/2
         aggregation[id] = unified_rank
     return aggregation
