@@ -21,7 +21,7 @@ def assign_single_bot(single_bot_method):
         doc["bot_method"]=single_bot_method
         print(doc["username"],doc["position"],doc["waterloo"])
         seen.append(query)
-        # db.documents.save(doc)
+        db.documents.save(doc)
 
 
 def pick_startegy(relative_place,method_counts,query_counts):
@@ -49,11 +49,20 @@ def assign_three_bots():
         query_counts[query][bot_method]+=1
         doc["bot_method"] = bot_method
         print(query,doc["username"],doc["position"],bot_method)
-        # db.documents.save(doc)
+        db.documents.save(doc)
         method_counts[bot_method][relative_place]+=1
         relative_places[query]+=1
     print(method_counts)
 
 
+def fix():
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    docs= db.documents.find({"query_id":"051_0","username":"dummy_doc_051_2"})
+    doc = next(docs)
+    doc["bot_method"]="demotion"
+    docs = db.documents.find({"query_id": "051_0", "username": "dummy_doc_051_1"})
+    doc = next(docs)
+    doc["bot_method"] = "weighted"
 assign_single_bot("harmonic")
 assign_three_bots()
