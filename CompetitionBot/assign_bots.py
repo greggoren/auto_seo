@@ -24,7 +24,7 @@ def assign_single_bot(single_bot_method):
         # db.documents.save(doc)
 
 
-def pick_startegy(relative_place,method_counts):
+def pick_startegy(relative_place,method_counts,query_counts):
 
     # sorted_strategies = sorted(list(method_counts.keys()),key=lambda x:method_counts[x][relative_place])
     sorted_strategies = sorted(list(method_counts.keys()),key=lambda x:(method_counts[x][relative_place],sum(method_counts[x][r] for r in method_counts[x])))
@@ -35,14 +35,18 @@ def assign_three_bots():
     db = client.asr16
     strategies = ["demotion","harmonic","weighted"]
     method_counts = {i:{1:0,2:0,3:0} for i in strategies}
+    query_counts = {}
     documents = db.documents.find({"query_id": {"$regex":".*_0"}, "username": {"$regex":"dummy_doc.*"}}).sort([["query_id",ASCENDING],["position",ASCENDING]])
     relative_places = {}
     for doc in documents:
         query = doc["query_id"]
+        if query not in query_counts:
+            query_counts[query]={i:0 for i in strategies}
         if query not in relative_places:
             relative_places[query]=1
         relative_place = relative_places[query]
-        bot_method=pick_startegy(relative_place,method_counts)
+        bot_method=pick_startegy(relative_place,method_counts,query_counts)
+        query_counts[query][bot_method]+=1
         doc["bot_method"] = bot_method
         print(query,doc["username"],doc["position"],bot_method)
         # db.documents.save(doc)
