@@ -172,7 +172,7 @@ def create_w2v_features(senteces_file,top_docs_file,doc_ids_file,past_winners_fi
 
 
 def create_bot_models_index():
-    model_index = {"harmonic":"models/harmonic_model_0.1","demotion":"models/demotion_model_0.1","weighted":"models/weighted_model_0.01"}
+    model_index = {"harmonic":"models/harmonic_competition_model","demotion":"models/demotion_competition_model","weighted":"models/weighted_competition_model"}
     return model_index
 
 
@@ -389,6 +389,6 @@ if __name__=="__main__":
     reference_docs = get_reference_documents()
     past_winners_file = create_former_winners_file(current_time)
     print(past_winners_file)
-    index_path = "/home/greg/ASR18/Collections/mergedindex"
+    index_path = "/home/greg/ASR18/Collections/mergedindex1"
     method_index = get_label_strategies()
     create_features_for_doc_and_run_model(reference_docs,current_time,past_winners_file,doc_ids,model_index,index_path,method_index)

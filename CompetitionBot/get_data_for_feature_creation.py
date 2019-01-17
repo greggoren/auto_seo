@@ -10,7 +10,7 @@ def create_former_winners_file(current_time):
     db = client.asr16
     iterations = db.archive.distinct("iteration")
     sorted_iterations = sorted(iterations)
-    start_iter_index = 5
+    start_iter_index = 7
     needed_iterations = sorted_iterations[start_iter_index:]
     past_winners_dir = "past_winners/"+current_time+"/"
     if not os.path.exists(past_winners_dir):
