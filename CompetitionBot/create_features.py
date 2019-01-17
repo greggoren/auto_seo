@@ -122,7 +122,7 @@ def init_top_doc_vectors(top_docs,doc_ids,model):
     top_docs_vectors={}
     for query in top_docs:
         docs = top_docs[query]
-        command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp indri.jar DocStems /home/greg/ASR18/Collections/mergedindex \""+" ".join([doc_ids[d.rstrip()].strip() for d in docs])+"\""
+        command = "~/jdk1.8.0_181/bin/java -Djava.library.path=/home/greg/indri-5.6/swig/obj/java/ -cp indri.jar DocStems /home/greg/ASR18/Collections/mergedindex1 \""+" ".join([doc_ids[d.rstrip()].strip() for d in docs])+"\""
         print(command)
         print(run_bash_command(command))
         top_docs_vectors[query]=[]
@@ -327,7 +327,7 @@ def replace_sentences_and_save_doc(ref_doc,query,sentence_in,sentence_out):
     new_text = text.replace(sentence_out,sentence_in)
     print(new_text)
     doc["current_document"]=new_text
-    db.documents.save(doc)
+    # db.documents.save(doc)
 
 def get_sentences_for_replacement(comb,sentences_index,ref_doc,query):
     ref_doc_sentences = sentences_index[query][ref_doc]

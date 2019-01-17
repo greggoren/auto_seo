@@ -104,7 +104,7 @@ def create_top_docs_per_ref_doc(current_time,ref_doc,query):
     f = open(top_docs_filename,"w")
     for doc in top_docs:
         username = doc["username"]
-        q = query.split("_")[0]
+        q = query
         working_name = q+"-"+username
         f.write(query+"\t"+working_name+"\n")
     f.close()
