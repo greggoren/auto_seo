@@ -61,9 +61,11 @@ def fix():
     docs= db.documents.find({"query_id":"051_0","username":"dummy_doc_051_2"})
     doc = next(docs)
     doc["bot_method"]="demotion"
+    db.documents.save(doc)
     docs = db.documents.find({"query_id": "051_0", "username": "dummy_doc_051_1"})
     doc = next(docs)
     doc["bot_method"] = "weighted"
+    db.documents.save(doc)
 # assign_single_bot("harmonic")
 # assign_three_bots()
 
