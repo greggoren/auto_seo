@@ -51,8 +51,9 @@ def convert_text_to_sentence_task(text):
 def create_data_for_mturk(reference_docs, index):
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
-    iterations = sorted(db.archive.distinct("iteration"))
+    iterations = sorted(list(db.archive.distinct("iteration")))
     needed_iterations = iterations[index - 1:index + 1]
+    print(needed_iterations)
     f = open("bot_comparison_"+str(index)+".csv","w",newline='',encoding="utf-8")
     f2 = open("bot_sentences_"+str(index)+".csv","w",newline='',encoding="utf-8")
     writer = csv.DictWriter(f,fieldnames=["ID","document1","document2","query_id","query","description","method","check_one_gold"])
