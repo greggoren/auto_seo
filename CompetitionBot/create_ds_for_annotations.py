@@ -62,8 +62,8 @@ def create_data_for_mturk(reference_docs, index):
     writer2.writeheader()
     for query_id in reference_docs:
         for doc in reference_docs[query_id]:
-            old_doc = next(db.archive.find({"iteration":needed_iterations[0],"usernmae":doc,"query_id":query_id}))
-            new_doc = next(db.archive.find({"iteration":needed_iterations[1],"usernmae":doc,"query_id":query_id}))
+            old_doc = next(db.archive.find({"iteration":needed_iterations[0],"username":doc,"query_id":query_id}))
+            new_doc = next(db.archive.find({"iteration":needed_iterations[1],"username":doc,"query_id":query_id}))
 
             obj = {}
             obj["ID"]=doc
