@@ -121,7 +121,7 @@ def get_average_bot_ranking(reference_docs,group):
             if query_group!=group:
                 continue
             for doc in reference_docs[query_id]:
-                document = db.archive.find({"iteration": iteration, "username": doc, "query_id": query_id})
+                document = next(db.archive.find({"iteration": iteration, "username": doc, "query_id": query_id}))
                 bot_method = document["bot_method"]
                 position = document["position"]
                 if bot_method not in results[iteration]:
