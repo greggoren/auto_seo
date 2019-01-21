@@ -112,6 +112,6 @@ if __name__=="__main__":
         os.makedirs(results_dir)
     reference_docs = get_reference_documents()
     hist_single = get_addition_histogram_single_bot(reference_docs)
-    create_table_single_bot(hist_single)
+    create_table_single_bot(hist_single,results_dir)
     hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
-    create_table_multiple_bots(hist_multiple)
+    create_table_multiple_bots(hist_multiple,results_dir)
