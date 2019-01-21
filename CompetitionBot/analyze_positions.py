@@ -241,7 +241,7 @@ def get_method_index():
     index = {}
     for doc in docs:
         if "bot_method" in docs:
-            index[doc["query_id"+"_"+doc["username"]]]=doc["bot_method"]
+            index[doc["query_id"]+"_"+doc["username"]]=doc["bot_method"]
     return index
 
 def write_quality_annotation_table(results,results_dir):
