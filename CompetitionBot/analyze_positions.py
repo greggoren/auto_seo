@@ -230,7 +230,8 @@ def read_file(filename,method_index,rel=False):
                     final_stats[group][method]=[]
                 final_stats[group][method].append(stats[query][user])
         for group in final_stats:
-            final_stats[group][method]=np.mean(final_stats[group][method])
+            for method in final_stats[group]:
+                final_stats[group][method]=np.mean(final_stats[group][method])
 
     return final_stats
 
