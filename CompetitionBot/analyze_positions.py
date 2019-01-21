@@ -167,7 +167,7 @@ def write_table_bots_ranking(group,results,results_dir):
     f.write("\\hline\n")
     bot_methods  = ["demotion","harmonic","weighted"]
     for method in bot_methods:
-        if group=="0" and method!="harmonic":
+        if group=="2" and method!="harmonic":
             continue
         f.write(method+" & "+" & ".join([str(round(results[iteration][method],3)) for iteration in sorted(list(results.keys()))])+ "\\\\ \n")
         f.write("\\hline \n")
