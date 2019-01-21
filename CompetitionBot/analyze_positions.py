@@ -186,11 +186,11 @@ def write_competitors_ranking_table(results,results_dir):
     f.write("\\end{tabular}\n")
     f.close()
 
-def read_group_dir(dir,rel=False):
+def read_group_dir(dir,method_index,rel=False):
     files = sorted(list(os.listdir(dir)))
     stats={}
     for i,file in enumerate(files):
-        initial_results = read_file(dir+"/"+file,rel)
+        initial_results = read_file(dir+"/"+file,method_index,rel)
         stats[i]=initial_results
     return stats
 
@@ -234,6 +234,15 @@ def read_file(filename,method_index,rel=False):
 
     return final_stats
 
+def get_method_index():
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    docs = db.documents.find({})
+    index = {}
+    for doc in docs:
+        if "bot_method" in docs:
+            index[doc["query_id"+"_"+doc["username"]]]=doc["bot_method"]
+    return index
 
 def write_quality_annotation_table(results,results_dir):
     f = open(results_dir + "bots_quality_by_epoch.tex", "w")
@@ -259,12 +268,12 @@ if __name__=="__main__":
     # create_table_single_bot(hist_single,results_dir)
     # hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
     # create_table_multiple_bots(hist_multiple,results_dir)
-
+    method_index = get_method_index()
     average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,"0")
     write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
     average_single_bot_ranking = get_average_bot_ranking(reference_docs,"2")
     write_table_bots_ranking("2",average_single_bot_ranking,results_dir)
     average_rank_competitrs = get_average_rank_of_active_competitors()
     write_competitors_ranking_table(average_rank_competitrs,results_dir)
-    ks_stats=read_group_dir("annotations/",False)
+    ks_stats=read_group_dir("annotations/",method_index,False)
     write_quality_annotation_table(ks_stats,results_dir)
