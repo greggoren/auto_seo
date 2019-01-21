@@ -266,3 +266,5 @@ if __name__=="__main__":
     write_table_bots_ranking("2",average_single_bot_ranking,results_dir)
     average_rank_competitrs = get_average_rank_of_active_competitors()
     write_competitors_ranking_table(average_rank_competitrs,results_dir)
+    ks_stats=read_group_dir("annotations/",False)
+    write_quality_annotation_table(ks_stats,results_dir)
