@@ -207,7 +207,7 @@ def read_file(filename,method_index,rel=False):
             user = row["username"]
             annotation = row["this_document_is"].lower()
             label = 0
-            if annotation!=ref:
+            if annotation==ref:
                 label = 1
             if query not in stats:
                 stats[query]={}
