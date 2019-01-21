@@ -19,7 +19,7 @@ def get_addition_histogram_single_bot(reference_docs):
             for doc in reference_docs[query_id]:
                 position = next(db.archive.find({"iteration":iteration,"username":doc,"query_id":query_id}))["position"]
 
-                if not last:
+                if query_id+"_"+doc not in last:
                     last[query_id+"_"+doc]=position
                     continue
                 else:
