@@ -21,9 +21,9 @@ def get_addition_histogram_single_bot(reference_docs):
 
                 if query_id+"_"+doc not in last:
                     last[query_id+"_"+doc]=position
-                    hist[iteration][last[query_id + "_" + doc]] = {}
                 else:
-
+                    if last[query_id + "_" + doc] not in hist[iteration]:
+                        hist[iteration][last[query_id + "_" + doc]] = {}
                     if position not in hist[iteration][last[query_id+"_"+doc]]:
                         hist[iteration][last[query_id + "_" + doc]][position]=0
                     hist[iteration][last[query_id + "_" + doc]][position]+=1
@@ -50,8 +50,9 @@ def get_addition_histogram_multiple_bots(reference_docs):
                     hist[iteration][method]={}
                 if query_id+"_"+doc not in last:
                     last[query_id+"_"+doc]=position
-                    hist[iteration][method][last[query_id + "_" + doc]] = {}
                 else:
+                    if last[query_id + "_" + doc] not in hist[iteration][method]:
+                        hist[iteration][method][last[query_id + "_" + doc]] = {}
                     if position not in hist[iteration][method][last[query_id+"_"+doc]]:
                         hist[iteration][method][last[query_id + "_" + doc]][position]=0
                     hist[iteration][method][last[query_id + "_" + doc]][position]+=1
