@@ -154,7 +154,7 @@ def get_average_rank_of_active_competitors():
                 results[iteration][group]=[]
             results[iteration][group].append(document["position"])
     for iteration in results:
-        for group in results:
+        for group in results[iteration]:
             results[iteration][group]=np.mean(results[iteration][group])
     return results
 
