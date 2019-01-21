@@ -115,7 +115,7 @@ def get_average_bot_ranking(reference_docs,group):
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
     for iteration in iterations:
-        results[iteration]=[]
+        results[iteration]={}
         for query_id in reference_docs:
             query_group = query_id.split("_")[1]
             if query_group!=group:
