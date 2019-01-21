@@ -240,7 +240,7 @@ def get_method_index():
     docs = db.documents.find({})
     index = {}
     for doc in docs:
-        if "bot_method" in docs:
+        if "bot_method" in doc:
             index[doc["query_id"]+"_"+doc["username"]]=doc["bot_method"]
     return index
 
