@@ -43,9 +43,9 @@ def get_addition_histogram_multiple_bots(reference_docs):
             if query_id.__contains__("_2"):
                 continue
             for doc in reference_docs[query_id]:
-                doc = next(db.archive.find({"iteration":iteration,"username":doc,"query_id":query_id}))
-                position = doc["position"]
-                method =doc["bot_method"]
+                document = next(db.archive.find({"iteration":iteration,"username":doc,"query_id":query_id}))
+                position = document["position"]
+                method =document["bot_method"]
                 if method not in hist:
                     hist[iteration][method]={}
                 if query_id+"_"+doc not in last:
