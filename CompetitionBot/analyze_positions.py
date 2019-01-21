@@ -102,7 +102,7 @@ def create_table_multiple_bots(hist,results_dir):
                     vals.append(transition_value)
                 line+=" & ".join(vals)+"\\\\ \n"
                 f.write(line)
-                f.write("\\hline")
+                f.write("\\hline\n")
             f.write("\\end{tabular}\n")
 
 
