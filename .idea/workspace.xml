@@ -9,7 +9,10 @@
     </list>
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/annotations/ks2.csv" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/annotations/ks3.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" afterPath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -126,8 +129,8 @@
       <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="48" column="47" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
+            <state relative-caret-position="266">
+              <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -343,6 +346,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CompetitionBot" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="annotations" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -355,19 +376,19 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\CompetitionBot\annotations" />
+      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\CompetitionBot" />
+      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\new_data_experiment" />
+      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\Crowdflower\ranked_lists" />
+      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\rank_2" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\new_data_experiment" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\run4" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\run6" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\Crowdflower\ranked_lists" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\new_data_experiment" />
-      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\Crowdflower\ranked_lists" />
-      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\rank_2" />
-      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\rank_3" />
-      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\Crowdflower\Mturk" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -713,13 +734,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00916" summary="os201">
-      <created>1547545695640</created>
-      <option name="number" value="00916" />
-      <option name="presentableId" value="LOCAL-00916" />
-      <option name="project" value="LOCAL" />
-      <updated>1547545695640</updated>
-    </task>
     <task id="LOCAL-00917" summary="os201">
       <created>1547546423595</created>
       <option name="number" value="00917" />
@@ -1056,7 +1070,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548080372977</updated>
     </task>
-    <option name="localTasksCounter" value="965" />
+    <task id="LOCAL-00965" summary="os201">
+      <created>1548080665458</created>
+      <option name="number" value="00965" />
+      <option name="presentableId" value="LOCAL-00965" />
+      <option name="project" value="LOCAL" />
+      <updated>1548080665458</updated>
+    </task>
+    <option name="localTasksCounter" value="966" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1624,8 +1645,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="48" column="47" selection-start-line="48" selection-start-column="47" selection-end-line="48" selection-end-column="47" />
+        <state relative-caret-position="266">
+          <caret line="176" column="0" selection-start-line="176" selection-start-column="0" selection-end-line="176" selection-end-column="0" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>

@@ -1,6 +1,9 @@
 from CompetitionBot.create_ds_for_annotations import get_reference_documents
 from pymongo import MongoClient
 import os
+import numpy as np
+import csv
+
 ASR_MONGO_HOST = "asr2.iem.technion.ac.il"
 ASR_MONGO_PORT = 27017
 
@@ -106,12 +109,160 @@ def create_table_multiple_bots(hist,results_dir):
             f.write("\\end{tabular}\n")
 
 
+def get_average_bot_ranking(reference_docs,group):
+    results = {}
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    iterations = sorted(list(db.archive.distinct("iteration")))[7:]
+    for iteration in iterations:
+        results[iteration]=[]
+        for query_id in reference_docs:
+            query_group = query_id.split("_")[1]
+            if query_group!=group:
+                continue
+            for doc in reference_docs[query_id]:
+                document = db.archive.find({"iteration": iteration, "username": doc, "query_id": query_id})
+                bot_method = document["bot_method"]
+                position = document["position"]
+                if bot_method not in results[iteration]:
+                    results[iteration][bot_method]=[]
+                results[iteration][bot_method].append(position)
+    for iteration in results:
+        for bot_method in results[iteration]:
+            results[iteration][bot_method]= np.mean(results[iteration][bot_method])
+    return results
+
+def get_average_rank_of_active_competitors():
+    results = {}
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    iterations = sorted(list(db.archive.distinct("iteration")))[7:]
+    for iteration in iterations:
+        results[iteration]={}
+        documents = db.archive.find({"iteration":iteration})
+
+        for document in documents:
+            query = document["query_id"]
+            group = query.split("_")[1]
+
+            if group not in ["0","2"]:
+                continue
+            username = document["usernmae"]
+            if username.__contains__("dummy_doc"):
+                continue
+            if group not in results[iteration]:
+                results[iteration][group]=[]
+            results[iteration][group].append(document["position"])
+    for iteration in results:
+        for group in results:
+            results[iteration][group]=np.mean(results[iteration][group])
+    return results
+
+
+def write_table_bots_ranking(group,results,results_dir):
+    f = open(results_dir+"bots_ranking_"+group+".tex","w")
+    f.write("\\begin{tabular}{|c|c|c|c|} \n")
+    f.write("\\hline\n")
+    f.write("Method & "+" & ".join([str(i+1) for i in range(len(results))])+" \\\\ \n")
+    f.write("\\hline\n")
+    bot_methods  = ["demotion","harmonic","weighted"]
+    for method in bot_methods:
+        if group=="0" and method!="harmonic":
+            continue
+        f.write(method+" & "+" & ".join([str(round(results[iteration][method],3)) for iteration in sorted(list(results.keys()))])+ "\\\\ \n")
+        f.write("\\hline \n")
+    f.write("\\end{tabular}\n")
+    f.close()
+
+
+def write_competitors_ranking_table(results,results_dir):
+    f = open(results_dir+"competitors_ranking.tex", "w")
+    f.write("\\begin{tabular}{|c|c|c|c|} \n")
+    f.write("\\hline\n")
+    f.write("Test group & " + " & ".join([str(i + 1) for i in range(len(results))]) + " \\\\ \n")
+    f.write("\\hline\n")
+    f.write("Single bot & "+" & ".join([results[i]["2"] for i in sorted(list(results.keys()))])+" \\\\ \n")
+    f.write("Multiple bots & "+" & ".join([str(round(results[i]["0"],3)) for i in sorted(list(results.keys()))])+" \\\\ \n")
+    f.write("\\end{tabular}\n")
+    f.close()
+
+def read_group_dir(dir,rel=False):
+    files = sorted(list(os.listdir(dir)))
+    stats={}
+    for i,file in enumerate(files):
+        initial_results = read_file(dir+"/"+file,rel)
+        stats[i]=initial_results
+    return stats
+
+def read_file(filename,method_index,rel=False):
+    stats={}
+    final_stats={}
+    with open(filename,encoding="utf-8") as file:
+        ref = "valid"
+        if rel:
+            ref = "non-relevant"
+        reader = csv.DictReader(file)
+        for row in reader:
+            query = row["query_id"]
+            user = row["username"]
+            annotation = row["this_document_is"].lower()
+            label = 0
+            if annotation!=ref:
+                label = 1
+            if query not in stats:
+                stats[query]={}
+            if user not in stats[query]:
+                stats[query][user] = []
+            stats[query][user].append(label)
+        for query in stats:
+            for user in stats[query]:
+                if sum(stats[query][user])>=3:
+                    stats[query][user]=1
+                else:
+                    stats[query][user] = 0
+        for query in stats:
+            group = query.split("_")[1]
+            if group not in final_stats:
+                final_stats[group]={}
+            for user in stats[query]:
+                method = method_index[query+"_"+user]
+                if method not in final_stats[group]:
+                    final_stats[group][method]=[]
+                final_stats[group][method].append(stats[query][user])
+        for group in final_stats:
+            final_stats[group][method]=np.mean(final_stats[group][method])
+
+    return final_stats
+
+
+def write_quality_annotation_table(results,results_dir):
+    f = open(results_dir + "bots_quality_by_epoch.tex", "w")
+    f.write("\\begin{tabular}{|c|c|c|} \n")
+    f.write("\\hline\n")
+    f.write("Test group & " + " & ".join([str(i + 2) for i in range(len(results))]) + " \\\\ \n")
+    f.write("Single bot - harmonic & "+" & ".join([str(round(results[i]["2"]["harmonic"],3)) for i in sorted(list(results.keys()))])+" \\\\ \n")
+    f.write("\\hline\n")
+    methods = ["demotion", "harmonic", "weighted"]
+    for method in methods:
+        f.write("Multiple bots - "+method+" & "+" & ".join([str(round(results[i]["0"][method],3)) for i in sorted(list(results.keys()))])+" \\\\ \n")
+        f.write("\\hline\n")
+    f.write("\\end{tabular}\n")
+    f.close()
+
 if __name__=="__main__":
     results_dir = "tex_tables/"
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
     reference_docs = get_reference_documents()
-    hist_single = get_addition_histogram_single_bot(reference_docs)
-    create_table_single_bot(hist_single,results_dir)
-    hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
-    create_table_multiple_bots(hist_multiple,results_dir)
+
+    # hist_single = get_addition_histogram_single_bot(reference_docs)
+    # create_table_single_bot(hist_single,results_dir)
+    # hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
+    # create_table_multiple_bots(hist_multiple,results_dir)
+
+    average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,"0")
+    write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
+    average_single_bot_ranking = get_average_bot_ranking(reference_docs,"2")
+    write_table_bots_ranking("2",average_single_bot_ranking,results_dir)
+    average_rank_competitrs = get_average_rank_of_active_competitors()
+    write_competitors_ranking_table(average_rank_competitrs,results_dir)
