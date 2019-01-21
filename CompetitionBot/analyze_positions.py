@@ -147,7 +147,7 @@ def get_average_rank_of_active_competitors():
 
             if group not in ["0","2"]:
                 continue
-            username = document["usernmae"]
+            username = document["username"]
             if username.__contains__("dummy_doc"):
                 continue
             if group not in results[iteration]:
