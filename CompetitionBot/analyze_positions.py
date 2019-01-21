@@ -48,7 +48,7 @@ def get_addition_histogram_multiple_bots(reference_docs):
                 method =doc["bot_method"]
                 if method not in hist:
                     hist[iteration][method]={}
-                if not last:
+                if query_id+"_"+doc not in last:
                     last[query_id+"_"+doc]=position
                     continue
                 else:
@@ -79,7 +79,7 @@ def create_table_single_bot(hist,results_dir):
                 vals.append(transition_value)
             line+=" & ".join(vals)+"\\\\ \n"
             f.write(line)
-            f.write("\\hline")
+            f.write("\\hline\n")
         f.write("\\end{tabular}\n")
 
 def create_table_multiple_bots(hist,results_dir):
