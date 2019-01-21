@@ -109,7 +109,7 @@ def create_table_multiple_bots(hist,results_dir):
             f.write("\\end{tabular}\n")
 
 
-def get_average_bot_ranking(reference_docs,group):
+def get_average_bot_ranking(reference_docs,method_index,group):
     results = {}
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
@@ -122,7 +122,7 @@ def get_average_bot_ranking(reference_docs,group):
                 continue
             for doc in reference_docs[query_id]:
                 document = next(db.archive.find({"iteration": iteration, "username": doc, "query_id": query_id}))
-                bot_method = document["bot_method"]
+                bot_method = method_index[query_id+"_"+doc]#document["bot_method"]
                 position = document["position"]
                 if bot_method not in results[iteration]:
                     results[iteration][bot_method]=[]
@@ -269,9 +269,9 @@ if __name__=="__main__":
     # hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
     # create_table_multiple_bots(hist_multiple,results_dir)
     method_index = get_method_index()
-    average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,"0")
+    average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,method_index,"0")
     write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
-    average_single_bot_ranking = get_average_bot_ranking(reference_docs,"2")
+    average_single_bot_ranking = get_average_bot_ranking(reference_docs,method_index,"2")
     write_table_bots_ranking("2",average_single_bot_ranking,results_dir)
     average_rank_competitrs = get_average_rank_of_active_competitors()
     write_competitors_ranking_table(average_rank_competitrs,results_dir)
