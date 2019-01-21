@@ -181,7 +181,7 @@ def write_competitors_ranking_table(results,results_dir):
     f.write("\\hline\n")
     f.write("Test group & " + " & ".join([str(i + 1) for i in range(len(results))]) + " \\\\ \n")
     f.write("\\hline\n")
-    f.write("Single bot & "+" & ".join([results[i]["2"] for i in sorted(list(results.keys()))])+" \\\\ \n")
+    f.write("Single bot & "+" & ".join([str(round(results[i]["2"],3)) for i in sorted(list(results.keys()))])+" \\\\ \n")
     f.write("Multiple bots & "+" & ".join([str(round(results[i]["0"],3)) for i in sorted(list(results.keys()))])+" \\\\ \n")
     f.write("\\end{tabular}\n")
     f.close()
