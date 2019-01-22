@@ -18,8 +18,8 @@ def get_original_documents(reference_docs):
     first_iter = iterations[7]
     for query_id in reference_docs:
         for doc in reference_docs[query_id]:
-            doc = next(db.archive.find({"username":doc,"query_id":query_id,"iteration":first_iter}))
-            text = doc["text"]
+            document = next(db.archive.find({"username":doc,"query_id":query_id,"iteration":first_iter}))
+            text = document["text"]
             text_index[query_id+"_"+doc]=text
     return text_index
 
