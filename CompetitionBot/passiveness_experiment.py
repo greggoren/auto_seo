@@ -32,7 +32,7 @@ def create_trec_text(text_index):
     needed_iter = iterations[8]
     docs = db.archive.find({"iteration":needed_iter})
     trec_file = "trec_text_bots_passive"
-    f = open(trec_file,"w")
+    f = open(trec_file,"w",encoding="utf-8")
     working_set_index = {}
     for doc in docs:
         query = doc["query_id"]
