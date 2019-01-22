@@ -216,7 +216,7 @@ def read_file(filename,method_index,rel=False):
             stats[query][user].append(label)
         for query in stats:
             for user in stats[query]:
-                if sum(stats[query][user])>=3:
+                if sum(stats[query][user]) >= 3:
                     stats[query][user]=1
                 else:
                     stats[query][user] = 0
