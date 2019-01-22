@@ -94,7 +94,7 @@ def create_data_for_mturk(reference_docs, index):
     f.close()
     f2.close()
 
-
-reference_docs = get_reference_documents()
-create_data_for_mturk(reference_docs,8)
-create_data_set_fe()
+if __name__=="__main__":
+    reference_docs = get_reference_documents()
+    create_data_for_mturk(reference_docs,8)
+    create_data_set_fe()
