@@ -275,7 +275,7 @@ if __name__=="__main__":
     # create_table_single_bot(hist_single,results_dir)
     # hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
     # create_table_multiple_bots(hist_multiple,results_dir)
-    # method_index = get_method_index()
+    method_index = get_method_index()
     # average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,method_index,"0")
     # write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
     # average_single_bot_ranking = get_average_bot_ranking(reference_docs,method_index,"2")
