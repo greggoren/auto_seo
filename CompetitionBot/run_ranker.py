@@ -61,14 +61,14 @@ def create_features_file_sentence_exp(features_dir,index_path,queries_file,new_f
     print(command)
     out=run_bash_command(command)
     print(out)
-    command = "mv features "+new_features_file
+    command = "mv features_ "+new_features_file
     print(command)
     out = run_bash_command(command)
     print(out)
 
 
 if __name__=="__main__":
-    feature_file = "features_"
+    feature_file = "features_bot"
     features_dir = "Features"
     queries_file = "/lv_local/home/sgregory/auto_seo/data/queries.xml"
     merged_index = "/lv_local/home/sgregory/Bots/mergedindices"
