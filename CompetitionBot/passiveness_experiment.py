@@ -59,7 +59,7 @@ def create_trec_text(text_index):
     f = open(working_set_file,"w")
     for query in working_set_index:
         for i,doc in enumerate(working_set_index[query],start=1):
-            f.write(query.zfill(3) + ' Q0 ' + doc + ' ' + str(i) + ' -' + str(i) + ' indri\n')
+            f.write(query.zfill(3) + ' Q0 ' + query+"-"+doc + ' ' + str(i) + ' -' + str(i) + ' indri\n')
     f.close()
     return trec_file,working_set_file
 
@@ -99,6 +99,6 @@ if __name__=="__main__":
     ref_docs = get_reference_documents()
     original_bot_text = get_original_documents(ref_docs)
     trectext_file,working_set = create_trec_text(original_bot_text)
-    new_index =create_index(trectext_file)
-    merge_indices(new_index,'/lv_local/home/sgregory/Bots/mergedindices')
+    # new_index =create_index(trectext_file)
+    # merge_indices(new_index,'/lv_local/home/sgregory/Bots/mergedindices')
 
