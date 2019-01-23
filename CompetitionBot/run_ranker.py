@@ -74,7 +74,6 @@ if __name__=="__main__":
     merged_index = "/lv_local/home/sgregory/Bots/mergedindices"
     working_set = "working_set_passive_bots"
     create_features_file_sentence_exp(features_dir=features_dir,index_path=merged_index,queries_file=queries_file,new_features_file=feature_file,working_set=working_set)
-
     index_doc_name = create_index_to_doc_name_dict(feature_file)
     scores_file = run_model(feature_file,"")
     results = retrieve_scores(index_doc_name, scores_file)
