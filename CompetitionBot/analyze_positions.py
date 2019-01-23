@@ -233,10 +233,11 @@ def read_file(filename,method_index,rel=False):
                 if method not in final_stats[group]:
                     final_stats[group][method]=[]
                 final_stats[group][method].append(stats[query][user])
+        print(final_stats)
         for group in final_stats:
             for method in final_stats[group]:
                 final_stats[group][method]=np.mean(final_stats[group][method])
-
+    print(final_stats)
     return final_stats
 
 def get_method_index():
@@ -270,16 +271,16 @@ if __name__=="__main__":
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
     reference_docs = get_reference_documents()
-    hist_single = get_addition_histogram_single_bot(reference_docs)
-    create_table_single_bot(hist_single,results_dir)
-    hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
-    create_table_multiple_bots(hist_multiple,results_dir)
-    method_index = get_method_index()
-    average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,method_index,"0")
-    write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
-    average_single_bot_ranking = get_average_bot_ranking(reference_docs,method_index,"2")
-    write_table_bots_ranking("2",average_single_bot_ranking,results_dir)
-    average_rank_competitrs = get_average_rank_of_active_competitors()
-    write_competitors_ranking_table(average_rank_competitrs,results_dir)
+    # hist_single = get_addition_histogram_single_bot(reference_docs)
+    # create_table_single_bot(hist_single,results_dir)
+    # hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
+    # create_table_multiple_bots(hist_multiple,results_dir)
+    # method_index = get_method_index()
+    # average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,method_index,"0")
+    # write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
+    # average_single_bot_ranking = get_average_bot_ranking(reference_docs,method_index,"2")
+    # write_table_bots_ranking("2",average_single_bot_ranking,results_dir)
+    # average_rank_competitrs = get_average_rank_of_active_competitors()
+    # write_competitors_ranking_table(average_rank_competitrs,results_dir)
     ks_stats=read_group_dir("annotations/",method_index,False)
     write_quality_annotation_table(ks_stats,results_dir)
