@@ -68,7 +68,7 @@ def create_features_file_sentence_exp(features_dir,index_path,queries_file,new_f
 
 
 if __name__=="__main__":
-    feature_file = "features"
+    feature_file = "features_"
     features_dir = "Features"
     queries_file = "/lv_local/home/sgregory/auto_seo/data/queries.xml"
     merged_index = "/lv_local/home/sgregory/Bots/mergedindices"
