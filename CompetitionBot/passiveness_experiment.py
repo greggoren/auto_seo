@@ -36,14 +36,16 @@ def create_trec_text(text_index):
     working_set_index = {}
     for doc in docs:
         query = doc["query_id"]
-        if query not in working_set_index:
-            working_set_index[query]=[]
+
         username = doc["username"]
-        working_set_index[query].append(username)
         key = query+"_"+username
         group = query.split("_")[1]
         if group not in ["0" , "2"]:
             continue
+        if query not in working_set_index:
+            working_set_index[query]=[]
+        working_set_index[query].append(username)
+
         if key in text_index:
             text = text_index[key]
         else:
