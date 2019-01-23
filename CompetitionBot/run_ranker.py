@@ -16,7 +16,7 @@ def get_docs(doc_texts,round):
     return result
 
 def create_trec_eval_file(results,run_name):
-    trec_file = "/home/greg/auto_seo/SentenceRanking/trec_file"+run_name+".txt"
+    trec_file = "trec_file"+run_name+".txt"
     trec_file_access = open(trec_file, 'w')
     for doc in results:
         query = doc.split("-")[2]
