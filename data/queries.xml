@@ -1,0 +1,794 @@
+<parameters>
+	<query>
+		<number>001</number>
+		<text>#combine( obama family tree )</text>
+	</query>
+	<query>
+		<number>002</number>
+		<text>#combine( french lick resort casino )</text>
+	</query>
+	<query>
+		<number>003</number>
+		<text>#combine( getting organized )</text>
+	</query>
+	<query>
+		<number>004</number>
+		<text>#combine( toilet )</text>
+	</query>
+	<query>
+		<number>005</number>
+		<text>#combine( mitchell college )</text>
+	</query>
+	<query>
+		<number>006</number>
+		<text>#combine( kcs )</text>
+	</query>
+	<query>
+		<number>007</number>
+		<text>#combine( air travel information )</text>
+	</query>
+	<query>
+		<number>008</number>
+		<text>#combine( appraisals )</text>
+	</query>
+	<query>
+		<number>009</number>
+		<text>#combine( car parts )</text>
+	</query>
+	<query>
+		<number>010</number>
+		<text>#combine( cheap internet )</text>
+	</query>
+	<query>
+		<number>011</number>
+		<text>#combine( gmat prep classes )</text>
+	</query>
+	<query>
+		<number>012</number>
+		<text>#combine( djs )</text>
+	</query>
+	<query>
+		<number>013</number>
+		<text>#combine( map )</text>
+	</query>
+	<query>
+		<number>014</number>
+		<text>#combine( dinosaurs )</text>
+	</query>
+	<query>
+		<number>015</number>
+		<text>#combine( espn sports )</text>
+	</query>
+	<query>
+		<number>016</number>
+		<text>#combine( arizona game fish )</text>
+	</query>
+	<query>
+		<number>017</number>
+		<text>#combine( poker tournaments )</text>
+	</query>
+	<query>
+		<number>018</number>
+		<text>#combine( wedding budget calculator )</text>
+	</query>
+	<query>
+		<number>019</number>
+		<text>#combine( current )</text>
+	</query>
+	<query>
+		<number>020</number>
+		<text>#combine( defender )</text>
+	</query>
+	<query>
+		<number>021</number>
+		<text>#combine( volvo )</text>
+	</query>
+	<query>
+		<number>022</number>
+		<text>#combine( rick warren )</text>
+	</query>
+	<query>
+		<number>023</number>
+		<text>#combine( yahoo )</text>
+	</query>
+	<query>
+		<number>024</number>
+		<text>#combine( diversity )</text>
+	</query>
+	<query>
+		<number>025</number>
+		<text>#combine( euclid )</text>
+	</query>
+	<query>
+		<number>026</number>
+		<text>#combine( lower heart rate )</text>
+	</query>
+	<query>
+		<number>027</number>
+		<text>#combine( starbucks )</text>
+	</query>
+	<query>
+		<number>028</number>
+		<text>#combine( inuyasha )</text>
+	</query>
+	<query>
+		<number>029</number>
+		<text>#combine( ps 2 games )</text>
+	</query>
+	<query>
+		<number>030</number>
+		<text>#combine( diabetes education )</text>
+	</query>
+	<query>
+		<number>031</number>
+		<text>#combine( atari )</text>
+	</query>
+	<query>
+		<number>032</number>
+		<text>#combine( website design hosting )</text>
+	</query>
+	<query>
+		<number>033</number>
+		<text>#combine( elliptical trainer )</text>
+	</query>
+	<query>
+		<number>034</number>
+		<text>#combine( cell phones )</text>
+	</query>
+	<query>
+		<number>035</number>
+		<text>#combine( hoboken )</text>
+	</query>
+	<query>
+		<number>036</number>
+		<text>#combine( gps )</text>
+	</query>
+	<query>
+		<number>037</number>
+		<text>#combine( pampered chef )</text>
+	</query>
+	<query>
+		<number>038</number>
+		<text>#combine( dogs adoption )</text>
+	</query>
+	<query>
+		<number>039</number>
+		<text>#combine( disneyland hotel )</text>
+	</query>
+	<query>
+		<number>040</number>
+		<text>#combine( michworks )</text>
+	</query>
+	<query>
+		<number>041</number>
+		<text>#combine( orange county convention center )</text>
+	</query>
+	<query>
+		<number>042</number>
+		<text>#combine( music man )</text>
+	</query>
+	<query>
+		<number>043</number>
+		<text>#combine( secret garden )</text>
+	</query>
+	<query>
+		<number>044</number>
+		<text>#combine( map united states )</text>
+	</query>
+	<query>
+		<number>045</number>
+		<text>#combine( solar panels )</text>
+	</query>
+	<query>
+		<number>046</number>
+		<text>#combine( alexian brothers hospital )</text>
+	</query>
+	<query>
+		<number>047</number>
+		<text>#combine( indexed annuity )</text>
+	</query>
+	<query>
+		<number>048</number>
+		<text>#combine( wilson antenna )</text>
+	</query>
+	<query>
+		<number>049</number>
+		<text>#combine( flame designs )</text>
+	</query>
+	<query>
+		<number>050</number>
+		<text>#combine( dog heat )</text>
+	</query>
+	<query>
+		<number>051</number>
+		<text>#combine( horse hooves )</text>
+	</query>
+	<query>
+		<number>052</number>
+		<text>#combine( avp )</text>
+	</query>
+	<query>
+		<number>053</number>
+		<text>#combine( discovery channel store )</text>
+	</query>
+	<query>
+		<number>054</number>
+		<text>#combine( president united states )</text>
+	</query>
+	<query>
+		<number>055</number>
+		<text>#combine( iron )</text>
+	</query>
+	<query>
+		<number>056</number>
+		<text>#combine( uss yorktown charleston sc )</text>
+	</query>
+	<query>
+		<number>057</number>
+		<text>#combine( ct jobs )</text>
+	</query>
+	<query>
+		<number>058</number>
+		<text>#combine( penguins )</text>
+	</query>
+	<query>
+		<number>059</number>
+		<text>#combine( build fence )</text>
+	</query>
+	<query>
+		<number>060</number>
+		<text>#combine( bellevue )</text>
+	</query>
+	<query>
+		<number>061</number>
+		<text>#combine( worm )</text>
+	</query>
+	<query>
+		<number>062</number>
+		<text>#combine( texas border patrol )</text>
+	</query>
+	<query>
+		<number>063</number>
+		<text>#combine( flushing )</text>
+	</query>
+	<query>
+		<number>064</number>
+		<text>#combine( moths )</text>
+	</query>
+	<query>
+		<number>065</number>
+		<text>#combine( korean language )</text>
+	</query>
+	<query>
+		<number>066</number>
+		<text>#combine( income tax return online )</text>
+	</query>
+	<query>
+		<number>067</number>
+		<text>#combine( vldl levels )</text>
+	</query>
+	<query>
+		<number>068</number>
+		<text>#combine( pvc )</text>
+	</query>
+	<query>
+		<number>069</number>
+		<text>#combine( sewing instructions )</text>
+	</query>
+	<query>
+		<number>070</number>
+		<text>#combine( question )</text>
+	</query>
+	<query>
+		<number>071</number>
+		<text>#combine( living india )</text>
+	</query>
+	<query>
+		<number>072</number>
+		<text>#combine( sun )</text>
+	</query>
+	<query>
+		<number>073</number>
+		<text>#combine( neil young )</text>
+	</query>
+	<query>
+		<number>074</number>
+		<text>#combine( kiwi )</text>
+	</query>
+	<query>
+		<number>075</number>
+		<text>#combine( tornadoes )</text>
+	</query>
+	<query>
+		<number>076</number>
+		<text>#combine( raised gardens )</text>
+	</query>
+	<query>
+		<number>077</number>
+		<text>#combine( bobcat )</text>
+	</query>
+	<query>
+		<number>078</number>
+		<text>#combine( dieting )</text>
+	</query>
+	<query>
+		<number>079</number>
+		<text>#combine( voyager )</text>
+	</query>
+	<query>
+		<number>080</number>
+		<text>#combine( keyboard reviews )</text>
+	</query>
+	<query>
+		<number>081</number>
+		<text>#combine( afghanistan )</text>
+	</query>
+	<query>
+		<number>082</number>
+		<text>#combine( joints )</text>
+	</query>
+	<query>
+		<number>083</number>
+		<text>#combine( memory )</text>
+	</query>
+	<query>
+		<number>084</number>
+		<text>#combine( continental plates )</text>
+	</query>
+	<query>
+		<number>085</number>
+		<text>#combine( milwaukee journal sentinel )</text>
+	</query>
+	<query>
+		<number>086</number>
+		<text>#combine( bart sf )</text>
+	</query>
+	<query>
+		<number>087</number>
+		<text>#combine( invented music )</text>
+	</query>
+	<query>
+		<number>088</number>
+		<text>#combine( forearm pain )</text>
+	</query>
+	<query>
+		<number>089</number>
+		<text>#combine( ocd )</text>
+	</query>
+	<query>
+		<number>090</number>
+		<text>#combine( mgb )</text>
+	</query>
+	<query>
+		<number>091</number>
+		<text>#combine( er tv show )</text>
+	</query>
+	<query>
+		<number>092</number>
+		<text>#combine( wall )</text>
+	</query>
+	<query>
+		<number>093</number>
+		<text>#combine( raffles )</text>
+	</query>
+	<query>
+		<number>094</number>
+		<text>#combine( titan )</text>
+	</query>
+	<query>
+		<number>096</number>
+		<text>#combine( rice )</text>
+	</query>
+	<query>
+		<number>097</number>
+		<text>#combine( south africa )</text>
+	</query>
+	<query>
+		<number>098</number>
+		<text>#combine( sat )</text>
+	</query>
+	<query>
+		<number>099</number>
+		<text>#combine( satellite )</text>
+	</query>
+	<query>
+		<number>101</number>
+		<text>#combine( ritz carlton lake las vegas )</text>
+	</query>
+	<query>
+		<number>102</number>
+		<text>#combine( fickle creek farm )</text>
+	</query>
+	<query>
+		<number>103</number>
+		<text>#combine( madam cj walker )</text>
+	</query>
+	<query>
+		<number>104</number>
+		<text>#combine( indiana child support )</text>
+	</query>
+	<query>
+		<number>105</number>
+		<text>#combine( sonoma county medical services )</text>
+	</query>
+	<query>
+		<number>106</number>
+		<text>#combine( universal animal cuts reviews )</text>
+	</query>
+	<query>
+		<number>107</number>
+		<text>#combine( cass county missouri )</text>
+	</query>
+	<query>
+		<number>108</number>
+		<text>#combine( ralph owen brewster )</text>
+	</query>
+	<query>
+		<number>109</number>
+		<text>#combine( mayo clinic jacksonville fl )</text>
+	</query>
+	<query>
+		<number>110</number>
+		<text>#combine( map brazil )</text>
+	</query>
+	<query>
+		<number>111</number>
+		<text>#combine( lymphoma dogs )</text>
+	</query>
+	<query>
+		<number>112</number>
+		<text>#combine( kenmore gas water heater )</text>
+	</query>
+	<query>
+		<number>113</number>
+		<text>#combine( hp mini 2140 )</text>
+	</query>
+	<query>
+		<number>114</number>
+		<text>#combine( adobe indian houses )</text>
+	</query>
+	<query>
+		<number>115</number>
+		<text>#combine( pacific northwest laboratory )</text>
+	</query>
+	<query>
+		<number>116</number>
+		<text>#combine( california franchise tax board )</text>
+	</query>
+	<query>
+		<number>117</number>
+		<text>#combine( dangers asbestos )</text>
+	</query>
+	<query>
+		<number>118</number>
+		<text>#combine( poem pocket )</text>
+	</query>
+	<query>
+		<number>119</number>
+		<text>#combine( interview thank )</text>
+	</query>
+	<query>
+		<number>120</number>
+		<text>#combine( tv computer )</text>
+	</query>
+	<query>
+		<number>121</number>
+		<text>#combine( sit reach test )</text>
+	</query>
+	<query>
+		<number>122</number>
+		<text>#combine( culpeper national cemetery )</text>
+	</query>
+	<query>
+		<number>123</number>
+		<text>#combine( von willebrand disease )</text>
+	</query>
+	<query>
+		<number>124</number>
+		<text>#combine( bowflex power pro )</text>
+	</query>
+	<query>
+		<number>125</number>
+		<text>#combine( butter margarine )</text>
+	</query>
+	<query>
+		<number>126</number>
+		<text>#combine( capitol map )</text>
+	</query>
+	<query>
+		<number>127</number>
+		<text>#combine( dutchess county tourism )</text>
+	</query>
+	<query>
+		<number>128</number>
+		<text>#combine( atypical squamous cells )</text>
+	</query>
+	<query>
+		<number>129</number>
+		<text>#combine( iowa food stamp program )</text>
+	</query>
+	<query>
+		<number>130</number>
+		<text>#combine( fact uranus )</text>
+	</query>
+	<query>
+		<number>131</number>
+		<text>#combine( equal opportunity employer )</text>
+	</query>
+	<query>
+		<number>132</number>
+		<text>#combine( mothers songs )</text>
+	</query>
+	<query>
+		<number>133</number>
+		<text>#combine( men created equal )</text>
+	</query>
+	<query>
+		<number>134</number>
+		<text>#combine( electronic skeet shoot )</text>
+	</query>
+	<query>
+		<number>135</number>
+		<text>#combine( source nile )</text>
+	</query>
+	<query>
+		<number>136</number>
+		<text>#combine( american military university )</text>
+	</query>
+	<query>
+		<number>137</number>
+		<text>#combine( rock gem shows )</text>
+	</query>
+	<query>
+		<number>138</number>
+		<text>#combine( jax chemical company )</text>
+	</query>
+	<query>
+		<number>139</number>
+		<text>#combine( rocky mountain news )</text>
+	</query>
+	<query>
+		<number>140</number>
+		<text>#combine( east ridge high school )</text>
+	</query>
+	<query>
+		<number>141</number>
+		<text>#combine( va dmv registration )</text>
+	</query>
+	<query>
+		<number>142</number>
+		<text>#combine( illinois state tax )</text>
+	</query>
+	<query>
+		<number>143</number>
+		<text>#combine( arkadelphia health club )</text>
+	</query>
+	<query>
+		<number>144</number>
+		<text>#combine( trombone sale )</text>
+	</query>
+	<query>
+		<number>145</number>
+		<text>#combine( vines shade )</text>
+	</query>
+	<query>
+		<number>146</number>
+		<text>#combine( sherwood regional library )</text>
+	</query>
+	<query>
+		<number>147</number>
+		<text>#combine( tangible personal property tax )</text>
+	</query>
+	<query>
+		<number>148</number>
+		<text>#combine( martha stewart imclone )</text>
+	</query>
+	<query>
+		<number>149</number>
+		<text>#combine( uplift yellowstone national park )</text>
+	</query>
+	<query>
+		<number>150</number>
+		<text>#combine( tn highway patrol )</text>
+	</query>
+	<query>
+		<number>151</number>
+		<text>#combine( 403b )</text>
+	</query>
+	<query>
+		<number>152</number>
+		<text>#combine( angular cheilitis )</text>
+	</query>
+	<query>
+		<number>153</number>
+		<text>#combine( pocono )</text>
+	</query>
+	<query>
+		<number>154</number>
+		<text>#combine( figs )</text>
+	</query>
+	<query>
+		<number>155</number>
+		<text>#combine( supper painting )</text>
+	</query>
+	<query>
+		<number>156</number>
+		<text>#combine( university phoenix )</text>
+	</query>
+	<query>
+		<number>157</number>
+		<text>#combine( beatles rock band )</text>
+	</query>
+	<query>
+		<number>158</number>
+		<text>#combine( septic system design )</text>
+	</query>
+	<query>
+		<number>159</number>
+		<text>#combine( porterville )</text>
+	</query>
+	<query>
+		<number>160</number>
+		<text>#combine( grilling )</text>
+	</query>
+	<query>
+		<number>161</number>
+		<text>#combine( furniture small spaces )</text>
+	</query>
+	<query>
+		<number>162</number>
+		<text>#combine( dnr )</text>
+	</query>
+	<query>
+		<number>163</number>
+		<text>#combine( arkansas )</text>
+	</query>
+	<query>
+		<number>164</number>
+		<text>#combine( hobby stores )</text>
+	</query>
+	<query>
+		<number>165</number>
+		<text>#combine( blue throated hummingbird )</text>
+	</query>
+	<query>
+		<number>166</number>
+		<text>#combine( computer programming )</text>
+	</query>
+	<query>
+		<number>167</number>
+		<text>#combine( barbados )</text>
+	</query>
+	<query>
+		<number>168</number>
+		<text>#combine( lipoma )</text>
+	</query>
+	<query>
+		<number>169</number>
+		<text>#combine( battles civil war )</text>
+	</query>
+	<query>
+		<number>170</number>
+		<text>#combine( scooters )</text>
+	</query>
+	<query>
+		<number>171</number>
+		<text>#combine( ron howard )</text>
+	</query>
+	<query>
+		<number>172</number>
+		<text>#combine( paralegal )</text>
+	</query>
+	<query>
+		<number>173</number>
+		<text>#combine( hip fractures )</text>
+	</query>
+	<query>
+		<number>174</number>
+		<text>#combine( rock art )</text>
+	</query>
+	<query>
+		<number>175</number>
+		<text>#combine( signs heartattack )</text>
+	</query>
+	<query>
+		<number>176</number>
+		<text>#combine( weather strip )</text>
+	</query>
+	<query>
+		<number>177</number>
+		<text>#combine( best long term care insurance )</text>
+	</query>
+	<query>
+		<number>178</number>
+		<text>#combine( pork tenderloin )</text>
+	</query>
+	<query>
+		<number>179</number>
+		<text>#combine( black history )</text>
+	</query>
+	<query>
+		<number>180</number>
+		<text>#combine( newyork hotels )</text>
+	</query>
+	<query>
+		<number>181</number>
+		<text>#combine( old coins )</text>
+	</query>
+	<query>
+		<number>182</number>
+		<text>#combine( quit smoking )</text>
+	</query>
+	<query>
+		<number>183</number>
+		<text>#combine( kansas city mo )</text>
+	</query>
+	<query>
+		<number>184</number>
+		<text>#combine( civil right movement )</text>
+	</query>
+	<query>
+		<number>185</number>
+		<text>#combine( credit report )</text>
+	</query>
+	<query>
+		<number>186</number>
+		<text>#combine( unc )</text>
+	</query>
+	<query>
+		<number>187</number>
+		<text>#combine( vanuatu )</text>
+	</query>
+	<query>
+		<number>188</number>
+		<text>#combine( internet phone service )</text>
+	</query>
+	<query>
+		<number>189</number>
+		<text>#combine( gs pay rate )</text>
+	</query>
+	<query>
+		<number>190</number>
+		<text>#combine( brooks brothers clearance )</text>
+	</query>
+	<query>
+		<number>191</number>
+		<text>#combine( churchill downs )</text>
+	</query>
+	<query>
+		<number>192</number>
+		<text>#combine( condos florida )</text>
+	</query>
+	<query>
+		<number>193</number>
+		<text>#combine( dog clean bags )</text>
+	</query>
+	<query>
+		<number>194</number>
+		<text>#combine( designer dog breeds )</text>
+	</query>
+	<query>
+		<number>195</number>
+		<text>#combine( pressure washers )</text>
+	</query>
+	<query>
+		<number>196</number>
+		<text>#combine( sore throat )</text>
+	</query>
+	<query>
+		<number>197</number>
+		<text>#combine( idaho state flower )</text>
+	</query>
+	<query>
+		<number>198</number>
+		<text>#combine( indiana state fairgrounds )</text>
+	</query>
+	<query>
+		<number>199</number>
+		<text>#combine( fybromyalgia )</text>
+	</query>
+	<query>
+		<number>200</number>
+		<text>#combine( ontario california airport )</text>
+	</query>
+</parameters>
