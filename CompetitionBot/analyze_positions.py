@@ -266,6 +266,36 @@ def write_quality_annotation_table(results,results_dir):
     f.write("\\end{tabular}\n")
     f.close()
 
+
+def get_competitors_quality():
+    results = {}
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    iterations = sorted(list(db.archive.distinct("iteration")))[7:]
+    for iteration in iterations:
+        results[iteration]={}
+        docs = db.archive.find({"iteration":iteration})
+        for doc in docs:
+            query = doc["query_id"]
+            group = query.split("_")[1]
+            if group not in ["0","2"]:
+                continue
+            username = doc["username"]
+            if username.__contains__("dummy_doc"):
+                continue
+            if group not in results[iteration]:
+                results[iteration][group]=[]
+            waterloo = doc["waterloo"]
+            if waterloo>=60:
+                results[iteration][group].append(1)
+            else:
+                results[iteration][group].append(0)
+    for iteration in results:
+        for group in results[iteration]:
+            results[iteration][group]= np.mean(results[iteration][group])
+    print(results)
+
+
 if __name__=="__main__":
     results_dir = "tex_tables/"
     if not os.path.exists(results_dir):
@@ -284,3 +314,4 @@ if __name__=="__main__":
     # write_competitors_ranking_table(average_rank_competitrs,results_dir)
     ks_stats=read_group_dir("annotations/",method_index,False)
     write_quality_annotation_table(ks_stats,results_dir)
+    get_competitors_quality()
