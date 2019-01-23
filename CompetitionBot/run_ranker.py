@@ -19,7 +19,7 @@ def create_trec_eval_file(results,run_name):
     trec_file = "trec_file"+run_name+".txt"
     trec_file_access = open(trec_file, 'w')
     for doc in results:
-        query = doc.split("-")[2]
+        query = doc.split("-")[0]
         trec_file_access.write(query
              + " Q0 " + doc + " " + str(0) + " " + str(
                 results[doc]) + " seo\n")
