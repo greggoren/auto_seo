@@ -6,8 +6,7 @@
   <component name="ChangeListManager">
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/CompetitionBot/annotations/a1341965.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/annotations/ks4.csv" afterPath="$PROJECT_DIR$/CompetitionBot/annotations/ks4.csv" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -735,13 +734,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00949" summary="os201">
-      <created>1547716081982</created>
-      <option name="number" value="00949" />
-      <option name="presentableId" value="LOCAL-00949" />
-      <option name="project" value="LOCAL" />
-      <updated>1547716081983</updated>
-    </task>
     <task id="LOCAL-00950" summary="os201">
       <created>1547716240268</created>
       <option name="number" value="00950" />
@@ -1078,7 +1070,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548264485092</updated>
     </task>
-    <option name="localTasksCounter" value="998" />
+    <task id="LOCAL-00998" summary="os201">
+      <created>1548265172419</created>
+      <option name="number" value="00998" />
+      <option name="presentableId" value="LOCAL-00998" />
+      <option name="project" value="LOCAL" />
+      <updated>1548265172419</updated>
+    </task>
+    <option name="localTasksCounter" value="999" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
