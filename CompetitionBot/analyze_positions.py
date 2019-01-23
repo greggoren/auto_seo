@@ -161,7 +161,9 @@ def get_average_rank_of_active_competitors():
 
 def write_table_bots_ranking(group,results,results_dir):
     f = open(results_dir+"bots_ranking_"+group+".tex","w")
-    f.write("\\begin{tabular}{|c|c|c|c|} \n")
+    cols = "c|" * (len(results) + 1)
+    cols = "|" + cols
+    f.write("\\begin{tabular}{"+cols+"} \n")
     f.write("\\hline\n")
     f.write("Method & "+" & ".join([str(i+1) for i in range(len(results))])+" \\\\ \n")
     f.write("\\hline\n")
@@ -177,7 +179,9 @@ def write_table_bots_ranking(group,results,results_dir):
 
 def write_competitors_ranking_table(results,results_dir):
     f = open(results_dir+"competitors_ranking.tex", "w")
-    f.write("\\begin{tabular}{|c|c|c|c|} \n")
+    cols = "c|" * (len(results) + 1)
+    cols = "|" + cols
+    f.write("\\begin{tabular}{"+cols+"} \n")
     f.write("\\hline\n")
     f.write("Test group & " + " & ".join([str(i + 1) for i in range(len(results))]) + " \\\\ \n")
     f.write("\\hline\n")
@@ -247,7 +251,9 @@ def get_method_index():
 
 def write_quality_annotation_table(results,results_dir):
     f = open(results_dir + "bots_quality_by_epoch.tex", "w")
-    f.write("\\begin{tabular}{|c|c|c|} \n")
+    cols = "c|"*(len(results)+1)
+    cols="|"+cols
+    f.write("\\begin{tabular}{"+cols+"} \n")
     f.write("\\hline\n")
     f.write("Test group & " + " & ".join([str(i + 2) for i in range(len(results))]) + " \\\\ \n")
     f.write("Single bot - harmonic & "+" & ".join([str(round(results[i]["2"]["harmonic"],3)) for i in sorted(list(results.keys()))])+" \\\\ \n")
