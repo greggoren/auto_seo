@@ -7,6 +7,7 @@ from Experiments.model_handler import create_index_to_doc_name_dict
 import os
 import params
 import numpy as np
+from pymongo import MongoClient
 def get_docs(doc_texts,round):
     result = {}
     index = str(round).zfill(2)
