@@ -290,6 +290,7 @@ def get_competitors_quality():
                 results[iteration][group].append(1)
             else:
                 results[iteration][group].append(0)
+    print(results)
     for iteration in results:
         for group in results[iteration]:
             results[iteration][group]= np.mean(results[iteration][group])
@@ -312,6 +313,6 @@ if __name__=="__main__":
     # write_table_bots_ranking("2",average_single_bot_ranking,results_dir)
     # average_rank_competitrs = get_average_rank_of_active_competitors()
     # write_competitors_ranking_table(average_rank_competitrs,results_dir)
-    ks_stats=read_group_dir("annotations/",method_index,False)
-    write_quality_annotation_table(ks_stats,results_dir)
+    # ks_stats=read_group_dir("annotations/",method_index,False)
+    # write_quality_annotation_table(ks_stats,results_dir)
     get_competitors_quality()
