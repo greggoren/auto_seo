@@ -1,12 +1,12 @@
 from Experiments.experiment_data_processor import create_features_file_sentence_exp
+from CompetitionBot.create_ds_for_annotations import get_reference_documents,ASR_MONGO_PORT,ASR_MONGO_HOST
 from utils import run_command
 from utils import run_bash_command
 from Experiments.model_handler import retrieve_scores
 from Experiments.model_handler import create_index_to_doc_name_dict
 import os
-from sys import argv
 import params
-
+import numpy as np
 def get_docs(doc_texts,round):
     result = {}
     index = str(round).zfill(2)
@@ -67,6 +67,50 @@ def create_features_file_sentence_exp(features_dir,index_path,queries_file,new_f
     print(out)
 
 
+def get_lists(trec_file):
+    results = {}
+    with open(trec_file) as file:
+        for line in file:
+            query = line.split()[0]
+            doc = line.split()[2]
+            if query not in results:
+                results[query]=[]
+            results[query].append(doc)
+    return results
+
+
+
+def get_average_bot_ranking(reference_docs,method_index,group,result_passive):
+    results = {}
+
+    for query_id in reference_docs:
+        query_group = query_id.split("_")[1]
+        if query_group!=group:
+            continue
+        for doc in reference_docs[query_id]:
+
+            bot_method = method_index[query_id+"_"+doc]#document["bot_method"]
+            position = result_passive[query_id].index(query_id+"-"+doc)+1
+            if bot_method not in results:
+                results[bot_method]=[]
+            results[bot_method].append(position)
+    for bot_method in results:
+        results[bot_method]= np.mean(results[bot_method])
+    return results
+
+
+
+def get_method_index():
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    docs = db.documents.find({})
+    index = {}
+    for doc in docs:
+        if "bot_method" in doc:
+            index[doc["query_id"]+"_"+doc["username"]]=doc["bot_method"]
+    return index
+
+
 if __name__=="__main__":
     feature_file = "features_bot"
     features_dir = "Features"
@@ -78,4 +122,12 @@ if __name__=="__main__":
     scores_file = run_model(feature_file,"")
     results = retrieve_scores(index_doc_name, scores_file)
     trec_file = create_trec_eval_file(results,"")
-    order_trec_file(trec_file)
+    final_file = order_trec_file(trec_file)
+    lists = get_lists(final_file)
+    ref_docs = get_reference_documents()
+    method_index = get_method_index()
+    average_ranks_multiple = get_average_bot_ranking(ref_docs,method_index,"0",lists)
+
+    average_ranks_single = get_average_bot_ranking(ref_docs,method_index,"2",lists)
+    print(average_ranks_multiple)
+    print(average_ranks_single)

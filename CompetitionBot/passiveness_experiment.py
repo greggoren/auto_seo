@@ -3,7 +3,7 @@ from pymongo import MongoClient
 from Experiments.experiment_data_processor import create_index,merge_indices
 import os
 from utils import run_bash_command
-
+import numpy as np
 
 
 ASR_MONGO_HOST = "asr2.iem.technion.ac.il"
@@ -94,8 +94,6 @@ def merge_indices(new_index,new_index_name):
     out=run_bash_command(command)
     print("merging out command:",out)
     return new_index_name
-
-
 
 if __name__=="__main__":
     ref_docs = get_reference_documents()
