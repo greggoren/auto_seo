@@ -331,25 +331,40 @@ def calculate_potential_averages(dummies,active,bots):
     return dummies_averages,active_averages,bot_averages
 
 
+def populate_correct_dictionary(stats,new_rank,old_rank):
+    if new_rank==old_rank:
+        stats["same"]+=1
+    elif new_rank>old_rank:
+        stats["demoted"]+=1
+    else:
+        stats["promoted"] += 1
+    return stats
+
 def calculate_promotion_potential(reference_docs,positions):
     active = {}
     bots = {}
     dummies = {}
-    separate={}
+    stayed_winner={}
+    overall_promotion = {}
     iterations = sorted(list(positions.keys()))
+    changes_in_ranking_stats = {}
     for i,iteration in enumerate(iterations):
         if i == 0:
             continue
         bots[iteration]={}
         dummies[iteration]={}
         active[iteration]={}
-        separate[iteration]={}
+        stayed_winner[iteration]={}
+        overall_promotion[iteration]={"Bot":0,"Active":0,"Dummies":0}
+        changes_in_ranking_stats[iteration]={"same":0,"promoted":0,"demoted":0}
         for query_id in positions[iteration]:
             number_of_competitors = len(positions[iteration][query_id])
 
             for doc in positions[iteration][query_id]:
                 old_position = positions[iterations[i-1]][query_id][doc]
                 new_position = positions[iteration][query_id][doc]
+
+                changes_in_ranking_stats[iteration]=populate_correct_dictionary(changes_in_ranking_stats[iteration],new_position,old_position)
                 if new_position>=old_position:
                     denominator = number_of_competitors-old_position
                 else:
@@ -359,23 +374,25 @@ def calculate_promotion_potential(reference_docs,positions):
                 else:
                     potential = (old_position-new_position)/(denominator)
                 if new_position==1 and old_position==1:
-                    separate[iteration][query_id]=doc
+                    stayed_winner[iteration][query_id]=doc
 
                 if doc in reference_docs[query_id]:
                     if query_id not in bots[iteration]:
                         bots[iteration][query_id]={}
                     bots[iteration][query_id][doc]=potential
+                    overall_promotion[iteration]["Bot"]+=(old_position-new_position)
                 elif doc.__contains__("dummy_doc"):
                     if query_id not in dummies[iteration]:
                         dummies[iteration][query_id]={}
                     dummies[iteration][query_id][doc]=potential
+                    overall_promotion[iteration]["Dummies"] += (old_position - new_position)
                 else:
                     if query_id not in active[iteration]:
                         active[iteration][query_id]={}
                     active[iteration][query_id][doc]=potential
-
+                    overall_promotion[iteration]["Active"] += (old_position - new_position)
     dummy_averages,active_averages,bot_averages = calculate_potential_averages(dummies,active,bots)
-    return dummy_averages,active_averages,bot_averages,separate
+    return dummy_averages,active_averages,bot_averages,stayed_winner,overall_promotion,changes_in_ranking_stats
 
 
 
@@ -441,6 +458,47 @@ def write_separate_table(separate_hist,results_dir):
     f.write("\\end{tabular}\n")
     f.close()
 
+
+
+
+def write_tables_hist_ranking_changes(changes):
+    f = open(results_dir + "single_bot_changes_in_ranking.tex", "w")
+    cols = "c|" * (len(changes) + 1)
+    cols = "|" + cols
+    f.write("\\begin{tabular}{" + cols + "}\n")
+    f.write("\\hline \n")
+    f.write("Status & " + " & ".join([str(i + 2) for i in range(len(changes))]) + " \\\\ \n")
+    f.write("\\hline \n")
+    f.write("Same ranking & "+" & ".join([changes[i]["same"] for i in sorted(list(changes.keys()))])+" \\\\ \n")
+    f.write("\\hline \n")
+    f.write("Demotion & "+" & ".join([changes[i]["demoted"] for i in sorted(list(changes.keys()))])+" \\\\ \n")
+    f.write("\\hline \n")
+    f.write("Promotion & "+" & ".join([changes[i]["promoted"] for i in sorted(list(changes.keys()))])+" \\\\ \n")
+    f.write("\\hline \n")
+    f.write("\\end{tabular}\n")
+    f.close()
+
+
+def write_overall_changes(overall):
+    f = open(results_dir + "single_bot_overall_change_tables.tex", "w")
+    cols = "c|" * (len(overall) + 1)
+    cols = "|" + cols
+    f.write("\\begin{tabular}{" + cols + "}\n")
+    f.write("\\hline\n")
+    f.write("Group & " + " & ".join([str(i + 2) for i in range(len(overall))]) + " \\\\ \n")
+    f.write("\\hline \n")
+    f.write("Bots & " + " & ".join(
+        [str(overall[i].get("Bots", "0")) for i in sorted(list(overall.keys()))]) + " \\\\ \n")
+    f.write("\\hline \n")
+    f.write("Active & " + " & ".join(
+        [str(overall[i].get("Active", "0")) for i in sorted(list(overall.keys()))]) + " \\\\ \n")
+    f.write("\\hline \n")
+    f.write("Dummies & " + " & ".join(
+        [str(overall[i].get("Dummies", "0")) for i in sorted(list(overall.keys()))]) + " \\\\ \n")
+    f.write("\\hline \n")
+    f.write("\\end{tabular}\n")
+    f.close()
+
 def write_potential_tables(dummies,active,bots,results_dir):
     f = open(results_dir+"single_bot_potential_tables.tex","w")
     cols = "c|"*(len(dummies)+1)
@@ -477,7 +535,10 @@ if __name__=="__main__":
     # ks_stats=read_group_dir("annotations/",method_index,False)
     # write_quality_annotation_table(ks_stats,results_dir)
     # get_competitors_quality()
-    dummy_averages, active_averages, bot_averages,separate = create_average_promotion_potential(reference_docs)
+    dummy_averages, active_averages, bot_averages,separate,overall_promotion,changes_in_ranking_stats = create_average_promotion_potential(reference_docs)
     write_potential_tables(dummy_averages,active_averages,bot_averages,results_dir)
     sep_hist = get_separate_stats(separate,reference_docs)
     write_separate_table(sep_hist,results_dir)
+    write_tables_hist_ranking_changes(changes_in_ranking_stats)
+    write_overall_changes(overall_promotion)
+
