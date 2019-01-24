@@ -297,6 +297,132 @@ def get_competitors_quality():
     print(results)
 
 
+
+def create_bot_ranking_to_quality_tables(quality_results_bots,quality_results_dummy_docs):
+    results = {}
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    iterations = sorted(list(db.archive.distinct("iteration")))[7:]
+    for iteration in iterations:
+        pass
+
+
+def calculate_potential_averages(dummies,active,bots):
+    dummies_averages = {}
+    active_averages = {}
+    bot_averages = {}
+    for iteration in dummies:
+        dummies_averages[iteration] = []
+        active_averages [iteration]= []
+        bot_averages [iteration]= []
+        for query_id in dummies[iteration]:
+            dummy_potentials = [dummies[iteration][query_id][d] for d in dummies[iteration][query_id]]
+            active_potentials = [active[iteration][query_id][d] for d in active[iteration][query_id]]
+            dummies_averages[iteration].append(np.mean(dummy_potentials))
+            active_averages[iteration].append(np.mean(active_potentials))
+            if query_id in bots[iteration]:
+                bot_potentials = [bots[iteration][query_id] [d] for d in bots[iteration][query_id]]
+                bot_averages[iteration].append(np.mean(bot_potentials))
+
+    for iteration in dummies_averages:
+        dummies_averages[iteration]=np.mean(dummies_averages[iteration])
+        active_averages[iteration]=np.mean(active_averages[iteration])
+        bot_averages[iteration]=np.mean(bot_averages[iteration])
+    return dummies_averages,active_averages,bot_averages
+
+
+def calculate_promotion_potential(reference_docs,positions):
+    active = {}
+    bots = {}
+    dummies = {}
+    separate={}
+    iterations = sorted(list(positions.keys()))
+    for i,iteration in enumerate(iterations):
+        if i == 0:
+            continue
+        bots[iteration]={}
+        dummies[iteration]={}
+        active[iteration]={}
+        separate[iteration]={}
+        for query_id in positions[iteration]:
+            number_of_competitors = len(positions[iteration][query_id])
+
+            for doc in positions[iteration][query_id]:
+                old_position = positions[iterations[i-1]][query_id][doc]
+                new_position = positions[iteration][query_id][doc]
+                if new_position>=old_position:
+                    denominator = number_of_competitors-old_position
+                else:
+                    denominator= old_position-1
+                if denominator==0:
+                    potential=0
+                else:
+                    potential = (old_position-new_position)/(denominator)
+                if new_position==1 and old_position==1:
+                    separate[iteration][query_id]=doc
+
+                if doc in reference_docs[query_id]:
+                    if query_id not in bots[iteration]:
+                        bots[iteration][query_id]={}
+                    bots[iteration][query_id][doc]=potential
+                elif doc.__contains__("dummy_doc"):
+                    if query_id not in dummies[iteration]:
+                        dummies[iteration][query_id]={}
+                    dummies[iteration][query_id][doc]=potential
+                else:
+                    if query_id not in active[iteration]:
+                        active[iteration][query_id]={}
+                    active[iteration][query_id][doc]=potential
+
+    dummy_averages,active_averages,bot_averages = calculate_potential_averages(dummies,active,bots)
+    return dummy_averages,active_averages,bot_averages,separate
+
+
+
+
+
+
+def create_average_promotion_potential(reference_docs):
+    positions = {}
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    iterations = sorted(list(db.archive.distinct("iteration")))[7:]
+    for iteration in iterations:
+        positions[iteration] = {}
+        docs = db.archive.find({"iteration":iteration})
+
+        for doc in docs:
+            query_id = doc["query_id"]
+            group = query_id.split("_")[1]
+
+            if group!="2":
+                continue
+
+            username = doc["username"]
+            position = doc["position"]
+            if query_id not in positions[iteration]:
+                positions[iteration][query_id]={}
+            positions[iteration][query_id][username]=position
+    return calculate_promotion_potential(reference_docs,positions)
+
+
+def write_potential_tables(dummies,active,bots,results_dir):
+    f = open(results_dir+"single_bot_potential_tables.tex","w")
+    cols = "c|"*(len(dummies)+1)
+    cols = "|"+cols
+    f.write("\\begin{tabular}{"+cols+"}")
+    f.write("\\hline\n")
+    f.write("Group & "+" & ".join([str(i+1) for i in range(len(dummies))])+" \\\\ \n")
+    f.write("\\hline\n")
+    f.write("Bots & "+" & ".join([str(bots[i]) for i in sorted(list(bots.keys()))])+"\n")
+    f.write("\\hline\n")
+    f.write("Active & "+" & ".join([str(active[i]) for i in sorted(list(active.keys()))])+"\n")
+    f.write("\\hline\n")
+    f.write("Dummies & "+" & ".join([str(dummies[i]) for i in sorted(list(dummies.keys()))])+"\n")
+    f.write("\\hline\n")
+    f.write("\\end{tabular}\n")
+    f.close()
+
 if __name__=="__main__":
     results_dir = "tex_tables/"
     if not os.path.exists(results_dir):
@@ -315,4 +441,6 @@ if __name__=="__main__":
     # write_competitors_ranking_table(average_rank_competitrs,results_dir)
     # ks_stats=read_group_dir("annotations/",method_index,False)
     # write_quality_annotation_table(ks_stats,results_dir)
-    get_competitors_quality()
+    # get_competitors_quality()
+    dummy_averages, active_averages, bot_averages,separate = create_average_promotion_potential(reference_docs)
+    write_potential_tables(dummy_averages,active_averages,bot_averages,results_dir)
