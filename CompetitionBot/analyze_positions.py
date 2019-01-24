@@ -410,19 +410,19 @@ def get_separate_stats(separate,reference_docs):
     for iteration in separate:
         hist[iteration]={}
         for query in separate[iteration]:
-            for doc in separate[iteration][query]:
-                if doc in reference_docs[query]:
-                    if "Bots" not in hist[iteration]:
-                        hist[iteration]["Bots"]=0
-                    hist[iteration]["Bots"]+=1
-                elif doc.__contains__("dummy_doc"):
-                    if "Dummies" not in hist[iteration]:
-                        hist[iteration]["Dummies"]=0
-                    hist[iteration]["Dummies"]+=1
-                else:
-                    if "Active" not in hist[iteration]:
-                        hist[iteration]["Active"]=0
-                    hist[iteration]["Active"]+=1
+            doc = separate[query][query]
+            if doc in reference_docs[query]:
+                if "Bots" not in hist[iteration]:
+                    hist[iteration]["Bots"]=0
+                hist[iteration]["Bots"]+=1
+            elif doc.__contains__("dummy_doc"):
+                if "Dummies" not in hist[iteration]:
+                    hist[iteration]["Dummies"]=0
+                hist[iteration]["Dummies"]+=1
+            else:
+                if "Active" not in hist[iteration]:
+                    hist[iteration]["Active"]=0
+                hist[iteration]["Active"]+=1
     return hist
 
 def write_separate_table(separate_hist,results_dir):
