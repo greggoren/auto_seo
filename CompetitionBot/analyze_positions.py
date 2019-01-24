@@ -449,7 +449,7 @@ def write_separate_table(separate_hist,results_dir):
     f.write("\\begin{tabular}{" + cols + "}\n")
     f.write("\\hline \n")
     f.write("Group & " + " & ".join([str(i + 2) for i in range(len(separate_hist))]) + " \\\\ \n")
-    f.write("Bots & "+" & ".join([str(separate_hist[i].get("Bot","0")) for i in sorted(list(separate_hist.keys())) ])+" \\\\ \n")
+    f.write("Bots & "+" & ".join([str(separate_hist[i].get("Bots","0")) for i in sorted(list(separate_hist.keys())) ])+" \\\\ \n")
     f.write("\\hline \n")
     f.write("Active & "+" & ".join([str(separate_hist[i].get("Active","0")) for i in sorted(list(separate_hist.keys()))])+" \\\\ \n")
     f.write("\\hline \n")
@@ -488,7 +488,7 @@ def write_overall_changes(overall):
     f.write("Group & " + " & ".join([str(i + 2) for i in range(len(overall))]) + " \\\\ \n")
     f.write("\\hline \n")
     f.write("Bots & " + " & ".join(
-        [str(overall[i].get("Bots", "0")) for i in sorted(list(overall.keys()))]) + " \\\\ \n")
+        [str(overall[i].get("Bot", "0")) for i in sorted(list(overall.keys()))]) + " \\\\ \n")
     f.write("\\hline \n")
     f.write("Active & " + " & ".join(
         [str(overall[i].get("Active", "0")) for i in sorted(list(overall.keys()))]) + " \\\\ \n")
