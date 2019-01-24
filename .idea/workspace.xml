@@ -7,7 +7,6 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" afterPath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -61,7 +60,7 @@
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="157">
-              <caret line="416" column="99" selection-start-line="416" selection-start-column="99" selection-end-line="416" selection-end-column="99" />
+              <caret line="412" column="41" selection-start-line="412" selection-start-column="41" selection-end-line="412" selection-end-column="41" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -631,13 +630,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00959" summary="os201">
-      <created>1548078502289</created>
-      <option name="number" value="00959" />
-      <option name="presentableId" value="LOCAL-00959" />
-      <option name="project" value="LOCAL" />
-      <updated>1548078502290</updated>
-    </task>
     <task id="LOCAL-00960" summary="os201">
       <created>1548079178088</created>
       <option name="number" value="00960" />
@@ -974,7 +966,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548346010626</updated>
     </task>
-    <option name="localTasksCounter" value="1008" />
+    <task id="LOCAL-01008" summary="os201">
+      <created>1548347042271</created>
+      <option name="number" value="01008" />
+      <option name="presentableId" value="LOCAL-01008" />
+      <option name="project" value="LOCAL" />
+      <updated>1548347042271</updated>
+    </task>
+    <option name="localTasksCounter" value="1009" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1558,7 +1557,7 @@
     <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
-          <caret line="416" column="99" selection-start-line="416" selection-start-column="99" selection-end-line="416" selection-end-column="99" />
+          <caret line="412" column="41" selection-start-line="412" selection-start-column="41" selection-end-line="412" selection-end-column="41" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>

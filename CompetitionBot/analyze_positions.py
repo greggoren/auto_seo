@@ -410,7 +410,7 @@ def write_potential_tables(dummies,active,bots,results_dir):
     f = open(results_dir+"single_bot_potential_tables.tex","w")
     cols = "c|"*(len(dummies)+1)
     cols = "|"+cols
-    f.write("\\begin{tabular}{"+cols+"}")
+    f.write("\\begin{tabular}{"+cols+"}\n")
     f.write("\\hline\n")
     f.write("Group & "+" & ".join([str(i+2) for i in range(len(dummies))])+" \\\\ \n")
     f.write("\\hline\n")
