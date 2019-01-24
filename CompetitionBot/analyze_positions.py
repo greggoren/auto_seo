@@ -364,7 +364,7 @@ def calculate_promotion_potential(reference_docs,positions):
                 old_position = positions[iterations[i-1]][query_id][doc]
                 new_position = positions[iteration][query_id][doc]
 
-                changes_in_ranking_stats[iteration]=populate_correct_dictionary(changes_in_ranking_stats[iteration],new_position,old_position)
+
                 if new_position>=old_position:
                     denominator = number_of_competitors-old_position
                 else:
@@ -381,6 +381,8 @@ def calculate_promotion_potential(reference_docs,positions):
                         bots[iteration][query_id]={}
                     bots[iteration][query_id][doc]=potential
                     overall_promotion[iteration]["Bot"]+=(old_position-new_position)
+                    changes_in_ranking_stats[iteration] = populate_correct_dictionary(
+                        changes_in_ranking_stats[iteration], new_position, old_position)
                 elif doc.__contains__("dummy_doc"):
                     if query_id not in dummies[iteration]:
                         dummies[iteration][query_id]={}
