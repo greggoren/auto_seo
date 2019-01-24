@@ -410,7 +410,7 @@ def get_separate_stats(separate,reference_docs):
     for iteration in separate:
         hist[iteration]={}
         for query in separate[iteration]:
-            doc = separate[query][query]
+            doc = separate[iteration][query]
             if doc in reference_docs[query]:
                 if "Bots" not in hist[iteration]:
                     hist[iteration]["Bots"]=0
