@@ -540,15 +540,15 @@ def write_query_to_quality_table(query,watreloo_stats,positions,results_dir):
     f.write("\\hline\n")
     f.write("Rank & " + " & ".join([str(i + 1) for i in range(len(watreloo_stats))]) + " \\\\ \n")
     f.write("\\hline\n")
-    f.write("1 & " + " & ".join([str(positions[i][1])+":"+str(watreloo_stats[i][positions[i][1]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
+    f.write("1 & " + " & ".join([str(positions[i][1].replace("_"," "))+":"+str(watreloo_stats[i][positions[i][1]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
     f.write("\\hline\n")
-    f.write("2 & " + " & ".join([str(positions[i][2])+":"+str(watreloo_stats[i][positions[i][2]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
+    f.write("2 & " + " & ".join([str(positions[i][2].replace("_"," "))+":"+str(watreloo_stats[i][positions[i][2]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
     f.write("\\hline\n")
-    f.write("3 & " + " & ".join([str(positions[i][3])+":"+str(watreloo_stats[i][positions[i][3]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
+    f.write("3 & " + " & ".join([str(positions[i][3].replace("_"," "))+":"+str(watreloo_stats[i][positions[i][3]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
     f.write("\\hline\n")
-    f.write("4 & " + " & ".join([str(positions[i][4])+":"+str(watreloo_stats[i][positions[i][4]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
+    f.write("4 & " + " & ".join([str(positions[i][4].replace("_"," "))+":"+str(watreloo_stats[i][positions[i][4]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
     f.write("\\hline\n")
-    f.write("5 & " + " & ".join([str(positions[i][5])+":"+str(watreloo_stats[i][positions[i][5]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
+    f.write("5 & " + " & ".join([str(positions[i][5].replace("_"," "))+":"+str(watreloo_stats[i][positions[i][5]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
     f.write("\\end{tabular}\n")
     f.close()
 
@@ -572,7 +572,7 @@ def create_query_to_quality_tables(reference_docs,results_dir):
                     username = "BOT"
                 else:
                     username = user
-                query_stats[iteration][position]=username.replace("_"," ")
+                query_stats[iteration][position]=username
                 waterloo_stats[iteration][username] = doc["waterloo"]
 
         write_query_to_quality_table(query.split("_")[0],waterloo_stats,query_stats,results_dir)
