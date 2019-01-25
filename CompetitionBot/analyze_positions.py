@@ -518,6 +518,53 @@ def write_potential_tables(dummies,active,bots,results_dir):
     f.write("\\end{tabular}\n")
     f.close()
 
+
+def write_query_to_quality_table(query,watreloo_stats,positions):
+    f = open(query+"_rank_quality.tex","w")
+    cols = "c|" * (len(watreloo_stats) + 1)
+    cols = "|" + cols
+    f.write("\\begin{tabular}{" + cols + "}\n")
+    f.write("\\hline\n")
+    f.write("Rank & " + " & ".join([str(i + 1) for i in range(len(watreloo_stats))]) + " \\\\ \n")
+    f.write("\\hline\n")
+    f.write("1 & " + " & ".join([str(positions[i][1])+":"+str(watreloo_stats[i][positions[i][1]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
+    f.write("\\hline\n")
+    f.write("2 & " + " & ".join([str(positions[i][2])+":"+str(watreloo_stats[i][positions[i][2]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
+    f.write("\\hline\n")
+    f.write("3 & " + " & ".join([str(positions[i][3])+":"+str(watreloo_stats[i][positions[i][3]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
+    f.write("\\hline\n")
+    f.write("4 & " + " & ".join([str(positions[i][4])+":"+str(watreloo_stats[i][positions[i][4]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
+    f.write("\\hline\n")
+    f.write("5 & " + " & ".join([str(positions[i][5])+":"+str(watreloo_stats[i][positions[i][5]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
+    f.write("\\end{tabular}\n")
+    f.close()
+
+
+def create_query_to_quality_tables(reference_docs):
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    iterations = sorted(list(db.archive.distinct("iteration")))[7:]
+    queries = db.archive.distinct("query_id",{"query_id":{"$regex":".*_2"}})
+    for query in queries:
+        query_stats={}
+        waterloo_stats={}
+        for i, iteration in enumerate(iterations):
+            query_stats[iteration]={}
+            waterloo_stats[iteration]={}
+            sorted_docs = db.archive.find({"iteration":iteration,"query_id":query})
+            for doc in sorted_docs:
+                user = doc["username"]
+                position = doc["position"]
+                if user in reference_docs[query]:
+                    username = "BOT"
+                else:
+                    username = user
+                query_stats[iteration][position]=username
+                waterloo_stats[iteration][username] = doc["waterloo"]
+
+        write_query_to_quality_table(query.split("_")[0],waterloo_stats,query_stats)
+
+
 if __name__=="__main__":
     results_dir = "tex_tables/"
     if not os.path.exists(results_dir):
@@ -537,10 +584,11 @@ if __name__=="__main__":
     # ks_stats=read_group_dir("annotations/",method_index,False)
     # write_quality_annotation_table(ks_stats,results_dir)
     # get_competitors_quality()
-    dummy_averages, active_averages, bot_averages,separate,overall_promotion,changes_in_ranking_stats = create_average_promotion_potential(reference_docs)
-    write_potential_tables(dummy_averages,active_averages,bot_averages,results_dir)
-    sep_hist = get_separate_stats(separate,reference_docs)
-    write_separate_table(sep_hist,results_dir)
-    write_tables_hist_ranking_changes(changes_in_ranking_stats)
-    write_overall_changes(overall_promotion)
+    # dummy_averages, active_averages, bot_averages,separate,overall_promotion,changes_in_ranking_stats = create_average_promotion_potential(reference_docs)
+    # write_potential_tables(dummy_averages,active_averages,bot_averages,results_dir)
+    # sep_hist = get_separate_stats(separate,reference_docs)
+    # write_separate_table(sep_hist,results_dir)
+    # write_tables_hist_ranking_changes(changes_in_ranking_stats)
+    # write_overall_changes(overall_promotion)
 
+    create_query_to_quality_tables(reference_docs)
