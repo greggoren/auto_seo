@@ -572,7 +572,7 @@ def create_query_to_quality_tables(reference_docs,results_dir):
                     username = "BOT"
                 else:
                     username = user
-                query_stats[iteration][position]=username
+                query_stats[iteration][position]=username.replace("_"," ")
                 waterloo_stats[iteration][username] = doc["waterloo"]
 
         write_query_to_quality_table(query.split("_")[0],waterloo_stats,query_stats,results_dir)

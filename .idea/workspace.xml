@@ -60,11 +60,10 @@
       <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="593" column="72" selection-start-line="592" selection-start-column="4" selection-end-line="593" selection-end-column="72" />
+            <state relative-caret-position="356">
+              <caret line="574" column="70" selection-start-line="574" selection-start-column="70" selection-end-line="574" selection-end-column="70" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
-                <marker date="1548432830854" expanded="true" signature="25319:25477" ph="..." />
               </folding>
             </state>
           </provider>
@@ -654,13 +653,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-00986" summary="os201">
-      <created>1548244345618</created>
-      <option name="number" value="00986" />
-      <option name="presentableId" value="LOCAL-00986" />
-      <option name="project" value="LOCAL" />
-      <updated>1548244345618</updated>
-    </task>
     <task id="LOCAL-00987" summary="os201">
       <created>1548244516398</created>
       <option name="number" value="00987" />
@@ -997,7 +989,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548432603570</updated>
     </task>
-    <option name="localTasksCounter" value="1035" />
+    <task id="LOCAL-01035" summary="os201">
+      <created>1548432862974</created>
+      <option name="number" value="01035" />
+      <option name="presentableId" value="LOCAL-01035" />
+      <option name="project" value="LOCAL" />
+      <updated>1548432862974</updated>
+    </task>
+    <option name="localTasksCounter" value="1036" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1597,11 +1596,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="593" column="72" selection-start-line="592" selection-start-column="4" selection-end-line="593" selection-end-column="72" />
+        <state relative-caret-position="356">
+          <caret line="574" column="70" selection-start-line="574" selection-start-column="70" selection-end-line="574" selection-end-column="70" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
-            <marker date="1548432830854" expanded="true" signature="25319:25477" ph="..." />
           </folding>
         </state>
       </provider>
