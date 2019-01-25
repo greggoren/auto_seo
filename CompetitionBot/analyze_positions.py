@@ -290,11 +290,10 @@ def get_competitors_quality():
                 results[iteration][group].append(1)
             else:
                 results[iteration][group].append(0)
-    print(results)
     for iteration in results:
         for group in results[iteration]:
             results[iteration][group]= np.mean(results[iteration][group])
-    print(results)
+    return results
 
 
 def write_competitors_quality_table(results):
