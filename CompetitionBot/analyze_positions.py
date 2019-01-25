@@ -519,8 +519,8 @@ def write_potential_tables(dummies,active,bots,results_dir):
     f.close()
 
 
-def write_query_to_quality_table(query,watreloo_stats,positions):
-    f = open(query+"_rank_quality.tex","w")
+def write_query_to_quality_table(query,watreloo_stats,positions,results_dir):
+    f = open(results_dir+query+"_rank_quality.tex","w")
     cols = "c|" * (len(watreloo_stats) + 1)
     cols = "|" + cols
     f.write("\\begin{tabular}{" + cols + "}\n")
@@ -540,7 +540,7 @@ def write_query_to_quality_table(query,watreloo_stats,positions):
     f.close()
 
 
-def create_query_to_quality_tables(reference_docs):
+def create_query_to_quality_tables(reference_docs,results_dir):
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
@@ -562,7 +562,7 @@ def create_query_to_quality_tables(reference_docs):
                 query_stats[iteration][position]=username
                 waterloo_stats[iteration][username] = doc["waterloo"]
 
-        write_query_to_quality_table(query.split("_")[0],waterloo_stats,query_stats)
+        write_query_to_quality_table(query.split("_")[0],waterloo_stats,query_stats,results_dir)
 
 
 if __name__=="__main__":
@@ -591,4 +591,4 @@ if __name__=="__main__":
     # write_tables_hist_ranking_changes(changes_in_ranking_stats)
     # write_overall_changes(overall_promotion)
 
-    create_query_to_quality_tables(reference_docs)
+    create_query_to_quality_tables(reference_docs,results_dir)
