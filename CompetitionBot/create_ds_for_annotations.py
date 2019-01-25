@@ -96,5 +96,5 @@ def create_data_for_mturk(reference_docs, index):
 
 if __name__=="__main__":
     reference_docs = get_reference_documents()
-    create_data_for_mturk(reference_docs,10)
-    # create_data_set_fe()
+    create_data_for_mturk(reference_docs,11)
+    create_data_set_fe()
