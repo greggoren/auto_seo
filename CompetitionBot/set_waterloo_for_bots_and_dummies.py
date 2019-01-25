@@ -18,7 +18,8 @@ def set_waterloo_scores_dummies(dummy_waterloo):
             doc_name = doc["doc_name"]
             watreloo = dummy_waterloo[doc_name]
             doc["waterloo"]=watreloo
-            db.archive.save(doc)
+            print(doc["query_id"],doc["username"],watreloo)
+            # db.archive.save(doc)
 
 def retrieve_initial_documents(epoch):
     initial_query_docs={}
@@ -154,7 +155,8 @@ def set_bots_waterloo(stats):
             username = doc["username"]
             waterloo = stats[i][query][username]
             doc["waterloo"]=waterloo
-            db.archive.save(doc)
+            print(doc["query_id"], doc["username"],waterloo)
+            # db.archive.save(doc)
 
 if __name__=="__main__":
     dummy_waterloo=retrieve_waterloo_for_dummies("nimo_annotations")
