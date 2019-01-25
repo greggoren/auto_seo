@@ -605,5 +605,4 @@ if __name__=="__main__":
     write_separate_table(sep_hist,results_dir)
     write_tables_hist_ranking_changes(changes_in_ranking_stats)
     write_overall_changes(overall_promotion)
-
     create_query_to_quality_tables(reference_docs,results_dir)

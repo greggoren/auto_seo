@@ -24,7 +24,7 @@ def set_waterloo_scores_dummies(dummy_waterloo):
             doc["waterloo"]=waterloo
 
             print(doc["query_id"],doc["username"],waterloo)
-            # db.archive.save(doc)
+            db.archive.save(doc)
 
 def retrieve_initial_documents(epoch):
     initial_query_docs={}
@@ -161,7 +161,7 @@ def set_bots_waterloo(stats):
             waterloo = stats[i][query][username]
             doc["waterloo"]=waterloo
             print(doc["query_id"], doc["username"],waterloo)
-            # db.archive.save(doc)
+            db.archive.save(doc)
 
 if __name__=="__main__":
     print("--===DUMMY==--")
