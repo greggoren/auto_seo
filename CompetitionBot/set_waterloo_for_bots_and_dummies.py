@@ -16,9 +16,14 @@ def set_waterloo_scores_dummies(dummy_waterloo):
             if "bot_method" in doc:
                 continue
             doc_name = doc["doc_name"]
-            watreloo = dummy_waterloo[doc_name]
-            doc["waterloo"]=watreloo
-            print(doc["query_id"],doc["username"],watreloo)
+            if doc_name.split("-")[2]!="013":
+                waterloo = dummy_waterloo[doc_name]
+            else:
+                needed_doc = next(db.archive.find({"query_id":doc["query_id"],"doc_name":doc_name}))
+                waterloo = needed_doc["waterloo"]
+            doc["waterloo"]=waterloo
+
+            print(doc["query_id"],doc["username"],waterloo)
             # db.archive.save(doc)
 
 def retrieve_initial_documents(epoch):
