@@ -549,6 +549,7 @@ def write_query_to_quality_table(query,watreloo_stats,positions,results_dir):
     f.write("4 & " + " & ".join([str(positions[i][4].replace("_"," "))+":"+str(watreloo_stats[i][positions[i][4]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
     f.write("\\hline\n")
     f.write("5 & " + " & ".join([str(positions[i][5].replace("_"," "))+":"+str(watreloo_stats[i][positions[i][5]]) for i in sorted(list(watreloo_stats.keys()))]) + " \\\\ \n")
+    f.write("\\hline\n")
     f.write("\\end{tabular}\n")
     f.close()
 
