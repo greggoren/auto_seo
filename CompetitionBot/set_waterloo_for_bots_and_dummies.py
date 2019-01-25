@@ -97,7 +97,7 @@ def update_dummies_waterloo(dummies_waterloo,current_score,epoch):
         query = doc.split("-")[2]
         id = doc.split("-")[3].rstrip()
 
-        if int(doc_epoch)<int(epoch)-1:
+        if int(doc_epoch)==int(epoch)-1:
             current_doc_epoch = "ROUND-" + epoch + "-" + query + "-" + id
             if current_doc_epoch not in dummies_waterloo:
                 tmp_dict[current_doc_epoch]=dummies_waterloo[doc]
