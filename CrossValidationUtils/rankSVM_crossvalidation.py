@@ -202,7 +202,7 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
     sum=[]
     for C in models:
         w = recover_model(models[C])
-        if not sum:
+        if sum==[]:
             sum=w
         else:
             sum+=w
