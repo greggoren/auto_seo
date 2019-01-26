@@ -6,6 +6,7 @@ import subprocess
 import sys
 from CrossValidationUtils import svm_handler as s
 import operator
+import pickle
 from sklearn.datasets import dump_svmlight_file
 
 def run_command(command):
@@ -198,6 +199,17 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
         fold_number += 1
     final_trec_file = evaluator.order_trec_file(trec_file)
     run_bash_command("rm " + trec_file)
+    sum=[]
+    for C in models:
+        w = recover_model(models[C])
+        if not sum:
+            sum=w
+        else:
+            sum+=w
+    average = sum/len(models)
+    f = open(qrels_file+"_averaged_weights.pkl","w")
+    pickle.dump(average,f)
+    f.close()
     if seo_scores:
         increase_rank_stats = get_average_score_increase(seo_scores,final_trec_file)
     else:

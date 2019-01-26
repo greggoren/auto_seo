@@ -1,12 +1,13 @@
 from random import shuffle,seed
 import csv
-
+import numpy as np
 seed(9001)
 
 
 
 def read_coherency_file(filename):
     stats = {}
+    ds_stats = {}
     with open(filename) as file:
         for line in file:
             label = float(line.split()[0])*5/4
@@ -23,11 +24,17 @@ def read_coherency_file(filename):
             else:
                 bucket = 5
             query = line.split()[1].split(":")[1]
+            if query not in ds_stats:
+                ds_stats[query]=0
+            ds_stats[query]+=1
             key = query[3:]
             pair = line.split(" # ")[1].rstrip()
             if bucket not in stats:
                 stats[bucket]=[]
             stats[bucket].append(pair+key)
+    values = [ds_stats[i] for i in ds_stats]
+    print(values)
+    print(np.mean(values),np.std(values))
     return stats
 
 
