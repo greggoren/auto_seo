@@ -207,7 +207,7 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
         else:
             sum+=w
     average = sum/len(models)
-    f = open(qrels_file+"_averaged_weights.pkl","w")
+    f = open(qrels_file+"_averaged_weights.pkl","wb")
     pickle.dump(average,f)
     f.close()
     if seo_scores:
