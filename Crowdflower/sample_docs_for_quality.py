@@ -9,7 +9,7 @@ def read_coherency_file(filename):
     stats = {}
     with open(filename) as file:
         for line in file:
-            label = float(line.split()[0])
+            label = float(line.split()[0])*5/4
             if label < 1:
                 bucket = 0
             elif label < 2:
@@ -52,7 +52,7 @@ def read_documents():
                 reader = csv.DictReader(file)
                 for row in reader:
                     id = row["ID"]
-                    key = str(int(r))+key_index[s]+id
+                    key = id+str(int(r))+key_index[s]
                     text = row[row["check_one_gold"].lower()]
                     texts[key]=text
     return texts
@@ -73,7 +73,7 @@ def create_ds_for_annotations(texts,sampled):
 
 
 
-coherency_file = ""
+coherency_file = "all_seo_features_weighted_0"
 coherency_label_sentence_pairs = read_coherency_file(coherency_file)
 sampled = sample_pairs_uniformly(coherency_label_sentence_pairs)
 texts = read_documents()

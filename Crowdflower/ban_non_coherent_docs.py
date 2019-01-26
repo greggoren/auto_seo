@@ -78,6 +78,7 @@ def get_scores(scores,filename,reverse,index):
                     else:
                         if row["check_one"].lower() == "valid":
                             scores[current_key2] += 1
+    print(scores)
     return scores
 
 def get_dataset_stas(dataset):
