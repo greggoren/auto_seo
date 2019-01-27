@@ -112,23 +112,49 @@ def get_method_index():
     return index
 
 
+
+def create_working_sets(reference_docs):
+    base_names ={}
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    iterations = db.archive.distinct("iteration")
+    iteration = sorted(list(iterations))[7]
+
+    docs = db.archive.find({"iteration":iteration,"query_id":{"$regex":".*_2"}})
+    for doc in docs:
+        username = doc["username"]
+        query_id = doc["query_id"]
+        if query_id not in base_names:
+            base_names[query_id]=[]
+        base_names[query_id].append(username)
+
+    for r in range(6,11):
+        f=open("ws_"+str(r),"w")
+        for query_id in base_names:
+            for i,username in enumerate(base_names[query_id],start=1):
+                current = str(r).zfill(2)
+                if username in reference_docs[query_id]:
+                    current = "06"
+                docname = "ROUND-"+current+"-"+query_id+"-"+username
+                f.write(query_id+" Q0 "+docname+" 0 "+str(-i)+" static\n")
+        f.close()
+
+
+
 if __name__=="__main__":
     feature_file = "features_bot"
     features_dir = "Features"
     queries_file = "queries.xml"
-    merged_index = "/lv_local/home/sgregory/Bots/mergedindices"
-    working_set = "working_set_passive_bots"
-    create_features_file_sentence_exp(features_dir=features_dir,index_path=merged_index,queries_file=queries_file,new_features_file=feature_file,working_set=working_set)
-    index_doc_name = create_index_to_doc_name_dict(feature_file)
-    scores_file = run_model(feature_file,"")
-    results = retrieve_scores(index_doc_name, scores_file)
-    trec_file = create_trec_eval_file(results,"")
-    final_file = order_trec_file(trec_file)
-    lists = get_lists(final_file)
+    merged_index = "/home/greg/ASR18/Collections/competitionindex"
     ref_docs = get_reference_documents()
-    method_index = get_method_index()
-    average_ranks_multiple = get_average_bot_ranking(ref_docs,method_index,"0",lists)
+    create_working_sets(ref_docs)
+    for i in range(6,11):
+        working_set = "ws_"+str(i)
+        create_features_file_sentence_exp(features_dir=features_dir,index_path=merged_index,queries_file=queries_file,new_features_file=feature_file,working_set=working_set)
+        index_doc_name = create_index_to_doc_name_dict(feature_file)
+        scores_file = run_model(feature_file,"")
+        results = retrieve_scores(index_doc_name, scores_file)
+        trec_file = create_trec_eval_file(results,str(i).zfill(2))
+        final_file = order_trec_file(trec_file)
+        lists = get_lists(final_file)
 
-    average_ranks_single = get_average_bot_ranking(ref_docs,method_index,"2",lists)
-    print(average_ranks_multiple)
-    print(average_ranks_single)

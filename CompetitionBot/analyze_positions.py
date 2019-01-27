@@ -713,6 +713,12 @@ def write_data_file(stats,filename):
         f.write(iteration+" "+str(stats[iteration])+"\n")
     f.close()
 
+def write_raw_promotion_file(stats,filename,group):
+    f = open(filename, "w")
+    for iteration in stats:
+        f.write(iteration + " " + str(stats[iteration[group]]) + "\n")
+    f.close()
+
 if __name__=="__main__":
     results_dir = "tex_tables/"
     if not os.path.exists(results_dir):
@@ -754,3 +760,6 @@ if __name__=="__main__":
     write_data_file(dummy_averages,"dummy_potential")
     write_data_file(active_averages,"active_potential")
     write_data_file(bot_averages,"bot_potential")
+    write_raw_promotion_file(overall_promotion,"bot_raw","Bot")
+    write_raw_promotion_file(overall_promotion,"active_raw","Active")
+    write_raw_promotion_file(overall_promotion,"dummy_raw","Dummy")
