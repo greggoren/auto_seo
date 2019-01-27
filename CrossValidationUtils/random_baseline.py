@@ -3,6 +3,9 @@ from random import shuffle,seed
 import numpy as np
 from utils import run_command,run_bash_command
 from CrossValidationUtils.rankSVM_crossvalidation import get_average_score_increase
+
+
+
 def run_random(features_file, qrels, name, seo_scores=False):
     seed(9001)
     score_data = {}
