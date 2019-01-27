@@ -2,10 +2,9 @@
 from Preprocess.preprocess import retrieve_ranked_lists,load_file
 import params
 from CrossValidationUtils.rankSVM_crossvalidation import cross_validation
-from CrossValidationUtils.random_baseline import run_random
+from CrossValidationUtils.random_baseline import run_random, run_random_for_significance
 from Crowdflower.ban_non_coherent_docs import get_scores,sort_files_by_date,retrieve_initial_documents,ban_non_coherent_docs,get_dataset_stas,get_banned_queries
 import numpy as np
-
 def read_seo_score(labels):
     scores = {}
     with open(labels) as labels_file:
@@ -199,7 +198,7 @@ if __name__=="__main__":
     new_features_with_demotion_file = "all_seo_features_demotion"
     new_qrels_with_demotion_file = "seo_demotion_qrels"
     final_trec_file=cross_validation(new_features_with_demotion_file, new_qrels_with_demotion_file, "summary_labels_demotion.tex", "svm_rank",
-                     ["map","ndcg_cut.1", "ndcg_cut.5", "P.1"], "",seo_scores)
+                     ["map","ndcg_cut.1", "ndcg_cut.5", "P.1"], "",seo_scores,run_random_for_significance)
     run_random(new_features_with_demotion_file,new_qrels_with_demotion_file,"demotion",seo_scores)
 
 
@@ -214,7 +213,7 @@ if __name__=="__main__":
         new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
         final_trec_file=cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic_"+str(beta)+".tex",
                          "svm_rank",
-                         ["map","ndcg_cut.1", "ndcg_cut.5", "P.1"], "",seo_scores)
+                         ["map","ndcg_cut.1", "ndcg_cut.5", "P.1"], "",seo_scores,run_random_for_significance)
         run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic_"+str(beta),seo_scores)
         write_weighted_results("summary_labels_harmonic_"+str(beta)+".tex", "summary_labels_harmonic.tex", beta,
                                "RankSVM",flag)
@@ -236,7 +235,7 @@ if __name__=="__main__":
     for beta in betas:
         new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
         new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
-        final_trec_file=cross_validation(new_features_with_weighted_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map","ndcg_cut.1", "ndcg_cut.5", "P.1"], "",seo_scores)
+        final_trec_file=cross_validation(new_features_with_weighted_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map","ndcg_cut.1", "ndcg_cut.5", "P.1"], "",seo_scores,run_random_for_significance)
         run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta),seo_scores)
 
         write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RankSVM",flag)

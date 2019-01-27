@@ -1,6 +1,6 @@
 from CrossValidationUtils import preprocess_clueweb as p
 from CrossValidationUtils import evaluator as e
-from CrossValidationUtils.random_baseline import run_random_for_significance
+
 import numpy as np
 import os
 import subprocess
@@ -162,7 +162,7 @@ def discover_significance_relevance(cv_stats,random_stats):
         metric_significance_sign[metric]=sign
     return metric_significance_sign
 
-def cross_validation(features_file,qrels_file,summary_file,method,metrics,append_file = "",seo_scores=False):
+def cross_validation(features_file,qrels_file,summary_file,method,metrics,append_file = "",seo_scores=False,run_random_for_significance=None):
     preprocess = p.preprocess()
     X, y, queries = preprocess.retrieve_data_from_file(features_file, True)
     number_of_queries = len(set(queries))
