@@ -211,7 +211,7 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
             sum+=w
         print(sum)
 
-    average = sum/len(models)
+    average = sum/len(total_models)
     print(average)
     f = open(qrels_file+"_averaged_weights.pkl","wb")
     pickle.dump(average,f)

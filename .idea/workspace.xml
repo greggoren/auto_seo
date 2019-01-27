@@ -112,8 +112,8 @@
       <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="213" column="29" selection-start-line="213" selection-start-column="29" selection-end-line="213" selection-end-column="29" />
+            <state relative-caret-position="50">
+              <caret line="213" column="34" selection-start-line="213" selection-start-column="34" selection-end-line="213" selection-end-column="34" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -712,13 +712,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01003" summary="os201">
-      <created>1548272121766</created>
-      <option name="number" value="01003" />
-      <option name="presentableId" value="LOCAL-01003" />
-      <option name="project" value="LOCAL" />
-      <updated>1548272121770</updated>
-    </task>
     <task id="LOCAL-01004" summary="os201">
       <created>1548337245640</created>
       <option name="number" value="01004" />
@@ -1055,7 +1048,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548571506947</updated>
     </task>
-    <option name="localTasksCounter" value="1052" />
+    <task id="LOCAL-01052" summary="os201">
+      <created>1548571659079</created>
+      <option name="number" value="01052" />
+      <option name="presentableId" value="LOCAL-01052" />
+      <option name="project" value="LOCAL" />
+      <updated>1548571659079</updated>
+    </task>
+    <option name="localTasksCounter" value="1053" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1647,8 +1647,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="213" column="29" selection-start-line="213" selection-start-column="29" selection-end-line="213" selection-end-column="29" />
+        <state relative-caret-position="50">
+          <caret line="213" column="34" selection-start-line="213" selection-start-column="34" selection-end-line="213" selection-end-column="34" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
           </folding>
