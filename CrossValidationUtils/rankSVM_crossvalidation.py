@@ -161,10 +161,11 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
     C_array = [0.1, 0.01, 0.0001]
     validated = set()
     scores = {}
-    models = {}
+    total_models = {}
     svm = s.svm_handler()
     evaluator.empty_validation_files(method)
     for train, test in folds:
+        models = {}
         validated, validation_set, train_set = preprocess.create_validation_set(5, validated,
                                                                                 set(train),
                                                                                 number_of_queries, queries)
@@ -192,6 +193,7 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
         max_C = max(scores.items(), key=operator.itemgetter(1))[0]
         print("on fold",fold_number,"chosen model:",max_C)
         chosen_model = models[max_C]
+        total_models[fold_number]=chosen_model
         test_scores_file=svm.run_svm_rank_model(test_file,chosen_model,fold_number)
         results = svm.retrieve_scores(test_set, test_scores_file)
         trec_file = evaluator.create_trec_eval_file(test_set, queries, results, "", method, fold_number)
@@ -200,14 +202,15 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
     final_trec_file = evaluator.order_trec_file(trec_file)
     run_bash_command("rm " + trec_file)
     sum=[]
-    for C in models:
-        w = recover_model(models[C])
+    for i in total_models:
+        w = recover_model(models[i])
         print(w)
         if sum==[]:
             sum=w
         else:
             sum+=w
         print(sum)
+
     average = sum/len(models)
     print(average)
     f = open(qrels_file+"_averaged_weights.pkl","wb")
