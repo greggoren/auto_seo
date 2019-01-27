@@ -160,7 +160,7 @@ def get_average_rank_of_active_competitors():
 
 
 
-def get_average_rank_of_dummies_and_ks(reference_docs):
+def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats):
     results = {}
     ks={}
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
@@ -184,7 +184,9 @@ def get_average_rank_of_dummies_and_ks(reference_docs):
                 results[iteration][group]=[]
                 ks[iteration][group]=[]
             results[iteration][group].append(document["position"])
-            if document["waterloo"]<60:
+            doc_name = document["doc_name"]
+            ks_tag = ks_stats[doc_name]
+            if ks_tag>0:
                 ks[iteration][group].append(0)
             else:
                 ks[iteration][group].append(1)
@@ -616,6 +618,18 @@ def create_query_to_quality_tables(reference_docs,results_dir):
                 waterloo_stats[iteration][username] = doc["waterloo"]
 
         write_query_to_quality_table(query.split("_")[0],waterloo_stats,query_stats,results_dir)
+
+
+def read_annotations(filename):
+    stats={}
+    with open(filename) as file:
+        for line in file:
+            doc = line.split()[2]
+            tag = int(line.split()[3].rstrip())
+            stats[doc]=tag
+    return stats
+
+
 
 
 if __name__=="__main__":
