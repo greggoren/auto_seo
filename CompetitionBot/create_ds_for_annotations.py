@@ -39,7 +39,7 @@ def create_data_set_fe():
                 obj["description"]=document["description"]
                 obj["iteration"]=document["iteration"]
                 writer.writerow(obj)
-        f.close()
+    f.close()
 
 def convert_text_to_sentence_task(text):
     sentences = retrieve_sentences(text)
