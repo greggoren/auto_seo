@@ -8,7 +8,6 @@
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -115,11 +114,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="random_baseline.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="random_baseline.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/random_baseline.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-286">
-              <caret line="101" column="40" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
+            <state relative-caret-position="545">
+              <caret line="139" column="36" selection-start-line="139" selection-start-column="36" selection-end-line="139" selection-end-column="36" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -127,11 +126,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="438">
-              <caret line="161" column="44" selection-start-line="161" selection-start-column="44" selection-end-line="161" selection-end-column="44" />
+              <caret line="161" column="45" selection-start-line="161" selection-start-column="45" selection-end-line="161" selection-end-column="45" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -246,8 +245,8 @@
         <option value="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/evaluator.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py" />
-        <option value="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
+        <option value="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" />
       </list>
     </option>
   </component>
@@ -708,13 +707,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01014" summary="os201">
-      <created>1548364373405</created>
-      <option name="number" value="01014" />
-      <option name="presentableId" value="LOCAL-01014" />
-      <option name="project" value="LOCAL" />
-      <updated>1548364373405</updated>
-    </task>
     <task id="LOCAL-01015" summary="os201">
       <created>1548364559851</created>
       <option name="number" value="01015" />
@@ -1051,7 +1043,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548599605258</updated>
     </task>
-    <option name="localTasksCounter" value="1063" />
+    <task id="LOCAL-01063" summary="os201">
+      <created>1548600264899</created>
+      <option name="number" value="01063" />
+      <option name="presentableId" value="LOCAL-01063" />
+      <option name="project" value="LOCAL" />
+      <updated>1548600264899</updated>
+    </task>
+    <option name="localTasksCounter" value="1064" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1616,22 +1615,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/random_baseline.py">
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-286">
-          <caret line="101" column="40" selection-start-line="101" selection-start-column="40" selection-end-line="101" selection-end-column="40" />
+        <state relative-caret-position="438">
+          <caret line="161" column="45" selection-start-line="161" selection-start-column="45" selection-end-line="161" selection-end-column="45" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#56#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/random_baseline.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="161" column="44" selection-start-line="161" selection-start-column="44" selection-end-line="161" selection-end-column="44" />
+        <state relative-caret-position="545">
+          <caret line="139" column="36" selection-start-line="139" selection-start-column="36" selection-end-line="139" selection-end-column="36" />
           <folding>
-            <element signature="e#0#56#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

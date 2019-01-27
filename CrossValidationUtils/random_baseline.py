@@ -136,7 +136,7 @@ def run_random_for_significance(features_file, qrels, name, seo_scores=False):
                 score = str(score).replace("b'", "")
                 score = score.replace("'", "")
                 significance_data[metric][query].append(float(score))
-                print(query,score)
+                # print(query,score)
     for metric in significance_data:
         for query in significance_data[metric]:
             significance_data[metric][query]= np.mean(significance_data[metric][query])
