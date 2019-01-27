@@ -660,6 +660,9 @@ if __name__=="__main__":
     # write_overall_changes(overall_promotion)
     # create_query_to_quality_tables(reference_docs,results_dir)
     # print(reference_docs)
-    results,ks=get_average_rank_of_dummies_and_ks(reference_docs)
+    ks_stats = read_annotations("doc_ks_nimrod")
+    rel_stats = read_annotations("doc_rel_nimrod")
+    results,ks=get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats)
+
     print([(i,results[i]["2"]) for i in sorted(list(results.keys()))])
     print([(i,ks[i]["2"]) for i in sorted(list(ks.keys()))])
