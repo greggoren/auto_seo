@@ -166,6 +166,7 @@ def set_bots_waterloo(stats):
 if __name__=="__main__":
     print("--===DUMMY==--")
     dummy_waterloo=retrieve_waterloo_for_dummies("nimo_annotations")
+    dummy_waterloo["ROUND-01-051-08"]=80
     print(dummy_waterloo)
     set_waterloo_scores_dummies(dummy_waterloo)
     # stats = read_group_dir("annotations")
