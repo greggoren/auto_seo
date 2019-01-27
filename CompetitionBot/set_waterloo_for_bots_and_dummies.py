@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 def set_waterloo_scores_dummies(dummy_waterloo):
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
-    iterations = sorted(list(db.archive.distinct("iteration")))[8:]
+    iterations = sorted(list(db.archive.distinct("iteration")))[7:]
     for iteration in iterations:
         docs = db.archive.find({"query_id":{"$regex":".*_2"},"username":{"$regex":"dummy_doc.*"},"iteration":iteration})
         for doc in docs:
