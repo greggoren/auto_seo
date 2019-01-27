@@ -478,6 +478,13 @@ def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_pa
     create_features_from_dir(features_dir,features_file,total_working_set_file)
     return features_file
 
+
+def write_tags(tags,filename,key):
+    with open(filename,"a") as file:
+        for id in tags:
+            tag = str(min(5,sum(tags[id])))
+            file.write(id+key+" "+tag+"\n")
+
 if __name__=="__main__":
     ranked_lists_new = retrieve_ranked_lists("trec_file04")
     reference_docs={}
@@ -505,7 +512,8 @@ if __name__=="__main__":
         scores = get_scores(scores,dir + "/" + needed_file,original_docs,k+1)
     print(scores)
     banned_queries = get_banned_queries(scores,reference_docs)
-    rounds = ["4","6"]
+    # rounds = ["4","6"]
+    rounds = ["6"]
     ranks = ["2","5"]
     past_winners_file_4 ="past_winners_file_new_data04"
     past_winners_file_6 ="past_winners_file_new_data06"
@@ -526,6 +534,8 @@ if __name__=="__main__":
             ident_tags = mturk_ds_creator.get_tags(ident_results)
             tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
             key = r+rank
+            write_tags(ident_tags,"document_identification_tags",key)
+            write_tags(sentence_tags,"sentence_identification_tags",key)
             all_aggregated_results[key]=tmp_aggregated_results
     all_aggregated_results = ban_non_coherent_docs(banned_queries,all_aggregated_results)
     seo_scores_file = "labels_new_final_all_data"

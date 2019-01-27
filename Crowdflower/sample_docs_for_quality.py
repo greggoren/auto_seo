@@ -1,6 +1,7 @@
 from random import shuffle,seed
 import csv
 import numpy as np
+from scipy.stats import pearsonr,spearmanr,kendalltau
 seed(9001)
 
 
@@ -8,6 +9,7 @@ seed(9001)
 def read_coherency_file(filename):
     stats = {}
     ds_stats = {}
+    coherencey_stats= {}
     with open(filename) as file:
         for line in file:
             label = float(line.split()[0])*5/4
@@ -32,10 +34,9 @@ def read_coherency_file(filename):
             if bucket not in stats:
                 stats[bucket]=[]
             stats[bucket].append(pair+key)
+            coherencey_stats[pair+key]=label
     values = [ds_stats[i] for i in ds_stats]
-    print(values)
-    print(np.mean(values),np.std(values))
-    return stats
+    return stats,coherencey_stats
 
 
 def sample_pairs_uniformly(pairs):
@@ -43,7 +44,7 @@ def sample_pairs_uniformly(pairs):
     for bucket in pairs:
         pairs_in_bucket = pairs[bucket]
         shuffle(pairs_in_bucket)
-        sampled[bucket]=pairs_in_bucket[:10]
+        sampled[bucket]=pairs_in_bucket[:7]
     return sampled
 
 
@@ -79,9 +80,41 @@ def create_ds_for_annotations(texts,sampled):
 
 
 
+def read_ks_file(filename):
+    f = open(filename,encoding="utf-8")
+    stats={}
+    reader = csv.DictReader(f)
+    for row in reader:
+        doc_id=row["username"]
+        if doc_id not in stats:
+            stats[doc_id]=0
+        if row["this_document_is"].lower()=="valid":
+
+            stats[doc_id]+=1
+
+    return stats
+
+ks_stats=read_ks_file("ks_offline_bot.csv")
+# print(ks_stats)
+
 
 coherency_file = "all_seo_features_weighted_0"
-coherency_label_sentence_pairs = read_coherency_file(coherency_file)
+coherency_label_sentence_pairs,coherencey_stats = read_coherency_file(coherency_file)
 sampled = sample_pairs_uniformly(coherency_label_sentence_pairs)
-texts = read_documents()
-create_ds_for_annotations(texts, sampled)
+samples = []
+for bucket in sampled:
+    samples.extend(sampled[bucket])
+print(len(samples))
+# samples=sorted(samples)
+ks_vector = [ks_stats[pair] for pair in samples]
+coherency_label_vector = [coherencey_stats[pair] for pair in samples]
+print(pearsonr(ks_vector,coherency_label_vector))
+print(spearmanr(ks_vector,coherency_label_vector))
+print(kendalltau(ks_vector,coherency_label_vector))
+
+
+
+
+# texts = read_documents()
+# create_ds_for_annotations(texts, sampled)
+

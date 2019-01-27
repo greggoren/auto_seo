@@ -1,0 +1,15 @@
+QueryTermTarget 1
+QryTermSrc 2
+SimTargetTop(TF.IDF) 3
+SimTargetTop(W2V) 4
+SimSrcTop(TF.IDF) 5
+SimSrcTop(W2V) 6
+SimTargetPrevTop(TF.IDF) 7
+SimTargetPrevTop(W2V) 8
+SimSrcPrevTop(W2V) 9
+SimSrcPrevTop(TF.IDF) 10
+SimTargetPrecPsg(W2V) 11
+SimSrcTarget(W2V) 12
+SimTargetFollowPsg(W2V) 13
+SimSrcPrecPsg(W2V) 14
+SimSrcFollowPsg(W2V) 15
