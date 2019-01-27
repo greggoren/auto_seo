@@ -108,8 +108,8 @@
       <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="684" column="83" selection-start-line="684" selection-start-column="83" selection-end-line="684" selection-end-column="83" />
+            <state relative-caret-position="189">
+              <caret line="679" column="38" selection-start-line="679" selection-start-column="38" selection-end-line="679" selection-end-column="38" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -714,13 +714,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01039" summary="os201">
-      <created>1548510371909</created>
-      <option name="number" value="01039" />
-      <option name="presentableId" value="LOCAL-01039" />
-      <option name="project" value="LOCAL" />
-      <updated>1548510371911</updated>
-    </task>
     <task id="LOCAL-01040" summary="os201">
       <created>1548512525425</created>
       <option name="number" value="01040" />
@@ -1057,7 +1050,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548622785121</updated>
     </task>
-    <option name="localTasksCounter" value="1088" />
+    <task id="LOCAL-01088" summary="os201">
+      <created>1548626267286</created>
+      <option name="number" value="01088" />
+      <option name="presentableId" value="LOCAL-01088" />
+      <option name="project" value="LOCAL" />
+      <updated>1548626267287</updated>
+    </task>
+    <option name="localTasksCounter" value="1089" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1639,8 +1639,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="684" column="83" selection-start-line="684" selection-start-column="83" selection-end-line="684" selection-end-column="83" />
+        <state relative-caret-position="189">
+          <caret line="679" column="38" selection-start-line="679" selection-start-column="38" selection-end-line="679" selection-end-column="38" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>

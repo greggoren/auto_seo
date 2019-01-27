@@ -677,7 +677,7 @@ def get_top_competitor_data(positions):
             docs = db.archive.find({"iteration":iteration,"query_id":query_id}).sort("position",1)
             for doc in docs:
                 print(doc["position"])
-                if not doc.__contains__("dummy_doc"):
+                if not doc["username"].__contains__("dummy_doc"):
                     firsts[iteration][query_id] = doc["username"]
                     average_positions_data[iteration].append(doc["position"])
                     if i>0:
