@@ -734,7 +734,8 @@ if __name__=="__main__":
     # competitrs_quality = get_competitors_quality()
     # write_competitors_quality_table(competitrs_quality)
     dummy_averages, active_averages, bot_averages,separate,overall_promotion,changes_in_ranking_stats = create_average_promotion_potential(reference_docs)
-    write_potential_tables(dummy_averages,active_averages,bot_averages,results_dir)
+
+    # write_potential_tables(dummy_averages,active_averages,bot_averages,results_dir)
     # sep_hist = get_separate_stats(separate,reference_docs)
     # write_separate_table(sep_hist,results_dir)
     # write_tables_hist_ranking_changes(changes_in_ranking_stats)
@@ -750,4 +751,6 @@ if __name__=="__main__":
     write_data_file(raw_position_data,"top_raw")
     write_data_file(average_potential_data,"top_potential")
     write_data_file(average_positions_data,"top_average")
-
+    write_data_file(dummy_averages,"dummy_potential")
+    write_data_file(active_averages,"active_potential")
+    write_data_file(bot_averages,"bot_potential")
