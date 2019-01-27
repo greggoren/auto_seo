@@ -99,7 +99,17 @@ def get_average_bot_ranking(reference_docs,method_index,group,result_passive):
         results[bot_method]= np.mean(results[bot_method])
     return results
 
+def get_static_bot_positions(reference_docs,results,result_passive,index):
+    results[index]={}
+    for query_id in reference_docs:
 
+        query_group = query_id.split("_")[1]
+
+        for doc in reference_docs[query_id]:
+
+            position = result_passive[query_id].index("ROUND-06-"+query_id+"-"+doc)+1
+            results[index][query_id]=position
+    return results
 
 def get_method_index():
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
@@ -139,7 +149,41 @@ def create_working_sets(reference_docs):
                 f.write(query_id+" Q0 "+docname+" 0 "+str(-i)+" static\n")
         f.close()
 
+def analyze_positions(positions):
+    average_positions ={}
+    average_potential_data={}
+    raw_position_data = {}
+    for index in positions:
+        average_value = np.mean([positions[index][q] for q in positions[index]])
+        average_positions[index]=average_value
+        for query in positions[index]:
+            if index > 6:
+                if index not in raw_position_data:
+                    raw_position_data[index]=[]
+                    average_potential_data[index]=[]
+                old_position = positions[index-1][query]
+                new_position = positions[index][query]
+                if new_position == 1 and old_position == 1:
+                    break
+                if new_position >= old_position:
+                    denominator = 5 - old_position
+                else:
+                    denominator = old_position - 1
+                if denominator == 0:
+                    potential = 0
+                else:
+                    potential = (old_position - new_position) / (denominator)
+                overall_promotion = old_position - new_position
+                average_potential_data[index].append(potential)
+                raw_position_data[index].append(overall_promotion)
+    return average_positions,average_potential_data,raw_position_data
 
+
+def write_data_file(stats,filename):
+    f = open(filename,"w")
+    for iteration in sorted(list(stats.keys())):
+        f.write(iteration+" "+str(stats[iteration])+"\n")
+    f.close()
 
 if __name__=="__main__":
     feature_file = "features_bot"
@@ -148,6 +192,7 @@ if __name__=="__main__":
     merged_index = "/home/greg/ASR18/Collections/competitionindex"
     ref_docs = get_reference_documents()
     create_working_sets(ref_docs)
+    positions = {}
     for i in range(6,11):
         working_set = "ws_"+str(i)
         create_features_file_sentence_exp(features_dir=features_dir,index_path=merged_index,queries_file=queries_file,new_features_file=feature_file,working_set=working_set)
@@ -157,4 +202,8 @@ if __name__=="__main__":
         trec_file = create_trec_eval_file(results,str(i).zfill(2))
         final_file = order_trec_file(trec_file)
         lists = get_lists(final_file)
-
+        positions = get_static_bot_positions(ref_docs,positions,lists,i)
+        average_positions, average_potential_data, raw_position_data = analyze_positions(positions)
+        write_data_file(average_positions,"static_average")
+        write_data_file(raw_position_data,"static_raw")
+        write_data_file(average_potential_data,"static_potential")
