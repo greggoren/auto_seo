@@ -22,9 +22,9 @@ def create_data_set_fe():
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
     iterations = sorted(db.archive.distinct("iteration"))[8:]
-
+    f = open("bot_ds_rel.csv", "w", newline='', encoding="utf-8")
     for i,iteration in enumerate(iterations):
-        f = open("bot_ds_rel_"+str(i+1)+".csv","w",newline='',encoding="utf-8")
+
 
         writer = csv.DictWriter(f,fieldnames=["current_document","query_id","query","username","description","iteration"])
         writer.writeheader()
