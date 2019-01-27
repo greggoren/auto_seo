@@ -82,13 +82,13 @@ def run_random(features_file, qrels, name, seo_scores=False):
 
 def run_random_for_significance(features_file, qrels, name, seo_scores=False):
     seed(9001)
-    score_data = {}
+    significance_data = {}
     averaged_rank_increase_stats = {}
     for i in range(10):
         data = {}
         print("in iteration", i + 1)
         # run_bash_command("rm /home/greg/auto_seo/CrossValidationUtils/random_scores")
-        scores = open("random_scores" + name, "w")
+        scores = open("random_scores_sig" + name, "w")
 
         features = open(features_file)
         for line in features:
@@ -107,7 +107,7 @@ def run_random_for_significance(features_file, qrels, name, seo_scores=False):
                 index += 1
         scores.close()
         if seo_scores:
-            tmp_rank_increase_score = get_average_score_increase(seo_scores,"random_scores" + name)
+            tmp_rank_increase_score = get_average_score_increase(seo_scores,"random_scores_sig" + name)
             if not averaged_rank_increase_stats:
                 for key in tmp_rank_increase_score:
                     averaged_rank_increase_stats[key]=[]
@@ -115,17 +115,27 @@ def run_random_for_significance(features_file, qrels, name, seo_scores=False):
                 averaged_rank_increase_stats[key].append(tmp_rank_increase_score[key])
 
         for metric in ["map","ndcg_cut.1", "ndcg_cut.5", "P.1"]:
-            command = "./trec_eval -m " + metric + " " + qrels + " random_scores" + name
-            for output_line in run_command(command):
-                print(metric, output_line)
-                score = output_line.split()[-1].rstrip()
+            command = "./trec_eval -q -m " + metric + " " + qrels + " random_scores_sig" + name
+            if metric not in significance_data:
+                significance_data[metric] = {}
+            for line in run_command(command):
+                if len(line.split()) <= 1:
+                    break
+                if str(line.split()[1]).replace("b'", "").replace("'", "") == "all":
+                    break
+                score = float(line.split()[2].rstrip())
+                query = str(line.split()[1])
+                query = query.replace("b'", "")
+                query = query.replace("'", "")
+                if query not in significance_data[metric]:
+                    significance_data[metric][query]=[]
                 score = str(score).replace("b'", "")
                 score = score.replace("'", "")
-                if metric not in score_data:
-                    score_data[metric] = []
-                score_data[metric].append(float(score))
-
-
+                significance_data[metric][query].append(float(score))
+    for metric in significance_data:
+        for query in significance_data[metric]:
+            significance_data[metric][query]= np.mean(significance_data[metric][query])
+    return significance_data
 
 
 

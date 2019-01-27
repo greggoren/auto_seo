@@ -105,7 +105,7 @@ class eval:
             print("no validation folder")
 
 
-    def run_trec_eval_on_test(self,qrels,summary_file,method,trec_file=None,increase_stats=False):
+    def run_trec_eval_on_test(self,qrels,summary_file,method,trec_file=None,increase_stats=False,sig_signs = None):
         if trec_file is None:
             trec_file=method+"_scores"
         score_data = []
@@ -134,7 +134,7 @@ class eval:
         if not increase_stats:
             next_line = " & ".join(["$"+s[1]+"$" for s in score_data]) + "\n"
         else:
-            next_line = " & ".join(["$"+s[1]+"$" for s in score_data]) +" & "+" & ".join(["$"+str(round(increase_stats[j],3))+"$" for j in [1,]])+"\\\\ \n"
+            next_line = " & ".join(["$"+s[1]+sig_signs[s[0]]+"$" for s in score_data]) +" & "+" & ".join(["$"+str(round(increase_stats[j],3))+"$" for j in [1,]])+"\\\\ \n"
         summary_file.write(next_line)
         summary_file.write("\\end{tabular}")
         summary_file.close()

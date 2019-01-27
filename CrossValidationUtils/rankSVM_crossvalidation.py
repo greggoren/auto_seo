@@ -1,5 +1,6 @@
 from CrossValidationUtils import preprocess_clueweb as p
 from CrossValidationUtils import evaluator as e
+from CrossValidationUtils.random_baseline import run_random_for_significance
 import numpy as np
 import os
 import subprocess
@@ -8,7 +9,7 @@ from CrossValidationUtils import svm_handler as s
 import operator
 import pickle
 from sklearn.datasets import dump_svmlight_file
-
+from scipy.stats import ttest_rel
 def run_command(command):
     p = subprocess.Popen(command,
                          stdout=subprocess.PIPE,
@@ -147,6 +148,20 @@ def read_qrels(qrels):
     result ={}
 
 
+def discover_significance_relevance(cv_stats,random_stats):
+    metric_significance_sign = {}
+    for metric in cv_stats:
+        cv_values_vector =[cv_stats[metric][q] for q in sorted(list(cv_stats[metric].keys()))]
+        random_values_vector =[random_stats[metric][q] for q in sorted(list(cv_stats[metric].keys()))]
+        ttest_value = ttest_rel(cv_values_vector,random_values_vector)
+        sign =""
+        if ttest_value[1]>0.05 and ttest_value[1]<=0.1:
+            sign="^*"
+        if ttest_value[1]<=0.05:
+            sign="^**"
+        metric_significance_sign[metric]=sign
+    return metric_significance_sign
+
 def cross_validation(features_file,qrels_file,summary_file,method,metrics,append_file = "",seo_scores=False):
     preprocess = p.preprocess()
     X, y, queries = preprocess.retrieve_data_from_file(features_file, True)
@@ -201,26 +216,29 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
         fold_number += 1
     final_trec_file = evaluator.order_trec_file(trec_file)
     run_bash_command("rm " + trec_file)
-    sum=[]
-    for i in total_models:
-        w = recover_model(total_models[i])
-        print(w)
-        if sum==[]:
-            sum=w
-        else:
-            sum+=w
-        print(sum)
-
-    average = sum/len(total_models)
-    print(average)
-    f = open(qrels_file+"_averaged_weights.pkl","wb")
-    pickle.dump(average,f)
-    f.close()
+    # sum=[]
+    # for i in total_models:
+    #     w = recover_model(total_models[i])
+    #     print(w)
+    #     if sum==[]:
+    #         sum=w
+    #     else:
+    #         sum+=w
+    #     print(sum)
+    #
+    # average = sum/len(total_models)
+    # print(average)
+    # f = open(qrels_file+"_averaged_weights.pkl","wb")
+    # pickle.dump(average,f)
+    # f.close()
     if seo_scores:
         increase_rank_stats = get_average_score_increase(seo_scores,final_trec_file)
     else:
         increase_rank_stats=False
-    evaluator.run_trec_eval_on_test(qrels_file,summary_file,method,None,increase_rank_stats)
+    stats ,significance_data_cv = evaluator.run_trec_eval_by_query(qrels_file,final_trec_file)
+    random_significance_data = run_random_for_significance(features_file,qrels_file,"sig_test",seo_scores=seo_scores)
+    sig_signs = discover_significance_relevance(significance_data_cv,random_significance_data)
+    evaluator.run_trec_eval_on_test(qrels_file,summary_file,method,None,increase_rank_stats,sig_signs)
     del X
     del y
     del queries
