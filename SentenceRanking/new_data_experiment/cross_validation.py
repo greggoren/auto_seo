@@ -223,7 +223,7 @@ if __name__=="__main__":
             last=True
         flag = True
         write_weighted_results("summary_randomharmonic_" + str(beta) + ".tex", "summary_labels_harmonic.tex", beta,
-                               "RandomBaseline",flag,last)
+                               "Random",flag,last)
         flag1=True
 
 
@@ -243,6 +243,6 @@ if __name__=="__main__":
         last = False
         if beta == betas[-1]:
             last = True
-        write_weighted_results("summary_randomweighted_"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RandomBaseline",flag,last)
+        write_weighted_results("summary_randomweighted_"+str(beta)+".tex","summary_labels_weighted.tex",beta,"Random",flag,last)
         flag1=True
 
