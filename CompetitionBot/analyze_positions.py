@@ -636,6 +636,6 @@ if __name__=="__main__":
     # write_tables_hist_ranking_changes(changes_in_ranking_stats)
     # write_overall_changes(overall_promotion)
     # create_query_to_quality_tables(reference_docs,results_dir)
-    print(reference_docs)
+    # print(reference_docs)
     results=get_average_rank_of_dummies(reference_docs)
-    print(results)
+    print([(i,results[i]["0"]) for i in sorted(list(results.keys()))])
