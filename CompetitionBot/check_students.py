@@ -27,7 +27,7 @@ def check():
                 continue
             set1 = deepcopy(stats[group1])
             set2 = deepcopy(stats[group2])
-            res[key]= len(set1.intesection(set2))
+            res[key]= len(set1.intersection(set2))
     print(res)
 
 
