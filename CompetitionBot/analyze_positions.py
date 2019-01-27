@@ -697,7 +697,7 @@ def get_top_competitor_data(positions):
                         overall_promotion = old_position-new_position
                         average_potential_data[iteration].append(potential)
                         raw_position_data[iteration].append(overall_promotion)
-                    # break
+                    break
     for iteration in raw_position_data:
         raw_position_data[iteration]=np.mean(raw_position_data[iteration])
         average_potential_data[iteration]=np.mean(average_potential_data[iteration])
