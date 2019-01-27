@@ -685,7 +685,7 @@ def get_top_competitor_data(positions):
                         old_position = positions[iterations[i - 1]][query_id][doc["username"]]
                         new_position = positions[iteration][query_id][doc["username"]]
                         if new_position==1 and old_position==1:
-                            continue
+                            break
                         if new_position >= old_position:
                             denominator = 5 - old_position
                         else:
