@@ -113,7 +113,7 @@ class eval:
                 score = output_line.split()[-1].rstrip()
                 score = str(score).replace("b'","")
                 score = score.replace("'","")
-                score_data.append((metric, str(score)))
+                score_data.append((metric, str(round(float(score),3))))
         summary_file = open(summary_file, 'w')
         if not increase_stats:
             cols = "c|"*len(self.metrics)
