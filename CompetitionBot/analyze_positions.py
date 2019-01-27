@@ -186,10 +186,15 @@ def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats):
             results[iteration][group].append(document["position"])
             doc_name = document["doc_name"]
             ks_tag = ks_stats[doc_name]
-            if ks_tag>0:
+            waterloo = document["watrerloo"]
+            if waterloo < 60:
                 ks[iteration][group].append(0)
             else:
                 ks[iteration][group].append(1)
+            # if ks_tag>0:
+            #     ks[iteration][group].append(0)
+            # else:
+            #     ks[iteration][group].append(1)
     for iteration in results:
         for group in results[iteration]:
             results[iteration][group]=np.mean(results[iteration][group])

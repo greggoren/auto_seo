@@ -167,9 +167,9 @@ if __name__=="__main__":
     print("--===DUMMY==--")
     dummy_waterloo=retrieve_waterloo_for_dummies("nimo_annotations")
     set_waterloo_scores_dummies(dummy_waterloo)
-    stats = read_group_dir("annotations")
-    print("--===BOT==--")
-    set_bots_waterloo(stats)
+    # stats = read_group_dir("annotations")
+    # print("--===BOT==--")
+    # set_bots_waterloo(stats)
 
 
 
