@@ -32,3 +32,4 @@ def check():
 
 
 
+check()
