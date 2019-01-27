@@ -186,7 +186,7 @@ def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats):
             results[iteration][group].append(document["position"])
             doc_name = document["doc_name"]
             ks_tag = ks_stats[doc_name]
-            waterloo = document["watrerloo"]
+            waterloo = document["waterloo"]
             if waterloo < 60:
                 ks[iteration][group].append(0)
             else:
