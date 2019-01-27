@@ -205,51 +205,51 @@ if __name__=="__main__":
     new_features_with_demotion_file = "all_seo_features_demotion"
     new_qrels_with_demotion_file = "seo_demotion_qrels"
     final_trec_file=cross_validation(new_features_with_demotion_file, new_qrels_with_demotion_file, "summary_labels_demotion.tex", "svm_rank",
-                     ["map", "ndcg_cut.5","ndcg_cut.1", "P.2", "P.5"], "",seo_scores)
+                     ["map","ndcg_cut.1", "ndcg_cut.5", "P.1"], "",seo_scores)
     run_random(new_features_with_demotion_file,new_qrels_with_demotion_file,"demotion",seo_scores)
 
 
 
-    # stats_harmonic={}
-    # betas = [0, 0.5, 1, 2, 1000, 100000, 1000000000]
-    # # betas = [0,]
-    # flag =False
-    # flag1 =False
-    # for beta in betas:
-    #     new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
-    #     new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
-    #     final_trec_file=cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic_"+str(beta)+".tex",
-    #                      "svm_rank",
-    #                      ["map", "ndcg_cut.5","ndcg_cut.1", "P.2", "P.5"], "",seo_scores)
-    #     run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic_"+str(beta),seo_scores)
-    #     write_weighted_results("summary_labels_harmonic_"+str(beta)+".tex", "summary_labels_harmonic.tex", beta,
-    #                            "RankSVM",flag)
-    #
-    #     last = False
-    #     if beta==betas[-1]:
-    #         last=True
-    #     flag = True
-    #     write_weighted_results("summary_randomharmonic_" + str(beta) + ".tex", "summary_labels_harmonic.tex", beta,
-    #                            "RandomBaseline",flag,last)
-    #     flag1=True
-    #
-    #
-    # flag=False
-    # flag1=False
-    # stats_weighted = {}
-    # betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
-    # # betas = [0,]
-    # for beta in betas:
-    #     new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
-    #     new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
-    #     final_trec_file=cross_validation(new_features_with_weighted_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map", "ndcg_cut.5","ndcg_cut.1", "P.2", "P.5"], "",seo_scores)
-    #     run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta),seo_scores)
-    #
-    #     write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RankSVM",flag)
-    #     flag = True
-    #     last = False
-    #     if beta == betas[-1]:
-    #         last = True
-    #     write_weighted_results("summary_randomweighted_"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RandomBaseline",flag,last)
-    #     flag1=True
+    stats_harmonic={}
+    betas = [0, 0.5, 1, 2, 1000, 100000, 1000000000]
+    # betas = [0,]
+    flag =False
+    flag1 =False
+    for beta in betas:
+        new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
+        new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
+        final_trec_file=cross_validation(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "summary_labels_harmonic_"+str(beta)+".tex",
+                         "svm_rank",
+                         ["map","ndcg_cut.1", "ndcg_cut.5", "P.1"], "",seo_scores)
+        run_random(new_features_with_harmonic_file, new_qrels_with_harmonic_file, "harmonic_"+str(beta),seo_scores)
+        write_weighted_results("summary_labels_harmonic_"+str(beta)+".tex", "summary_labels_harmonic.tex", beta,
+                               "RankSVM",flag)
+
+        last = False
+        if beta==betas[-1]:
+            last=True
+        flag = True
+        write_weighted_results("summary_randomharmonic_" + str(beta) + ".tex", "summary_labels_harmonic.tex", beta,
+                               "RandomBaseline",flag,last)
+        flag1=True
+
+
+    flag=False
+    flag1=False
+    stats_weighted = {}
+    betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+    # betas = [0,]
+    for beta in betas:
+        new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
+        new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
+        final_trec_file=cross_validation(new_features_with_weighted_file,new_qrels_with_weighted_file, "summary_labels_weighted"+str(beta)+".tex","svm_rank",["map","ndcg_cut.1", "ndcg_cut.5", "P.1"], "",seo_scores)
+        run_random(new_features_with_weighted_file, new_qrels_with_weighted_file, "weighted_"+str(beta),seo_scores)
+
+        write_weighted_results("summary_labels_weighted"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RankSVM",flag)
+        flag = True
+        last = False
+        if beta == betas[-1]:
+            last = True
+        write_weighted_results("summary_randomweighted_"+str(beta)+".tex","summary_labels_weighted.tex",beta,"RandomBaseline",flag,last)
+        flag1=True
 

@@ -78,7 +78,14 @@ def create_ds_for_annotations(texts,sampled):
                 row["current_document"] = texts[pair]
                 writer.writerow(row)
 
-
+def read_tags(filename):
+    with open(filename) as file:
+        stats={}
+        for line in file:
+            id = line.split()[0]
+            tag = int(line.split()[1].rstrip())
+            stats[id]=tag
+        return stats
 
 def read_ks_file(filename):
     f = open(filename,encoding="utf-8")
@@ -97,6 +104,34 @@ def read_ks_file(filename):
 ks_stats=read_ks_file("ks_offline_bot.csv")
 # print(ks_stats)
 
+def write_tables(ks,coh,ident,sentence):
+    f = open("quality_to_coherency_correlation.tex","w")
+    f.write("\\begin{tabular}{|c|c|c|c|}\n")
+    f.write("\\hline\n")
+    f.write("Data-set & Pearson & Spearman & Kendall-$\\tau$ \\\\ \n")
+    f.write("\\hline\n")
+    pearson = pearsonr(ks, coh)
+    spearman = spearmanr(ks, coh)
+    kendall= kendalltau(ks, coh)
+    f.write("Combined & $"+str(round(pearson[0],3))+"$ ($"+str(round(pearson[1],3))+"$) & $"+str(round(spearman[0],3))+"$ ($"+str(round(spearman[1],3))+"$) & $"+str(round(kendall[0],3))+"$ ($"+str(round(kendall[1],3))+"$) \\\\ \n")
+    f.write("\\hline\n")
+    pearson = pearsonr(ks, ident)
+    spearman = spearmanr(ks, ident)
+    kendall = kendalltau(ks, ident)
+    f.write("Document identification & $" + str(round(pearson[0], 3)) + "$ ($" + str(round(pearson[1], 3)) + "$) & $" + str(
+        round(spearman[0], 3)) + "$ ($" + str(round(spearman[1], 3)) + "$) & $" + str(
+        round(kendall[0], 3)) + "$ ($" + str(round(kendall[1], 3)) + "$) \\\\ \n")
+    f.write("\\hline\n")
+    pearson = pearsonr(ks, sentence)
+    spearman = spearmanr(ks, sentence)
+    kendall = kendalltau(ks, sentence)
+    f.write(
+        "Sentence identification & $" + str(round(pearson[0], 3)) + "$ ($" + str(round(pearson[1], 3)) + "$) & $" + str(
+            round(spearman[0], 3)) + "$ ($" + str(round(spearman[1], 3)) + "$) & $" + str(
+            round(kendall[0], 3)) + "$ ($" + str(round(kendall[1], 3)) + "$) \\\\ \n")
+    f.write("\\hline\n")
+    f.write("\\end{tabular}\n")
+    f.close()
 
 coherency_file = "all_seo_features_weighted_0"
 coherency_label_sentence_pairs,coherencey_stats = read_coherency_file(coherency_file)
@@ -104,15 +139,18 @@ sampled = sample_pairs_uniformly(coherency_label_sentence_pairs)
 samples = []
 for bucket in sampled:
     samples.extend(sampled[bucket])
-print(len(samples))
+
 # samples=sorted(samples)
 ks_vector = [ks_stats[pair] for pair in samples]
 coherency_label_vector = [coherencey_stats[pair] for pair in samples]
-print(pearsonr(ks_vector,coherency_label_vector))
-print(spearmanr(ks_vector,coherency_label_vector))
-print(kendalltau(ks_vector,coherency_label_vector))
 
 
+ident_labels = read_tags("document_identification_tags")
+ident_vector =[ident_labels[pair] for pair in samples]
+sentence_labels = read_tags("sentence_identification_tags")
+sentence_vector =[sentence_labels[pair] for pair in samples]
+
+write_tables(ks_vector,coherency_label_vector,ident_vector,sentence_vector)
 
 
 # texts = read_documents()
