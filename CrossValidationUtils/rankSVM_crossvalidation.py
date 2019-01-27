@@ -203,7 +203,7 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
     run_bash_command("rm " + trec_file)
     sum=[]
     for i in total_models:
-        w = recover_model(models[i])
+        w = recover_model(total_models[i])
         print(w)
         if sum==[]:
             sum=w
