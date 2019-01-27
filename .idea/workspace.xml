@@ -7,7 +7,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/check_students.py" afterPath="$PROJECT_DIR$/CompetitionBot/check_students.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/doc_ks_nimrod" afterPath="$PROJECT_DIR$/CompetitionBot/doc_ks_nimrod" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -129,17 +129,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="doc_ks_nimrod" pinned="false" current-in-tab="false">
+      <file leaf-file-name="doc_ks_nimrod" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/doc_ks_nimrod">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
+            <state relative-caret-position="573">
+              <caret line="1292" column="14" selection-start-line="1292" selection-start-column="14" selection-end-line="1292" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="check_students.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="check_students.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/check_students.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="677">
@@ -259,9 +259,9 @@
         <option value="$PROJECT_DIR$/CrossValidationUtils/random_baseline.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/doc_rel_nimrod" />
-        <option value="$PROJECT_DIR$/CompetitionBot/doc_ks_nimrod" />
         <option value="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/check_students.py" />
+        <option value="$PROJECT_DIR$/CompetitionBot/doc_ks_nimrod" />
       </list>
     </option>
   </component>
@@ -736,13 +736,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01029" summary="os201">
-      <created>1548431136746</created>
-      <option name="number" value="01029" />
-      <option name="presentableId" value="LOCAL-01029" />
-      <option name="project" value="LOCAL" />
-      <updated>1548431136746</updated>
-    </task>
     <task id="LOCAL-01030" summary="os201">
       <created>1548431277018</created>
       <option name="number" value="01030" />
@@ -1079,7 +1072,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548616801395</updated>
     </task>
-    <option name="localTasksCounter" value="1078" />
+    <task id="LOCAL-01078" summary="os201">
+      <created>1548616986763</created>
+      <option name="number" value="01078" />
+      <option name="presentableId" value="LOCAL-01078" />
+      <option name="project" value="LOCAL" />
+      <updated>1548616986763</updated>
+    </task>
+    <option name="localTasksCounter" value="1079" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1646,14 +1646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CompetitionBot/doc_ks_nimrod">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="36" column="23" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -1671,6 +1663,14 @@
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CompetitionBot/doc_ks_nimrod">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="1292" column="14" selection-start-line="1292" selection-start-column="14" selection-end-line="1292" selection-end-column="14" />
+          <folding />
         </state>
       </provider>
     </entry>
