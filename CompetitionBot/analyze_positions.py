@@ -436,7 +436,7 @@ def calculate_promotion_potential(reference_docs,positions):
                 if new_position==1 and old_position==1:
                     stayed_winner[iteration][query_id]=doc
 
-                if doc in reference_docs[query_id]:
+                elif doc in reference_docs[query_id]:
                     if query_id not in bots[iteration]:
                         bots[iteration][query_id]={}
                     bots[iteration][query_id][doc]=potential
@@ -636,7 +636,79 @@ def read_annotations(filename):
     return stats
 
 
+def get_postitions():
+    positions = {}
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    iterations = sorted(list(db.archive.distinct("iteration")))[7:]
+    for iteration in iterations:
+        positions[iteration] = {}
+        docs = db.archive.find({"iteration": iteration})
 
+        for doc in docs:
+            query_id = doc["query_id"]
+            group = query_id.split("_")[1]
+
+            if group != "2":
+                continue
+
+            username = doc["username"]
+            position = doc["position"]
+            if query_id not in positions[iteration]:
+                positions[iteration][query_id] = {}
+            positions[iteration][query_id][username] = position
+    return positions
+
+def get_top_competitor_data(positions):
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    iterations = sorted(list(db.archive.distinct("iteration")))[7:]
+    firsts = {}
+    average_positions_data={}
+    average_potential_data={}
+    raw_position_data={}
+    for i,iteration in enumerate(iterations):
+        firsts[iteration]={}
+        average_positions_data[iteration]=[]
+        average_potential_data[iteration]=[]
+        raw_position_data[iteration] = []
+        queries = db.archive.distinct("query_id", {"query_id": {"$regex": ".*_2"}})
+        for query_id in queries:
+            docs = db.archive.find({"iteration":iteration,"query_id":query_id}).sort("position",1)
+            for doc in docs:
+                print(doc["position"])
+                if not doc.__contains__("dummy_doc"):
+                    firsts[iteration][query_id] = doc["username"]
+                    average_positions_data[iteration].append(doc["position"])
+                    if i>0:
+                        old_position = positions[iterations[i - 1]][query_id][doc["username"]]
+                        new_position = positions[iteration][query_id][doc["username"]]
+                        if new_position==1 and old_position==1:
+                            continue
+                        if new_position >= old_position:
+                            denominator = 5 - old_position
+                        else:
+                            denominator = old_position - 1
+                        if denominator == 0:
+                            potential = 0
+                        else:
+                            potential = (old_position - new_position) / (denominator)
+                        overall_promotion = old_position-new_position
+                        average_potential_data[iteration].append(potential)
+                        raw_position_data[iteration].append(overall_promotion)
+                    break
+    for iteration in raw_position_data:
+        raw_position_data[iteration]=np.mean(raw_position_data[iteration])
+        average_potential_data[iteration]=np.mean(average_potential_data[iteration])
+        average_positions_data[iteration]=np.mean(average_positions_data[iteration])
+    return raw_position_data,average_potential_data,average_positions_data,firsts
+
+
+def write_data_file(stats,filename):
+    f = open(filename,"w")
+    for iteration in stats:
+        f.write(iteration+" "+str(stats[iteration]))
+    f.close()
 
 if __name__=="__main__":
     results_dir = "tex_tables/"
@@ -666,10 +738,13 @@ if __name__=="__main__":
     # write_overall_changes(overall_promotion)
     # create_query_to_quality_tables(reference_docs,results_dir)
     # print(reference_docs)
-    ks_stats = read_annotations("doc_ks_nimrod")
-    print(ks_stats)
-    rel_stats = read_annotations("doc_rel_nimrod")
-    results,ks=get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats)
-    #
-    print([(i,results[i]["2"]) for i in sorted(list(results.keys()))])
-    print([(i,ks[i]["2"]) for i in sorted(list(ks.keys()))])
+    # ks_stats = read_annotations("doc_ks_nimrod")
+    # print(ks_stats)
+    # rel_stats = read_annotations("doc_rel_nimrod")
+    # results,ks=get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats)
+    positions = get_postitions()
+    raw_position_data, average_potential_data, average_positions_data, firsts=get_top_competitor_data(positions)
+    write_data_file(raw_position_data,"top_raw")
+    write_data_file(average_potential_data,"top_potential")
+    write_data_file(average_positions_data,"top_average")
+
