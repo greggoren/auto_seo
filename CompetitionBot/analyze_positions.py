@@ -638,4 +638,4 @@ if __name__=="__main__":
     # create_query_to_quality_tables(reference_docs,results_dir)
     # print(reference_docs)
     results=get_average_rank_of_dummies(reference_docs)
-    print([(i,results[i]["0"]) for i in sorted(list(results.keys()))])
+    print([(i,results[i]["2"]) for i in sorted(list(results.keys()))])
