@@ -34,4 +34,13 @@ def check():
 
 
 
+def get_waterloo_13():
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    stats = {}
+    iterations = sorted(list(db.archive.distinct("iteration")))[:5]
+    for iteration in iterations:
+        docs = db.archive.find({"iteration":iteration,"query_id":"013_2","doc_name":{"$regex":"ROUND-"}})
+
+
 check()
