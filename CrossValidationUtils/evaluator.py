@@ -117,7 +117,7 @@ class eval:
                 score = output_line.split()[-1].rstrip()
                 score = str(score).replace("b'","")
                 score = score.replace("'","")
-                score_data.append((metric, str(round(float(score),3))))
+                score_data.append((metric, "{0:.2f}".format(round(float(score),2))))
         summary_file = open(summary_file, 'w')
         if not increase_stats:
             cols = "c|"*len(self.metrics)
@@ -134,7 +134,7 @@ class eval:
         if not increase_stats:
             next_line = " & ".join(["$"+s[1]+"$" for s in score_data]) + "\n"
         else:
-            next_line = " & ".join(["$"+s[1]+sig_signs[s[0]]+"$" for s in score_data]) +" & "+" & ".join(["$"+str(round(increase_stats[j],3))+"$" for j in [1,]])+"\\\\ \n"
+            next_line = " & ".join(["$"+s[1]+sig_signs[s[0]]+"$" for s in score_data]) +" & "+" & ".join(["$"+ "{0:.2f}".format(round(increase_stats[j],2))+sig_signs[j]+"$" for j in [1,]])+"\\\\ \n"
         summary_file.write(next_line)
         summary_file.write("\\end{tabular}")
         summary_file.close()

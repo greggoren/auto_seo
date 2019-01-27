@@ -33,7 +33,7 @@ def run_random(features_file, qrels, name, seo_scores=False):
                 index += 1
         scores.close()
         if seo_scores:
-            tmp_rank_increase_score = get_average_score_increase(seo_scores,"random_scores" + name)
+            tmp_rank_increase_score,firsts = get_average_score_increase(seo_scores,"random_scores" + name)
             if not averaged_rank_increase_stats:
                 for key in tmp_rank_increase_score:
                     averaged_rank_increase_stats[key]=[]
@@ -71,7 +71,7 @@ def run_random(features_file, qrels, name, seo_scores=False):
     if not seo_scores:
         next_line = " & ".join(["$"+str(round(np.mean(score_data[s]),3))+"$" for s in ["map", "ndcg_cut.5","ndcg_cut.1", "P.2", "P.5"]]) + "\n"
     else:
-        next_line = " & ".join(["$"+str(round(np.mean(score_data[s]), 3))+"$" for s in ["map","ndcg_cut.1", "ndcg_cut.5", "P.1"]])+" & "+" & ".join(["$"+str(round(averaged_rank_increase_stats[j],3))+"$" for j in [1,]]) + "\\\\ \n"
+        next_line = " & ".join(["$"+"{0:.2f}".format(round(np.mean(score_data[s]), 2))+"$" for s in ["map","ndcg_cut.1", "ndcg_cut.5", "P.1"]])+" & "+" & ".join(["$"+"{0:.2f}".format(round(averaged_rank_increase_stats[j],2))+"$" for j in [1,]]) + "\\\\ \n"
     summary_file.write(next_line)
     summary_file.write("\\end{tabular}")
     summary_file.close()
@@ -87,6 +87,7 @@ def run_random_for_significance(features_file, qrels, name, seo_scores=False):
     seed(9001)
     significance_data = {}
     averaged_rank_increase_stats = {}
+    random_firsts = []
     for i in range(10):
         data = {}
         print("in iteration", i + 1)
@@ -110,12 +111,16 @@ def run_random_for_significance(features_file, qrels, name, seo_scores=False):
                 index += 1
         scores.close()
         if seo_scores:
-            tmp_rank_increase_score = get_average_score_increase(seo_scores,"random_scores_sig" + name)
+            tmp_rank_increase_score,tmp_firsts = get_average_score_increase(seo_scores,"random_scores_sig" + name)
             if not averaged_rank_increase_stats:
                 for key in tmp_rank_increase_score:
                     averaged_rank_increase_stats[key]=[]
             for key in tmp_rank_increase_score:
                 averaged_rank_increase_stats[key].append(tmp_rank_increase_score[key])
+            if random_firsts==[]:
+                random_firsts=tmp_firsts
+            else:
+                random_firsts+=tmp_firsts
 
         for metric in ["map","ndcg_cut.1", "ndcg_cut.5", "P.1"]:
             command = "./trec_eval -q -m " + metric + " " + qrels + " random_scores_sig" + name
@@ -140,7 +145,8 @@ def run_random_for_significance(features_file, qrels, name, seo_scores=False):
     for metric in significance_data:
         for query in significance_data[metric]:
             significance_data[metric][query]= np.mean(significance_data[metric][query])
-    return significance_data
+    random_firsts = random_firsts/10
+    return significance_data,random_firsts
 
 
 

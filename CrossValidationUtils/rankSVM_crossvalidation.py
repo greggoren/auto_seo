@@ -114,7 +114,8 @@ def get_average_score_increase(seo_scores, ranked_lists_file,write=False):
     stats["ge"]=sum([1 for q in lists if lists[q][0]>lists[q][1]])/len(lists)
     stats["eq"]=sum([1 for q in lists if lists[q][0]==lists[q][1]])/len(lists)
     stats["le"]=sum([1 for q in lists if lists[q][0]<lists[q][1]])/len(lists)
-    return stats
+    firsts = np.array([lists[q][0] for q in sorted(lists.keys())])
+    return stats,firsts
 
 def recover_model(model):
     indexes_covered = []
@@ -161,6 +162,17 @@ def discover_significance_relevance(cv_stats,random_stats):
             sign="^{**}"
         print("ttest = ",ttest_value[1],sign)
         metric_significance_sign[metric]=sign
+    return metric_significance_sign
+
+
+def discover_significance_rank_promotior(cv_vector,random_vector,metric_significance_sign):
+    ttest_value = ttest_rel(cv_vector,random_vector)
+    sign =""
+    if ttest_value[1]>0.05 and ttest_value[1]<=0.1:
+        sign="^*"
+    if ttest_value[1]<=0.05:
+            sign="^{**}"
+    metric_significance_sign[1]=sign
     return metric_significance_sign
 
 def cross_validation(features_file,qrels_file,summary_file,method,metrics,append_file = "",seo_scores=False,run_random_for_significance=None):
@@ -233,12 +245,13 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
     # pickle.dump(average,f)
     # f.close()
     if seo_scores:
-        increase_rank_stats = get_average_score_increase(seo_scores,final_trec_file)
+        increase_rank_stats,cv_firsts = get_average_score_increase(seo_scores,final_trec_file)
     else:
         increase_rank_stats=False
     stats ,significance_data_cv = evaluator.run_trec_eval_by_query(qrels_file,final_trec_file)
-    random_significance_data = run_random_for_significance(features_file,qrels_file,"sig_test",seo_scores=seo_scores)
+    random_significance_data,random_firsts = run_random_for_significance(features_file,qrels_file,"sig_test",seo_scores=seo_scores)
     sig_signs = discover_significance_relevance(significance_data_cv,random_significance_data)
+    sig_signs = discover_significance_rank_promotior(cv_firsts,random_firsts,sig_signs)
     evaluator.run_trec_eval_on_test(qrels_file,summary_file,method,None,increase_rank_stats,sig_signs)
     del X
     del y
