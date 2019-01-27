@@ -701,7 +701,7 @@ def get_top_competitor_data(positions):
                     break
     for i,iteration in enumerate(list(average_positions_data)):
         if i>0:
-            raw_position_data[iteration]=np.mean(raw_position_data[iteration])
+            raw_position_data[iteration]=sum(raw_position_data[iteration])
             average_potential_data[iteration]=np.mean(average_potential_data[iteration])
         average_positions_data[iteration]=np.mean(average_positions_data[iteration])
     return raw_position_data,average_potential_data,average_positions_data,firsts
