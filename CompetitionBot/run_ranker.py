@@ -35,13 +35,13 @@ def order_trec_file(trec_file):
     return final
 
 def run_model(test_file,run_name=""):
-    java_path = "/lv_local/home/sgregory/jdk1.8.0_181/bin/java"
-    jar_path = "/lv_local/home/sgregory/RankLib.jar"
+    java_path = "home/greg/jdk1.8.0_181/bin/java"
+    jar_path = "/home/greg/SEO_CODE/model_running/RankLib.jar"
     score_file = "scores_winners/scores_of_seo_run"+run_name
     if not os.path.exists("scores_winners/"):
         os.makedirs("scores_winners/")
     features = test_file
-    model_path = "/lv_local/home/sgregory/auto_seo/CrossValidationUtils/model_bot_group"
+    model_path = "/home/greg/auto_seo/CrossValidationUtils/model_bot_group"
     run_bash_command('touch ' + score_file)
     command = java_path + " -jar " + jar_path + " -load " + model_path + " -rank " + features + " -score " + score_file
     out = run_bash_command(command)
