@@ -1,15 +1,9 @@
-from Crowdflower import create_full_ds_per_task as mturk_ds_creator
-from Crowdflower.seo_utils import create_coherency_features
-from utils import cosine_similarity
-from SentenceRanking.sentence_features_experiment import get_sentence_vector
-from Preprocess.preprocess import retrieve_ranked_lists,load_file,retrieve_sentences
-from SentenceRanking.sentence_parse import  map_set_of_sentences
+
+from Preprocess.preprocess import retrieve_ranked_lists,load_file
 import params
-from w2v.train_word2vec import WordToVec
 from CrossValidationUtils.rankSVM_crossvalidation import cross_validation
 from CrossValidationUtils.random_baseline import run_random
 from Crowdflower.ban_non_coherent_docs import get_scores,sort_files_by_date,retrieve_initial_documents,ban_non_coherent_docs,get_dataset_stas,get_banned_queries
-from pathlib import Path
 import numpy as np
 
 def read_seo_score(labels):
