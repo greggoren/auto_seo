@@ -537,55 +537,55 @@ if __name__=="__main__":
             write_tags(ident_tags,"document_identification_tags",key)
             write_tags(sentence_tags,"sentence_identification_tags",key)
             all_aggregated_results[key]=tmp_aggregated_results
-    all_aggregated_results = ban_non_coherent_docs(banned_queries,all_aggregated_results)
-    seo_scores_file = "labels_new_final_all_data"
-    tmp_seo_scores = read_seo_score(seo_scores_file)
-    seo_scores = ban_non_coherent_docs(banned_queries,tmp_seo_scores)
-
-    modified_scores= modify_seo_score_by_demotion(seo_scores,all_aggregated_results)
-    new_features_with_demotion_file = "all_seo_features_demotion"
-    new_qrels_with_demotion_file = "seo_demotion_qrels"
-
-    rewrite_fetures(modified_scores,base_features_file,new_features_with_demotion_file,new_qrels_with_demotion_file)
-
-    stats_harmonic={}
-    betas = [0,0.5,1,2,1000,100000,1000000000]
-    # betas = [1,]
-    flag =False
-    flag1 =False
-    for beta in betas:
-        new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
-        new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
-        harmonic_mean_scores={}
-        harmonic_mean_scores = create_harmonic_mean_score(seo_scores,all_aggregated_results,beta)
-        rewrite_fetures(harmonic_mean_scores, base_features_file, new_features_with_harmonic_file,new_qrels_with_harmonic_file)
-        harmonic_hist = get_histogram(harmonic_mean_scores)
-        last = False
-        if beta == betas[-1]:
-            last = True
-        flag = True
-        write_histogram_for_weighted_scores(harmonic_hist, "harmonic_histogram.tex", beta, flag1, last)
-        flag1 = True
-
-
-    flag=False
-    flag1=False
-    stats_weighted = {}
-    # betas = [0,]
-    betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
-    for beta in betas:
-        new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
-        new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
-        weighted_mean_scores={}
-        weighted_mean_scores = create_weighted_mean_score(seo_scores, all_aggregated_results,beta)
-        rewrite_fetures(weighted_mean_scores,base_features_file, new_features_with_weighted_file,new_qrels_with_weighted_file)
-        last = False
-        if beta == betas[-1]:
-            last = True
-        flag = True
-        weighted_hist = get_histogram(weighted_mean_scores)
-        write_histogram_for_weighted_scores(weighted_hist, "weighted_histogram.tex", beta, flag1, last)
-        flag1 = True
+    # all_aggregated_results = ban_non_coherent_docs(banned_queries,all_aggregated_results)
+    # seo_scores_file = "labels_new_final_all_data"
+    # tmp_seo_scores = read_seo_score(seo_scores_file)
+    # seo_scores = ban_non_coherent_docs(banned_queries,tmp_seo_scores)
+    #
+    # modified_scores= modify_seo_score_by_demotion(seo_scores,all_aggregated_results)
+    # new_features_with_demotion_file = "all_seo_features_demotion"
+    # new_qrels_with_demotion_file = "seo_demotion_qrels"
+    #
+    # rewrite_fetures(modified_scores,base_features_file,new_features_with_demotion_file,new_qrels_with_demotion_file)
+    #
+    # stats_harmonic={}
+    # betas = [0,0.5,1,2,1000,100000,1000000000]
+    # # betas = [1,]
+    # flag =False
+    # flag1 =False
+    # for beta in betas:
+    #     new_features_with_harmonic_file = "all_seo_features_harmonic_"+str(beta)
+    #     new_qrels_with_harmonic_file = "seo_harmonic_qrels_"+str(beta)
+    #     harmonic_mean_scores={}
+    #     harmonic_mean_scores = create_harmonic_mean_score(seo_scores,all_aggregated_results,beta)
+    #     rewrite_fetures(harmonic_mean_scores, base_features_file, new_features_with_harmonic_file,new_qrels_with_harmonic_file)
+    #     harmonic_hist = get_histogram(harmonic_mean_scores)
+    #     last = False
+    #     if beta == betas[-1]:
+    #         last = True
+    #     flag = True
+    #     write_histogram_for_weighted_scores(harmonic_hist, "harmonic_histogram.tex", beta, flag1, last)
+    #     flag1 = True
+    #
+    #
+    # flag=False
+    # flag1=False
+    # stats_weighted = {}
+    # # betas = [0,]
+    # betas = [0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1]
+    # for beta in betas:
+    #     new_features_with_weighted_file = "all_seo_features_weighted_"+str(beta)
+    #     new_qrels_with_weighted_file = "seo_weighted_qrels_"+str(beta)
+    #     weighted_mean_scores={}
+    #     weighted_mean_scores = create_weighted_mean_score(seo_scores, all_aggregated_results,beta)
+    #     rewrite_fetures(weighted_mean_scores,base_features_file, new_features_with_weighted_file,new_qrels_with_weighted_file)
+    #     last = False
+    #     if beta == betas[-1]:
+    #         last = True
+    #     flag = True
+    #     weighted_hist = get_histogram(weighted_mean_scores)
+    #     write_histogram_for_weighted_scores(weighted_hist, "weighted_histogram.tex", beta, flag1, last)
+    #     flag1 = True
 
     # print("queries=", len(get_dataset_stas(all_aggregated_results)))
     # print("examples=", len(aggregated_results))
