@@ -20,23 +20,27 @@ class eval:
 
     def run_trec_eval_by_query(self,qrels, trec_file):
         score_data = {}
+        significance_data={}
         print("last stats:")
         for metric in self.metrics:
             command = "./trec_eval -q -m " + metric + " " + qrels + " " + trec_file
             score_data[metric] = []
+            significance_data[metric] = {}
             for line in run_command(command):
                 if len(line.split()) <= 1:
                     break
                 if str(line.split()[1]).replace("b'", "").replace("'", "") == "all":
                     break
                 score = float(line.split()[2].rstrip())
-                # query = str(line.split()[1])
-                # query = query.replace("b'", "")
-                # query = query.replace("'", "")
+                query = str(line.split()[1])
+                query = query.replace("b'", "")
+                query = query.replace("'", "")
+
                 score = str(score).replace("b'", "")
                 score = score.replace("'", "")
+                significance_data[metric][query]=float(score)
                 score_data[metric].append(float(score))
-        return score_data
+        return score_data,significance_data
 
 
     def create_trec_eval_file(self, test_indices, queries, results,model,method,fold,validation=None):
