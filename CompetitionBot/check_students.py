@@ -15,6 +15,8 @@ def check():
             continue
         if group not in stats:
             stats[group]=set()
+        if doc["username"].__contains__("dummy_doc"):
+            continue
         stats[group].add(doc["username"])
     res={}
     groups=["1","3","4"]
