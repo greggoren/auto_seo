@@ -634,14 +634,14 @@ def read_annotations(filename):
 
 if __name__=="__main__":
     results_dir = "tex_tables/"
-    if not os.path.exists(results_dir):
-        os.makedirs(results_dir)
-    reference_docs = get_reference_documents()
+    # if not os.path.exists(results_dir):
+    #     os.makedirs(results_dir)
+    # reference_docs = get_reference_documents()
     # hist_single = get_addition_histogram_single_bot(reference_docs)
     # create_table_single_bot(hist_single,results_dir)
     # hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
     # create_table_multiple_bots(hist_multiple,results_dir)
-    method_index = get_method_index()
+    # method_index = get_method_index()
     # average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,method_index,"0")
     # write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
     # average_single_bot_ranking = get_average_bot_ranking(reference_docs,method_index,"2")
@@ -661,8 +661,9 @@ if __name__=="__main__":
     # create_query_to_quality_tables(reference_docs,results_dir)
     # print(reference_docs)
     ks_stats = read_annotations("doc_ks_nimrod")
-    rel_stats = read_annotations("doc_rel_nimrod")
-    results,ks=get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats)
-
-    print([(i,results[i]["2"]) for i in sorted(list(results.keys()))])
-    print([(i,ks[i]["2"]) for i in sorted(list(ks.keys()))])
+    print(ks_stats)
+    # rel_stats = read_annotations("doc_rel_nimrod")
+    # results,ks=get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats)
+    #
+    # print([(i,results[i]["2"]) for i in sorted(list(results.keys()))])
+    # print([(i,ks[i]["2"]) for i in sorted(list(ks.keys()))])
