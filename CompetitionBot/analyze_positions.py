@@ -676,9 +676,9 @@ def get_top_competitor_data(positions):
         for query_id in queries:
             docs = db.archive.find({"iteration":iteration,"query_id":query_id}).sort("position",1)
             for doc in docs:
-
+                print(doc["username"], doc["position"])
                 if not doc["username"].__contains__("dummy_doc"):
-                    print(doc["usernmae"],doc["position"])
+
                     firsts[iteration][query_id] = doc["username"]
                     average_positions_data[iteration].append(doc["position"])
                     if i>0:
@@ -697,7 +697,7 @@ def get_top_competitor_data(positions):
                         overall_promotion = old_position-new_position
                         average_potential_data[iteration].append(potential)
                         raw_position_data[iteration].append(overall_promotion)
-                    break
+                    # break
     for iteration in raw_position_data:
         raw_position_data[iteration]=np.mean(raw_position_data[iteration])
         average_potential_data[iteration]=np.mean(average_potential_data[iteration])
