@@ -102,11 +102,11 @@ def run_random_for_significance(features_file, qrels, name, seo_scores=False):
             data[query].append(sentence)
         features.close()
 
-        for query in data:
+        for query in sorted(list(data.keys())):
             shuffle(data[query])
             index = 1
             for object in data[query]:
-                scores.write(query + " Q0 " + object.rstrip() + " 0 " + str(index) + " seo\n")
+                scores.write(query + " Q0 " + object.rstrip() + " 0 " + str(-index) + " seo\n")
                 index += 1
         scores.close()
         if seo_scores:
@@ -130,11 +130,13 @@ def run_random_for_significance(features_file, qrels, name, seo_scores=False):
                 query = str(line.split()[1])
                 query = query.replace("b'", "")
                 query = query.replace("'", "")
+
                 if query not in significance_data[metric]:
                     significance_data[metric][query]=[]
                 score = str(score).replace("b'", "")
                 score = score.replace("'", "")
                 significance_data[metric][query].append(float(score))
+                print(query,score)
     for metric in significance_data:
         for query in significance_data[metric]:
             significance_data[metric][query]= np.mean(significance_data[metric][query])

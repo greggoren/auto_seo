@@ -158,7 +158,8 @@ def discover_significance_relevance(cv_stats,random_stats):
         if ttest_value[1]>0.05 and ttest_value[1]<=0.1:
             sign="^*"
         if ttest_value[1]<=0.05:
-            sign="^**"
+            sign="^{**}"
+        print("ttest = ",ttest_value[1],sign)
         metric_significance_sign[metric]=sign
     return metric_significance_sign
 
