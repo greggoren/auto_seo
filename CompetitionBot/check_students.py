@@ -1,5 +1,6 @@
 from pymongo import MongoClient
 from copy import  deepcopy
+import csv
 ASR_MONGO_HOST = "asr2.iem.technion.ac.il"
 ASR_MONGO_PORT = 27017
 def check():
@@ -37,16 +38,21 @@ def check():
 def get_waterloo_13():
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
+    fe_ds = open("fe_13_ds.csv","w",encoding="utf-8")
+    writer = csv.DictWriter(fe_ds,fieldnames=["id","current_document","query","description"])
+    writer.writeheader()
     iterations = sorted(list(db.archive.distinct("iteration")))[:5]
     for iteration in iterations:
         docs = db.archive.find({"iteration":iteration,"query_id":"013_2","doc_name":{"$regex":"ROUND-.*"}})
         for doc in docs:
             doc_name = doc["doc_name"]
-            watreloo= doc["waterloo"]
-            tag = "0"
-            if watreloo<60:
-                tag="1"
-            print(doc_name,tag)
+            row = {}
+            row["id"]=doc_name
+            row["current_document"]=doc["text"]
+            row["query"]=doc["query"]
+            row["description"]=doc["description"]
+            writer.writerow(row)
+    fe_ds.close()
 
 
 # check()
