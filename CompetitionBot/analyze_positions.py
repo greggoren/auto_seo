@@ -160,13 +160,15 @@ def get_average_rank_of_active_competitors():
 
 
 
-def get_average_rank_of_dummies(reference_docs):
+def get_average_rank_of_dummies_and_ks(reference_docs):
     results = {}
+    ks={}
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
     for iteration in iterations:
         results[iteration]={}
+        ks[iteration]={}
         documents = db.archive.find({"iteration":iteration,"query_id":{"$regex":".*_2"}})
         for document in documents:
             query = document["query_id"]
@@ -180,11 +182,18 @@ def get_average_rank_of_dummies(reference_docs):
                 continue
             if group not in results[iteration]:
                 results[iteration][group]=[]
+                ks[iteration][group]=[]
             results[iteration][group].append(document["position"])
+            if document["waterloo"]<60:
+                ks[iteration][group].append(0)
+            else:
+                ks[iteration][group].append(1)
     for iteration in results:
         for group in results[iteration]:
             results[iteration][group]=np.mean(results[iteration][group])
-    return results
+            ks[iteration][group]=np.mean(ks[iteration][group])
+
+    return results,ks
 
 
 
@@ -637,5 +646,6 @@ if __name__=="__main__":
     # write_overall_changes(overall_promotion)
     # create_query_to_quality_tables(reference_docs,results_dir)
     # print(reference_docs)
-    results=get_average_rank_of_dummies(reference_docs)
+    results,ks=get_average_rank_of_dummies_and_ks(reference_docs)
     print([(i,results[i]["2"]) for i in sorted(list(results.keys()))])
+    print([(i,ks[i]["2"]) for i in sorted(list(ks.keys()))])
