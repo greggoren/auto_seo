@@ -159,6 +159,36 @@ def get_average_rank_of_active_competitors():
     return results
 
 
+
+def get_average_rank_of_dummies(reference_docs):
+    results = {}
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    iterations = sorted(list(db.archive.distinct("iteration")))[7:]
+    for iteration in iterations:
+        results[iteration]={}
+        documents = db.archive.find({"iteration":iteration,"query_id":{"$regex":".*_2"}})
+        for document in documents:
+            query = document["query_id"]
+            group = query.split("_")[1]
+            if group not in ["2",]:
+                continue
+            username = document["username"]
+            if not username.__contains__("dummy_doc"):
+                continue
+            if username in reference_docs[query]:
+                continue
+            if group not in results[iteration]:
+                results[iteration][group]=[]
+            results[iteration][group].append(document["position"])
+    for iteration in results:
+        for group in results[iteration]:
+            results[iteration][group]=np.mean(results[iteration][group])
+    return results
+
+
+
+
 def write_table_bots_ranking(group,results,results_dir):
     f = open(results_dir+"bots_ranking_"+group+".tex","w")
     cols = "c|" * (len(results) + 1)
@@ -589,20 +619,23 @@ if __name__=="__main__":
     # hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
     # create_table_multiple_bots(hist_multiple,results_dir)
     method_index = get_method_index()
-    average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,method_index,"0")
-    write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
-    average_single_bot_ranking = get_average_bot_ranking(reference_docs,method_index,"2")
-    write_table_bots_ranking("2",average_single_bot_ranking,results_dir)
-    average_rank_competitrs = get_average_rank_of_active_competitors()
-    write_competitors_ranking_table(average_rank_competitrs,results_dir)
-    ks_stats=read_group_dir("annotations/",method_index,False)
-    write_quality_annotation_table(ks_stats,results_dir)
-    competitrs_quality = get_competitors_quality()
-    write_competitors_quality_table(competitrs_quality)
-    dummy_averages, active_averages, bot_averages,separate,overall_promotion,changes_in_ranking_stats = create_average_promotion_potential(reference_docs)
-    write_potential_tables(dummy_averages,active_averages,bot_averages,results_dir)
-    sep_hist = get_separate_stats(separate,reference_docs)
-    write_separate_table(sep_hist,results_dir)
-    write_tables_hist_ranking_changes(changes_in_ranking_stats)
-    write_overall_changes(overall_promotion)
-    create_query_to_quality_tables(reference_docs,results_dir)
+    # average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,method_index,"0")
+    # write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
+    # average_single_bot_ranking = get_average_bot_ranking(reference_docs,method_index,"2")
+    # write_table_bots_ranking("2",average_single_bot_ranking,results_dir)
+    # average_rank_competitrs = get_average_rank_of_active_competitors()
+    # write_competitors_ranking_table(average_rank_competitrs,results_dir)
+    # ks_stats=read_group_dir("annotations/",method_index,False)
+    # write_quality_annotation_table(ks_stats,results_dir)
+    # competitrs_quality = get_competitors_quality()
+    # write_competitors_quality_table(competitrs_quality)
+    # dummy_averages, active_averages, bot_averages,separate,overall_promotion,changes_in_ranking_stats = create_average_promotion_potential(reference_docs)
+    # write_potential_tables(dummy_averages,active_averages,bot_averages,results_dir)
+    # sep_hist = get_separate_stats(separate,reference_docs)
+    # write_separate_table(sep_hist,results_dir)
+    # write_tables_hist_ranking_changes(changes_in_ranking_stats)
+    # write_overall_changes(overall_promotion)
+    # create_query_to_quality_tables(reference_docs,results_dir)
+    print(reference_docs)
+    results=get_average_rank_of_dummies(reference_docs)
+    print(results)
