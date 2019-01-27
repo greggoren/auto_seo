@@ -24,13 +24,13 @@ def create_data_set_fe():
     iterations = sorted(db.archive.distinct("iteration"))[8:]
 
     for i,iteration in enumerate(iterations):
-        f = open("bot_ds_"+str(i+1)+".csv","w",newline='',encoding="utf-8")
+        f = open("bot_ds_rel_"+str(i+1)+".csv","w",newline='',encoding="utf-8")
 
         writer = csv.DictWriter(f,fieldnames=["current_document","query_id","query","username","description","iteration"])
         writer.writeheader()
         documents = db.archive.find({"iteration":iteration})
         for document in documents:
-            if "bot_method" in document:
+            if "bot_method" in document and document["query_id"].__contains__("_2"):
                 obj={}
                 obj["current_document"]=document["text"]
                 obj["query_id"] = document["query_id"]
@@ -95,6 +95,6 @@ def create_data_for_mturk(reference_docs, index):
     f2.close()
 
 if __name__=="__main__":
-    reference_docs = get_reference_documents()
-    create_data_for_mturk(reference_docs,11)
+    # reference_docs = get_reference_documents()
+    # create_data_for_mturk(reference_docs,11)
     create_data_set_fe()
