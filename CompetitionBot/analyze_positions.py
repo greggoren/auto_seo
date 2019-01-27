@@ -670,8 +670,9 @@ def get_top_competitor_data(positions):
     for i,iteration in enumerate(iterations):
         firsts[iteration]={}
         average_positions_data[iteration]=[]
-        average_potential_data[iteration]=[]
-        raw_position_data[iteration] = []
+        if i>0:
+            average_potential_data[iteration]=[]
+            raw_position_data[iteration] = []
         queries = db.archive.distinct("query_id", {"query_id": {"$regex": ".*_2"}})
         for query_id in queries:
             docs = db.archive.find({"iteration":iteration,"query_id":query_id}).sort("position",1)
@@ -709,7 +710,7 @@ def get_top_competitor_data(positions):
 def write_data_file(stats,filename):
     f = open(filename,"w")
     for iteration in stats:
-        f.write(iteration+" "+str(stats[iteration]))
+        f.write(iteration+" "+str(stats[iteration])+"\n")
     f.close()
 
 if __name__=="__main__":
