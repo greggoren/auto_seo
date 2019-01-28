@@ -141,7 +141,7 @@ def create_working_sets(reference_docs):
             base_names[query_id]=[]
         base_names[query_id].append(username)
 
-    for r in range(6,11):
+    for r in range(8,13):
         f=open("ws_"+str(r),"w")
         for query_id in base_names:
             for i,username in enumerate(base_names[query_id],start=1):
