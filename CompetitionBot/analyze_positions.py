@@ -3,6 +3,7 @@ from pymongo import MongoClient
 import os
 import numpy as np
 import csv
+import matplotlib.pyplot as plt
 
 ASR_MONGO_HOST = "asr2.iem.technion.ac.il"
 ASR_MONGO_PORT = 27017
@@ -109,27 +110,23 @@ def create_table_multiple_bots(hist,results_dir):
             f.write("\\end{tabular}\n")
 
 
-def get_average_bot_ranking(reference_docs,method_index,group):
+def get_average_bot_ranking(reference_docs,group):
     results = {}
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
     for iteration in iterations:
-        results[iteration]={}
+        results[iteration]=[]
         for query_id in reference_docs:
             query_group = query_id.split("_")[1]
             if query_group!=group:
                 continue
             for doc in reference_docs[query_id]:
                 document = next(db.archive.find({"iteration": iteration, "username": doc, "query_id": query_id}))
-                bot_method = method_index[query_id+"_"+doc]#document["bot_method"]
                 position = document["position"]
-                if bot_method not in results[iteration]:
-                    results[iteration][bot_method]=[]
-                results[iteration][bot_method].append(position)
+                results[iteration].append(position)
     for iteration in results:
-        for bot_method in results[iteration]:
-            results[iteration][bot_method]= np.mean(results[iteration][bot_method])
+        results[iteration]= np.mean(results[iteration])
     return results
 
 def get_average_rank_of_active_competitors():
@@ -716,8 +713,62 @@ def write_data_file(stats,filename):
 def write_raw_promotion_file(stats,filename,group):
     f = open(filename, "w")
     for iteration in stats:
-        f.write(iteration + " " + str(stats[iteration[group]]) + "\n")
+        f.write(iteration + " " + str(stats[iteration][group]) + "\n")
     f.close()
+
+
+
+def read_file(filename):
+    stats={}
+    with open(filename) as file:
+        for line in file:
+            i = line.split()[0]
+
+            value = float(line.split()[1].rstrip())
+            stats[i]=value
+    return stats
+
+def create_graph(feature):
+    params = {'legend.fontsize': 'x-large',
+              # 'figure.figsize': (35, 30),
+              'axes.labelsize': 'x-large',
+              'axes.titlesize': 'x-large',
+              'xtick.labelsize': 'x-large',
+              'ytick.labelsize': 'x-large',
+              'font.family': 'serif'}
+    plt.rcParams.update(params)
+    group_name_dict = {"bot": "Bot", "active": "S-A", "static": "Static", "top": "S-T","dummy":"Planted"}
+    colors_dict = {"bot": "b", "active": "r", "static": "y", "top": "k","dummy":"mediumslateblue"}
+    axis_dict = {"average": "Average Rank", "raw": "Raw promotion", "potential": "Scaled promotion"}
+    dot_dict = {"bot": "-o", "active": "--^", "static": ":p", "top": "-.x","dummy":"-.+"}
+
+
+    plt.figure()
+    features_stats_dir = "stats"
+    for file in os.listdir(features_stats_dir):
+        if not file.__contains__(feature):
+            continue
+        filename = features_stats_dir + "/" + file
+        group = file.split("_")[0]
+        stats = read_file(filename)
+        x = [j + 1 for j in range(len(stats))]
+        y = [stats[i] for i in sorted(list(stats.keys()))]
+        plt.plot(x, y, dot_dict[group], label=group_name_dict[group], color=colors_dict[group], linewidth=5,
+                 markersize=10, mew=1)
+    # plt.xticks(x)
+    plt.xticks(x, fontsize=17)
+    plt.yticks(fontsize=17)
+    plt.ylabel(axis_dict[feature], fontsize=20)
+    # plt.ylabel(axis_dict[feature])
+    plt.xlabel("Iterations", fontsize=20)
+    # plt.grid(True)
+    plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.11),
+               ncol=5, fontsize=15, frameon=False)
+    plt.savefig(feature + ".pdf", format="pdf")
+    # plt.show()
+    plt.clf()
+
+
 
 if __name__=="__main__":
     results_dir = "tex_tables/"
@@ -728,12 +779,14 @@ if __name__=="__main__":
     # create_table_single_bot(hist_single,results_dir)
     # hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
     # create_table_multiple_bots(hist_multiple,results_dir)
-    method_index = get_method_index()
+    # method_index = get_method_index()
     # average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,method_index,"0")
     # write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
-    # average_single_bot_ranking = get_average_bot_ranking(reference_docs,method_index,"2")
+    average_single_bot_ranking = get_average_bot_ranking(reference_docs,"2")
+    write_data_file(average_single_bot_ranking,"bot_average")
     # write_table_bots_ranking("2",average_single_bot_ranking,results_dir)
-    # average_rank_competitrs = get_average_rank_of_active_competitors()
+    average_rank_competitrs = get_average_rank_of_active_competitors()
+    write_data_file(average_rank_competitrs, "active_average")
     # write_competitors_ranking_table(average_rank_competitrs,results_dir)
     # ks_stats=read_group_dir("annotations/",method_index,False)
     # write_quality_annotation_table(ks_stats,results_dir)
@@ -751,7 +804,7 @@ if __name__=="__main__":
     # ks_stats = read_annotations("doc_ks_nimrod")
     # print(ks_stats)
     # rel_stats = read_annotations("doc_rel_nimrod")
-    # results,ks=get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats)
+    results,ks=get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats)
     positions = get_postitions()
     raw_position_data, average_potential_data, average_positions_data, firsts=get_top_competitor_data(positions)
     write_data_file(raw_position_data,"top_raw")
@@ -763,3 +816,5 @@ if __name__=="__main__":
     write_raw_promotion_file(overall_promotion,"bot_raw","Bot")
     write_raw_promotion_file(overall_promotion,"active_raw","Active")
     write_raw_promotion_file(overall_promotion,"dummy_raw","Dummy")
+
+    # create_graph("potential")

@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/active_potential" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/bot_potential" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/dummy_potential" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/static_potential" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/top_potential" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/run_ranker.py" afterPath="$PROJECT_DIR$/CompetitionBot/run_ranker.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" afterPath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,7 +51,7 @@
     <SUITE FILE_PATH="coverage/auto_seo1$extra.coverage" NAME="extra Coverage Results" MODIFIED="1526119855647" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/auto_seo$similarity_between_ranks.coverage" NAME="similarity_between_ranks Coverage Results" MODIFIED="1536821844336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SentenceRanking" />
     <SUITE FILE_PATH="coverage/auto_seo$general_stats.coverage" NAME="general_stats Coverage Results" MODIFIED="1534696121252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SentenceRanking" />
-    <SUITE FILE_PATH="coverage/auto_seo$analyze_positions.coverage" NAME="analyze_positions Coverage Results" MODIFIED="1548613923185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CompetitionBot" />
+    <SUITE FILE_PATH="coverage/auto_seo$analyze_positions.coverage" NAME="analyze_positions Coverage Results" MODIFIED="1548637851906" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/CompetitionBot" />
     <SUITE FILE_PATH="coverage/auto_seo1$check_results.coverage" NAME="check_results Coverage Results" MODIFIED="1530618259514" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Experiments" />
     <SUITE FILE_PATH="coverage/auto_seo1$test.coverage" NAME="test Coverage Results" MODIFIED="1529419277466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/SpamTechniques" />
     <SUITE FILE_PATH="coverage/auto_seo1$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1529505718840" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Multi_document_summary" />
@@ -105,11 +110,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10">
-              <caret line="709" column="0" selection-start-line="709" selection-start-column="0" selection-end-line="713" selection-end-column="13" />
+            <state relative-caret-position="-202">
+              <caret line="785" column="59" selection-start-line="785" selection-start-column="59" selection-end-line="785" selection-end-column="59" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -117,24 +122,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="run_ranker.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run_ranker.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/run_ranker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
+            <state relative-caret-position="-515">
               <caret line="143" column="23" selection-start-line="143" selection-start-column="23" selection-end-line="143" selection-end-column="23" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="set_waterloo_for_bots_and_dummies.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/CompetitionBot/set_waterloo_for_bots_and_dummies.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="168" column="40" selection-start-line="168" selection-start-column="40" selection-end-line="168" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -236,8 +229,8 @@
         <option value="$PROJECT_DIR$/CompetitionBot/doc_ks_nimrod" />
         <option value="$PROJECT_DIR$/CompetitionBot/check_students.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/set_waterloo_for_bots_and_dummies.py" />
-        <option value="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/run_ranker.py" />
+        <option value="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
       </list>
     </option>
   </component>
@@ -377,11 +370,11 @@
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\run6" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\CompetitionBot\stats" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\Crowdflower" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\CompetitionBot" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\CompetitionBot\annotations" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\new_data_experiment" />
-      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\Crowdflower\ranked_lists" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -396,7 +389,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.set_waterloo_for_bots_and_dummies">
+  <component name="RunManager" selected="Python.analyze_positions">
     <configuration default="false" name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -704,8 +697,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.set_waterloo_for_bots_and_dummies" />
-        <item index="1" class="java.lang.String" itemvalue="Python.analyze_positions" />
+        <item index="0" class="java.lang.String" itemvalue="Python.analyze_positions" />
+        <item index="1" class="java.lang.String" itemvalue="Python.set_waterloo_for_bots_and_dummies" />
         <item index="2" class="java.lang.String" itemvalue="Python.sample_docs_for_quality" />
         <item index="3" class="java.lang.String" itemvalue="Python.analyze_feature_importance" />
         <item index="4" class="java.lang.String" itemvalue="Python.test" />
@@ -725,13 +718,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
-    </task>
-    <task id="LOCAL-01064" summary="os201">
-      <created>1548600639677</created>
-      <option name="number" value="01064" />
-      <option name="presentableId" value="LOCAL-01064" />
-      <option name="project" value="LOCAL" />
-      <updated>1548600639677</updated>
     </task>
     <task id="LOCAL-01065" summary="os201">
       <created>1548602701805</created>
@@ -1069,7 +1055,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548635545797</updated>
     </task>
-    <option name="localTasksCounter" value="1113" />
+    <task id="LOCAL-01113" summary="os201">
+      <created>1548635782540</created>
+      <option name="number" value="01113" />
+      <option name="presentableId" value="LOCAL-01113" />
+      <option name="project" value="LOCAL" />
+      <updated>1548635782540</updated>
+    </task>
+    <option name="localTasksCounter" value="1114" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1085,17 +1078,17 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21781115" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21145834" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22989808" sideWeight="0.19366953" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307355" sideWeight="0.728125" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22423556" sideWeight="0.80633044" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930845" sideWeight="0.80633044" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2788145" sideWeight="0.49791667" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.030577576" sideWeight="0.88125" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.029637761" sideWeight="0.88125" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1185,7 +1178,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py</url>
-          <line>141</line>
+          <line>138</line>
           <option name="timeStamp" value="179" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1195,7 +1188,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py</url>
-          <line>751</line>
+          <line>804</line>
           <option name="timeStamp" value="184" />
         </line-breakpoint>
       </breakpoints>
@@ -1565,16 +1558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="254" column="20" selection-start-line="254" selection-start-column="20" selection-end-line="254" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="282">
@@ -1611,16 +1594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CompetitionBot/set_waterloo_for_bots_and_dummies.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="168" column="40" selection-start-line="168" selection-start-column="40" selection-end-line="168" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/passiveness_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2090">
@@ -1647,21 +1620,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="709" column="0" selection-start-line="709" selection-start-column="0" selection-end-line="713" selection-end-column="13" />
+        <state relative-caret-position="396">
+          <caret line="254" column="20" selection-start-line="254" selection-start-column="20" selection-end-line="254" selection-end-column="20" />
           <folding>
-            <element signature="e#0#76#0" expanded="true" />
+            <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CompetitionBot/set_waterloo_for_bots_and_dummies.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="168" column="40" selection-start-line="168" selection-start-column="40" selection-end-line="168" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/run_ranker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
+        <state relative-caret-position="-515">
           <caret line="143" column="23" selection-start-line="143" selection-start-column="23" selection-end-line="143" selection-end-column="23" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-202">
+          <caret line="785" column="59" selection-start-line="785" selection-start-column="59" selection-end-line="785" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
