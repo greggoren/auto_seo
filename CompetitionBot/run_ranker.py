@@ -147,7 +147,7 @@ def create_working_sets(reference_docs):
             for i,username in enumerate(base_names[query_id],start=1):
                 current = str(r).zfill(2)
                 if username in reference_docs[query_id]:
-                    current = "06"
+                    current = "08"
                 docname = "ROUND-"+current+"-"+query_id+"-"+username
                 f.write(query_id+" Q0 "+docname+" 0 "+str(-i)+" static\n")
         f.close()
@@ -160,7 +160,7 @@ def analyze_positions(positions):
         average_value = np.mean([positions[index][q] for q in positions[index]])
         average_positions[index]=average_value
         for query in positions[index]:
-            if index > 6:
+            if index > 8:
                 if index not in raw_position_data:
                     raw_position_data[index]=[]
                     average_potential_data[index]=[]
