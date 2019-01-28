@@ -14,7 +14,7 @@ def read_file(filename):
 
 def create_graph(feature):
     params = {'legend.fontsize': 'x-large',
-              # 'figure.figsize': (35, 30),
+              'figure.figsize': (10, 6),
               'axes.labelsize': 'x-large',
               'axes.titlesize': 'x-large',
               'xtick.labelsize': 'x-large',
@@ -23,7 +23,7 @@ def create_graph(feature):
     plt.rcParams.update(params)
     group_name_dict = {"bot": "Bot", "active": "S-A", "static": "Static", "top": "S-T","dummy":"Planted"}
     colors_dict = {"bot": "b", "active": "r", "static": "y", "top": "k","dummy":"mediumslateblue"}
-    axis_dict = {"average": "Average Rank", "raw": "Raw promotion", "potential": "Scaled promotion","ks":"Non-spam ratio"}
+    axis_dict = {"average": "Average Rank", "raw": "Raw promotion", "potential": "Scaled promotion","ks":"Non-spam ratio","rel":"Relevant doc ratio"}
     dot_dict = {"bot": "-o", "active": "--^", "static": ":p", "top": "-.x","dummy":"-.+"}
 
 
@@ -34,11 +34,18 @@ def create_graph(feature):
             continue
         filename = features_stats_dir + "/" + file
         group = file.split("_")[0]
+        if group == "top":
+            continue
         stats = read_file(filename)
-        x = [j + 1 for j in range(len(stats))]
+
+        x = [j + 1 for j in range(len(stats)-1)]
         if feature in ["raw","potential"]:
-            x = [j + 2 for j in range(len(stats))]
-        y = [stats[i] for i in sorted(list(stats.keys()))]
+            x = [j + 2 for j in range(len(stats)-1)]
+        if "0" in stats or "8" in stats:
+            y = [stats[str(i)] for i in sorted([int(i) for i in list(stats.keys())])][:-1]
+        else:
+            y = [stats[str(i)] for i in sorted(list(stats.keys()))][:-1]
+
         plt.plot(x, y, dot_dict[group], label=group_name_dict[group], color=colors_dict[group], linewidth=5,
                  markersize=10, mew=1)
     # plt.xticks(x)
@@ -54,7 +61,8 @@ def create_graph(feature):
     # plt.show()
     plt.clf()
 
-# create_graph("potential")
-# create_graph("raw")
-# create_graph("average")
+create_graph("potential")
+create_graph("raw")
+create_graph("average")
+create_graph("rel")
 create_graph("ks")
