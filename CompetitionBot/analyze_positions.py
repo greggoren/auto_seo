@@ -156,7 +156,7 @@ def get_average_rank_of_active_competitors():
 
 
 
-def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats):
+def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats=None,rel_stats=None):
     results = {}
     ks={}
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
@@ -181,7 +181,7 @@ def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats):
                 ks[iteration][group]=[]
             results[iteration][group].append(document["position"])
             doc_name = document["doc_name"]
-            ks_tag = ks_stats[doc_name]
+            # ks_tag = ks_stats[doc_name]
             waterloo = document["waterloo"]
             print(username,waterloo)
             if waterloo < 60:
@@ -762,10 +762,10 @@ if __name__=="__main__":
     # write_overall_changes(overall_promotion)
     # create_query_to_quality_tables(reference_docs,results_dir)
     # print(reference_docs)
-    ks_stats = read_annotations("doc_ks_nimrod")
-    print(ks_stats)
-    rel_stats = read_annotations("doc_rel_nimrod")
-    results,ks=get_average_rank_of_dummies_and_ks(reference_docs,ks_stats,rel_stats)
+    # ks_stats = read_annotations("doc_ks_nimrod")
+    # print(ks_stats)
+    # rel_stats = read_annotations("doc_rel_nimrod")
+    results,ks=get_average_rank_of_dummies_and_ks(reference_docs)
     write_data_file(results,"dummy_average")
     positions = get_postitions()
     raw_position_data, average_potential_data, average_positions_data, firsts=get_top_competitor_data(positions)

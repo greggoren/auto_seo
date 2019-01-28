@@ -118,8 +118,8 @@
       <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="768" column="42" selection-start-line="768" selection-start-column="42" selection-end-line="768" selection-end-column="42" />
+            <state relative-caret-position="76">
+              <caret line="764" column="4" selection-start-line="764" selection-start-column="6" selection-end-line="766" selection-end-column="52" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -734,13 +734,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01068" summary="os201">
-      <created>1548611070728</created>
-      <option name="number" value="01068" />
-      <option name="presentableId" value="LOCAL-01068" />
-      <option name="project" value="LOCAL" />
-      <updated>1548611070728</updated>
-    </task>
     <task id="LOCAL-01069" summary="os201">
       <created>1548611321949</created>
       <option name="number" value="01069" />
@@ -1077,7 +1070,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548638619822</updated>
     </task>
-    <option name="localTasksCounter" value="1117" />
+    <task id="LOCAL-01117" summary="os201">
+      <created>1548638890090</created>
+      <option name="number" value="01117" />
+      <option name="presentableId" value="LOCAL-01117" />
+      <option name="project" value="LOCAL" />
+      <updated>1548638890090</updated>
+    </task>
+    <option name="localTasksCounter" value="1118" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1200,11 +1200,6 @@
           <url>file://$PROJECT_DIR$/Crowdflower/sample_docs_for_quality.py</url>
           <line>155</line>
           <option name="timeStamp" value="183" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py</url>
-          <line>765</line>
-          <option name="timeStamp" value="184" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1666,8 +1661,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="768" column="42" selection-start-line="768" selection-start-column="42" selection-end-line="768" selection-end-column="42" />
+        <state relative-caret-position="76">
+          <caret line="764" column="4" selection-start-line="764" selection-start-column="6" selection-end-line="766" selection-end-column="52" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>
