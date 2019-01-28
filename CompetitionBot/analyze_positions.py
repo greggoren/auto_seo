@@ -173,7 +173,7 @@ def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats=None,rel_stats=No
                 continue
             if username in reference_docs[query]:
                 continue
-            results[iteration][group].append(document["position"])
+            results[iteration].append(document["position"])
             waterloo = document["waterloo"]
             print(username,waterloo)
             if waterloo < 60:
