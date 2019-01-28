@@ -7,13 +7,24 @@ def find(reference_docs):
     iterations = sorted(list(db.archive.distinct("iteration")))
     first = iterations[7]
     second = iterations[8]
+    good=[]
+    bad=[]
     docs = db.archive.find({"iteration":first,"query_id":{"$regex":".*_2"}})
     for doc in docs:
         query = doc["query_id"]
         username = doc["username"]
+        position  = doc["position"]
         if username in reference_docs[query]:
-            modified = db.archive.find({"iteration":second,"query_id":query,})
+            modified = next(db.archive.find({"iteration":second,"query_id":query,"username":username}))
+            if modified["position"]<position:
+                good.append(query+"-"+username)
+            if modified["position"]>position:
+                bad.append(query+"-"+username)
 
 
 
 
+    print("GGGGGOOOOODDD")
+    print(good)
+    print("BBBBAAADDDDD")
+    print(bad)

@@ -7,7 +7,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" afterPath="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/find_examples.py" afterPath="$PROJECT_DIR$/CompetitionBot/find_examples.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,11 +64,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="combine_labels_and_create_features.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="combine_labels_and_create_features.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="546" column="70" selection-start-line="546" selection-start-column="70" selection-end-line="546" selection-end-column="70" />
+            <state relative-caret-position="418">
+              <caret line="547" column="32" selection-start-line="547" selection-start-column="32" selection-end-line="547" selection-end-column="32" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -122,11 +122,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="find_examples.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="find_examples.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/find_examples.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="78" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
+            <state relative-caret-position="529">
+              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -247,7 +247,6 @@
         <option value="$PROJECT_DIR$/CompetitionBot/annotations/ks4.csv" />
         <option value="$PROJECT_DIR$/Crowdflower/ban_non_coherent_docs.py" />
         <option value="$USER_HOME$/AppData/Local/Temp/f1331710.csv" />
-        <option value="$PROJECT_DIR$/CompetitionBot/find_examples.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/create_ds_for_annotations.py" />
         <option value="$USER_HOME$/AppData/Local/Temp/f1343086.csv" />
         <option value="$PROJECT_DIR$/Crowdflower/sample_docs_for_quality.py" />
@@ -267,6 +266,7 @@
         <option value="$PROJECT_DIR$/CompetitionBot/graphs.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py" />
+        <option value="$PROJECT_DIR$/CompetitionBot/find_examples.py" />
       </list>
     </option>
   </component>
@@ -741,20 +741,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01087" summary="os201">
-      <created>1548622785121</created>
-      <option name="number" value="01087" />
-      <option name="presentableId" value="LOCAL-01087" />
-      <option name="project" value="LOCAL" />
-      <updated>1548622785121</updated>
-    </task>
-    <task id="LOCAL-01088" summary="os201">
-      <created>1548626267286</created>
-      <option name="number" value="01088" />
-      <option name="presentableId" value="LOCAL-01088" />
-      <option name="project" value="LOCAL" />
-      <updated>1548626267287</updated>
-    </task>
     <task id="LOCAL-01089" summary="os201">
       <created>1548626477400</created>
       <option name="number" value="01089" />
@@ -1084,7 +1070,21 @@
       <option name="project" value="LOCAL" />
       <updated>1548714126832</updated>
     </task>
-    <option name="localTasksCounter" value="1136" />
+    <task id="LOCAL-01136" summary="os201">
+      <created>1548714234478</created>
+      <option name="number" value="01136" />
+      <option name="presentableId" value="LOCAL-01136" />
+      <option name="project" value="LOCAL" />
+      <updated>1548714234478</updated>
+    </task>
+    <task id="LOCAL-01137" summary="os201">
+      <created>1548714348752</created>
+      <option name="number" value="01137" />
+      <option name="presentableId" value="LOCAL-01137" />
+      <option name="project" value="LOCAL" />
+      <updated>1548714348752</updated>
+    </task>
+    <option name="localTasksCounter" value="1138" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1098,7 +1098,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21781115" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1660,16 +1660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CompetitionBot/find_examples.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="78" selection-start-line="14" selection-start-column="78" selection-end-line="14" selection-end-column="78" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/graphs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -1720,10 +1710,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="546" column="70" selection-start-line="546" selection-start-column="70" selection-end-line="546" selection-end-column="70" />
+        <state relative-caret-position="418">
+          <caret line="547" column="32" selection-start-line="547" selection-start-column="32" selection-end-line="547" selection-end-column="32" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CompetitionBot/find_examples.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
