@@ -542,9 +542,10 @@ if __name__=="__main__":
             # write_tags(ident_tags,"document_identification_tags",key)
             # write_tags(sentence_tags,"sentence_identification_tags",key)
             all_aggregated_results[key]=tmp_aggregated_results
-    print(pearsonr(vector_sentence_for_corr,vector_sentence_for_corr))
-    print(spearmanr(vector_sentence_for_corr,vector_sentence_for_corr))
-    print(kendalltau(vector_sentence_for_corr,vector_sentence_for_corr))
+    print(pearsonr(vector_sentence_for_corr,vector_ident_for_corr))
+    print(spearmanr(vector_sentence_for_corr,vector_ident_for_corr))
+    print(kendalltau(vector_sentence_for_corr,vector_ident_for_corr))
+    print(vector_ident_for_corr)
     # all_aggregated_results = ban_non_coherent_docs(banned_queries,all_aggregated_results)
     # seo_scores_file = "labels_new_final_all_data"
     # tmp_seo_scores = read_seo_score(seo_scores_file)
