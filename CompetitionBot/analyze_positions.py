@@ -824,7 +824,7 @@ def get_top_competitor_data(positions,merged_stats):
         average_positions_data[iteration]=np.mean(average_positions_data[iteration])
         ks[iteration]=np.mean(ks[iteration])
         rel_stats[iteration]=np.mean(rel_stats[iteration])
-    return raw_position_data,average_potential_data,average_positions_data,firsts,ks,rel
+    return raw_position_data,average_potential_data,average_positions_data,firsts,ks,rel_stats
 
 
 def write_data_file(stats,filename):
