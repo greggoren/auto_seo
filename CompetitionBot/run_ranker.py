@@ -109,7 +109,7 @@ def get_static_bot_positions(reference_docs,results,result_passive,index):
 
         for doc in reference_docs[query_id]:
 
-            position = result_passive[query_id].index("ROUND-06-"+query_id+"-"+doc)+1
+            position = result_passive[query_id].index("ROUND-08-"+query_id+"-"+doc)+1
             results[index][query_id]=position
     print(results)
     return results
