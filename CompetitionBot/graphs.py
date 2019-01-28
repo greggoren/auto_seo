@@ -21,9 +21,9 @@ def create_graph(feature):
               'ytick.labelsize': 'x-large',
               'font.family': 'serif'}
     plt.rcParams.update(params)
-    group_name_dict = {"bot": "Bot", "active": "S-A", "static": "Static", "top": "S-T","dummy":"Planted"}
+    group_name_dict = {"bot": "Bot", "active": "Students", "static": "Static", "top": "S-T","dummy":"Planted"}
     colors_dict = {"bot": "b", "active": "r", "static": "y", "top": "k","dummy":"mediumslateblue"}
-    axis_dict = {"average": "Average Rank", "raw": "Raw promotion", "potential": "Scaled promotion","ks":"Non-spam ratio","rel":"Relevant doc ratio"}
+    axis_dict = {"average": "Average Rank", "raw": "Raw promotion", "potential": "Scaled promotion","ks":"Quality","rel":"Relevance"}
     dot_dict = {"bot": "-o", "active": "--^", "static": ":p", "top": "-.x","dummy":"-.+"}
 
 
@@ -53,7 +53,7 @@ def create_graph(feature):
     plt.yticks(fontsize=17)
     plt.ylabel(axis_dict[feature], fontsize=20)
     # plt.ylabel(axis_dict[feature])
-    plt.xlabel("Iterations", fontsize=20)
+    plt.xlabel("Round", fontsize=20)
     # plt.grid(True)
     plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.11),
                ncol=5, fontsize=15, frameon=False)

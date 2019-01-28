@@ -168,10 +168,8 @@ def discover_significance_relevance(cv_stats,random_stats):
 def discover_significance_rank_promotior(cv_vector,random_vector,metric_significance_sign):
     ttest_value = ttest_rel(cv_vector,random_vector)
     sign =""
-    if ttest_value[1]>0.05 and ttest_value[1]<=0.1:
-        sign="^*"
     if ttest_value[1]<=0.05:
-            sign="^{**}"
+            sign="^*"
     metric_significance_sign[1]=sign
     return metric_significance_sign
 

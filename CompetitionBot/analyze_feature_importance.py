@@ -29,4 +29,4 @@ def create_features_importance_table(feature_index,weights_object):
 
 
 feature_index = read_feature_names("featureID")
-create_features_importance_table(feature_index,"demotion_weights.pkl")
+create_features_importance_table(feature_index,"harmonic_averaged_weights.pkl")

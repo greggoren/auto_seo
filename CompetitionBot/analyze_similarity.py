@@ -2,8 +2,7 @@ import numpy as np
 from CompetitionBot.create_ds_for_annotations import get_reference_documents
 import matplotlib.pyplot as plt
 import os
-
-
+import pickle
 
 
 def read_file(reference_docs,file,index,stats):
@@ -12,7 +11,7 @@ def read_file(reference_docs,file,index,stats):
         for line in f:
             query = line.split()[0]
             doc = line.split()[1].split("-")[3]
-            similarity = float(line.split[3].rstrip())
+            similarity = float(line.split()[3].rstrip())
             if doc in reference_docs[query]:
                 if index not in stats["Bot"]:
                     stats["Bot"][index]={}
@@ -39,11 +38,14 @@ def read_file(reference_docs,file,index,stats):
                 stats[group][index][query] = np.mean(stats[group][index][query])
             stats[group][index]=np.mean([stats[group][index][q] for q in stats[group][index]])
         return stats
-import pickle
+
 def gather_stats(dir):
     stats = {"Bot": {}, "Active": {}, "Dummy": {}}
-    ref_docs=get_reference_documents()
-    pickle.dump(ref_docs,open("ref_docs","wb"))
+    f = open("ref_docs","rb")
+    ref_docs=pickle.load(f)
+    f.close()
+
+    # pickle.dump(ref_docs,open("ref_docs","wb"))
     for file in os.listdir(dir):
         index = file.split("_")[2]
         stats = read_file(ref_docs,dir+"/"+file,index,stats)
@@ -66,7 +68,7 @@ def create_graph(stats):
 
     plt.figure()
 
-    x = [j + 1 for j in range(len(stats["Bot"]))]
+    x = [j + 2 for j in range(len(stats["Bot"]))]
     for group in stats:
         y = [stats[group][i] for i in sorted(list(stats[group].keys()))]
 
