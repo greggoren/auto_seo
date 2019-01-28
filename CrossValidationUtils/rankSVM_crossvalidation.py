@@ -156,10 +156,8 @@ def discover_significance_relevance(cv_stats,random_stats):
         random_values_vector =[random_stats[metric][q] for q in sorted(list(cv_stats[metric].keys()))]
         ttest_value = ttest_rel(cv_values_vector,random_values_vector)
         sign =""
-        if ttest_value[1]>0.05 and ttest_value[1]<=0.1:
-            sign="^*"
         if ttest_value[1]<=0.05:
-            sign="^{**}"
+            sign="^*"
         print("ttest = ",ttest_value[1],sign)
         metric_significance_sign[metric]=sign
     return metric_significance_sign
