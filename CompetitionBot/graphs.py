@@ -36,6 +36,8 @@ def create_graph(feature):
         group = file.split("_")[0]
         stats = read_file(filename)
         x = [j + 1 for j in range(len(stats))]
+        if feature in ["raw","potential"]:
+            x = [j + 2 for j in range(len(stats))]
         y = [stats[i] for i in sorted(list(stats.keys()))]
         plt.plot(x, y, dot_dict[group], label=group_name_dict[group], color=colors_dict[group], linewidth=5,
                  markersize=10, mew=1)

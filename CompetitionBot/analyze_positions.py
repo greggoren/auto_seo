@@ -260,18 +260,13 @@ def read_file(filename,method_index,rel=False):
                     stats[query][user] = 0
         for query in stats:
             group = query.split("_")[1]
+            if group!="2":
+                continue
             if group not in final_stats:
-                final_stats[group]={}
+                final_stats[group]=[]
             for user in stats[query]:
-                method = method_index[query+"_"+user]
-                if method not in final_stats[group]:
-                    final_stats[group][method]=[]
-                final_stats[group][method].append(stats[query][user])
-        print(final_stats)
-        for group in final_stats:
-            for method in final_stats[group]:
-                final_stats[group][method]=np.mean(final_stats[group][method])
-    print(final_stats)
+                final_stats[group].append(stats[query][user])
+        final_stats=np.mean(final_stats["2"])
     return final_stats
 
 def get_method_index():
@@ -301,32 +296,30 @@ def write_quality_annotation_table(results,results_dir):
     f.close()
 
 
-def get_competitors_quality():
+
+def get_quality():
     results = {}
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
     for iteration in iterations:
-        results[iteration]={}
+        results[iteration]=[]
         docs = db.archive.find({"iteration":iteration})
         for doc in docs:
             query = doc["query_id"]
             group = query.split("_")[1]
-            if group not in ["0","2"]:
+            if group not in ["2"]:
                 continue
             username = doc["username"]
             if username.__contains__("dummy_doc"):
                 continue
-            if group not in results[iteration]:
-                results[iteration][group]=[]
             waterloo = doc["waterloo"]
             if waterloo>=60:
-                results[iteration][group].append(1)
+                results[iteration].append(1)
             else:
-                results[iteration][group].append(0)
+                results[iteration].append(0)
     for iteration in results:
-        for group in results[iteration]:
-            results[iteration][group]= np.mean(results[iteration][group])
+        results[iteration]= np.mean(results[iteration])
     return results
 
 
@@ -566,6 +559,9 @@ def write_potential_tables(dummies,active,bots,results_dir):
     f.close()
 
 
+
+
+
 def write_query_to_quality_table(query,watreloo_stats,positions,results_dir):
     f = open(results_dir+query+"_rank_quality.tex","w")
     cols = "c|" * (len(watreloo_stats) + 1)
@@ -654,8 +650,10 @@ def get_top_competitor_data(positions):
     average_positions_data={}
     average_potential_data={}
     raw_position_data={}
+    ks={}
     for i,iteration in enumerate(iterations):
         firsts[iteration]={}
+        ks[iteration]=[]
         average_positions_data[iteration]=[]
         if i>0:
             average_potential_data[iteration]=[]
@@ -685,13 +683,20 @@ def get_top_competitor_data(positions):
                         overall_promotion = old_position-new_position
                         average_potential_data[iteration].append(potential)
                         raw_position_data[iteration].append(overall_promotion)
+
+                    waterloo = doc["waterloo"]
+                    if waterloo>=60:
+                        ks[iteration].append(1)
+                    else:
+                        ks[iteration].append(0)
                     break
     for i,iteration in enumerate(list(average_positions_data)):
         if i>0:
             raw_position_data[iteration]=sum(raw_position_data[iteration])
             average_potential_data[iteration]=np.mean(average_potential_data[iteration])
         average_positions_data[iteration]=np.mean(average_positions_data[iteration])
-    return raw_position_data,average_potential_data,average_positions_data,firsts
+        ks[iteration]=np.mean(ks[iteration])
+    return raw_position_data,average_potential_data,average_positions_data,firsts,ks
 
 
 def write_data_file(stats,filename):
@@ -711,7 +716,14 @@ def write_raw_promotion_file(stats,filename,group):
 
 
 
-
+def analyze_ks():
+    dummy_ks={}
+    active_ks={}
+    dummy_ks={}
+    dummy_ks={}
+    client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
+    db = client.asr16
+    iterations = sorted(list(db.archive.distinct("iteration")))[7:]
 
 
 if __name__=="__main__":
@@ -723,7 +735,7 @@ if __name__=="__main__":
     # create_table_single_bot(hist_single,results_dir)
     # hist_multiple = get_addition_histogram_multiple_bots(reference_docs)
     # create_table_multiple_bots(hist_multiple,results_dir)
-    # method_index = get_method_index()
+    method_index = get_method_index()
     # average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,method_index,"0")
     # write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
     average_single_bot_ranking = get_average_bot_ranking(reference_docs,"2")
@@ -732,9 +744,11 @@ if __name__=="__main__":
     average_rank_competitrs = get_average_rank_of_active_competitors()
     write_data_file(average_rank_competitrs, "active_average")
     # write_competitors_ranking_table(average_rank_competitrs,results_dir)
-    # ks_stats=read_group_dir("annotations/",method_index,False)
+    ks_stats=read_group_dir("annotations/",method_index,False)
+    write_data_file(ks_stats,"bot_ks")
     # write_quality_annotation_table(ks_stats,results_dir)
-    # competitrs_quality = get_competitors_quality()
+    competitrs_quality = get_quality()
+    write_data_file(competitrs_quality,"active_ks")
     # write_competitors_quality_table(competitrs_quality)
     dummy_averages, active_averages, bot_averages,separate,overall_promotion,changes_in_ranking_stats = create_average_promotion_potential(reference_docs)
 
@@ -749,9 +763,11 @@ if __name__=="__main__":
     # print(ks_stats)
     # rel_stats = read_annotations("doc_rel_nimrod")
     results,ks=get_average_rank_of_dummies_and_ks(reference_docs)
+    write_data_file(ks,"dummy_ks")
     write_data_file(results,"dummy_average")
     positions = get_postitions()
-    raw_position_data, average_potential_data, average_positions_data, firsts=get_top_competitor_data(positions)
+    raw_position_data, average_potential_data, average_positions_data, firsts,top_ks=get_top_competitor_data(positions)
+    write_data_file(top_ks,"top_ks")
     write_data_file(raw_position_data,"top_raw")
     write_data_file(average_potential_data,"top_potential")
     write_data_file(average_positions_data,"top_average")
