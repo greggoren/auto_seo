@@ -205,7 +205,7 @@ def get_average_rank_of_dummies_and_ks(reference_docs,rel_stats):
 
 
 def write_rel_for_static(value):
-    f = open("static_rel")
+    f = open("static_rel","w")
     for i in range(1,6):
         f.write(str(i)+" "+str(value)+"\n")
     f.close()
