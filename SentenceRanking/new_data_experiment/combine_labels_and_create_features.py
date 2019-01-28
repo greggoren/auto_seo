@@ -534,9 +534,9 @@ if __name__=="__main__":
             ident_results = mturk_ds_creator.read_ds_mturk(ident_filename_mturk, True)
             sentence_results = mturk_ds_creator.read_ds_mturk(sentence_filename_mturk)
             sentence_tags = mturk_ds_creator.get_tags(sentence_results)
-            vector_sentence_for_corr.extend([sum(sentence_tags[i] for i in sorted(list(sentence_tags.keys())))])
+            vector_sentence_for_corr.extend([sum(sentence_tags[i]) for i in sorted(list(sentence_tags.keys()))])
             ident_tags = mturk_ds_creator.get_tags(ident_results)
-            vector_ident_for_corr.extend([sum(ident_tags[i] for i in sorted(list(ident_tags.keys())))])
+            vector_ident_for_corr.extend([sum(ident_tags[i]) for i in sorted(list(ident_tags.keys()))])
             tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
             key = r+rank
             # write_tags(ident_tags,"document_identification_tags",key)
