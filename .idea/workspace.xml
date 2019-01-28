@@ -6,11 +6,16 @@
   <component name="ChangeListManager">
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/dummy_raw" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/active_potential" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/active_raw" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/bot_potential" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/bot_raw" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/dummy_potential" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/static_potential" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/static_raw" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/top_potential" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/top_raw" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" afterPath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
     </list>
@@ -114,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="384">
-              <caret line="778" column="67" selection-start-line="778" selection-start-column="67" selection-end-line="778" selection-end-column="67" />
+              <caret line="768" column="42" selection-start-line="768" selection-start-column="42" selection-end-line="768" selection-end-column="42" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -729,13 +734,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01067" summary="os201">
-      <created>1548610744140</created>
-      <option name="number" value="01067" />
-      <option name="presentableId" value="LOCAL-01067" />
-      <option name="project" value="LOCAL" />
-      <updated>1548610744141</updated>
-    </task>
     <task id="LOCAL-01068" summary="os201">
       <created>1548611070728</created>
       <option name="number" value="01068" />
@@ -1072,7 +1070,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548638490232</updated>
     </task>
-    <option name="localTasksCounter" value="1116" />
+    <task id="LOCAL-01116" summary="os201">
+      <created>1548638619822</created>
+      <option name="number" value="01116" />
+      <option name="presentableId" value="LOCAL-01116" />
+      <option name="project" value="LOCAL" />
+      <updated>1548638619822</updated>
+    </task>
+    <option name="localTasksCounter" value="1117" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1662,7 +1667,7 @@
     <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
-          <caret line="778" column="67" selection-start-line="778" selection-start-column="67" selection-end-line="778" selection-end-column="67" />
+          <caret line="768" column="42" selection-start-line="768" selection-start-column="42" selection-end-line="768" selection-end-column="42" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>
