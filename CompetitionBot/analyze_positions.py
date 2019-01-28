@@ -776,6 +776,6 @@ if __name__=="__main__":
     write_data_file(bot_averages,"bot_potential")
     write_raw_promotion_file(overall_promotion,"bot_raw","Bot")
     write_raw_promotion_file(overall_promotion,"active_raw","Active")
-    write_raw_promotion_file(overall_promotion,"dummy_raw","Dummy")
+    write_raw_promotion_file(overall_promotion,"dummy_raw","Dummies")
 
     # create_graph("potential")
