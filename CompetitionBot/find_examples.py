@@ -7,6 +7,7 @@ def find(reference_docs):
     iterations = sorted(list(db.archive.distinct("iteration")))
     first = iterations[7]
     second = iterations[8]
+    print(first,second)
     good=[]
     bad=[]
     docs = db.archive.find({"iteration":first,"query_id":{"$regex":".*_2"}})
@@ -28,3 +29,6 @@ def find(reference_docs):
     print(good)
     print("BBBBAAADDDDD")
     print(bad)
+
+ref = get_reference_documents()
+find(ref)
