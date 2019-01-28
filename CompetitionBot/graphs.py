@@ -1,4 +1,16 @@
 import matplotlib.pyplot as plt
+import os
+
+def read_file(filename):
+    stats={}
+    with open(filename) as file:
+        for line in file:
+            i = line.split()[0]
+
+            value = float(line.split()[1].rstrip())
+            stats[i]=value
+    return stats
+
 
 def create_graph(feature):
     params = {'legend.fontsize': 'x-large',
@@ -40,3 +52,6 @@ def create_graph(feature):
     # plt.show()
     plt.clf()
 
+create_graph("potential")
+create_graph("raw")
+create_graph("average")

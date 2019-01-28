@@ -160,8 +160,8 @@ def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats=None,rel_stats=No
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
     for iteration in iterations:
-        results[iteration]={}
-        ks[iteration]={}
+        results[iteration]=[]
+        ks[iteration]=[]
         documents = db.archive.find({"iteration":iteration,"query_id":{"$regex":".*_2"}})
         for document in documents:
             query = document["query_id"]
@@ -173,26 +173,20 @@ def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats=None,rel_stats=No
                 continue
             if username in reference_docs[query]:
                 continue
-            if group not in results[iteration]:
-                results[iteration][group]=[]
-                ks[iteration][group]=[]
             results[iteration][group].append(document["position"])
-            doc_name = document["doc_name"]
-            # ks_tag = ks_stats[doc_name]
             waterloo = document["waterloo"]
             print(username,waterloo)
             if waterloo < 60:
-                ks[iteration][group].append(0)
+                ks[iteration].append(0)
             else:
-                ks[iteration][group].append(1)
+                ks[iteration].append(1)
             # if ks_tag>0:
             #     ks[iteration][group].append(0)
             # else:
             #     ks[iteration][group].append(1)
     for iteration in results:
-        for group in results[iteration]:
-            results[iteration][group]=np.mean(results[iteration][group])
-            ks[iteration][group]=np.mean(ks[iteration][group])
+        results[iteration]=np.mean(results[iteration])
+        ks[iteration]=np.mean(ks[iteration])
 
     return results,ks
 
@@ -714,15 +708,7 @@ def write_raw_promotion_file(stats,filename,group):
 
 
 
-def read_file(filename):
-    stats={}
-    with open(filename) as file:
-        for line in file:
-            i = line.split()[0]
 
-            value = float(line.split()[1].rstrip())
-            stats[i]=value
-    return stats
 
 
 
