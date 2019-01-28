@@ -104,6 +104,8 @@ def get_static_bot_positions(reference_docs,results,result_passive,index):
     for query_id in reference_docs:
 
         query_group = query_id.split("_")[1]
+        if query_group=="0":
+            continue
 
         for doc in reference_docs[query_id]:
 
