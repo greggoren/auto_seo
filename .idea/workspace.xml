@@ -120,8 +120,8 @@
       <file leaf-file-name="run_ranker.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/run_ranker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="187" column="0" selection-start-line="186" selection-start-column="30" selection-end-line="187" selection-end-column="0" />
+            <state relative-caret-position="538">
+              <caret line="113" column="17" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -712,20 +712,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01057" summary="os201">
-      <created>1548594167543</created>
-      <option name="number" value="01057" />
-      <option name="presentableId" value="LOCAL-01057" />
-      <option name="project" value="LOCAL" />
-      <updated>1548594167543</updated>
-    </task>
-    <task id="LOCAL-01058" summary="os201">
-      <created>1548595840140</created>
-      <option name="number" value="01058" />
-      <option name="presentableId" value="LOCAL-01058" />
-      <option name="project" value="LOCAL" />
-      <updated>1548595840140</updated>
-    </task>
     <task id="LOCAL-01059" summary="os201">
       <created>1548598767121</created>
       <option name="number" value="01059" />
@@ -1055,7 +1041,21 @@
       <option name="project" value="LOCAL" />
       <updated>1548633649655</updated>
     </task>
-    <option name="localTasksCounter" value="1106" />
+    <task id="LOCAL-01106" summary="os201">
+      <created>1548633771308</created>
+      <option name="number" value="01106" />
+      <option name="presentableId" value="LOCAL-01106" />
+      <option name="project" value="LOCAL" />
+      <updated>1548633771308</updated>
+    </task>
+    <task id="LOCAL-01107" summary="os201">
+      <created>1548634009874</created>
+      <option name="number" value="01107" />
+      <option name="presentableId" value="LOCAL-01107" />
+      <option name="project" value="LOCAL" />
+      <updated>1548634009874</updated>
+    </task>
+    <option name="localTasksCounter" value="1108" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1645,8 +1645,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/run_ranker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="187" column="0" selection-start-line="186" selection-start-column="30" selection-end-line="187" selection-end-column="0" />
+        <state relative-caret-position="538">
+          <caret line="113" column="17" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
           <folding />
         </state>
       </provider>

@@ -111,6 +111,7 @@ def get_static_bot_positions(reference_docs,results,result_passive,index):
 
             position = result_passive[query_id].index("ROUND-06-"+query_id+"-"+doc)+1
             results[index][query_id]=position
+    print(results)
     return results
 
 def get_method_index():
@@ -178,6 +179,9 @@ def analyze_positions(positions):
                 overall_promotion = old_position - new_position
                 average_potential_data[index].append(potential)
                 raw_position_data[index].append(overall_promotion)
+    for index in raw_position_data:
+        raw_position_data[index]=np.mean(raw_position_data[index])
+        average_potential_data[index]=np.mean(average_potential_data[index])
     return average_positions,average_potential_data,raw_position_data
 
 
