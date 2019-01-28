@@ -897,7 +897,7 @@ if __name__=="__main__":
     ks_stats = read_annotations("doc_ks_nimrod")
     print(ks_stats)
     rel_stats = read_annotations("doc_rel_nimrod")
-    results,ks,dummy_rel=get_average_rank_of_dummies_and_ks(reference_docs)
+    results,ks,dummy_rel=get_average_rank_of_dummies_and_ks(reference_docs,rel_stats)
     write_data_file(ks,"dummy_ks")
     write_data_file(results,"dummy_average")
     write_data_file(dummy_rel,"dummy_rel")
