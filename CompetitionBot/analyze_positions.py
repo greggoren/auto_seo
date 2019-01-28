@@ -389,7 +389,7 @@ def read_bot_rel_file(filename):
                 stats[iteration][query] = 1
     for iteration in stats:
         stats[iteration]=np.mean([stats[iteration][q] for q in stats[iteration]])
-    return results
+    return stats
 
 
 
