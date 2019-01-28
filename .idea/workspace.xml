@@ -120,8 +120,8 @@
       <file leaf-file-name="run_ranker.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/run_ranker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="406">
-              <caret line="107" column="20" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
+            <state relative-caret-position="252">
+              <caret line="187" column="0" selection-start-line="186" selection-start-column="30" selection-end-line="187" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -712,13 +712,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01056" summary="os201">
-      <created>1548593635072</created>
-      <option name="number" value="01056" />
-      <option name="presentableId" value="LOCAL-01056" />
-      <option name="project" value="LOCAL" />
-      <updated>1548593635072</updated>
-    </task>
     <task id="LOCAL-01057" summary="os201">
       <created>1548594167543</created>
       <option name="number" value="01057" />
@@ -1055,7 +1048,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548633341884</updated>
     </task>
-    <option name="localTasksCounter" value="1105" />
+    <task id="LOCAL-01105" summary="os201">
+      <created>1548633649655</created>
+      <option name="number" value="01105" />
+      <option name="presentableId" value="LOCAL-01105" />
+      <option name="project" value="LOCAL" />
+      <updated>1548633649655</updated>
+    </task>
+    <option name="localTasksCounter" value="1106" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1645,8 +1645,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/run_ranker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="406">
-          <caret line="107" column="20" selection-start-line="107" selection-start-column="20" selection-end-line="107" selection-end-column="20" />
+        <state relative-caret-position="252">
+          <caret line="187" column="0" selection-start-line="186" selection-start-column="30" selection-end-line="187" selection-end-column="0" />
           <folding />
         </state>
       </provider>

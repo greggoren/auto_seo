@@ -184,7 +184,7 @@ def analyze_positions(positions):
 def write_data_file(stats,filename):
     f = open(filename,"w")
     for iteration in sorted(list(stats.keys())):
-        f.write(iteration+" "+str(stats[iteration])+"\n")
+        f.write(str(iteration)+" "+str(stats[iteration])+"\n")
     f.close()
 
 if __name__=="__main__":
