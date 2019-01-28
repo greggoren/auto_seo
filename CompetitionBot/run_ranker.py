@@ -199,7 +199,7 @@ if __name__=="__main__":
     ref_docs = get_reference_documents()
     create_working_sets(ref_docs)
     positions = {}
-    for i in range(6,11):
+    for i in range(8,14):
         working_set = "ws_"+str(i)
         create_features_file_sentence_exp(features_dir=features_dir,index_path=merged_index,queries_file=queries_file,new_features_file=feature_file,working_set=working_set)
         index_doc_name = create_index_to_doc_name_dict(feature_file)
