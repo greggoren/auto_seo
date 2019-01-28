@@ -18,6 +18,7 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/top_raw" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" afterPath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/run_ranker.py" afterPath="$PROJECT_DIR$/CompetitionBot/run_ranker.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -118,8 +119,8 @@
       <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="764" column="4" selection-start-line="764" selection-start-column="6" selection-end-line="766" selection-end-column="52" />
+            <state relative-caret-position="368">
+              <caret line="150" column="53" selection-start-line="150" selection-start-column="53" selection-end-line="150" selection-end-column="53" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -140,8 +141,8 @@
       <file leaf-file-name="run_ranker.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/run_ranker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-515">
-              <caret line="143" column="23" selection-start-line="143" selection-start-column="23" selection-end-line="143" selection-end-column="23" />
+            <state relative-caret-position="280">
+              <caret line="182" column="36" selection-start-line="182" selection-start-column="36" selection-end-line="182" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -243,8 +244,8 @@
         <option value="$PROJECT_DIR$/CompetitionBot/doc_ks_nimrod" />
         <option value="$PROJECT_DIR$/CompetitionBot/check_students.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/set_waterloo_for_bots_and_dummies.py" />
-        <option value="$PROJECT_DIR$/CompetitionBot/run_ranker.py" />
         <option value="$PROJECT_DIR$/graphs.py" />
+        <option value="$PROJECT_DIR$/CompetitionBot/run_ranker.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
       </list>
     </option>
@@ -734,13 +735,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01069" summary="os201">
-      <created>1548611321949</created>
-      <option name="number" value="01069" />
-      <option name="presentableId" value="LOCAL-01069" />
-      <option name="project" value="LOCAL" />
-      <updated>1548611321949</updated>
-    </task>
     <task id="LOCAL-01070" summary="os201">
       <created>1548612173614</created>
       <option name="number" value="01070" />
@@ -1077,7 +1071,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548638890090</updated>
     </task>
-    <option name="localTasksCounter" value="1118" />
+    <task id="LOCAL-01118" summary="os201">
+      <created>1548639093588</created>
+      <option name="number" value="01118" />
+      <option name="presentableId" value="LOCAL-01118" />
+      <option name="project" value="LOCAL" />
+      <updated>1548639093589</updated>
+    </task>
+    <option name="localTasksCounter" value="1119" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1643,14 +1644,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CompetitionBot/run_ranker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-515">
-          <caret line="143" column="23" selection-start-line="143" selection-start-column="23" selection-end-line="143" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/graphs.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
@@ -1659,10 +1652,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CompetitionBot/run_ranker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="182" column="36" selection-start-line="182" selection-start-column="36" selection-end-line="182" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="764" column="4" selection-start-line="764" selection-start-column="6" selection-end-line="766" selection-end-column="52" />
+        <state relative-caret-position="368">
+          <caret line="150" column="53" selection-start-line="150" selection-start-column="53" selection-end-line="150" selection-end-column="53" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>

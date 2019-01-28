@@ -134,24 +134,21 @@ def get_average_rank_of_active_competitors():
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
     for iteration in iterations:
-        results[iteration]={}
+        results[iteration]=[]
         documents = db.archive.find({"iteration":iteration})
 
         for document in documents:
             query = document["query_id"]
             group = query.split("_")[1]
 
-            if group not in ["0","2"]:
+            if group not in ["2"]:
                 continue
             username = document["username"]
             if username.__contains__("dummy_doc"):
                 continue
-            if group not in results[iteration]:
-                results[iteration][group]=[]
-            results[iteration][group].append(document["position"])
+            results[iteration].append(document["position"])
     for iteration in results:
-        for group in results[iteration]:
-            results[iteration][group]=np.mean(results[iteration][group])
+        results[iteration]=np.mean(results[iteration])
     return results
 
 

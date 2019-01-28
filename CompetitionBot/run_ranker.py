@@ -180,7 +180,7 @@ def analyze_positions(positions):
                 average_potential_data[index].append(potential)
                 raw_position_data[index].append(overall_promotion)
     for index in raw_position_data:
-        raw_position_data[index]=np.mean(raw_position_data[index])
+        raw_position_data[index]=sum(raw_position_data[index])
         average_potential_data[index]=np.mean(average_potential_data[index])
     return average_positions,average_potential_data,raw_position_data
 
