@@ -378,7 +378,7 @@ def read_bot_rel_file(filename):
             if query not in  stats[iteration]:
                 stats[iteration][query]=[]
             label = 1
-            if row["this_document_is"].lower()=="non-relevant":
+            if row["this_document_is"].lower()=="relevant":
                 label=0
             stats[iteration][query].append(label)
     for iteration in stats:
