@@ -23,7 +23,7 @@ def create_graph(feature):
     plt.rcParams.update(params)
     group_name_dict = {"bot": "Bot", "active": "S-A", "static": "Static", "top": "S-T","dummy":"Planted"}
     colors_dict = {"bot": "b", "active": "r", "static": "y", "top": "k","dummy":"mediumslateblue"}
-    axis_dict = {"average": "Average Rank", "raw": "Raw promotion", "potential": "Scaled promotion"}
+    axis_dict = {"average": "Average Rank", "raw": "Raw promotion", "potential": "Scaled promotion","ks":"Non-spam ratio"}
     dot_dict = {"bot": "-o", "active": "--^", "static": ":p", "top": "-.x","dummy":"-.+"}
 
 
@@ -54,6 +54,7 @@ def create_graph(feature):
     # plt.show()
     plt.clf()
 
-create_graph("potential")
-create_graph("raw")
-create_graph("average")
+# create_graph("potential")
+# create_graph("raw")
+# create_graph("average")
+create_graph("ks")

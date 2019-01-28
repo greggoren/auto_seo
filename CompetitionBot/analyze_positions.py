@@ -153,15 +153,18 @@ def get_average_rank_of_active_competitors():
 
 
 
-def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats=None,rel_stats=None):
+def get_average_rank_of_dummies_and_ks(reference_docs,rel_stats):
     results = {}
     ks={}
+    dummy_rel={}
+    initial_bot_rel=[]
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
-    for iteration in iterations:
+    for i,iteration in enumerate(iterations):
         results[iteration]=[]
         ks[iteration]=[]
+        dummy_rel[iteration]=[]
         documents = db.archive.find({"iteration":iteration,"query_id":{"$regex":".*_2"}})
         for document in documents:
             query = document["query_id"]
@@ -172,6 +175,11 @@ def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats=None,rel_stats=No
             if not username.__contains__("dummy_doc"):
                 continue
             if username in reference_docs[query]:
+                if i==0:
+                    if rel_stats[document["doc_name"]] > 0:
+                        initial_bot_rel.append(1)
+                    else:
+                        initial_bot_rel.append(0)
                 continue
             results[iteration].append(document["position"])
             waterloo = document["waterloo"]
@@ -180,6 +188,10 @@ def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats=None,rel_stats=No
                 ks[iteration].append(0)
             else:
                 ks[iteration].append(1)
+            if rel_stats[document["doc_name"]]>0:
+                dummy_rel[iteration].append(1)
+            else:
+                dummy_rel[iteration].append(0)
             # if ks_tag>0:
             #     ks[iteration][group].append(0)
             # else:
@@ -187,8 +199,17 @@ def get_average_rank_of_dummies_and_ks(reference_docs,ks_stats=None,rel_stats=No
     for iteration in results:
         results[iteration]=np.mean(results[iteration])
         ks[iteration]=np.mean(ks[iteration])
+        dummy_rel[iteration]=np.mean(dummy_rel[iteration])
+    write_rel_for_static(np.mean(initial_bot_rel))
+    return results,ks,dummy_rel
 
-    return results,ks
+
+def write_rel_for_static(value):
+    f = open("static_rel")
+    for i in range(1,6):
+        f.write(str(i)+" "+str(value)+"\n")
+    f.close()
+
 
 
 
@@ -232,6 +253,82 @@ def read_group_dir(dir,method_index,rel=False):
         stats[i]=initial_results
     return stats
 
+def convert_stats(stats):
+    converted_stats={}
+
+    for query in stats:
+        group = query.split("_")[1]
+        if group not in converted_stats:
+            converted_stats[group]=[]
+        for user in stats[query]:
+            converted_stats[group].append(stats[query][user])
+    converted_stats=np.mean(converted_stats["2"])
+    return converted_stats
+
+
+
+def read_file_rel(filename,rel=False):
+    stats={}
+    with open(filename,encoding="utf-8") as file:
+        ref = "valid"
+        if rel:
+            ref = "non-relevant"
+        reader = csv.DictReader(file)
+        for row in reader:
+            query = row["query_id"]
+            group = query.split("_")[1]
+            if group not in ["2"]:
+                continue
+            user = row["username"]
+            annotation = row["this_document_is"].lower()
+            label = 0
+            if annotation!=ref:
+                label = 1
+            if query not in stats:
+                stats[query]={}
+            if user not in stats[query]:
+                stats[query][user] = []
+            stats[query][user].append(label)
+        for query in stats:
+            for user in stats[query]:
+                if sum(stats[query][user])>=3:
+                    stats[query][user]=1
+                else:
+                    stats[query][user] = 0
+    return stats
+
+
+def read_group_dir_rel(dir,rel=False):
+    files = sorted(list(os.listdir(dir)))
+    merged_stats={}
+    total_result={}
+    total_merge={}
+    for i,file in enumerate(files):
+        initial_results = read_file_rel(dir+"/"+file,rel)
+        merged_stats = merge_stats(merged_stats,initial_results)
+        total_merge[i]=merged_stats
+        results = convert_stats(merged_stats)
+        total_result[i]=results
+    return total_result,total_merge
+
+
+def merge_stats(former_stats,stats):
+    merged_stats={}
+    if not former_stats:
+        return stats
+    for query in former_stats:
+
+        if query not in stats:
+            merged_stats[query] = former_stats[query]
+            continue
+        merged_stats[query]={}
+        for user in former_stats[query]:
+            if user not in stats[query]:
+                merged_stats[query][user]=former_stats[query][user]
+                continue
+            merged_stats[query][user]=stats[query][user]
+    return merged_stats
+
 def read_file(filename,method_index,rel=False):
     stats={}
     final_stats={}
@@ -245,7 +342,7 @@ def read_file(filename,method_index,rel=False):
             user = row["username"]
             annotation = row["this_document_is"].lower()
             label = 0
-            if annotation==ref:
+            if annotation!=ref:
                 label = 1
             if query not in stats:
                 stats[query]={}
@@ -268,6 +365,33 @@ def read_file(filename,method_index,rel=False):
                 final_stats[group].append(stats[query][user])
         final_stats=np.mean(final_stats["2"])
     return final_stats
+
+def read_bot_rel_file(filename):
+    stats={}
+    with open(filename,encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            iteration = row["iteration"]
+            query = row["query_id"]
+            if iteration not in stats:
+                stats[iteration]={}
+            if query not in  stats[iteration]:
+                stats[iteration][query]=[]
+            label = 1
+            if row["this_document_is"].lower()=="non-relevant":
+                label=0
+            stats[iteration][query].append(label)
+    for iteration in stats:
+        for query in stats[iteration]:
+            if sum(stats[iteration][query])>=3:
+                stats[iteration][query]=0
+            else:
+                stats[iteration][query] = 1
+    for iteration in stats:
+        stats[iteration]=np.mean([stats[iteration][q] for q in stats[iteration]])
+    return results
+
+
 
 def get_method_index():
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
@@ -642,11 +766,12 @@ def get_postitions():
             positions[iteration][query_id][username] = position
     return positions
 
-def get_top_competitor_data(positions):
+def get_top_competitor_data(positions,merged_stats):
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
     firsts = {}
+    rel_stats={}
     average_positions_data={}
     average_potential_data={}
     raw_position_data={}
@@ -654,6 +779,7 @@ def get_top_competitor_data(positions):
     for i,iteration in enumerate(iterations):
         firsts[iteration]={}
         ks[iteration]=[]
+        rel_stats[iteration]=[]
         average_positions_data[iteration]=[]
         if i>0:
             average_potential_data[iteration]=[]
@@ -664,7 +790,8 @@ def get_top_competitor_data(positions):
             for doc in docs:
                 print(doc["query_id"],doc["username"], doc["position"])
                 if not doc["username"].__contains__("dummy_doc"):
-
+                    rel = merged_stats[i][doc["query_id"]][doc["username"]]
+                    rel_stats[iteration].append(rel)
                     firsts[iteration][query_id] = doc["username"]
                     average_positions_data[iteration].append(doc["position"])
                     if i>0:
@@ -696,7 +823,8 @@ def get_top_competitor_data(positions):
             average_potential_data[iteration]=np.mean(average_potential_data[iteration])
         average_positions_data[iteration]=np.mean(average_positions_data[iteration])
         ks[iteration]=np.mean(ks[iteration])
-    return raw_position_data,average_potential_data,average_positions_data,firsts,ks
+        rel[iteration]=np.mean(rel[iteration])
+    return raw_position_data,average_potential_data,average_positions_data,firsts,ks,rel
 
 
 def write_data_file(stats,filename):
@@ -751,8 +879,8 @@ if __name__=="__main__":
     average_rank_competitrs = get_average_rank_of_active_competitors()
     write_data_file(average_rank_competitrs, "active_average")
     # write_competitors_ranking_table(average_rank_competitrs,results_dir)
-    ks_stats=read_group_dir("annotations/",method_index,False)
-    write_data_file(ks_stats,"bot_ks")
+    # ks_stats=read_group_dir("annotations/",method_index,False)
+    # write_data_file(ks_stats,"bot_ks")
     # write_quality_annotation_table(ks_stats,results_dir)
     competitrs_quality = get_quality()
     write_data_file(competitrs_quality,"active_ks")
@@ -766,15 +894,19 @@ if __name__=="__main__":
     # write_overall_changes(overall_promotion)
     # create_query_to_quality_tables(reference_docs,results_dir)
     # print(reference_docs)
-    # ks_stats = read_annotations("doc_ks_nimrod")
-    # print(ks_stats)
-    # rel_stats = read_annotations("doc_rel_nimrod")
-    results,ks=get_average_rank_of_dummies_and_ks(reference_docs)
+    ks_stats = read_annotations("doc_ks_nimrod")
+    print(ks_stats)
+    rel_stats = read_annotations("doc_rel_nimrod")
+    results,ks,dummy_rel=get_average_rank_of_dummies_and_ks(reference_docs)
     write_data_file(ks,"dummy_ks")
     write_data_file(results,"dummy_average")
+    write_data_file(dummy_rel,"dummy_rel")
     positions = get_postitions()
-    raw_position_data, average_potential_data, average_positions_data, firsts,top_ks=get_top_competitor_data(positions)
+    active_rel_stats, merged_stats = read_group_dir_rel("rel_annotations/", True)
+    write_data_file(active_rel_stats, "active_rel")
+    raw_position_data, average_potential_data, average_positions_data, firsts,top_ks,top_rel=get_top_competitor_data(positions,merged_stats)
     write_data_file(top_ks,"top_ks")
+    write_data_file(top_rel,"top_rel")
     write_data_file(raw_position_data,"top_raw")
     write_data_file(average_potential_data,"top_potential")
     write_data_file(average_positions_data,"top_average")
@@ -785,4 +917,6 @@ if __name__=="__main__":
     write_raw_promotion_file(overall_promotion,"active_raw","Active")
     write_raw_promotion_file(overall_promotion,"dummy_raw","Dummies")
     write_static_ks()
-    # create_graph("potential")
+    rel_bot = read_bot_rel_file("rel_bot.csv")
+    write_data_file(rel_bot,"bot_rel")
+
