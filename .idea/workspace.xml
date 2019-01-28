@@ -67,8 +67,8 @@
       <file leaf-file-name="combine_labels_and_create_features.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="538" column="99" selection-start-line="538" selection-start-column="99" selection-end-line="538" selection-end-column="99" />
+            <state relative-caret-position="396">
+              <caret line="546" column="70" selection-start-line="546" selection-start-column="70" selection-end-line="546" selection-end-column="70" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
               </folding>
@@ -741,13 +741,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01086" summary="os201">
-      <created>1548622541244</created>
-      <option name="number" value="01086" />
-      <option name="presentableId" value="LOCAL-01086" />
-      <option name="project" value="LOCAL" />
-      <updated>1548622541244</updated>
-    </task>
     <task id="LOCAL-01087" summary="os201">
       <created>1548622785121</created>
       <option name="number" value="01087" />
@@ -1084,7 +1077,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548713963411</updated>
     </task>
-    <option name="localTasksCounter" value="1135" />
+    <task id="LOCAL-01135" summary="os201">
+      <created>1548714126832</created>
+      <option name="number" value="01135" />
+      <option name="presentableId" value="LOCAL-01135" />
+      <option name="project" value="LOCAL" />
+      <updated>1548714126832</updated>
+    </task>
+    <option name="localTasksCounter" value="1136" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1720,8 +1720,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="538" column="99" selection-start-line="538" selection-start-column="99" selection-end-line="538" selection-end-column="99" />
+        <state relative-caret-position="396">
+          <caret line="546" column="70" selection-start-line="546" selection-start-column="70" selection-end-line="546" selection-end-column="70" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
           </folding>

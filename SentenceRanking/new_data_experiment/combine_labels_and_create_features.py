@@ -10,7 +10,7 @@ from utils import run_bash_command,cosine_similarity
 from krovetzstemmer import Stemmer
 import params
 import math
-from scipy.stats import pearsonr,spearmanr
+from scipy.stats import pearsonr,spearmanr,kendalltau
 from Crowdflower.create_unified_experiment import write_histogram_for_weighted_scores
 
 def get_centroid(doc_vectors,decay=False):
@@ -542,8 +542,9 @@ if __name__=="__main__":
             # write_tags(ident_tags,"document_identification_tags",key)
             # write_tags(sentence_tags,"sentence_identification_tags",key)
             all_aggregated_results[key]=tmp_aggregated_results
-    pearsonr(vector_sentence_for_corr,vector_sentence_for_corr)
-    spearmanr(vector_sentence_for_corr,vector_sentence_for_corr)
+    print(pearsonr(vector_sentence_for_corr,vector_sentence_for_corr))
+    print(spearmanr(vector_sentence_for_corr,vector_sentence_for_corr))
+    print(kendalltau(vector_sentence_for_corr,vector_sentence_for_corr))
     # all_aggregated_results = ban_non_coherent_docs(banned_queries,all_aggregated_results)
     # seo_scores_file = "labels_new_final_all_data"
     # tmp_seo_scores = read_seo_score(seo_scores_file)
