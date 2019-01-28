@@ -6,24 +6,9 @@
   <component name="ChangeListManager">
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/active_average" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/active_potential" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/active_raw" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/bot_average" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/bot_potential" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/bot_raw" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/dummy_average" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/dummy_potential" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/dummy_raw" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/static_average" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/static_potential" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/static_raw" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/top_average" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/top_potential" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/stats/top_raw" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/CompetitionBot/rel_bot.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" afterPath="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CompetitionBot/graphs.py" afterPath="$PROJECT_DIR$/CompetitionBot/graphs.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -126,8 +111,8 @@
       <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="769" column="34" selection-start-line="769" selection-start-column="34" selection-end-line="769" selection-end-column="34" />
+            <state relative-caret-position="618">
+              <caret line="781" column="55" selection-start-line="781" selection-start-column="55" selection-end-line="781" selection-end-column="55" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -395,8 +380,8 @@
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\run6" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\CompetitionBot\stats" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\CompetitionBot" />
+      <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\CompetitionBot\stats" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\Crowdflower" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\CompetitionBot\annotations" />
       <recent name="C:\Users\gregory goren\PycharmProjects\auto_seo1\auto_seo\SentenceRanking\new_data_experiment" />
@@ -744,13 +729,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01073" summary="os201">
-      <created>1548615342483</created>
-      <option name="number" value="01073" />
-      <option name="presentableId" value="LOCAL-01073" />
-      <option name="project" value="LOCAL" />
-      <updated>1548615342484</updated>
-    </task>
     <task id="LOCAL-01074" summary="os201">
       <created>1548615488067</created>
       <option name="number" value="01074" />
@@ -1087,7 +1065,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548640266218</updated>
     </task>
-    <option name="localTasksCounter" value="1122" />
+    <task id="LOCAL-01122" summary="os201">
+      <created>1548641869993</created>
+      <option name="number" value="01122" />
+      <option name="presentableId" value="LOCAL-01122" />
+      <option name="project" value="LOCAL" />
+      <updated>1548641869995</updated>
+    </task>
+    <option name="localTasksCounter" value="1123" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1683,8 +1668,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="769" column="34" selection-start-line="769" selection-start-column="34" selection-end-line="769" selection-end-column="34" />
+        <state relative-caret-position="618">
+          <caret line="781" column="55" selection-start-line="781" selection-start-column="55" selection-end-line="781" selection-end-column="55" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>

@@ -702,8 +702,15 @@ def get_top_competitor_data(positions):
 def write_data_file(stats,filename):
     f = open(filename,"w")
     for iteration in stats:
-        f.write(iteration+" "+str(stats[iteration])+"\n")
+        f.write(str(iteration)+" "+str(stats[iteration])+"\n")
     f.close()
+
+def write_static_ks():
+    f = open("static_ks","w")
+    for i in range(1,6):
+        f.write(str(i)+" 1\n")
+    f.close()
+
 
 def write_raw_promotion_file(stats,filename,group):
     f = open(filename, "w")
@@ -777,4 +784,5 @@ if __name__=="__main__":
     write_raw_promotion_file(overall_promotion,"bot_raw","Bot")
     write_raw_promotion_file(overall_promotion,"active_raw","Active")
     write_raw_promotion_file(overall_promotion,"dummy_raw","Dummies")
+    write_static_ks()
     # create_graph("potential")
