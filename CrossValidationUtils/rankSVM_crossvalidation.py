@@ -11,6 +11,7 @@ import pickle
 from sklearn.datasets import dump_svmlight_file
 from scipy.stats import ttest_rel
 from itertools import product
+from SentenceRanking.new_data_experiment.perm import permutation_test
 import random
 def run_command(command):
     p = subprocess.Popen(command,
@@ -52,8 +53,8 @@ def random_items(iterator, items_wanted=1):
 
     return selected_items
 
-
-def permutation_test(sample_a, sample_b):
+# from mlxtend.evaluate import permutation_test
+def permutation_test1(sample_a, sample_b):
     real_diff = abs(np.mean(sample_a) - np.mean(sample_b))
     x = product([1, -1], repeat=len(sample_a))
     if len(sample_a)>15:
@@ -195,7 +196,7 @@ def discover_significance_relevance(cv_stats,random_stats):
         cv_values_vector =[cv_stats[metric][q] for q in sorted(list(cv_stats[metric].keys()))]
         random_values_vector =[random_stats[metric][q] for q in sorted(list(cv_stats[metric].keys()))]
         # ttest_value = ttest_rel(cv_values_vector,random_values_vector)
-        ttest_value = permutation_test(cv_values_vector,random_values_vector)
+        ttest_value = permutation_test(cv_values_vector,random_values_vector,method='approximate',num_rounds=10000,seed=0)
         sign =""
         if ttest_value[1]<=0.05:
             sign="^*"
