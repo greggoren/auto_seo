@@ -1069,6 +1069,7 @@ if __name__=="__main__":
     write_data_file(rel_bot,"bot_rel")
 
     ks_first_bot_sample,ks_first_active_sample=convert_stats_perm(quality_active_first,first_bot_ks)
+    print(ks_first_bot_sample,ks_first_active_sample)
     print("KS_FIRST_PERM_STATS:",permutation_test(ks_first_bot_sample,ks_first_active_sample))
     print("KS_FIRST_TTEST_STATS:",ttest_rel(ks_first_bot_sample,ks_first_active_sample)[1])
     print("percentage_ks_first",get_percentage_higher(ks_first_bot_sample,ks_first_active_sample))
