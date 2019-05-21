@@ -432,7 +432,7 @@ def read_bot_rel_file(filename):
             else:
                 stats[iteration][query] = 1
     iterations = sorted(list(stats.keys()))
-    for index,iteration in iterations:
+    for index,iteration in enumerate(iterations):
         if index==0:
             for q in stats[iteration]:
                 first[q] = stats[iteration][q]
