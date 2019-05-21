@@ -10,6 +10,7 @@ import operator
 import pickle
 from sklearn.datasets import dump_svmlight_file
 from scipy.stats import ttest_rel
+from itertools import product
 def run_command(command):
     p = subprocess.Popen(command,
                          stdout=subprocess.PIPE,
@@ -38,6 +39,36 @@ def upload_models(models_dir):
                 models.append(model)
 
     return models
+
+
+def permutation_test(sample_a, sample_b):
+    real_diff = abs(np.mean(sample_a) - np.mean(sample_b))
+    x = product([1, -1], repeat=len(sample_a))
+    if len(sample_a)>15:
+        n_perm=10000
+    else:
+        n_perm = len(x)
+
+    total = 0
+    i = 0
+    indexes = np.random.randint(0,2**len(sample_a),(1,10000))[0]
+    for row in x:
+        if i not in indexes:
+            continue
+        a_mean = []
+        b_mean = []
+        for index, val in enumerate(row):
+            if val > 0:
+                a_mean.append(sample_a[index])
+                b_mean.append(sample_b[index])
+            else:
+                a_mean.append(sample_b[index])
+                b_mean.append(sample_a[index])
+        current_diff = abs(np.mean(a_mean) - np.mean(b_mean))
+        if current_diff >= real_diff:
+            total += 1
+        i+=1
+    return total / n_perm
 
 
 # def learn_svm(C, train_file, fold):
@@ -154,7 +185,8 @@ def discover_significance_relevance(cv_stats,random_stats):
     for metric in cv_stats:
         cv_values_vector =[cv_stats[metric][q] for q in sorted(list(cv_stats[metric].keys()))]
         random_values_vector =[random_stats[metric][q] for q in sorted(list(cv_stats[metric].keys()))]
-        ttest_value = ttest_rel(cv_values_vector,random_values_vector)
+        # ttest_value = ttest_rel(cv_values_vector,random_values_vector)
+        ttest_value = permutation_test(cv_values_vector,random_values_vector)
         sign =""
         if ttest_value[1]<=0.05:
             sign="^*"
@@ -164,7 +196,8 @@ def discover_significance_relevance(cv_stats,random_stats):
 
 
 def discover_significance_rank_promotior(cv_vector,random_vector,metric_significance_sign):
-    ttest_value = ttest_rel(cv_vector,random_vector)
+    # ttest_value = ttest_rel(cv_vector,random_vector)
+    ttest_value = permutation_test(cv_vector,random_vector)
     sign =""
     if ttest_value[1]<=0.05:
             sign="^*"
@@ -221,7 +254,6 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
         test_scores_file=svm.run_svm_rank_model(test_file,chosen_model,fold_number)
         results = svm.retrieve_scores(test_set, test_scores_file)
         trec_file = evaluator.create_trec_eval_file(test_set, queries, results, "", method, fold_number)
-
         fold_number += 1
     final_trec_file = evaluator.order_trec_file(trec_file)
     run_bash_command("rm " + trec_file)

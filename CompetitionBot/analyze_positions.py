@@ -4,7 +4,7 @@ import os
 import numpy as np
 import csv
 from itertools import product
-
+from scipy.stats import ttest_rel
 ASR_MONGO_HOST = "asr2.iem.technion.ac.il"
 ASR_MONGO_PORT = 27017
 
@@ -964,6 +964,7 @@ def permutation_test(sample_a,sample_b):
     real_diff = abs(np.mean(sample_a)-np.mean(sample_b))
     x = list(product([1, -1], repeat=len(sample_a)))
     n_perm = len(x)
+
     total = 0
     for row in x:
         a_mean=[]
@@ -999,6 +1000,14 @@ def convert_unified_perm(stats):
         bot_sample.append(np.mean(stats["Bot"][query]))
         active_sample.append(np.mean(stats["Active"][query]))
     return bot_sample,active_sample
+
+
+def get_percentage_higher(bot,active):
+    s = 0
+    for index,val in enumerate(bot):
+        if val>active[index]:
+            s+=1
+    return float(s)/len(bot)
 
 if __name__=="__main__":
     results_dir = "tex_tables/"
@@ -1061,30 +1070,42 @@ if __name__=="__main__":
 
     ks_first_bot_sample,ks_first_active_sample=convert_stats_perm(quality_active_first,first_bot_ks)
     print("KS_FIRST_PERM_STATS:",permutation_test(ks_first_bot_sample,ks_first_active_sample))
-
+    print("KS_FIRST_TTEST_STATS:",ttest_rel(ks_first_bot_sample,ks_first_active_sample)[1])
+    print("percentage_ks_first",get_percentage_higher(ks_first_bot_sample,ks_first_active_sample))
     ks_second_bot_sample, ks_second_active_sample = convert_stats_perm(quality_active_second, second_bot_ks)
     print("KS_SECOND_PERM_STATS:", permutation_test(ks_second_bot_sample, ks_second_active_sample))
-
+    print("KS_SECOND_TTEST_STATS:", ttest_rel(ks_second_bot_sample, ks_second_active_sample)[1])
+    print("percentage_ks_sec", get_percentage_higher(ks_second_bot_sample, ks_second_active_sample))
     rel_bot_first_sample,rel_active_first_sample=convert_stats_perm(first_active_rel,rel_bot_first)
     print("REL_FIRST_PERM_STATS:",permutation_test(rel_bot_first_sample,rel_active_first_sample))
-
-    print("samples_rel_first",rel_bot_first_sample,rel_active_first_sample)
+    print("REL_FIRST_TTEST_STATS:",ttest_rel(rel_bot_first_sample,rel_active_first_sample)[1])
+    print("percentage_rel_first", get_percentage_higher(rel_bot_first_sample, rel_active_first_sample))
     rel_bot_second_sample, rel_active_second_sample = convert_stats_perm(second_active_rel, rel_bot_second)
 
     print("REL_SECOND_PERM_STATS:", permutation_test(rel_bot_second_sample, rel_active_second_sample))
-    print("samples_rel_second", rel_bot_second_sample, rel_active_second_sample)
+    print("REL_SECOND_TTEST_STATS:", ttest_rel(rel_bot_second_sample, rel_active_second_sample)[1])
+    print("percentage_rel_sec", get_percentage_higher(rel_bot_second_sample, rel_active_second_sample))
     average_first_promotion_bot_sample,average_first_promotion_active_sample = convert_stats_perm(first_active,first_round_bot)
-    print("samples_average",average_first_promotion_bot_sample,average_first_promotion_active_sample)
     print("FIRST_AVERAGE_PROMOTION_PERM_STATS:", permutation_test(average_first_promotion_bot_sample, average_first_promotion_active_sample))
-
+    print("FIRST_AVERAGE_PROMOTION_TTESTM_STATS:", ttest_rel(average_first_promotion_bot_sample, average_first_promotion_active_sample)[1])
+    print("percentage_average_first", get_percentage_higher(average_first_promotion_bot_sample, average_first_promotion_active_sample))
     average_second_promotion_bot_sample, average_second_promotion_active_sample = convert_stats_perm(second_active, second_round_bot)
     print("SECOND_AVERAGE_PROMOTION_PERM_STATS:",
           permutation_test(average_second_promotion_bot_sample, average_second_promotion_active_sample))
+    print("SECOND_AVERAGE_PROMOTION_TTEST_STATS:",
+          ttest_rel(average_second_promotion_bot_sample, average_second_promotion_active_sample)[1])
+    print("percentage_average_sec", get_percentage_higher(average_second_promotion_bot_sample, average_second_promotion_active_sample))
 
     raw_bot,raw_active=convert_unified_perm(second_promotion)
     print("SECOND_RAW_PROMOTION_PERM_STATS:",
           permutation_test(raw_bot, raw_active))
+    print("SECOND_RAW_PROMOTION_TTEST_STATS:",
+          ttest_rel(raw_bot, raw_active)[1])
+    print("percentage_raw_sec", get_percentage_higher(raw_bot, raw_active))
 
     potential_bot,potential_active=convert_unified_perm(second_potential)
     print("SECOND_POTENTIAL_PROMOTION_PERM_STATS:",
           permutation_test(potential_bot, potential_active))
+    print("SECOND_POTENTIAL_PROMOTION_TTEST_STATS:",
+          ttest_rel(potential_bot, potential_active)[1])
+    print("percentage_pot_sec", get_percentage_higher(potential_bot, potential_active))
