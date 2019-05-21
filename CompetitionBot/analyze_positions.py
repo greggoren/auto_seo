@@ -3,6 +3,7 @@ from pymongo import MongoClient
 import os
 import numpy as np
 import csv
+from itertools import product
 
 ASR_MONGO_HOST = "asr2.iem.technion.ac.il"
 ASR_MONGO_PORT = 27017
@@ -114,7 +115,10 @@ def get_average_bot_ranking(reference_docs,group):
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
-    for iteration in iterations:
+    first_round ={}
+    second_round ={}
+    for index,iteration in enumerate(iterations):
+
         results[iteration]=[]
         for query_id in reference_docs:
             query_group = query_id.split("_")[1]
@@ -124,16 +128,23 @@ def get_average_bot_ranking(reference_docs,group):
                 document = next(db.archive.find({"iteration": iteration, "username": doc, "query_id": query_id}))
                 position = document["position"]
                 results[iteration].append(position)
+                if index==0:
+                    first_round[query_id]=position
+                elif index ==1:
+                    second_round[query_id] = position
+
     for iteration in results:
         results[iteration]= np.mean(results[iteration])
-    return results
+    return results,first_round,second_round
 
 def get_average_rank_of_active_competitors():
     results = {}
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
-    for iteration in iterations:
+    first={}
+    second={}
+    for index,iteration in enumerate(iterations):
         results[iteration]=[]
         documents = db.archive.find({"iteration":iteration})
 
@@ -147,9 +158,17 @@ def get_average_rank_of_active_competitors():
             if username.__contains__("dummy_doc"):
                 continue
             results[iteration].append(document["position"])
+            if index == 0:
+                if query not in first:
+                    first[query]=[]
+                first[query].append(document["position"])
+            elif index == 1:
+                if query not in second:
+                    second[query]=[]
+                second[query].append(document["position"])
     for iteration in results:
         results[iteration]=np.mean(results[iteration])
-    return results
+    return results,first,second
 
 
 
@@ -249,21 +268,30 @@ def read_group_dir(dir,method_index,rel=False):
     files = sorted(list(os.listdir(dir)))
     stats={}
     for i,file in enumerate(files):
-        initial_results = read_file(dir+"/"+file,method_index,rel)
+        if i==0:
+            initial_results,first = read_file(dir+"/"+file,method_index,rel)
+        elif i==1:
+            initial_results, second = read_file(dir + "/" + file, method_index, rel)
+        else:
+            initial_results, _ = read_file(dir + "/" + file, method_index, rel)
         stats[i]=initial_results
-    return stats
+    return stats,first,second
 
 def convert_stats(stats):
     converted_stats={}
-
+    stats_for_perm={}
     for query in stats:
         group = query.split("_")[1]
+        if query not in stats_for_perm:
+            stats_for_perm[query]=[]
+
         if group not in converted_stats:
             converted_stats[group]=[]
         for user in stats[query]:
             converted_stats[group].append(stats[query][user])
+            stats_for_perm[query].append(stats[query][user])
     converted_stats=np.mean(converted_stats["2"])
-    return converted_stats
+    return converted_stats,stats_for_perm
 
 
 
@@ -303,13 +331,20 @@ def read_group_dir_rel(dir,rel=False):
     merged_stats={}
     total_result={}
     total_merge={}
+    first,second ={},{}
     for i,file in enumerate(files):
         initial_results = read_file_rel(dir+"/"+file,rel)
         merged_stats = merge_stats(merged_stats,initial_results)
         total_merge[i]=merged_stats
-        results = convert_stats(merged_stats)
+        if i==0:
+            results,first = convert_stats(merged_stats)
+        elif i==1:
+            results,second = convert_stats(merged_stats)
+        else:
+            results,_ = convert_stats(merged_stats)
         total_result[i]=results
-    return total_result,total_merge
+
+    return total_result,total_merge,first,second
 
 
 def merge_stats(former_stats,stats):
@@ -332,6 +367,7 @@ def merge_stats(former_stats,stats):
 def read_file(filename,method_index,rel=False):
     stats={}
     final_stats={}
+    perm_stats={}
     with open(filename,encoding="utf-8") as file:
         ref = "valid"
         if rel:
@@ -359,15 +395,23 @@ def read_file(filename,method_index,rel=False):
             group = query.split("_")[1]
             if group!="2":
                 continue
+
             if group not in final_stats:
                 final_stats[group]=[]
             for user in stats[query]:
                 final_stats[group].append(stats[query][user])
+
+                if query not in perm_stats:
+                    perm_stats[query] = []
+                perm_stats[query].append(stats[query][user])
+
         final_stats=np.mean(final_stats["2"])
-    return final_stats
+    return final_stats,perm_stats
 
 def read_bot_rel_file(filename):
     stats={}
+    first={}
+    second={}
     with open(filename,encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
@@ -387,9 +431,17 @@ def read_bot_rel_file(filename):
                 stats[iteration][query]=0
             else:
                 stats[iteration][query] = 1
-    for iteration in stats:
+    iterations = sorted(list(stats.keys()))
+    for index,iteration in iterations:
+        if index==0:
+            for q in stats[iteration]:
+                first[q] = stats[iteration][q]
+        elif index==1:
+            for q in stats[iteration]:
+                second[q] = stats[iteration][q]
         stats[iteration]=np.mean([stats[iteration][q] for q in stats[iteration]])
-    return stats
+
+    return stats,first,second
 
 
 
@@ -426,7 +478,8 @@ def get_quality():
     client = MongoClient(ASR_MONGO_HOST, ASR_MONGO_PORT)
     db = client.asr16
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
-    for iteration in iterations:
+    first,second = {},{}
+    for index,iteration in enumerate(iterations):
         results[iteration]=[]
         docs = db.archive.find({"iteration":iteration})
         for doc in docs:
@@ -440,11 +493,28 @@ def get_quality():
             waterloo = doc["waterloo"]
             if waterloo>=60:
                 results[iteration].append(1)
+                if index == 0:
+                    if query not in first:
+                        first[query]=[]
+                    first[query].append(1)
+                if index == 1:
+                    if query not in second:
+                        second[query]=[]
+                    second[query].append(1)
             else:
                 results[iteration].append(0)
+                if index == 0:
+                    if query not in first:
+                        first[query]=[]
+                    first[query].append(0)
+                if index == 1:
+                    if query not in second:
+                        second[query]=[]
+                    second[query].append(0)
+
     for iteration in results:
         results[iteration]= np.mean(results[iteration])
-    return results
+    return results,first,second
 
 
 def write_competitors_quality_table(results):
@@ -475,7 +545,9 @@ def calculate_potential_averages(dummies,active,bots):
     dummies_averages = {}
     active_averages = {}
     bot_averages = {}
-    for iteration in dummies:
+    iterations = sorted(list(dummies.keys()))
+    second_potential = {"Bot":{},"Active":{}}
+    for index,iteration in enumerate(iterations):
         dummies_averages[iteration] = []
         active_averages [iteration]= []
         bot_averages [iteration]= []
@@ -484,15 +556,23 @@ def calculate_potential_averages(dummies,active,bots):
             active_potentials = [active[iteration][query_id][d] for d in active[iteration][query_id]]
             dummies_averages[iteration].append(np.mean(dummy_potentials))
             active_averages[iteration].append(np.mean(active_potentials))
+            if index==1:
+                if query_id not in second_potential["Active"]:
+                    second_potential["Active"][query_id]=[]
+            second_potential["Active"][query_id].append(np.mean(active_potentials))
             if query_id in bots[iteration]:
                 bot_potentials = [bots[iteration][query_id] [d] for d in bots[iteration][query_id]]
                 bot_averages[iteration].append(np.mean(bot_potentials))
+                if index==1:
+                    if query_id not in second_potential["Bot"]:
+                        second_potential["Bot"][query_id]=[]
+                    second_potential["Bot"][query_id].append(np.mean(bot_potentials))
 
     for iteration in dummies_averages:
         dummies_averages[iteration]=np.mean(dummies_averages[iteration])
         active_averages[iteration]=np.mean(active_averages[iteration])
         bot_averages[iteration]=np.mean(bot_averages[iteration])
-    return dummies_averages,active_averages,bot_averages
+    return dummies_averages,active_averages,bot_averages,second_potential
 
 
 def populate_correct_dictionary(stats,new_rank,old_rank):
@@ -512,6 +592,8 @@ def calculate_promotion_potential(reference_docs,positions):
     overall_promotion = {}
     iterations = sorted(list(positions.keys()))
     changes_in_ranking_stats = {}
+    second_promotion = {"Bot": {}, "Active": {}}
+
     for i,iteration in enumerate(iterations):
         if i == 0:
             continue
@@ -545,8 +627,11 @@ def calculate_promotion_potential(reference_docs,positions):
                         bots[iteration][query_id]={}
                     bots[iteration][query_id][doc]=potential
                     overall_promotion[iteration]["Bot"]+=(old_position-new_position)
+                    if i==1:
+                        second_promotion["Bot"][query_id]=(old_position-new_position)
                     changes_in_ranking_stats[iteration] = populate_correct_dictionary(
                         changes_in_ranking_stats[iteration], new_position, old_position)
+
                 elif doc.__contains__("dummy_doc"):
                     if query_id not in dummies[iteration]:
                         dummies[iteration][query_id]={}
@@ -557,8 +642,12 @@ def calculate_promotion_potential(reference_docs,positions):
                         active[iteration][query_id]={}
                     active[iteration][query_id][doc]=potential
                     overall_promotion[iteration]["Active"] += (old_position - new_position)
-    dummy_averages,active_averages,bot_averages = calculate_potential_averages(dummies,active,bots)
-    return dummy_averages,active_averages,bot_averages,stayed_winner,overall_promotion,changes_in_ranking_stats
+                    if i==1:
+                        if query_id not in second_promotion["Active"]:
+                            second_promotion["Active"][query_id]=[]
+                        second_promotion["Active"][query_id].append(old_position-new_position)
+    dummy_averages,active_averages,bot_averages,second_potential = calculate_potential_averages(dummies,active,bots)
+    return dummy_averages,active_averages,bot_averages,stayed_winner,overall_promotion,changes_in_ranking_stats,second_potential,second_promotion
 
 
 
@@ -861,6 +950,48 @@ def analyze_ks():
     iterations = sorted(list(db.archive.distinct("iteration")))[7:]
 
 
+
+
+def permutation_test(sample_a,sample_b):
+    real_diff = abs(np.mean(sample_a)-np.mean(sample_b))
+    x = list(product([1, -1], repeat=len(sample_a)))
+    n_perm = len(x)
+    total = 0
+    for row in x:
+        a_mean=[]
+        b_mean=[]
+        for index,val in enumerate(row):
+            if val>0:
+                a_mean.append(sample_a[index])
+                b_mean.append(sample_b[index])
+            else:
+                a_mean.append(sample_b[index])
+                b_mean.append(sample_a[index])
+        current_diff = abs(np.mean(a_mean)-np.mean(b_mean))
+        if current_diff>=real_diff:
+            total+=1
+    return 1-total/n_perm
+
+
+
+
+
+def convert_stats_perm(active,bot):
+    bot_sample=[]
+    active_sample=[]
+    for query in bot:
+        bot_sample.append(np.mean(bot[query]))
+        active_sample.append(np.mean(active[query]))
+    return bot_sample,active_sample
+
+def convert_unified_perm(stats):
+    bot_sample = []
+    active_sample = []
+    for query in stats["Bot"]:
+        bot_sample.append(np.mean(stats["Bot"][query]))
+        active_sample.append(np.mean(stats["Active"][query]))
+    return bot_sample,active_sample
+
 if __name__=="__main__":
     results_dir = "tex_tables/"
     if not os.path.exists(results_dir):
@@ -873,19 +1004,19 @@ if __name__=="__main__":
     method_index = get_method_index()
     # average_multiple_bot_rankings = get_average_bot_ranking(reference_docs,method_index,"0")
     # write_table_bots_ranking("0",average_multiple_bot_rankings,results_dir)
-    average_single_bot_ranking = get_average_bot_ranking(reference_docs,"2")
+    average_single_bot_ranking,first_round_bot,second_round_bot = get_average_bot_ranking(reference_docs,"2")
     write_data_file(average_single_bot_ranking,"bot_average")
     # write_table_bots_ranking("2",average_single_bot_ranking,results_dir)
-    average_rank_competitrs = get_average_rank_of_active_competitors()
+    average_rank_competitrs,first_active,second_active = get_average_rank_of_active_competitors()
     write_data_file(average_rank_competitrs, "active_average")
     # write_competitors_ranking_table(average_rank_competitrs,results_dir)
-    # ks_stats=read_group_dir("annotations/",method_index,False)
-    # write_data_file(ks_stats,"bot_ks")
+    ks_stats,first_bot_ks,second_bot_ks=read_group_dir("annotations/",method_index,False)
+    write_data_file(ks_stats,"bot_ks")
     # write_quality_annotation_table(ks_stats,results_dir)
-    competitrs_quality = get_quality()
+    competitrs_quality,quality_active_first,quality_active_second = get_quality()
     write_data_file(competitrs_quality,"active_ks")
     # write_competitors_quality_table(competitrs_quality)
-    dummy_averages, active_averages, bot_averages,separate,overall_promotion,changes_in_ranking_stats = create_average_promotion_potential(reference_docs)
+    dummy_averages, active_averages, bot_averages,separate,overall_promotion,changes_in_ranking_stats,second_potential,second_promotion = create_average_promotion_potential(reference_docs)
 
     # write_potential_tables(dummy_averages,active_averages,bot_averages,results_dir)
     # sep_hist = get_separate_stats(separate,reference_docs)
@@ -895,14 +1026,14 @@ if __name__=="__main__":
     # create_query_to_quality_tables(reference_docs,results_dir)
     # print(reference_docs)
     ks_stats = read_annotations("doc_ks_nimrod")
-    print(ks_stats)
+    # print(ks_stats)
     rel_stats = read_annotations("doc_rel_nimrod")
     results,ks,dummy_rel=get_average_rank_of_dummies_and_ks(reference_docs,rel_stats)
     write_data_file(ks,"dummy_ks")
     write_data_file(results,"dummy_average")
     write_data_file(dummy_rel,"dummy_rel")
     positions = get_postitions()
-    active_rel_stats, merged_stats = read_group_dir_rel("rel_annotations/", True)
+    active_rel_stats, merged_stats,first_active_rel,second_active_rel = read_group_dir_rel("rel_annotations/", True)
     write_data_file(active_rel_stats, "active_rel")
     raw_position_data, average_potential_data, average_positions_data, firsts,top_ks,top_rel=get_top_competitor_data(positions,merged_stats)
     write_data_file(top_ks,"top_ks")
@@ -917,6 +1048,32 @@ if __name__=="__main__":
     write_raw_promotion_file(overall_promotion,"active_raw","Active")
     write_raw_promotion_file(overall_promotion,"dummy_raw","Dummies")
     write_static_ks()
-    rel_bot = read_bot_rel_file("rel_bot.csv")
+    rel_bot,rel_bot_first,rel_bot_second = read_bot_rel_file("rel_bot.csv")
     write_data_file(rel_bot,"bot_rel")
 
+    ks_first_bot_sample,ks_first_active_sample=convert_stats_perm(quality_active_first,first_bot_ks)
+    print("KS_FIRST_PERM_STATS:",permutation_test(ks_first_bot_sample,ks_first_active_sample))
+
+    ks_second_bot_sample, ks_second_active_sample = convert_stats_perm(quality_active_second, second_bot_ks)
+    print("KS_SECOND_PERM_STATS:", permutation_test(ks_second_bot_sample, ks_second_active_sample))
+
+    rel_bot_first_sample,rel_active_first_sample=convert_stats_perm(first_active_rel,rel_bot_first)
+    print("REL_FIRST_PERM_STATS:",permutation_test(rel_bot_first_sample,rel_active_first_sample))
+
+    rel_bot_second_sample, rel_active_second_sample = convert_stats_perm(second_active_rel, rel_bot_second)
+    print("REL_SECOND_PERM_STATS:", permutation_test(rel_bot_second_sample, rel_active_second_sample))
+
+    average_first_promotion_bot_sample,average_first_promotion_active_sample = convert_stats_perm(first_active,first_round_bot)
+    print("FIRST_AVERAGE_PROMOTION_PERM_STATS:", permutation_test(average_first_promotion_bot_sample, average_first_promotion_active_sample))
+
+    average_second_promotion_bot_sample, average_second_promotion_active_sample = convert_stats_perm(second_active, second_round_bot)
+    print("SECOND_AVERAGE_PROMOTION_PERM_STATS:",
+          permutation_test(average_second_promotion_bot_sample, average_second_promotion_active_sample))
+
+    raw_bot,raw_active=convert_unified_perm(second_promotion)
+    print("SECOND_RAW_PROMOTION_PERM_STATS:",
+          permutation_test(raw_bot, raw_active))
+
+    potential_bot,potential_active=convert_unified_perm(second_potential)
+    print("SECOND_POTENTIAL_PROMOTION_PERM_STATS:",
+          permutation_test(potential_bot, potential_active))
