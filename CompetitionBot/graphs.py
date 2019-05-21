@@ -41,7 +41,7 @@ def create_graph(feature):
         x = [j + 1 for j in range(len(stats)-1)]
         if feature in ["raw","potential"]:
             x = [j + 2 for j in range(len(stats)-1)]
-        if "0" in stats or "8" in stats:
+        if "0" in stats or "8" in stats or "9" in stats:
             y = [stats[str(i)] for i in sorted([int(i) for i in list(stats.keys())])][:-1]
         else:
             y = [stats[str(i)] for i in sorted(list(stats.keys()))][:-1]
@@ -57,13 +57,13 @@ def create_graph(feature):
     # plt.grid(True)
     plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.11),
                ncol=5, fontsize=25, frameon=False)
-    # plt.savefig(feature + ".pdf", format="pdf")
-    plt.savefig(feature)
+    plt.savefig(feature + ".pdf", format="pdf")
+    # plt.savefig(feature)
     # plt.show()
     plt.clf()
 
-# create_graph("potential")
+create_graph("potential")
 # create_graph("raw")
-create_graph("average")
+# create_graph("average")
 # create_graph("rel")
-create_graph("ks")
+# create_graph("ks")
