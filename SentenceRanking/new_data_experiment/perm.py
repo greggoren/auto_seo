@@ -127,4 +127,4 @@ def permutation_test(x, y, func='x_mean != y_mean', method='exact',
             if func(combined[:m], combined[m:]) > reference_stat:
                 more_extreme += 1.
 
-    return more_extreme / num_rounds
+    return ("stuff",more_extreme / num_rounds)
