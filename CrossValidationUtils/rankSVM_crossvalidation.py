@@ -11,6 +11,7 @@ import pickle
 from sklearn.datasets import dump_svmlight_file
 from scipy.stats import ttest_rel
 from itertools import product
+import random
 def run_command(command):
     p = subprocess.Popen(command,
                          stdout=subprocess.PIPE,
@@ -41,6 +42,17 @@ def upload_models(models_dir):
     return models
 
 
+def random_items(iterator, items_wanted=1):
+    selected_items = [None] * items_wanted
+
+    for item_index, item in enumerate(iterator):
+        for selected_item_index in range(items_wanted):
+            if not random.randint(0, item_index):
+                selected_items[selected_item_index] = item
+
+    return selected_items
+
+
 def permutation_test(sample_a, sample_b):
     real_diff = abs(np.mean(sample_a) - np.mean(sample_b))
     x = product([1, -1], repeat=len(sample_a))
@@ -50,11 +62,9 @@ def permutation_test(sample_a, sample_b):
         n_perm = len(x)
 
     total = 0
-    i = 0
-    indexes = np.random.randint(0,2**len(sample_a),(1,10000))[0]
-    for row in x:
-        if i not in indexes:
-            continue
+    random_items_x  = random_items(x,n_perm)
+    for row in random_items_x:
+
         a_mean = []
         b_mean = []
         for index, val in enumerate(row):
@@ -67,7 +77,6 @@ def permutation_test(sample_a, sample_b):
         current_diff = abs(np.mean(a_mean) - np.mean(b_mean))
         if current_diff >= real_diff:
             total += 1
-        i+=1
     return total / n_perm
 
 
