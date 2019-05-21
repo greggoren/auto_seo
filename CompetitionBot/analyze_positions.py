@@ -1102,7 +1102,7 @@ if __name__=="__main__":
           permutation_test(average_second_promotion_bot_sample, average_second_promotion_active_sample))
     print("SECOND_AVERAGE_PROMOTION_TTEST_STATS:",
           ttest_rel(average_second_promotion_bot_sample, average_second_promotion_active_sample)[1])
-    print("percentage_average_sec", get_percentage_higher(average_second_promotion_bot_sample, average_second_promotion_active_sample))
+    print("percentage_average_sec", get_percentage_higher(average_second_promotion_active_sample,average_second_promotion_bot_sample))
 
     raw_bot,raw_active=convert_unified_perm(second_promotion)
     print("SECOND_RAW_PROMOTION_PERM_STATS:",
