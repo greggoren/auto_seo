@@ -200,14 +200,14 @@ def discover_significance_relevance(cv_stats,random_stats):
         sign =""
         if ttest_value[1]<=0.05:
             sign="^*"
-        print("ttest = ",ttest_value[1],sign)
+        # print("ttest = ",ttest_value[1],sign)
         metric_significance_sign[metric]=sign
     return metric_significance_sign
 
 
 def discover_significance_rank_promotior(cv_vector,random_vector,metric_significance_sign):
     # ttest_value = ttest_rel(cv_vector,random_vector)
-    ttest_value = permutation_test(cv_vector,random_vector)
+    ttest_value = permutation_test(cv_vector,random_vector,method='approximate',num_rounds=10000,seed=0)
     sign =""
     if ttest_value[1]<=0.05:
             sign="^*"
