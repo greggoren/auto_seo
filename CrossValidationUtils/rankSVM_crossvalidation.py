@@ -196,7 +196,7 @@ def discover_significance_relevance(cv_stats,random_stats):
         cv_values_vector =[cv_stats[metric][q] for q in sorted(list(cv_stats[metric].keys()))]
         random_values_vector =[random_stats[metric][q] for q in sorted(list(cv_stats[metric].keys()))]
         # ttest_value = ttest_rel(cv_values_vector,random_values_vector)
-        ttest_value = permutation_test(cv_values_vector,random_values_vector,method='approximate',num_rounds=10000,seed=0)
+        ttest_value = permutation_test(cv_values_vector,random_values_vector,method='approximate',num_rounds=50000,seed=9011)
         sign =""
         if ttest_value[1]<=0.05:
             sign="^*"
@@ -207,7 +207,7 @@ def discover_significance_relevance(cv_stats,random_stats):
 
 def discover_significance_rank_promotior(cv_vector,random_vector,metric_significance_sign):
     # ttest_value = ttest_rel(cv_vector,random_vector)
-    ttest_value = permutation_test(cv_vector,random_vector,method='approximate',num_rounds=10000,seed=0)
+    ttest_value = permutation_test(cv_vector,random_vector,method='approximate',num_rounds=50000,seed=9011)
     sign =""
     if ttest_value[1]<=0.05:
             sign="^*"

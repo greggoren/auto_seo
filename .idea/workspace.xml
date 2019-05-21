@@ -7,7 +7,7 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SentenceRanking/new_data_experiment/perm.py" afterPath="$PROJECT_DIR$/SentenceRanking/new_data_experiment/perm.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -100,8 +100,8 @@
       <file leaf-file-name="cross_validation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="72" column="28" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
+            <state relative-caret-position="524">
+              <caret line="237" column="34" selection-start-line="237" selection-start-column="34" selection-end-line="237" selection-end-column="34" />
               <folding>
                 <element signature="e#1#66#0" expanded="true" />
               </folding>
@@ -109,11 +109,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="198" column="115" selection-start-line="198" selection-start-column="115" selection-end-line="198" selection-end-column="115" />
+            <state relative-caret-position="418">
+              <caret line="209" column="106" selection-start-line="209" selection-start-column="106" selection-end-line="209" selection-end-column="106" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
               </folding>
@@ -121,11 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="perm.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="perm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/perm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="718">
-              <caret line="129" column="46" selection-start-line="129" selection-start-column="46" selection-end-line="129" selection-end-column="46" />
+            <state relative-caret-position="-756">
+              <caret line="62" column="42" selection-start-line="62" selection-start-column="42" selection-end-line="62" selection-end-column="43" />
               <folding>
                 <element signature="e#189#207#0" expanded="true" />
               </folding>
@@ -276,8 +276,8 @@
         <option value="$PROJECT_DIR$/CompetitionBot/test.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/test.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
-        <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/new_data_experiment/perm.py" />
+        <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
       </list>
     </option>
   </component>
@@ -689,20 +689,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01106" summary="os201">
-      <created>1548633771308</created>
-      <option name="number" value="01106" />
-      <option name="presentableId" value="LOCAL-01106" />
-      <option name="project" value="LOCAL" />
-      <updated>1548633771308</updated>
-    </task>
-    <task id="LOCAL-01107" summary="os201">
-      <created>1548634009874</created>
-      <option name="number" value="01107" />
-      <option name="presentableId" value="LOCAL-01107" />
-      <option name="project" value="LOCAL" />
-      <updated>1548634009874</updated>
-    </task>
     <task id="LOCAL-01108" summary="os201">
       <created>1548634658702</created>
       <option name="number" value="01108" />
@@ -1032,7 +1018,21 @@
       <option name="project" value="LOCAL" />
       <updated>1558453337874</updated>
     </task>
-    <option name="localTasksCounter" value="1155" />
+    <task id="LOCAL-01155" summary="os201">
+      <created>1558453767861</created>
+      <option name="number" value="01155" />
+      <option name="presentableId" value="LOCAL-01155" />
+      <option name="project" value="LOCAL" />
+      <updated>1558453767862</updated>
+    </task>
+    <task id="LOCAL-01156" summary="os201">
+      <created>1558456424664</created>
+      <option name="number" value="01156" />
+      <option name="presentableId" value="LOCAL-01156" />
+      <option name="project" value="LOCAL" />
+      <updated>1558456424665</updated>
+    </task>
+    <option name="localTasksCounter" value="1157" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1046,7 +1046,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23390558" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1619,10 +1619,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/perm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-756">
+          <caret line="62" column="42" selection-start-line="62" selection-start-column="42" selection-end-line="62" selection-end-column="43" />
+          <folding>
+            <element signature="e#189#207#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="72" column="28" selection-start-line="72" selection-start-column="28" selection-end-line="72" selection-end-column="28" />
+        <state relative-caret-position="524">
+          <caret line="237" column="34" selection-start-line="237" selection-start-column="34" selection-end-line="237" selection-end-column="34" />
           <folding>
             <element signature="e#1#66#0" expanded="true" />
           </folding>
@@ -1631,20 +1641,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="198" column="115" selection-start-line="198" selection-start-column="115" selection-end-line="198" selection-end-column="115" />
+        <state relative-caret-position="418">
+          <caret line="209" column="106" selection-start-line="209" selection-start-column="106" selection-end-line="209" selection-end-column="106" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/perm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="718">
-          <caret line="129" column="46" selection-start-line="129" selection-start-column="46" selection-end-line="129" selection-end-column="46" />
-          <folding>
-            <element signature="e#189#207#0" expanded="true" />
           </folding>
         </state>
       </provider>
