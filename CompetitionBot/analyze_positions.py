@@ -1096,7 +1096,7 @@ if __name__=="__main__":
     average_first_promotion_bot_sample,average_first_promotion_active_sample = convert_stats_perm(first_active,first_round_bot)
     print("FIRST_AVERAGE_PROMOTION_PERM_STATS:", permutation_test(average_first_promotion_bot_sample, average_first_promotion_active_sample))
     print("FIRST_AVERAGE_PROMOTION_TTESTM_STATS:", ttest_rel(average_first_promotion_bot_sample, average_first_promotion_active_sample)[1])
-    print("percentage_average_first", get_percentage_higher(average_first_promotion_bot_sample, average_first_promotion_active_sample))
+    print("percentage_average_first", get_percentage_higher(average_first_promotion_active_sample,average_first_promotion_bot_sample))
     average_second_promotion_bot_sample, average_second_promotion_active_sample = convert_stats_perm(second_active, second_round_bot)
     print("SECOND_AVERAGE_PROMOTION_PERM_STATS:",
           permutation_test(average_second_promotion_bot_sample, average_second_promotion_active_sample))
