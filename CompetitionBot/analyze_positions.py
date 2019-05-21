@@ -559,7 +559,7 @@ def calculate_potential_averages(dummies,active,bots):
             if index==1:
                 if query_id not in second_potential["Active"]:
                     second_potential["Active"][query_id]=[]
-            second_potential["Active"][query_id].append(np.mean(active_potentials))
+                second_potential["Active"][query_id].append(np.mean(active_potentials))
             if query_id in bots[iteration]:
                 bot_potentials = [bots[iteration][query_id] [d] for d in bots[iteration][query_id]]
                 bot_averages[iteration].append(np.mean(bot_potentials))

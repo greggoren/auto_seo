@@ -123,8 +123,8 @@
       <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="610">
-              <caret line="1077" column="27" selection-start-line="1077" selection-start-column="27" selection-end-line="1077" selection-end-column="27" />
+            <state relative-caret-position="434">
+              <caret line="561" column="16" selection-start-line="561" selection-start-column="16" selection-end-line="561" selection-end-column="16" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -707,13 +707,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01091" summary="os201">
-      <created>1548626842765</created>
-      <option name="number" value="01091" />
-      <option name="presentableId" value="LOCAL-01091" />
-      <option name="project" value="LOCAL" />
-      <updated>1548626842765</updated>
-    </task>
     <task id="LOCAL-01092" summary="os201">
       <created>1548626977486</created>
       <option name="number" value="01092" />
@@ -1050,7 +1043,14 @@
       <option name="project" value="LOCAL" />
       <updated>1548715267275</updated>
     </task>
-    <option name="localTasksCounter" value="1140" />
+    <task id="LOCAL-01140" summary="os201">
+      <created>1558442655028</created>
+      <option name="number" value="01140" />
+      <option name="presentableId" value="LOCAL-01140" />
+      <option name="project" value="LOCAL" />
+      <updated>1558442655034</updated>
+    </task>
+    <option name="localTasksCounter" value="1141" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1639,8 +1639,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="610">
-          <caret line="1077" column="27" selection-start-line="1077" selection-start-column="27" selection-end-line="1077" selection-end-column="27" />
+        <state relative-caret-position="434">
+          <caret line="561" column="16" selection-start-line="561" selection-start-column="16" selection-end-line="561" selection-end-column="16" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />
           </folding>

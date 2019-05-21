@@ -14,7 +14,7 @@ def read_file(filename):
 
 def create_graph(feature):
     params = {'legend.fontsize': 'x-large',
-              'figure.figsize': (10, 6),
+              'figure.figsize': (13, 8),
               'axes.labelsize': 'x-large',
               'axes.titlesize': 'x-large',
               'xtick.labelsize': 'x-large',
@@ -49,20 +49,21 @@ def create_graph(feature):
         plt.plot(x, y, dot_dict[group], label=group_name_dict[group], color=colors_dict[group], linewidth=5,
                  markersize=10, mew=1)
     # plt.xticks(x)
-    plt.xticks(x, fontsize=17)
-    plt.yticks(fontsize=17)
-    plt.ylabel(axis_dict[feature], fontsize=20)
+    plt.xticks(x, fontsize=25)
+    plt.yticks(fontsize=25)
+    plt.ylabel(axis_dict[feature], fontsize=30)
     # plt.ylabel(axis_dict[feature])
-    plt.xlabel("Round", fontsize=20)
+    plt.xlabel("Round", fontsize=30)
     # plt.grid(True)
     plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.11),
-               ncol=5, fontsize=15, frameon=False)
-    plt.savefig(feature + ".pdf", format="pdf")
+               ncol=5, fontsize=25, frameon=False)
+    # plt.savefig(feature + ".pdf", format="pdf")
+    plt.savefig(feature)
     # plt.show()
     plt.clf()
 
-create_graph("potential")
-create_graph("raw")
+# create_graph("potential")
+# create_graph("raw")
 create_graph("average")
-create_graph("rel")
+# create_graph("rel")
 create_graph("ks")

@@ -54,7 +54,7 @@ def gather_stats(dir):
 
 def create_graph(stats):
     params = {'legend.fontsize': 'x-large',
-              'figure.figsize': (10, 6),
+              'figure.figsize': (10, 7),
               'axes.labelsize': 'x-large',
               'axes.titlesize': 'x-large',
               'xtick.labelsize': 'x-large',
@@ -74,12 +74,12 @@ def create_graph(stats):
 
         plt.plot(x, y, dot_dict[group], label=group_name_dict[group], color=colors_dict[group], linewidth=5,
                  markersize=10, mew=1)
-    plt.xticks(x, fontsize=17)
-    plt.yticks(fontsize=17)
-    plt.ylabel("Cosine", fontsize=20)
-    plt.xlabel("Rounds", fontsize=20)
+    plt.xticks(x, fontsize=18)
+    plt.yticks(fontsize=18)
+    plt.ylabel("Cosine", fontsize=25)
+    plt.xlabel("Rounds", fontsize=25)
     plt.legend(loc='upper center', bbox_to_anchor=(0.5, 1.11),
-               ncol=5, fontsize=15, frameon=False)
+               ncol=5, fontsize=20, frameon=False)
     plt.savefig("similarity_to_winner.pdf", format="pdf")
     plt.clf()
 
