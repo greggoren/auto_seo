@@ -129,9 +129,13 @@ def get_average_bot_ranking(reference_docs,group):
                 position = document["position"]
                 results[iteration].append(position)
                 if index==0:
-                    first_round[query_id]=position
+                    if query_id not in first_round:
+                        first_round[query_id]=[]
+                    first_round[query_id].append(position)
                 elif index ==1:
-                    second_round[query_id] = position
+                    if query_id not in second_round:
+                        second_round[query_id]=[]
+                    second_round[query_id].append(position)
 
     for iteration in results:
         results[iteration]= np.mean(results[iteration])
