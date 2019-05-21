@@ -167,7 +167,7 @@ def analyze_positions(positions):
                 old_position = positions[index-1][query]
                 new_position = positions[index][query]
                 if new_position == 1 and old_position == 1:
-                    break
+                    continue
                 if new_position >= old_position:
                     denominator = 5 - old_position
                 else:
@@ -180,7 +180,7 @@ def analyze_positions(positions):
                 average_potential_data[index].append(potential)
                 raw_position_data[index].append(overall_promotion)
     for index in raw_position_data:
-        raw_position_data[index]=sum(raw_position_data[index])
+        raw_position_data[index]=np.mean(raw_position_data[index])
         average_potential_data[index]=np.mean(average_potential_data[index])
     return average_positions,average_potential_data,raw_position_data
 
