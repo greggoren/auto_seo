@@ -62,7 +62,7 @@ def permutation_test(sample_a, sample_b):
         n_perm = len(x)
 
     total = 0
-    random_items_x  = random_items(x,n_perm)
+    random_items_x  = random_items(iter(x),n_perm)
     for row in random_items_x:
 
         a_mean = []
