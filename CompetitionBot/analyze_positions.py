@@ -609,7 +609,7 @@ def calculate_promotion_potential(reference_docs,positions):
         dummies[iteration]={}
         active[iteration]={}
         stayed_winner[iteration]={}
-        overall_promotion[iteration]={"Bot":0,"Active":0,"Dummies":0}
+        overall_promotion[iteration]={"Bot":{},"Active":{},"Dummies":{}}
         changes_in_ranking_stats[iteration]={"same":0,"promoted":0,"demoted":0}
         for query_id in positions[iteration]:
             number_of_competitors = len(positions[iteration][query_id])
@@ -633,8 +633,9 @@ def calculate_promotion_potential(reference_docs,positions):
                 elif doc in reference_docs[query_id]:
                     if query_id not in bots[iteration]:
                         bots[iteration][query_id]={}
+                        overall_promotion[iteration]["Bot"][query_id]=[]
                     bots[iteration][query_id][doc]=potential
-                    overall_promotion[iteration]["Bot"]+=(old_position-new_position)
+                    overall_promotion[iteration]["Bot"][query_id].append(old_position-new_position)
                     if i==1:
                         second_promotion["Bot"][query_id]=(old_position-new_position)
                     changes_in_ranking_stats[iteration] = populate_correct_dictionary(
@@ -643,17 +644,22 @@ def calculate_promotion_potential(reference_docs,positions):
                 elif doc.__contains__("dummy_doc"):
                     if query_id not in dummies[iteration]:
                         dummies[iteration][query_id]={}
+                        overall_promotion[iteration]["Dummies"][query_id]=[]
                     dummies[iteration][query_id][doc]=potential
-                    overall_promotion[iteration]["Dummies"] += (old_position - new_position)
+                    overall_promotion[iteration]["Dummies"][query_id].append(old_position - new_position)
                 else:
                     if query_id not in active[iteration]:
                         active[iteration][query_id]={}
+                        overall_promotion[iteration]["Active"][query_id]=[]
                     active[iteration][query_id][doc]=potential
-                    overall_promotion[iteration]["Active"] += (old_position - new_position)
+                    overall_promotion[iteration]["Active"][query_id].append(old_position - new_position)
                     if i==1:
                         if query_id not in second_promotion["Active"]:
                             second_promotion["Active"][query_id]=[]
                         second_promotion["Active"][query_id].append(old_position-new_position)
+    for iteration in overall_promotion:
+        for group in overall_promotion[iteration]:
+            overall_promotion[iteration][group]=np.mean([np.mean(overall_promotion[iteration][group][q]) for q in overall_promotion[iteration][group]])
     dummy_averages,active_averages,bot_averages,second_potential = calculate_potential_averages(dummies,active,bots)
     return dummy_averages,active_averages,bot_averages,stayed_winner,overall_promotion,changes_in_ranking_stats,second_potential,second_promotion
 
