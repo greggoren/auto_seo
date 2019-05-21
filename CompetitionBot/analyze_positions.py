@@ -1011,7 +1011,7 @@ def convert_unified_perm(stats):
 def get_percentage_higher(bot,active):
     s = 0
     for index,val in enumerate(bot):
-        if val>active[index]:
+        if val>=active[index]:
             s+=1
     return float(s)/len(bot)
 
