@@ -970,7 +970,7 @@ def permutation_test(sample_a,sample_b):
         current_diff = abs(np.mean(a_mean)-np.mean(b_mean))
         if current_diff>=real_diff:
             total+=1
-    return 1-total/n_perm
+    return total/n_perm
 
 
 
