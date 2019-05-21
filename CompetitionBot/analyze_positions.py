@@ -1068,12 +1068,13 @@ if __name__=="__main__":
     rel_bot_first_sample,rel_active_first_sample=convert_stats_perm(first_active_rel,rel_bot_first)
     print("REL_FIRST_PERM_STATS:",permutation_test(rel_bot_first_sample,rel_active_first_sample))
 
-
-
+    print("samples_rel_first",rel_bot_first_sample,rel_active_first_sample)
     rel_bot_second_sample, rel_active_second_sample = convert_stats_perm(second_active_rel, rel_bot_second)
-    print("REL_SECOND_PERM_STATS:", permutation_test(rel_bot_second_sample, rel_active_second_sample))
 
+    print("REL_SECOND_PERM_STATS:", permutation_test(rel_bot_second_sample, rel_active_second_sample))
+    print("samples_rel_second", rel_bot_second_sample, rel_active_second_sample)
     average_first_promotion_bot_sample,average_first_promotion_active_sample = convert_stats_perm(first_active,first_round_bot)
+    print("samples_average",average_first_promotion_bot_sample,average_first_promotion_active_sample)
     print("FIRST_AVERAGE_PROMOTION_PERM_STATS:", permutation_test(average_first_promotion_bot_sample, average_first_promotion_active_sample))
 
     average_second_promotion_bot_sample, average_second_promotion_active_sample = convert_stats_perm(second_active, second_round_bot)
