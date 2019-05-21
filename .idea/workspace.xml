@@ -7,7 +7,6 @@
     <list id="6409c238-5aa7-4538-84d5-4ae5d9ae95ed" name="New changelist" comment="" />
     <list default="true" id="d7f667cb-71b0-46f5-91c5-f6857d0c8115" name="Rejected commit: Default" comment="os201">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" afterPath="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
     </list>
     <ignored path="auto_seo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,7 +75,7 @@
       <file leaf-file-name="combine_labels_and_create_features.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
+            <state relative-caret-position="11748">
               <caret line="547" column="32" selection-start-line="547" selection-start-column="32" selection-end-line="547" selection-end-column="32" />
               <folding>
                 <element signature="e#0#67#0" expanded="true" />
@@ -100,7 +99,7 @@
       <file leaf-file-name="cross_validation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="524">
+            <state relative-caret-position="5104">
               <caret line="237" column="34" selection-start-line="237" selection-start-column="34" selection-end-line="237" selection-end-column="34" />
               <folding>
                 <element signature="e#1#66#0" expanded="true" />
@@ -109,10 +108,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="286">
               <caret line="200" column="30" selection-start-line="200" selection-start-column="30" selection-end-line="200" selection-end-column="30" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
@@ -124,7 +123,7 @@
       <file leaf-file-name="perm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/perm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-756">
+            <state relative-caret-position="1320">
               <caret line="62" column="42" selection-start-line="62" selection-start-column="42" selection-end-line="62" selection-end-column="43" />
               <folding>
                 <element signature="e#189#207#0" expanded="true" />
@@ -136,7 +135,7 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
+            <state relative-caret-position="44">
               <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
               <folding>
                 <element signature="e#0#84#0" expanded="true" />
@@ -148,7 +147,7 @@
       <file leaf-file-name="graphs.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/graphs.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="137">
+            <state relative-caret-position="308">
               <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
@@ -167,11 +166,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1117">
-              <caret line="1016" column="69" selection-start-line="1016" selection-start-column="69" selection-end-line="1016" selection-end-column="69" />
+            <state relative-caret-position="110">
+              <caret line="1007" column="15" selection-start-line="1007" selection-start-column="15" selection-end-line="1007" selection-end-column="15" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
               </folding>
@@ -182,7 +181,7 @@
       <file leaf-file-name="sentence_features_experiment.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/sentence_features_experiment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="537">
+            <state relative-caret-position="5346">
               <caret line="250" column="75" selection-start-line="250" selection-start-column="75" selection-end-line="250" selection-end-column="75" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
@@ -275,9 +274,9 @@
         <option value="$PROJECT_DIR$/CompetitionBot/graphs.py" />
         <option value="$PROJECT_DIR$/CompetitionBot/test.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/test.py" />
-        <option value="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
         <option value="$PROJECT_DIR$/SentenceRanking/new_data_experiment/perm.py" />
         <option value="$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py" />
+        <option value="$PROJECT_DIR$/CompetitionBot/analyze_positions.py" />
       </list>
     </option>
   </component>
@@ -689,13 +688,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01109" summary="os201">
-      <created>1548635094706</created>
-      <option name="number" value="01109" />
-      <option name="presentableId" value="LOCAL-01109" />
-      <option name="project" value="LOCAL" />
-      <updated>1548635094706</updated>
-    </task>
     <task id="LOCAL-01110" summary="os201">
       <created>1548635149440</created>
       <option name="number" value="01110" />
@@ -1032,7 +1024,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558456815924</updated>
     </task>
-    <option name="localTasksCounter" value="1158" />
+    <task id="LOCAL-01158" summary="os201">
+      <created>1558457356706</created>
+      <option name="number" value="01158" />
+      <option name="presentableId" value="LOCAL-01158" />
+      <option name="project" value="LOCAL" />
+      <updated>1558457356706</updated>
+    </task>
+    <option name="localTasksCounter" value="1159" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1046,7 +1045,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23390558" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1054,22 +1053,22 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.041845493" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20307355" sideWeight="0.728125" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2729332" sideWeight="0.80633044" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2788145" sideWeight="0.49791667" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15515289" sideWeight="0.88125" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2729332" sideWeight="0.80633044" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32491767" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15515289" sideWeight="0.88125" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1470,9 +1469,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1430">
           <caret line="67" column="26" selection-start-line="67" selection-start-column="26" selection-end-line="67" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1480,7 +1476,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="9768">
           <caret line="459" column="67" selection-start-line="459" selection-start-column="67" selection-end-line="459" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1509,9 +1504,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1519,7 +1511,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1537,15 +1528,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3375">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/sentence_features_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="537">
+        <state relative-caret-position="5346">
           <caret line="250" column="75" selection-start-line="250" selection-start-column="75" selection-end-line="250" selection-end-column="75" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
@@ -1557,13 +1545,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="237">
           <caret line="525" column="8" selection-start-line="525" selection-start-column="8" selection-end-line="525" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/combine_labels_and_create_features.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
+        <state relative-caret-position="11748">
           <caret line="547" column="32" selection-start-line="547" selection-start-column="32" selection-end-line="547" selection-end-column="32" />
           <folding>
             <element signature="e#0#67#0" expanded="true" />
@@ -1583,7 +1570,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
+        <state relative-caret-position="44">
           <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
           <folding>
             <element signature="e#0#84#0" expanded="true" />
@@ -1593,7 +1580,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/graphs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
+        <state relative-caret-position="308">
           <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
@@ -1609,19 +1596,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1117">
-          <caret line="1016" column="69" selection-start-line="1016" selection-start-column="69" selection-end-line="1016" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/perm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-756">
+        <state relative-caret-position="1320">
           <caret line="62" column="42" selection-start-line="62" selection-start-column="42" selection-end-line="62" selection-end-column="43" />
           <folding>
             <element signature="e#189#207#0" expanded="true" />
@@ -1631,7 +1608,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="524">
+        <state relative-caret-position="5104">
           <caret line="237" column="34" selection-start-line="237" selection-start-column="34" selection-end-line="237" selection-end-column="34" />
           <folding>
             <element signature="e#1#66#0" expanded="true" />
@@ -1641,10 +1618,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="286">
           <caret line="200" column="30" selection-start-line="200" selection-start-column="30" selection-end-line="200" selection-end-column="30" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="1007" column="15" selection-start-line="1007" selection-start-column="15" selection-end-line="1007" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
