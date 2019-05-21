@@ -156,7 +156,7 @@
       <file leaf-file-name="analyze_positions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
+            <state relative-caret-position="445">
               <caret line="384" column="26" selection-start-line="384" selection-start-column="26" selection-end-line="384" selection-end-column="26" />
               <folding>
                 <element signature="e#0#76#0" expanded="true" />
@@ -736,13 +736,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01101" summary="os201">
-      <created>1548631085762</created>
-      <option name="number" value="01101" />
-      <option name="presentableId" value="LOCAL-01101" />
-      <option name="project" value="LOCAL" />
-      <updated>1548631085763</updated>
-    </task>
     <task id="LOCAL-01102" summary="os201">
       <created>1548631202031</created>
       <option name="number" value="01102" />
@@ -1079,7 +1072,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558449379921</updated>
     </task>
-    <option name="localTasksCounter" value="1150" />
+    <task id="LOCAL-01150" summary="os201">
+      <created>1558450446228</created>
+      <option name="number" value="01150" />
+      <option name="presentableId" value="LOCAL-01150" />
+      <option name="project" value="LOCAL" />
+      <updated>1558450446228</updated>
+    </task>
+    <option name="localTasksCounter" value="1151" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1683,7 +1683,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/analyze_positions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
+        <state relative-caret-position="445">
           <caret line="384" column="26" selection-start-line="384" selection-start-column="26" selection-end-line="384" selection-end-column="26" />
           <folding>
             <element signature="e#0#76#0" expanded="true" />

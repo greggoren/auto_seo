@@ -382,7 +382,7 @@ def read_file(filename,method_index,rel=False):
             user = row["username"]
             annotation = row["this_document_is"].lower()
             label = 0
-            if annotation==ref:
+            if annotation!=ref:
                 label = 1
             if query not in stats:
                 stats[query]={}
@@ -1068,12 +1068,13 @@ if __name__=="__main__":
     rel_bot,rel_bot_first,rel_bot_second = read_bot_rel_file("rel_bot.csv")
     write_data_file(rel_bot,"bot_rel")
 
-    ks_first_bot_sample,ks_first_active_sample=convert_stats_perm(quality_active_first,[1 for i in range(15)])
+    ks_first_bot_sample,ks_first_active_sample=convert_stats_perm(quality_active_first,{q:1 for q in quality_active_first})
     print(ks_first_bot_sample,ks_first_active_sample)
-    print("KS_FIRST_PERM_STATS:",permutation_test(ks_first_bot_sample,[1 for i in range(15)]))
-    print("KS_FIRST_TTEST_STATS:",ttest_rel(ks_first_bot_sample,[1 for i in range(15)])[1])
-    print("percentage_ks_first",get_percentage_higher(ks_first_bot_sample,[1 for i in range(15)]))
+    print("KS_FIRST_PERM_STATS:",permutation_test(ks_first_active_sample,ks_first_bot_sample))
+    print("KS_FIRST_TTEST_STATS:",ttest_rel(ks_first_bot_sample,ks_first_active_sample)[1])
+    print("percentage_ks_first",get_percentage_higher(ks_first_bot_sample,ks_first_active_sample))
     ks_second_bot_sample, ks_second_active_sample = convert_stats_perm(quality_active_second, first_bot_ks)
+    ks_second_bot_sample = [1-a for a in ks_second_bot_sample]
     print("KS_SECOND_PERM_STATS:", permutation_test(ks_second_bot_sample, ks_second_active_sample))
     print("KS_SECOND_TTEST_STATS:", ttest_rel(ks_second_bot_sample, ks_second_active_sample)[1])
     print("percentage_ks_sec", get_percentage_higher(ks_second_bot_sample, ks_second_active_sample))
