@@ -439,10 +439,14 @@ def read_bot_rel_file(filename):
     for index,iteration in enumerate(iterations):
         if index==0:
             for q in stats[iteration]:
-                first[q] = stats[iteration][q]
+                if q not in first:
+                    first[q]=[]
+                first[q].append(stats[iteration][q])
         elif index==1:
             for q in stats[iteration]:
-                second[q] = stats[iteration][q]
+                if q not in second:
+                    second[q]=[]
+                second[q].append(stats[iteration][q])
         stats[iteration]=np.mean([stats[iteration][q] for q in stats[iteration]])
 
     return stats,first,second
@@ -1063,6 +1067,8 @@ if __name__=="__main__":
 
     rel_bot_first_sample,rel_active_first_sample=convert_stats_perm(first_active_rel,rel_bot_first)
     print("REL_FIRST_PERM_STATS:",permutation_test(rel_bot_first_sample,rel_active_first_sample))
+
+
 
     rel_bot_second_sample, rel_active_second_sample = convert_stats_perm(second_active_rel, rel_bot_second)
     print("REL_SECOND_PERM_STATS:", permutation_test(rel_bot_second_sample, rel_active_second_sample))
