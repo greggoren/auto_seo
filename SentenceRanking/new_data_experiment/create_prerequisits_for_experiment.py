@@ -62,8 +62,8 @@ if __name__=='__main__':
         os.makedirs(final_features_dir)
     total_working_set_file = "total_working_set_file_test"
     create_features_from_dir(features_dir, features_file, total_working_set_file)
-    scores = read_files_and_get_labels(features_dir,"docCosineToWinnerCentroidInVec")
+    scores = read_files_and_get_labels(features_dir,"docCosineToCentroidInVec")
     rewrite_fetures(scores,features_file,"centroidInVec","centroidInVecQrels")
 
-    scores = read_files_and_get_labels(features_dir, "docCosineToWinnerCentroidIn")
+    scores = read_files_and_get_labels(features_dir, "docCosineToCentroidIn")
     rewrite_fetures(scores, features_file, "centroidIn", "centroidInQrels")
