@@ -79,12 +79,12 @@ if __name__=='__main__':
         os.makedirs(final_features_dir)
     total_working_set_file = "total_working_set_file_test"
     create_features_from_dir(features_dir, features_file, total_working_set_file)
-    scores_in = read_files_and_get_labels(features_dir,"docCosineToCentroidInVec")
-    scores_out = read_files_and_get_labels(features_dir,"docCosineToCentroidOutVec")
+    scores_in = read_files_and_get_labels(features_dir,"docCosineToWinnerCentroidInVec")
+    scores_out = read_files_and_get_labels(features_dir,"docCosineToWinnerCentroidOutVec")
     scores = combine_score(scores_in,scores_out)
-    rewrite_fetures(scores,features_file,"centroidInVec","centroidInVecQrels")
+    rewrite_fetures(scores,features_file,"WinnerCentroidInVec","WinnerCentroidInVecQrels")
 
-    scores_in = read_files_and_get_labels(features_dir, "docCosineToCentroidIn")
-    scores_out = read_files_and_get_labels(features_dir, "docCosineToCentroidOut")
+    scores_in = read_files_and_get_labels(features_dir, "docCosineToWinnerCentroidIn")
+    scores_out = read_files_and_get_labels(features_dir, "docCosineToWinnerCentroidOut")
     scores = combine_score(scores_in, scores_out)
-    rewrite_fetures(scores, features_file, "centroidIn", "centroidInQrels")
+    rewrite_fetures(scores, features_file, "WinnerCentroidIn", "WinnerCentroidInQrels")
