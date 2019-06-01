@@ -22,7 +22,7 @@ def read_files_and_get_labels(files_dir,feature):
             for line in f:
                 doc = line.split()[0]
                 val = line.split()[1].rstrip()
-                labels[query][doc]=str(math.floor(float(val)*3))
+                labels[query][doc]=str(math.ceil(float(val)*3))
     return labels
 
 # def create_labels_file(labels,file_name):
