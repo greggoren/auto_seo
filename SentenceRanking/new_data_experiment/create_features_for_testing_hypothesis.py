@@ -351,7 +351,7 @@ def create_w2v_features(senteces_file,top_docs_file,doc_ids_file,past_winners_fi
     past_winners_vectors = init_past_winners_vectors(past_winners_data,model)
     top_doc_vectors = init_top_doc_vectors(top_docs,doc_ids,model)
     centroids,winners = get_vectors(top_doc_vectors)
-    combine_winners(winners,past_winners_vectors)
+    # combine_winners(winners,past_winners_vectors)
     past_winner_centroids,_=get_vectors(past_winners_vectors,True)
     with open(senteces_file) as s_file:
         for line in s_file:
@@ -445,14 +445,14 @@ def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_pa
     print("loading w2v model")
     model = load_model()
     print("loading done")
-    final_features_dir = "sentence_feature_files/"
+    final_features_dir = "sentence_feature_files_test/"
     features_file = final_features_dir + "new_data_sentence_features"
-    features_dir = "sentence_feature_values/"
+    features_dir = "sentence_feature_values_test/"
     if not os.path.exists(features_dir):
         os.makedirs(features_dir)
     if not os.path.exists(final_features_dir):
         os.makedirs(final_features_dir)
-    total_working_set_file = "total_working_set_file"
+    total_working_set_file = "total_working_set_file_test"
     run_bash_command("touch "+total_working_set_file)
     for key in reference_docs:
         past_winners_file=past_winners_file_index[key]
@@ -471,8 +471,8 @@ def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_pa
             print("sentence working-set is created")
             create_w2v_features(sentence_file_name , top_docs_file,doc_ids_file,past_winners_file,model,query,key)
             print("created seo w2v features")
-            create_coherency_features(sentences_index,doc,query,model,key)
-            print("created coherency features")
+            # create_coherency_features(sentences_index,doc,query,model,key)
+            # print("created coherency features")
             create_tfidf_features_and_features_file(features_dir,index_path,sentence_file_name,top_docs_file,query,past_winners_file,key)
             print("created tf-idf features")
     print("creating all features")
@@ -521,31 +521,28 @@ if __name__=="__main__":
     past_winners_file_index={"65":past_winners_file_6,"62":past_winners_file_6,"45":past_winners_file_4,"42":past_winners_file_4}
     doc_ids_file="docIDs"
     index_path="/home/greg/mergedindex"
-    # base_features_file=create_features(reference_docs,past_winners_file_index,doc_ids_file,index_path,top_docs,doc_texts)
-    base_features_file = "sentence_feature_files/new_data_sentence_features"
-    all_aggregated_results={}
-    vector_ident_for_corr=[]
-    vector_sentence_for_corr=[]
-    for r in rounds:
-        for rank in ranks:
+    base_features_file=create_features(reference_docs,past_winners_file_index,doc_ids_file,index_path,top_docs,doc_texts)
+    # base_features_file = "sentence_feature_files/new_data_sentence_features"
+    # all_aggregated_results={}
+    # vector_ident_for_corr=[]
+    # vector_sentence_for_corr=[]
+    # for r in rounds:
+    #     for rank in ranks:
+    #
+    #         ident_filename_mturk = "Mturk/Manipulated_Document_Identification_"+r+"_"+rank+".csv"
+    #         sentence_filename_mturk = "Mturk/Sentence_Identification_"+r+"_"+rank+".csv"
+    #         ident_results = mturk_ds_creator.read_ds_mturk(ident_filename_mturk, True)
+    #         sentence_results = mturk_ds_creator.read_ds_mturk(sentence_filename_mturk)
+    #         sentence_tags = mturk_ds_creator.get_tags(sentence_results)
+    #         vector_sentence_for_corr.extend([sum(sentence_tags[i]) for i in sorted(list(sentence_tags.keys()))])
+    #         ident_tags = mturk_ds_creator.get_tags(ident_results)
+    #         vector_ident_for_corr.extend([sum(ident_tags[i]) for i in sorted(list(ident_tags.keys()))])
+    #         tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
+    #         key = r+rank
+    #         # write_tags(ident_tags,"document_identification_tags",key)
+    #         # write_tags(sentence_tags,"sentence_identification_tags",key)
+    #         all_aggregated_results[key]=tmp_aggregated_results
 
-            ident_filename_mturk = "Mturk/Manipulated_Document_Identification_"+r+"_"+rank+".csv"
-            sentence_filename_mturk = "Mturk/Sentence_Identification_"+r+"_"+rank+".csv"
-            ident_results = mturk_ds_creator.read_ds_mturk(ident_filename_mturk, True)
-            sentence_results = mturk_ds_creator.read_ds_mturk(sentence_filename_mturk)
-            sentence_tags = mturk_ds_creator.get_tags(sentence_results)
-            vector_sentence_for_corr.extend([sum(sentence_tags[i]) for i in sorted(list(sentence_tags.keys()))])
-            ident_tags = mturk_ds_creator.get_tags(ident_results)
-            vector_ident_for_corr.extend([sum(ident_tags[i]) for i in sorted(list(ident_tags.keys()))])
-            tmp_aggregated_results = mturk_ds_creator.aggregate_results(sentence_tags,ident_tags)
-            key = r+rank
-            # write_tags(ident_tags,"document_identification_tags",key)
-            # write_tags(sentence_tags,"sentence_identification_tags",key)
-            all_aggregated_results[key]=tmp_aggregated_results
-    print(pearsonr(vector_sentence_for_corr,vector_ident_for_corr))
-    print(spearmanr(vector_sentence_for_corr,vector_ident_for_corr))
-    print(kendalltau(vector_sentence_for_corr,vector_ident_for_corr))
-    print(vector_ident_for_corr)
     # all_aggregated_results = ban_non_coherent_docs(banned_queries,all_aggregated_results)
     # seo_scores_file = "labels_new_final_all_data"
     # tmp_seo_scores = read_seo_score(seo_scores_file)
