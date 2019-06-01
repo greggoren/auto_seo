@@ -1,6 +1,7 @@
 import params
 from utils import run_bash_command
 import  os
+import math
 
 def create_features_from_dir(features_dir,features_file,sentence_working_set):
     command = "perl " + params.sentence_feature_creator + " " + features_dir + " " + sentence_working_set
@@ -21,7 +22,7 @@ def read_files_and_get_labels(files_dir,feature):
             for line in f:
                 doc = line.split()[0]
                 val = line.split()[1].rstrip()
-                labels[query][doc]=val
+                labels[query][doc]=str(math.floor(float(val)*3))
     return labels
 
 # def create_labels_file(labels,file_name):
