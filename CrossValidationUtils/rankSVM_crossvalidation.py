@@ -309,5 +309,5 @@ if __name__ == "__main__":
         append_features = ""
     else:
         append_features = sys.argv[4]
-    metrics = ["map","ndcg_cut.20","P.10","P.5"]
+    metrics = ["map","ndcg_cut.5","P.1","P.5"]
     cross_validation(features_file,qrels_file,summary_file,"svm_rank",metrics,append_features)
