@@ -22,7 +22,7 @@ def read_files_and_get_labels(files_dir,feature):
             for line in f:
                 doc = line.split()[0]
                 val = line.split()[1].rstrip()
-                labels[query][doc]=str(math.ceil(float(val)*3))
+                labels[query][doc]=val
     return labels
 
 # def create_labels_file(labels,file_name):
@@ -51,7 +51,23 @@ def rewrite_fetures(new_scores, old_features_file, new_features_filename,qrels_n
     qrels.close()
 
 
+def normalize(number):
+    if abs(math.ceil(number)-number)>=abs(math.floor(number)-number):
+        return math.floor(number)
+    else:
+        return math.ceil(number)
 
+def combine_score(scores_in,scores_out):
+    scores = {}
+    for query in scores_in:
+        if query not in scores:
+            scores[query]={}
+        for doc in scores_in[query]:
+            val1 = float(scores_in[query][doc])
+            val2 = float(scores_out[query][doc])
+            val=((val1+val2)/2)*3
+            scores[query][doc]= str(normalize(val))
+    return scores
 
 if __name__=='__main__':
     final_features_dir = "sentence_feature_files_test/"
@@ -63,8 +79,12 @@ if __name__=='__main__':
         os.makedirs(final_features_dir)
     total_working_set_file = "total_working_set_file_test"
     create_features_from_dir(features_dir, features_file, total_working_set_file)
-    scores = read_files_and_get_labels(features_dir,"docCosineToCentroidInVec")
+    scores_in = read_files_and_get_labels(features_dir,"docCosineToCentroidInVec")
+    scores_out = read_files_and_get_labels(features_dir,"docCosineToCentroidOutVec")
+    scores = combine_score(scores_in,scores_out)
     rewrite_fetures(scores,features_file,"centroidInVec","centroidInVecQrels")
 
-    scores = read_files_and_get_labels(features_dir, "docCosineToCentroidIn")
+    scores_in = read_files_and_get_labels(features_dir, "docCosineToCentroidIn")
+    scores_out = read_files_and_get_labels(features_dir, "docCosineToCentroidOut")
+    scores = combine_score(scores_in, scores_out)
     rewrite_fetures(scores, features_file, "centroidIn", "centroidInQrels")

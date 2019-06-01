@@ -110,8 +110,8 @@
       <file leaf-file-name="create_prerequisits_for_experiment.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/create_prerequisits_for_experiment.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="564">
+              <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -734,20 +734,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01122" summary="os201">
-      <created>1548641869993</created>
-      <option name="number" value="01122" />
-      <option name="presentableId" value="LOCAL-01122" />
-      <option name="project" value="LOCAL" />
-      <updated>1548641869995</updated>
-    </task>
-    <task id="LOCAL-01123" summary="os201">
-      <created>1548642116029</created>
-      <option name="number" value="01123" />
-      <option name="presentableId" value="LOCAL-01123" />
-      <option name="project" value="LOCAL" />
-      <updated>1548642116029</updated>
-    </task>
     <task id="LOCAL-01124" summary="os201">
       <created>1548646528599</created>
       <option name="number" value="01124" />
@@ -1077,7 +1063,21 @@
       <option name="project" value="LOCAL" />
       <updated>1559405160104</updated>
     </task>
-    <option name="localTasksCounter" value="1171" />
+    <task id="LOCAL-01171" summary="os201">
+      <created>1559405606737</created>
+      <option name="number" value="01171" />
+      <option name="presentableId" value="LOCAL-01171" />
+      <option name="project" value="LOCAL" />
+      <updated>1559405606737</updated>
+    </task>
+    <task id="LOCAL-01172" summary="os201">
+      <created>1559405906265</created>
+      <option name="number" value="01172" />
+      <option name="presentableId" value="LOCAL-01172" />
+      <option name="project" value="LOCAL" />
+      <updated>1559405906266</updated>
+    </task>
+    <option name="localTasksCounter" value="1173" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1686,8 +1686,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/create_prerequisits_for_experiment.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state relative-caret-position="564">
+          <caret line="68" column="51" selection-start-line="68" selection-start-column="51" selection-end-line="68" selection-end-column="51" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
