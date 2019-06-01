@@ -446,7 +446,7 @@ def create_features(reference_docs,past_winners_file_index,doc_ids_file,index_pa
     model = load_model()
     print("loading done")
     final_features_dir = "sentence_feature_files_test/"
-    features_file = final_features_dir + "new_data_sentence_features"
+    features_file = final_features_dir + "new_data_sentence_features_test"
     features_dir = "sentence_feature_values_test/"
     if not os.path.exists(features_dir):
         os.makedirs(features_dir)
