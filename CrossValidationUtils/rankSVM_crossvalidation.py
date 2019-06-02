@@ -291,6 +291,7 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
         sig_signs = discover_significance_rank_promotior(cv_firsts, random_firsts, sig_signs)
     else:
         increase_rank_stats=False
+        sig_signs=None
 
 
     evaluator.run_trec_eval_on_test(qrels_file,summary_file,method,None,increase_rank_stats,sig_signs)
