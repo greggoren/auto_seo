@@ -284,12 +284,15 @@ def cross_validation(features_file,qrels_file,summary_file,method,metrics,append
     # f.close()
     if seo_scores:
         increase_rank_stats,cv_firsts = get_average_score_increase(seo_scores,final_trec_file)
+        stats, significance_data_cv = evaluator.run_trec_eval_by_query(qrels_file, final_trec_file)
+        random_significance_data, random_firsts = run_random_for_significance(features_file, qrels_file, "sig_test",
+                                                                              seo_scores=seo_scores)
+        sig_signs = discover_significance_relevance(significance_data_cv, random_significance_data)
+        sig_signs = discover_significance_rank_promotior(cv_firsts, random_firsts, sig_signs)
     else:
         increase_rank_stats=False
-    stats ,significance_data_cv = evaluator.run_trec_eval_by_query(qrels_file,final_trec_file)
-    random_significance_data,random_firsts = run_random_for_significance(features_file,qrels_file,"sig_test",seo_scores=seo_scores)
-    sig_signs = discover_significance_relevance(significance_data_cv,random_significance_data)
-    sig_signs = discover_significance_rank_promotior(cv_firsts,random_firsts,sig_signs)
+
+
     evaluator.run_trec_eval_on_test(qrels_file,summary_file,method,None,increase_rank_stats,sig_signs)
     del X
     del y

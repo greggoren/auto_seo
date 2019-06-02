@@ -88,10 +88,22 @@
       <file leaf-file-name="rankSVM_crossvalidation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="312" column="94" selection-start-line="312" selection-start-column="94" selection-end-line="312" selection-end-column="94" />
+            <state relative-caret-position="410">
+              <caret line="290" column="93" selection-start-line="290" selection-start-column="93" selection-end-line="290" selection-end-column="93" />
               <folding>
                 <element signature="e#0#56#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="random_baseline.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CrossValidationUtils/random_baseline.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="678">
+              <caret line="157" column="12" selection-start-line="157" selection-start-column="12" selection-end-line="157" selection-end-column="12" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -112,7 +124,7 @@
       <file leaf-file-name="create_features_for_testing_hypothesis.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/create_features_for_testing_hypothesis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
+            <state relative-caret-position="1889">
               <caret line="567" column="0" selection-start-line="567" selection-start-column="0" selection-end-line="567" selection-end-column="0" />
               <folding />
             </state>
@@ -158,18 +170,6 @@
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#55#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="perm.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/perm.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-448">
-              <caret line="62" column="42" selection-start-line="62" selection-start-column="42" selection-end-line="62" selection-end-column="43" />
-              <folding>
-                <element signature="e#189#207#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -345,6 +345,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="SentenceRanking" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auto_seo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SentenceRanking" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="new_data_experiment" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -730,13 +748,6 @@
       <option name="presentableId" value="Default" />
       <updated>1525612441334</updated>
     </task>
-    <task id="LOCAL-01126" summary="os201">
-      <created>1548647006349</created>
-      <option name="number" value="01126" />
-      <option name="presentableId" value="LOCAL-01126" />
-      <option name="project" value="LOCAL" />
-      <updated>1548647006349</updated>
-    </task>
     <task id="LOCAL-01127" summary="os201">
       <created>1548647106056</created>
       <option name="number" value="01127" />
@@ -1073,7 +1084,14 @@
       <option name="project" value="LOCAL" />
       <updated>1559407195064</updated>
     </task>
-    <option name="localTasksCounter" value="1175" />
+    <task id="LOCAL-01175" summary="os201">
+      <created>1559407529668</created>
+      <option name="number" value="01175" />
+      <option name="presentableId" value="LOCAL-01175" />
+      <option name="project" value="LOCAL" />
+      <updated>1559407529668</updated>
+    </task>
+    <option name="localTasksCounter" value="1176" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1301,13 +1319,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CompetitionBot/get_data_for_feature_creation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CompetitionBot/doc_rel_nimrod">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="680">
@@ -1652,9 +1663,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="237" column="34" selection-start-line="237" selection-start-column="34" selection-end-line="237" selection-end-column="34" />
+          <folding>
+            <element signature="e#1#66#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CrossValidationUtils/random_baseline.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="678">
+          <caret line="157" column="12" selection-start-line="157" selection-start-column="12" selection-end-line="157" selection-end-column="12" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/create_features_for_testing_hypothesis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
+        <state relative-caret-position="1889">
           <caret line="567" column="0" selection-start-line="567" selection-start-column="0" selection-end-line="567" selection-end-column="0" />
           <folding />
         </state>
@@ -1670,20 +1701,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SentenceRanking/new_data_experiment/cross_validation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="458">
-          <caret line="237" column="34" selection-start-line="237" selection-start-column="34" selection-end-line="237" selection-end-column="34" />
-          <folding>
-            <element signature="e#1#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CrossValidationUtils/rankSVM_crossvalidation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="312" column="94" selection-start-line="312" selection-start-column="94" selection-end-line="312" selection-end-column="94" />
+        <state relative-caret-position="410">
+          <caret line="290" column="93" selection-start-line="290" selection-start-column="93" selection-end-line="290" selection-end-column="93" />
           <folding>
             <element signature="e#0#56#0" expanded="true" />
           </folding>
