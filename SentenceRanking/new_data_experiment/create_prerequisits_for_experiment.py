@@ -65,8 +65,9 @@ def combine_score(scores_in,scores_out):
         for doc in scores_in[query]:
             val1 = float(scores_in[query][doc])
             val2 = float(scores_out[query][doc])
-            val=((val1+val2)/2)*3
-            scores[query][doc]= str(normalize(val))
+            val=((val1+val2)/2)
+            # scores[query][doc] = str(normalize(val))
+            scores[query][doc] = str(val)
     return scores
 
 if __name__=='__main__':
