@@ -3,6 +3,8 @@ from pymongo import MongoClient
 import os
 import numpy as np
 import csv
+import numpy as np
+from itertools import chain, combinations
 from itertools import product
 from scipy.stats import ttest_rel
 ASR_MONGO_HOST = "asr2.iem.technion.ac.il"
@@ -966,28 +968,71 @@ def analyze_ks():
 
 
 
-def permutation_test(sample_a,sample_b):
-    real_diff = abs(np.mean(sample_a)-np.mean(sample_b))
-    x = list(product([1, -1], repeat=len(sample_a)))
-    n_perm = len(x)
+# def permutation_test(sample_a,sample_b):
+#     real_diff = abs(np.mean(sample_a)-np.mean(sample_b))
+#     x = list(product([1, -1], repeat=len(sample_a)))
+#     n_perm = len(x)
+#
+#     total = 0
+#     for row in x:
+#         a_mean=[]
+#         b_mean=[]
+#         for index,val in enumerate(row):
+#             if val>0:
+#                 a_mean.append(sample_a[index])
+#                 b_mean.append(sample_b[index])
+#             else:
+#                 a_mean.append(sample_b[index])
+#                 b_mean.append(sample_a[index])
+#         current_diff = abs(np.mean(a_mean)-np.mean(b_mean))
+#         if current_diff>=real_diff:
+#             total+=1
+#     return total/n_perm
 
-    total = 0
-    for row in x:
-        a_mean=[]
-        b_mean=[]
-        for index,val in enumerate(row):
-            if val>0:
-                a_mean.append(sample_a[index])
-                b_mean.append(sample_b[index])
-            else:
-                a_mean.append(sample_b[index])
-                b_mean.append(sample_a[index])
-        current_diff = abs(np.mean(a_mean)-np.mean(b_mean))
-        if current_diff>=real_diff:
-            total+=1
-    return total/n_perm
+def powerset(iterable):
+    s = list(iterable)
+    return chain.from_iterable(combinations(s, r) for r in range(len(s)+1))
 
 
+
+def permutation_test(test_group, control_group, total_number=None):
+    np.random.seed(9001)
+    diff = abs(np.mean(test_group) - np.mean(control_group))
+    indicator_sum=0
+    counter = 0
+    if total_number is None:
+        indices = range(len(test_group))
+        indices_set = set(indices)
+        for permutation in powerset(indices):
+            control_shifted_indices = indices_set - set(permutation)
+            permuted_test = [test_group[i] for i in permutation]
+            permuted_test.extend([control_group[j] for j in control_shifted_indices])
+            permuted_control = [test_group[i] for i in control_shifted_indices]
+            permuted_control.extend([control_group[j] for j in permutation])
+            permutation_diff = abs(np.mean(permuted_test)-np.mean(permuted_control))
+            if permutation_diff>=diff:
+                indicator_sum+=1
+            counter+=1
+    else:
+        # seen=[]
+        indices = range(len(test_group))
+        for step in range(total_number):
+            permuted_test = []
+            permuted_control = []
+            sample_indices = np.random.choice([0, 1], p=[0.5, 0.5], size=(1, len(indices)))[0]
+            for index,choice in enumerate(sample_indices):
+                if choice==1:
+                    permuted_test.append(test_group[index])
+                    permuted_control.append(control_group[index])
+                else:
+                    permuted_test.append(control_group[index])
+                    permuted_control.append(test_group[index])
+            permutation_diff = abs(np.mean(permuted_test) - np.mean(permuted_control))
+            if permutation_diff >= diff:
+                indicator_sum += 1
+        counter=step+1
+
+    return diff,indicator_sum/counter
 
 
 
